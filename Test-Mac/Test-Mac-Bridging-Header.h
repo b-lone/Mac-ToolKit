@@ -1,0 +1,16 @@
+//
+//  Test-Mac-Bridging-Header.h
+//  Test-Mac
+//
+//  Created by Archie You on 2021/5/14.
+//  Copyright © 2021 Cisco. All rights reserved.
+//
+
+#ifndef Test_Mac_Bridging_Header_h
+#define Test_Mac_Bridging_Header_h
+
+#import "TestWindow.h"
+#import "GlobalShortcutHander.h"
+
+
+#endif /* Test_Mac_Bridging_Header_h */
