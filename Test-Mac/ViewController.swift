@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import CoreGraphics
+import Carbon.HIToolbox
 
 class SharedInstance: NSObject {
     static let shared = SharedInstance()
@@ -43,7 +43,7 @@ class ViewController: NSViewController {
     var windowStrokeManager = WindowStrokeManager()
     
     var shortcut = GlobalShortcutHander()
-    var magicDrawingBoardManager =  MagicDrawingBoardManager()
+//    var magicDrawingBoardManager =  MagicDrawingBoardManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +94,25 @@ class ViewController: NSViewController {
         print("viewWillDisappear")
     }
     
+    override func flagsChanged(with event: NSEvent) {
+//        NSEventModifierFlags(rawValue: 65536) NSEventModifierFlags(rawValue: 131072)
+//        capsLock down
+//        57 NSEventModifierFlags(rawValue: 65536)
+//        capsLock Up
+//        57 NSEventModifierFlags(rawValue: 0)
+//        shift down
+//        56 NSEventModifierFlags(rawValue: 131072)
+//        shift up
+//        56 NSEventModifierFlags(rawValue: 0)
+//        shift down with capsLock
+//        56 NSEventModifierFlags(rawValue: 196608)
+//        shift up with capsLock
+//        56 NSEventModifierFlags(rawValue: 65536)
+        if event.keyCode == kVK_Shift || event.keyCode == kVK_RightShift {
+            print("\(event.modifierFlags.intersection(.deviceIndependentFlagsMask).rawValue & NSEvent.ModifierFlags.shift.rawValue == NSEvent.ModifierFlags.shift.rawValue)")
+        }
+    }
+    
     let window1 = 507
     let window2 = 503
     let window3 = 504
@@ -107,9 +126,9 @@ class ViewController: NSViewController {
         
 //        magicDrawingBoardManager.drawWindowsBorder(windowList: [window1, window4])
         
-//        let wc = MyWindow()
-//        wc.window!.makeKeyAndOrderFront(self)
-//        print(wc.window!.frame)
+        var wc: MyWindow? = MyWindow()
+        NSApp.runModal(for: wc!.window!)
+        wc = nil
         
 //        magicDrawingBoardManager.drawScreenBorder(screen: NSScreen.screens[0])
         
@@ -120,7 +139,8 @@ class ViewController: NSViewController {
     
     @IBAction func onRightButton(_ sender: Any) {
         print("onRightButton")
-        magicDrawingBoardManager.drawScreenBorder(screen: NSScreen.screens[1])
+//        magicDrawingBoardManager.removeDrawing(drawingId: MagicDrawingBoardManager.inValidDrawingId)
+//        let _ = magicDrawingBoardManager.drawScreenBorder(screen: NSScreen.screens[0], style: .hoverScreen)
     }
 
     @objc func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {

@@ -23,15 +23,22 @@ class MyWindow: NSWindowController {
     @IBAction func onRightButton(_ sender: Any) {
 //        let alert = NSAlert()
 //        alert.messageText = "test"
-        let wc = MyWindow()
-        self.window?.addChildWindow(wc.window!, ordered: .above)
-        window?.center()
+//        let wc = MyWindow()
+//        self.window?.addChildWindow(wc.window!, ordered: .above)
+//        window?.center()
 //        alert.runModal()
+//        let timer = Timer(timeInterval: 1, repeats: false) { _ in
+//            print("scheduledTimer")
+//        }
+//        RunLoop.current.add(timer, forMode: .modalPanel)
+//        NSApp.stopModal()
+//        print("onRightButton")
     }
 }
 
 extension MyWindow: NSWindowDelegate {
     func windowWillClose(_ notification: Notification) {
+        print("windowWillClose")
 //        NSApp.stopModal()
     }
 }

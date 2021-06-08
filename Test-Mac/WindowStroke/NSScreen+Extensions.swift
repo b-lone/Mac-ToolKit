@@ -8,7 +8,7 @@
 
 import Foundation
 extension NSScreen {
-    var uuid: String {
+    func uuid() -> String? {
 //        let screenNumber = ((deviceDescription as! [String: Any])["NSScreenNumber"] as! NSNumber).uint32Value
 //        let cfUuid = CGDisplayCreateUUIDFromDisplayID(screenNumber)
 //        let cfUuidStr = CFUUIDCreateString(nil, cfUuid as! CFUUID)
