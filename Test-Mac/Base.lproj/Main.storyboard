@@ -768,13 +768,23 @@
                                 <rect key="frame" x="230" y="7" width="163" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="XUf-zK-a7e" customClass="FontelloIcon" customModule="Test_Mac" customModuleProvider="target">
+                                <rect key="frame" x="412" y="202" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Hav-jh-9zL"/>
+                                    <constraint firstAttribute="height" constant="60" id="npk-Fe-1gn"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XUf-zK-a7e" secondAttribute="trailing" constant="8" id="83E-Y7-aym"/>
+                            <constraint firstItem="XUf-zK-a7e" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="8" id="C9K-dP-RVE"/>
                             <constraint firstItem="8cf-HE-6H1" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="PNX-A9-tuF"/>
                             <constraint firstItem="8cf-HE-6H1" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="zof-GM-neY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="iconView" destination="XUf-zK-a7e" id="twB-gB-pkh"/>
                         <outlet property="leftButton" destination="xFd-Jw-nHx" id="45Q-Rx-9eS"/>
                         <outlet property="roundView" destination="9V1-Az-4Tu" id="tLu-Pw-mOB"/>
                         <outlet property="v1" destination="qvY-bI-xOo" id="RPO-Ar-iVJ"/>

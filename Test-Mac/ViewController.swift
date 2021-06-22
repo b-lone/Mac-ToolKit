@@ -38,12 +38,14 @@ class ViewController: NSViewController {
     @IBOutlet weak var v1: MouseView!
     @IBOutlet weak var v2: MouseView!
     @IBOutlet weak var roundView: RoundSameSideCornerView!
+    @IBOutlet weak var iconView: FontelloIcon!
     
     var fw = FloatingPanel()
-    var windowStrokeManager = WindowStrokeManager()
     
     var shortcut = GlobalShortcutHander()
 //    var magicDrawingBoardManager =  MagicDrawingBoardManager()
+    
+    static var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +74,18 @@ class ViewController: NSViewController {
 //        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
 //            print("view \(v3.isHidden) \(v4.visibleRect.isEmpty) \(self.view.window!.isVisible)")
 //        }
+        
+//        let timer = Timer(timeInterval: 1, repeats: true) { _ in
+//            ViewController.count += 1;
+//            print(ViewController.count)
+//         }
+//        RunLoop.current.add(timer, forMode: .common)
+        
+        iconView.iconName = "I"
+        iconView.iconSize = 20
+        iconView.yOffset = 35
+        iconView.layer?.cornerRadius = 30
+        iconView.layer?.backgroundColor = NSColor.blue.cgColor
     }
     
 //    override func flagsChanged(with event: NSEvent) {
@@ -126,21 +140,29 @@ class ViewController: NSViewController {
         
 //        magicDrawingBoardManager.drawWindowsBorder(windowList: [window1, window4])
         
-        var wc: MyWindow? = MyWindow()
-        NSApp.runModal(for: wc!.window!)
-        wc = nil
-        
+//        var wc: MyWindow? = MyWindow()
+//        NSApp.runModal(for: wc!.window!)
+//        wc = nil
+//
 //        magicDrawingBoardManager.drawScreenBorder(screen: NSScreen.screens[0])
         
 //        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) {_ in
 //            NSScreen.screens.forEach { print("\($0.frame)") }
 //        }
+        
+        let testWindow = TestWindow()
+        testWindow.test()
     }
     
     @IBAction func onRightButton(_ sender: Any) {
         print("onRightButton")
+        shortcut.registerAnswerCallHotKey(self, selectorName: "test")
 //        magicDrawingBoardManager.removeDrawing(drawingId: MagicDrawingBoardManager.inValidDrawingId)
 //        let _ = magicDrawingBoardManager.drawScreenBorder(screen: NSScreen.screens[0], style: .hoverScreen)
+    }
+    
+    @objc func test() {
+        print("test")
     }
 
     @objc func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {

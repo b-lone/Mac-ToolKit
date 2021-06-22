@@ -37,19 +37,12 @@ class MouseView: NSView {
         addTrackingArea(trackingArea!)
     }
     
-    var id = MagicDrawingBoardManager.inValidDrawingId
     override func mouseEntered(with event: NSEvent) {
         print("\(toolTip ?? "") mouseEntered")
-        
-        let screen = toolTip == "1" ? 0 : 1
-        
-        MagicDrawingBoardManager.shared.removeDrawing(drawingId: id)
-        id = MagicDrawingBoardManager.shared.drawScreenBorder(screen: NSScreen.screens[screen], style: .hoverScreen)
     }
     
     override func mouseExited(with event: NSEvent) {
         print("\(toolTip ?? "") mouseExited")
-        MagicDrawingBoardManager.shared.removeDrawing(drawingId: id)
     }
     
     var clickTimer: Timer?

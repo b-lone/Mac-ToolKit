@@ -11,9 +11,10 @@ import Cocoa
 typealias MagicDrawingId = Int
 
 protocol MagicDrawingBoardManagerProtocol {
-    func drawScreenBorder(screen: NSScreen, style: MagicDrawingStyle) -> MagicDrawingId
-    func drawWindowsBorder(windowList: [Int]) -> MagicDrawingId
+    func addDrawing(drawing: MagicDrawing) -> MagicDrawingId
     func removeDrawing(drawingId: MagicDrawingId)
+    func setKeyScreen(screen: String)
+    func setExcludedWindowList(windowList: [Int])
 }
 
 enum MagicDrawingStyle {
@@ -25,12 +26,65 @@ enum MagicDrawingStyle {
     var lineColor: NSColor {
         switch self {
         case .sharingScreen, .sharingApplication:
-            return .orange//SemanticThemeManager.getColors(for: .wxShareSharingBorderColor).normal
+            return .orange
         case .hoverScreen:
-            return .blue//SemanticThemeManager.getColors(for: .wxShareSelectionBorderColor).normal
+            return .green
         case .unsharedApplication:
-            return .gray//SemanticThemeManager.getColors(for: .wxShareUnsharedApplicationBorderColor).normal
+            return .gray
         }
+    }
+    
+    var lineWidth: CGFloat { 5 }
+}
+
+class MagicDrawing: NSObject {
+    enum DrawingType: Int {
+        case screenBorder
+        case windowBorder
+        case applicationBorder
+    }
+    let id: MagicDrawingId
+    var type = DrawingType.screenBorder
+    var style = MagicDrawingStyle.sharingScreen
+    var screen: NSScreen?
+    var windowList: [Int]?
+    var applicationList: [String]?
+    var needDraw: Bool = true
+    var needCalculateCoverState: Bool = false
+    var screenOfCoverWindows: String?
+    
+    static private var drawingIdHelper: MagicDrawingId = 0
+    static let inValidDrawingId: MagicDrawingId = -1
+    
+    override init() {
+        MagicDrawing.drawingIdHelper += 1
+        id = MagicDrawing.drawingIdHelper
+        super.init()
+    }
+    
+    class func screenBorderDrawing(screen: NSScreen, style: MagicDrawingStyle = .sharingScreen) -> MagicDrawing {
+        let drawing = MagicDrawing()
+        drawing.type = .screenBorder
+        drawing.style = style
+        drawing.screen = screen
+        return drawing
+    }
+    
+    class func applicationBorderDrawing(applicationList: [String]) -> MagicDrawing {
+        let drawing = MagicDrawing()
+        drawing.type = .applicationBorder
+        drawing.applicationList = applicationList
+        return drawing
+    }
+    
+    class func calculateWindowCoverState(windowList: [Int], screenOfCoverWindows: String) -> MagicDrawing {
+        let drawing = MagicDrawing()
+        drawing.type = .screenBorder
+        drawing.windowList = windowList
+        drawing.needDraw = false
+        drawing.needCalculateCoverState = true
+        drawing.screenOfCoverWindows = screenOfCoverWindows
+        return drawing
     }
 }
 
@@ -39,18 +93,26 @@ class MagicWindowInfo: NSObject {
     var frame: CGRect = .zero
     var level: Int = 0
     var stackingOrder: Int = 0
+    var pid: String = ""
     var screen: String = ""
 }
 
 class MagicDrawingBoardManager: NSObject {
     private var drawingBoardWindowControllers = [String: MagicDrawingBoardWindowController]()
     private var windowInfoList = [MagicWindowInfo]()
-    private var drawingScreenInfoList = [(drawingId: MagicDrawingId, screen: NSScreen, style: MagicDrawingStyle)]()
+    private var drawingList = [MagicDrawing]()
+    private var keyScreen: String? {
+        didSet {
+            if let keyScreen = keyScreen {
+                drawingBoardWindowControllers.values.forEach{ $0.isKeyScreen = false }
+                drawingBoardWindowControllers[keyScreen]?.isKeyScreen = true
+            }
+        }
+    }
+    private var excludedWindowList = [Int]()
+    private var coverState = [MagicDrawingId: Bool]()
     
-    private var drawingIdHelper: Int = 0
-    static let inValidDrawingId: MagicDrawingId = -1
-    
-    static let shared = MagicDrawingBoardManager()
+    private weak var timer: Timer?
     
     override init() {
         super.init()
@@ -61,6 +123,7 @@ class MagicDrawingBoardManager: NSObject {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        timer?.invalidate()
     }
     
     @objc private func updateDrawingBoardWindowController() {
@@ -73,10 +136,11 @@ class MagicDrawingBoardManager: NSObject {
                 }
             }
         }
-        drawingScreenInfoList.forEach {
-            if let uuid = $0.screen.uuid(), let windowController = drawingBoardWindowControllers[uuid] {
-                windowController.removeDrawing(drawingId: $0.drawingId)
-                windowController.drawScreenBorder(style: $0.style, drawingId: $0.drawingId)
+        
+        drawingList.filter({ return $0.type == .screenBorder }).forEach{
+            if let uuid = $0.screen?.uuid(), let windowController = drawingBoardWindowControllers[uuid] {
+                windowController.removeDrawing(drawingId: $0.id)
+                windowController.drawScreenBorder(drawing: $0)
             }
         }
     }
@@ -112,6 +176,9 @@ class MagicDrawingBoardManager: NSObject {
             if let bounds = CGRect(dictionaryRepresentation: windowDescription[kCGWindowBounds] as! CFDictionary) {
                 windowInfo.frame = covertRectToScreen(bounds)
             }
+            if let pid = windowDescription[kCGWindowOwnerPID] as? NSNumber {
+                windowInfo.pid = String(pid.intValue)
+            }
             
             if !isValidWindow(windowInfo: windowInfo) { continue }
             
@@ -134,11 +201,6 @@ class MagicDrawingBoardManager: NSObject {
         return windowInfoList.compactMap { windowList.contains(Int($0.windowNumber)) ? $0 : nil }
     }
     
-    private func getBottomWindowInfoIndex(windowList: [Int]) -> MagicWindowInfo? {
-        let windowInfo = windowInfoList.first { windowList.contains(Int($0.windowNumber)) }
-        return windowInfo
-    }
-    
     private func getWindowInfoListAbove(bottomWindowInfo: MagicWindowInfo) -> [MagicWindowInfo] {
         if let bottomIndex = windowInfoList.firstIndex(where: { $0.windowNumber == bottomWindowInfo.windowNumber }) {
             return Array(windowInfoList[(bottomIndex + 1)...])
@@ -152,59 +214,115 @@ class MagicDrawingBoardManager: NSObject {
         }
     }
     
-    private func generateDrawingId() -> MagicDrawingId {
-        drawingIdHelper += 1
-        return drawingIdHelper
+    private func drawingScreenBorder(drawing: MagicDrawing) {
+        guard let screen = drawing.screen else { return }
+        if let windowController = drawingBoardWindowControllers[screen.uuid()!] {
+            windowController.drawScreenBorder(drawing: drawing)
+        }
+    }
+    
+    private func startTimer() {
+        guard timer?.isValid != true else { return }
+        
+        let tmr = Timer(timeInterval: 0.2, target: self, selector: #selector(updateDrawing), userInfo: nil, repeats: true)
+        RunLoop.current.add(tmr, forMode: .common)
+        self.timer = tmr
+    }
+    
+    private func stopTimer() {
+        guard !drawingList.contains(where: { $0.type == .applicationBorder || $0.type == .windowBorder }) else { return }
+        
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc func updateDrawing() {
+        updateWindowInfoList()
+        for drawing in drawingList {
+            switch drawing.type {
+            case .applicationBorder:
+                if let applicationList = drawing.applicationList {
+                    let borderedWindowInfoList = windowInfoList.filter { applicationList.contains($0.pid) && !excludedWindowList.contains($0.windowNumber) }
+                    if !borderedWindowInfoList.isEmpty {
+                        let windowInfoListAbove = getWindowInfoListAbove(bottomWindowInfo: borderedWindowInfoList[0])
+                        
+                        drawingBoardWindowControllers.values.forEach { windowController in
+                            windowController.removeDrawing(drawingId: drawing.id)
+                            windowController.drawWindowsBorder(aboveWindowInfoList: windowInfoListAbove, borderedWindowInfoList: borderedWindowInfoList, drawing: drawing)
+                        }
+                    }
+                }
+            case .windowBorder:
+                if let windowList = drawing.windowList {
+                    let windowInfoList = windowList.compactMap{ getWindowInfo(by: $0) }
+                    guard !windowInfoList.isEmpty else { continue }
+                    if drawing.needCalculateCoverState {
+                        calculateCoverState(for: windowInfoList, drawing: drawing)
+                    }
+                }
+            default: break
+            }
+        }
+    }
+    
+    private func drawingWindowBorder(drawing: MagicDrawing) {
+        startTimer()
+    }
+    
+    private func drawingApplicationBorder(drawing: MagicDrawing) {
+        startTimer()
+    }
+    
+    private func calculateCoverState(for coveredWindowInfoList: [MagicWindowInfo], drawing: MagicDrawing) {
+        if let screen = drawing.screenOfCoverWindows, let drawingBoardWindowController = drawingBoardWindowControllers[screen] {
+            let isCovered = drawingBoardWindowController.getIsCovered(windowInfoList: windowInfoList, coveredWindowInfoList: coveredWindowInfoList, drawing: drawing)
+            if let oldValue = coverState[drawing.id] {
+                if isCovered != oldValue {
+                    updateCoverState(isCovered, drawing: drawing)
+                }
+            } else {
+                updateCoverState(isCovered, drawing: drawing)
+            }
+        }
+    }
+    
+    private func updateCoverState(_ isCovered: Bool, drawing: MagicDrawing) {
+        coverState[drawing.id] = isCovered
+//        NotificationCenter.default.post(Notification(name: Notification.Name(OnWindowCoverStateChanged), object: self, userInfo: ["drawingId" : drawing.id, "state": isCovered]))
     }
 }
 
 extension MagicDrawingBoardManager: MagicDrawingBoardManagerProtocol {
-    func drawWindowsBorder(windowList: [Int]) -> MagicDrawingId {
-        updateWindowInfoList()
+    func addDrawing(drawing: MagicDrawing) -> MagicDrawingId {
+        drawingList.append(drawing)
         
-        if let windowInfo = getBottomWindowInfoIndex(windowList: windowList) {
-            let windowInfoListAbove = getWindowInfoListAbove(bottomWindowInfo: windowInfo)
-            
-            let drawingId = generateDrawingId()
-            
-            drawingBoardWindowControllers.values.forEach { windowController in
-                windowController.drawWindowsBorder(aboveWindowInfoList: windowInfoListAbove, borderedWindowInfoList: getBorderedWindowInfoList(windowList: windowList), drawingId: drawingId)
-            }
-            
-            return drawingId
+        switch drawing.type {
+        case .screenBorder:
+            drawingScreenBorder(drawing: drawing)
+        case .windowBorder:
+            drawingWindowBorder(drawing: drawing)
+        case .applicationBorder:
+            drawingApplicationBorder(drawing: drawing)
         }
         
-        return MagicDrawingBoardManager.inValidDrawingId
-    }
-    
-    func drawScreenBorder(screen: NSScreen, style: MagicDrawingStyle) -> MagicDrawingId {
-        if let windowController = drawingBoardWindowControllers[screen.uuid()!] {
-
-            let drawingId = generateDrawingId()
-
-            windowController.drawScreenBorder(style: style, drawingId: drawingId)
-            drawingScreenInfoList.append((drawingId, screen, style))
-
-            return drawingId
-        }
-
-        return MagicDrawingBoardManager.inValidDrawingId
+        return drawing.id
     }
     
     func removeDrawing(drawingId: MagicDrawingId) {
-        guard drawingId > MagicDrawingBoardManager.inValidDrawingId else { return  }
+        guard drawingId > MagicDrawing.inValidDrawingId else { return  }
         
-        drawingScreenInfoList.removeAll { $0.drawingId == drawingId }
+        drawingList.removeAll { $0.id == drawingId }
         
         drawingBoardWindowControllers.values.forEach { $0.removeDrawing(drawingId: drawingId) }
+        
+        stopTimer()
     }
     
-    func getIsCovered(for window: Int) -> Bool {
-        updateWindowInfoList()
-        
-        if let windowInfo = getWindowInfo(by: window) {
-            return drawingBoardWindowControllers.values.first?.getIsCovered(windowInfoList: windowInfoList, window: windowInfo) == true
-        }
-        return true
+    func setKeyScreen(screen: String) {
+        keyScreen = screen
+    }
+    
+    func setExcludedWindowList(windowList: [Int]) {
+        excludedWindowList = windowList
     }
 }

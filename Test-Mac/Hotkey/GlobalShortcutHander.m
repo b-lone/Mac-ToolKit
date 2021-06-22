@@ -17,7 +17,7 @@
 - (void)registerAnswerCallHotKey:(NSObject*)target  selectorName:(NSString*)selectorName
 {
 //    [self registerSelector:selectorName ofTarget:target forKeyCode:kVK_ANSI_L  andModifiersFlags:(NSEventModifierFlagControl|NSEventModifierFlagCommand)];
-    [self registerSelector:selectorName ofTarget:target forKeyCode:kVK_ANSI_D  andModifiersFlags:(NSEventModifierFlagShift|NSEventModifierFlagControl)];
+    [self registerSelector:selectorName ofTarget:target forKeyCode:kVK_ANSI_Z  andModifiersFlags:(NSEventModifierFlagShift|NSEventModifierFlagControl)];
 }
 
 - (void)unregisterAnswerCallHotKey

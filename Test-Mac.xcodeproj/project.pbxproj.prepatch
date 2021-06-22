@@ -10,8 +10,7 @@
 		21094123266083B20040AC73 /* MagicDrawingBoardWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21094120266083B10040AC73 /* MagicDrawingBoardWindowController.xib */; };
 		21094124266083B20040AC73 /* MagicDrawingBoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094121266083B10040AC73 /* MagicDrawingBoardManager.swift */; };
 		21094125266083B20040AC73 /* MagicDrawingBoardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094122266083B20040AC73 /* MagicDrawingBoardWindowController.swift */; };
-		211C788A2680742E003D9EB4 /* FontelloButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C78892680742E003D9EB4 /* FontelloButton.swift */; };
-		211C789026817D71003D9EB4 /* NSScreen+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C788E26817D70003D9EB4 /* NSScreen+Extensions.m */; };
+		21094127266088C20040AC73 /* NSScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094126266088C20040AC73 /* NSScreen+Extensions.swift */; };
 		213E139E2636C70D00DFECFF /* FloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213E139D2636C70D00DFECFF /* FloatingPanel.swift */; };
 		213E13A32637AAEA00DFECFF /* MouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213E13A22637AAEA00DFECFF /* MouseView.swift */; };
 		215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F8AD925B098EA000F4D45 /* AppDelegate.swift */; };
@@ -22,13 +21,15 @@
 		219634CC26560CEA00BFA3F4 /* SparkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219634CB26560CEA00BFA3F4 /* SparkButton.swift */; };
 		219634D2265611CB00BFA3F4 /* momentum-ui-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 219634D1265611CB00BFA3F4 /* momentum-ui-icons.ttf */; };
 		219634D3265611E900BFA3F4 /* momentum-ui-icons.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 219634D1265611CB00BFA3F4 /* momentum-ui-icons.ttf */; };
+		2197C8BC2638178E00338898 /* WindowStrokeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197C8BB2638178E00338898 /* WindowStrokeManager.swift */; };
+		2197C8C02638257A00338898 /* StrokeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197C8BF2638257A00338898 /* StrokeLine.swift */; };
 		21A38411264E179E00F12D78 /* DDHotKeyUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A3840C264E179E00F12D78 /* DDHotKeyUtilities.m */; };
 		21A38412264E179E00F12D78 /* DDHotKeyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A3840D264E179E00F12D78 /* DDHotKeyTextField.m */; };
 		21A38413264E179E00F12D78 /* DDHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A3840E264E179E00F12D78 /* DDHotKeyCenter.m */; };
 		21A38414264E179E00F12D78 /* GlobalShortcutHander.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A3840F264E179E00F12D78 /* GlobalShortcutHander.m */; };
 		21E5CA2425F7952F002400F8 /* MyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E5CA2225F7952F002400F8 /* MyWindow.swift */; };
 		21E5CA2525F7952F002400F8 /* MyWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21E5CA2325F7952F002400F8 /* MyWindow.xib */; };
-		21E5CA2825F871CE002400F8 /* TestWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 21E5CA2725F87150002400F8 /* TestWindow.mm */; };
+		21E5CA2825F871CE002400F8 /* TestWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E5CA2725F87150002400F8 /* TestWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,9 +49,7 @@
 		21094120266083B10040AC73 /* MagicDrawingBoardWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MagicDrawingBoardWindowController.xib; sourceTree = "<group>"; };
 		21094121266083B10040AC73 /* MagicDrawingBoardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicDrawingBoardManager.swift; sourceTree = "<group>"; };
 		21094122266083B20040AC73 /* MagicDrawingBoardWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicDrawingBoardWindowController.swift; sourceTree = "<group>"; };
-		211C78892680742E003D9EB4 /* FontelloButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontelloButton.swift; sourceTree = "<group>"; };
-		211C788E26817D70003D9EB4 /* NSScreen+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScreen+Extensions.m"; sourceTree = "<group>"; };
-		211C788F26817D70003D9EB4 /* NSScreen+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScreen+Extensions.h"; sourceTree = "<group>"; };
+		21094126266088C20040AC73 /* NSScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+Extensions.swift"; sourceTree = "<group>"; };
 		2132C21A264E29E60032C2FB /* Test-Mac-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Test-Mac-Bridging-Header.h"; sourceTree = "<group>"; };
 		213E139D2636C70D00DFECFF /* FloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanel.swift; sourceTree = "<group>"; };
 		213E13A22637AAEA00DFECFF /* MouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseView.swift; sourceTree = "<group>"; };
@@ -64,6 +63,8 @@
 		217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundSameSideCornerView.swift; sourceTree = "<group>"; };
 		219634CB26560CEA00BFA3F4 /* SparkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkButton.swift; sourceTree = "<group>"; };
 		219634D1265611CB00BFA3F4 /* momentum-ui-icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "momentum-ui-icons.ttf"; sourceTree = "<group>"; };
+		2197C8BB2638178E00338898 /* WindowStrokeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowStrokeManager.swift; sourceTree = "<group>"; };
+		2197C8BF2638257A00338898 /* StrokeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeLine.swift; sourceTree = "<group>"; };
 		21A38409264E179E00F12D78 /* DDHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyCenter.h; sourceTree = "<group>"; };
 		21A3840A264E179E00F12D78 /* DDHotKeyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyTextField.h; sourceTree = "<group>"; };
 		21A3840B264E179E00F12D78 /* GlobalShortcutHander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalShortcutHander.h; sourceTree = "<group>"; };
@@ -75,7 +76,7 @@
 		21E5CA2225F7952F002400F8 /* MyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWindow.swift; sourceTree = "<group>"; };
 		21E5CA2325F7952F002400F8 /* MyWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyWindow.xib; sourceTree = "<group>"; };
 		21E5CA2625F87150002400F8 /* TestWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestWindow.h; sourceTree = "<group>"; };
-		21E5CA2725F87150002400F8 /* TestWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TestWindow.mm; sourceTree = "<group>"; };
+		21E5CA2725F87150002400F8 /* TestWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,11 +121,10 @@
 				219634CF265611CB00BFA3F4 /* Resources */,
 				217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */,
 				219634CB26560CEA00BFA3F4 /* SparkButton.swift */,
-				211C78892680742E003D9EB4 /* FontelloButton.swift */,
 				215F8AE325B098EC000F4D45 /* Test_Mac.entitlements */,
 				2132C21A264E29E60032C2FB /* Test-Mac-Bridging-Header.h */,
 				21E5CA2625F87150002400F8 /* TestWindow.h */,
-				21E5CA2725F87150002400F8 /* TestWindow.mm */,
+				21E5CA2725F87150002400F8 /* TestWindow.m */,
 				215F8ADB25B098EA000F4D45 /* ViewController.swift */,
 				2197C8BA2638173500338898 /* WindowStroke */,
 			);
@@ -153,8 +153,9 @@
 				21094121266083B10040AC73 /* MagicDrawingBoardManager.swift */,
 				21094122266083B20040AC73 /* MagicDrawingBoardWindowController.swift */,
 				21094120266083B10040AC73 /* MagicDrawingBoardWindowController.xib */,
-				211C788F26817D70003D9EB4 /* NSScreen+Extensions.h */,
-				211C788E26817D70003D9EB4 /* NSScreen+Extensions.m */,
+				2197C8BB2638178E00338898 /* WindowStrokeManager.swift */,
+				2197C8BF2638257A00338898 /* StrokeLine.swift */,
+				21094126266088C20040AC73 /* NSScreen+Extensions.swift */,
 			);
 			path = WindowStroke;
 			sourceTree = "<group>";
@@ -257,13 +258,14 @@
 				21A38412264E179E00F12D78 /* DDHotKeyTextField.m in Sources */,
 				21A38414264E179E00F12D78 /* GlobalShortcutHander.m in Sources */,
 				21A38411264E179E00F12D78 /* DDHotKeyUtilities.m in Sources */,
+				2197C8C02638257A00338898 /* StrokeLine.swift in Sources */,
 				219634CC26560CEA00BFA3F4 /* SparkButton.swift in Sources */,
 				21A38413264E179E00F12D78 /* DDHotKeyCenter.m in Sources */,
 				213E13A32637AAEA00DFECFF /* MouseView.swift in Sources */,
 				21E5CA2425F7952F002400F8 /* MyWindow.swift in Sources */,
-				21E5CA2825F871CE002400F8 /* TestWindow.mm in Sources */,
-				211C789026817D71003D9EB4 /* NSScreen+Extensions.m in Sources */,
-				211C788A2680742E003D9EB4 /* FontelloButton.swift in Sources */,
+				21094127266088C20040AC73 /* NSScreen+Extensions.swift in Sources */,
+				21E5CA2825F871CE002400F8 /* TestWindow.m in Sources */,
+				2197C8BC2638178E00338898 /* WindowStrokeManager.swift in Sources */,
 				217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +318,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -337,14 +338,6 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-Xlinker",
-					"-interposable",
-					"-Xlinker",
-					"-undefined",
-					"-Xlinker",
-					dynamic_lookup,
-				);
 				PRODUCT_NAME = "Test-Mac";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -416,20 +409,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Test-Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
-				);
-				OTHER_LDFLAGS = (
-					"-Xlinker",
-					"-interposable",
-					"-Xlinker",
-					"-undefined",
-					"-Xlinker",
-					dynamic_lookup,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cisco.Test-Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -445,7 +429,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Test-Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

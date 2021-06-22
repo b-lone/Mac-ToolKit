@@ -9,6 +9,8 @@
 import Cocoa
 
 class MyWindow: NSWindowController {
+    @IBOutlet weak var collectionView: NSCollectionView!
+    
     override var windowNibName: NSNib.Name? {
         return "MyWindow"
     }
@@ -43,3 +45,18 @@ extension MyWindow: NSWindowDelegate {
     }
 }
 
+extension MyWindow: NSCollectionViewDelegate {
+}
+
+extension MyWindow: NSCollectionViewDataSource {
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 9
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        let item = NSCollectionViewItem()
+        item.view.wantsLayer = true
+        item.view.layer?.backgroundColor = NSColor.blue.cgColor
+        return item
+    }
+}
