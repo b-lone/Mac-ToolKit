@@ -21,7 +21,7 @@
     test1.push_back(1);
     
     test1.erase(std::remove(test1.begin(), test1.end(), 2), test1.end());
-    NSLog(@"%d", test1.size());
+    NSLog(@"%lu", test1.size());
 }
 
 @end

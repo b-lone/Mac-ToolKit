@@ -8,6 +8,12 @@
 
 import Cocoa
 
+let OnWindowCoverStateChanged = "OnWindowCoverStateChanged"
+let OnShareShouldExcludeWindow = "OnShareShouldExcludeWindow"
+func SPARK_LOG_DEBUG(_ log: String) {
+    Logs.show(log: log)
+}
+
 class TestDrawingBoard: NSObject {
     private var windowInfoList = [MagicWindowInfo]()
     private var drawingBorder: MagicDrawingBoardManager = MagicDrawingBoardManager()
@@ -88,11 +94,6 @@ class TestDrawingBoard: NSObject {
     }
     
     private func isValidWindow(windowInfo: MagicWindowInfo) -> Bool {
-        var logEnable = false
-        if windowInfo.pName == "Terminal" {
-            logEnable = true
-            print("logEnable \(windowInfo.level)")
-        }
         if windowInfo.level == kCGMainMenuWindowLevel || windowInfo.level == kCGStatusWindowLevel || windowInfo.level == kCGDockWindowLevel || windowInfo.level == kCGUtilityWindowLevel || windowInfo.level == kCGPopUpMenuWindowLevel {
             return false
         }

@@ -442,7 +442,7 @@ class SparkButton: NSButton {
         }
 
         if !shouldRoundTopLeftWhenRounding || !shouldRoundTopRightWhenRounding || !shouldRoundBottomLeftWhenRounding || !shouldRoundBottomRightWhenRounding {
-            let maskPath = getBezierPathWithSomeRoundedCorners()
+//            let maskPath = getBezierPathWithSomeRoundedCorners()
             let shape = CAShapeLayer()
 //            shape.path = maskPath.cgPath
             layer?.mask = shape
@@ -578,7 +578,7 @@ class SparkButton: NSButton {
     }
 
     func setTitleKeepingStyle(_ title: String) {
-        let theColor: NSColor
+//        let theColor: NSColor
         if fontColor == nil {
 //            theColor = ThemeManager.backgroundColor()
         } else {

@@ -25,7 +25,7 @@ class MagicLine: NSObject {
     var stackingOrder: Int = 0
     var orientation: MagicOrientation = .horizontal
     
-    var drawing = MagicDrawing()
+    var drawing: MagicDrawing!
     
     private var mColor: NSColor?
     
@@ -93,35 +93,31 @@ class MagicDrawingBoardWindowController: NSWindowController {
     }
     
     override func windowDidLoad() {
-        Logs.show(log: self.description)
         super.windowDidLoad()
         
-//        window?.backgroundColor = .clear
-        window?.backgroundColor = NSColor(calibratedRed: 0, green: 1, blue: 0, alpha: 0.01)
+        window?.backgroundColor = .clear
         window?.ignoresMouseEvents = true
         window?.level = .screenSaver
+        
+        if let windowNumber = window?.windowNumber {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: OnShareShouldExcludeWindow), object: self, userInfo: ["windowNumber": windowNumber])
+        }
         
         onScreenUpdated()
     }
     
     func onScreenUpdated() {
         window?.setFrame(screen.frame, display: true)
-        Logs.show(log: "window: \(window?.frame)")
     }
     
     func removeDrawing(drawingId: MagicDrawingId) {
-        drawingBoardView.removeDrawing(drawingId: drawingId)
+        removeDrawingLines(drawingId: drawingId)
         
         updateWindowVisibility()
     }
     
-    private func removeDrawingWithoutHidden(drawingId: MagicDrawingId) {
-        drawingBoardView.removeDrawing(drawingId: drawingId)
-    }
-    
     func drawWindowsBorder(aboveWindowInfoList: [MagicWindowInfo], borderedWindowInfoList: [MagicWindowInfo], drawing: MagicDrawing) {
-        
-        removeDrawingWithoutHidden(drawingId: drawing.id)
+        removeDrawingLines(drawingId: drawing.id)
         
         var lines = getBorderedWindowBorderLines(borderedWindowInfoList: borderedWindowInfoList, drawing: drawing)
         lines = cutOverlappedLines(lines: lines, aboveWindowInfoList: aboveWindowInfoList, borderedWindowInfoList: borderedWindowInfoList)
@@ -142,16 +138,15 @@ class MagicDrawingBoardWindowController: NSWindowController {
         updateWindowVisibility()
     }
     
+    private func removeDrawingLines(drawingId: MagicDrawingId) {
+        drawingBoardView.removeDrawing(drawingId: drawingId)
+    }
+    
     private func updateWindowVisibility() {
-        if drawingBoardView.isEmpty, window?.isVisible == true {
-            Logs.show(log: "updateWindowVisibility: hide")
+        if drawingBoardView.isEmpty {
             close()
-        } else if !drawingBoardView.isEmpty, window?.isVisible == false {
-            Logs.show(log: "updateWindowVisibility: show")
+        } else {
             showWindow(self)
-//            if let windowNumber = window?.windowNumber {
-//                NotificationCenter.default.post(name: Notification.Name(rawValue: OnShareShouldExcludeWindow), object: self, userInfo: ["windowNumber": windowNumber])
-//            }
         }
     }
     

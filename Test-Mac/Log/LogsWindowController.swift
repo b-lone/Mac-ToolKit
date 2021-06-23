@@ -10,6 +10,7 @@ import Cocoa
 
 class Logs: NSObject {
     class func show(log: String) {
+        print(log)
         LogsWindowController.shared.insertLog(log: log + "\n")
     }
 }

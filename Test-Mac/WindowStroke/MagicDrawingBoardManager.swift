@@ -131,14 +131,8 @@ class MagicDrawingBoardManager: NSObject {
     }
     
     @objc private func updateDrawingBoardWindowController() {
-        Logs.show(log: "updateDrawingBoardWindowController \(NSScreen.screens.count)")
-        for screen in NSScreen.screens {
-            Logs.show(log: "screen:\(screen.frame)")
-        }
-        
         NSScreen.screens.forEach {
             if let uuid = $0.uuid() {
-                Logs.show(log: uuid)
                 if let windowController = drawingBoardWindowControllers[uuid] {
                     windowController.onScreenUpdated()
                 } else {
@@ -234,7 +228,7 @@ class MagicDrawingBoardManager: NSObject {
     private func startTimer() {
         guard timer?.isValid != true else { return }
         
-        let tmr = Timer(timeInterval: 0.5, target: self, selector: #selector(updateDrawing), userInfo: nil, repeats: true)
+        let tmr = Timer(timeInterval: 0.2, target: self, selector: #selector(updateDrawing), userInfo: nil, repeats: true)
         RunLoop.current.add(tmr, forMode: .common)
         self.timer = tmr
     }
@@ -259,6 +253,8 @@ class MagicDrawingBoardManager: NSObject {
                         drawingBoardWindowControllers.values.forEach { windowController in
                             windowController.drawWindowsBorder(aboveWindowInfoList: windowInfoListAbove, borderedWindowInfoList: borderedWindowInfoList, drawing: drawing)
                         }
+                    } else {
+                        drawingBoardWindowControllers.values.forEach { $0.removeDrawing(drawingId: drawing.id) }
                     }
                 }
             case .windowBorder:
@@ -297,12 +293,13 @@ class MagicDrawingBoardManager: NSObject {
     
     private func updateCoverState(_ isCovered: Bool, drawing: MagicDrawing) {
         coverState[drawing.id] = isCovered
-//        NotificationCenter.default.post(Notification(name: Notification.Name(OnWindowCoverStateChanged), object: self, userInfo: ["drawingId" : drawing.id, "state": isCovered]))
+        NotificationCenter.default.post(Notification(name: Notification.Name(OnWindowCoverStateChanged), object: self, userInfo: ["drawingId" : drawing.id, "state": isCovered]))
     }
 }
 
 extension MagicDrawingBoardManager: MagicDrawingBoardManagerProtocol {
     func addDrawing(drawing: MagicDrawing) -> MagicDrawingId {
+        SPARK_LOG_DEBUG("id: \(drawing.id)  type: \(drawing.type.rawValue)")
         drawingList.append(drawing)
         
         switch drawing.type {
@@ -319,6 +316,7 @@ extension MagicDrawingBoardManager: MagicDrawingBoardManagerProtocol {
     
     func removeDrawing(drawingId: MagicDrawingId) {
         guard drawingId > MagicDrawing.inValidDrawingId else { return  }
+        SPARK_LOG_DEBUG("id: \(drawingId)")
         
         drawingList.removeAll { $0.id == drawingId }
         
@@ -328,10 +326,12 @@ extension MagicDrawingBoardManager: MagicDrawingBoardManagerProtocol {
     }
     
     func setKeyScreen(screen: String) {
+        SPARK_LOG_DEBUG("\(screen)")
         keyScreen = screen
     }
     
     func setExcludedWindowList(windowList: [Int]) {
+        SPARK_LOG_DEBUG("\(windowList.count)")
         excludedWindowList = windowList
     }
 }
