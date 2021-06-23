@@ -582,7 +582,7 @@ class SparkButton: NSButton {
         if fontColor == nil {
 //            theColor = ThemeManager.backgroundColor()
         } else {
-            theColor = fontColor
+//            theColor = fontColor
         }
 
 //        setTitle(title, withColor: theColor)
