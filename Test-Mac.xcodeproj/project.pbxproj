@@ -12,6 +12,10 @@
 		21094125266083B20040AC73 /* MagicDrawingBoardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094122266083B20040AC73 /* MagicDrawingBoardWindowController.swift */; };
 		211C788A2680742E003D9EB4 /* FontelloButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C78892680742E003D9EB4 /* FontelloButton.swift */; };
 		211C789026817D71003D9EB4 /* NSScreen+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 211C788E26817D70003D9EB4 /* NSScreen+Extensions.m */; };
+		211C78922681840C003D9EB4 /* TestDrawingBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C78912681840C003D9EB4 /* TestDrawingBoard.swift */; };
+		211C78992681AB03003D9EB4 /* LogsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C78972681AB03003D9EB4 /* LogsWindowController.swift */; };
+		211C789A2681AB03003D9EB4 /* LogsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211C78982681AB03003D9EB4 /* LogsWindowController.xib */; };
+		211C789F2681E1B4003D9EB4 /* FontelloLabelWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C789E2681E1B4003D9EB4 /* FontelloLabelWithText.swift */; };
 		213E139E2636C70D00DFECFF /* FloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213E139D2636C70D00DFECFF /* FloatingPanel.swift */; };
 		213E13A32637AAEA00DFECFF /* MouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213E13A22637AAEA00DFECFF /* MouseView.swift */; };
 		215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F8AD925B098EA000F4D45 /* AppDelegate.swift */; };
@@ -51,6 +55,10 @@
 		211C78892680742E003D9EB4 /* FontelloButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontelloButton.swift; sourceTree = "<group>"; };
 		211C788E26817D70003D9EB4 /* NSScreen+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScreen+Extensions.m"; sourceTree = "<group>"; };
 		211C788F26817D70003D9EB4 /* NSScreen+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScreen+Extensions.h"; sourceTree = "<group>"; };
+		211C78912681840C003D9EB4 /* TestDrawingBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDrawingBoard.swift; sourceTree = "<group>"; };
+		211C78972681AB03003D9EB4 /* LogsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsWindowController.swift; sourceTree = "<group>"; };
+		211C78982681AB03003D9EB4 /* LogsWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogsWindowController.xib; sourceTree = "<group>"; };
+		211C789E2681E1B4003D9EB4 /* FontelloLabelWithText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontelloLabelWithText.swift; sourceTree = "<group>"; };
 		2132C21A264E29E60032C2FB /* Test-Mac-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Test-Mac-Bridging-Header.h"; sourceTree = "<group>"; };
 		213E139D2636C70D00DFECFF /* FloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanel.swift; sourceTree = "<group>"; };
 		213E13A22637AAEA00DFECFF /* MouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseView.swift; sourceTree = "<group>"; };
@@ -89,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		211C78962681AADB003D9EB4 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				211C78972681AB03003D9EB4 /* LogsWindowController.swift */,
+				211C78982681AB03003D9EB4 /* LogsWindowController.xib */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
 		215F8ACD25B098EA000F4D45 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +126,7 @@
 		215F8AD825B098EA000F4D45 /* Test-Mac */ = {
 			isa = PBXGroup;
 			children = (
+				211C78962681AADB003D9EB4 /* Log */,
 				215F8AD925B098EA000F4D45 /* AppDelegate.swift */,
 				215F8ADD25B098EC000F4D45 /* Assets.xcassets */,
 				213E139D2636C70D00DFECFF /* FloatingPanel.swift */,
@@ -125,6 +143,7 @@
 				2132C21A264E29E60032C2FB /* Test-Mac-Bridging-Header.h */,
 				21E5CA2625F87150002400F8 /* TestWindow.h */,
 				21E5CA2725F87150002400F8 /* TestWindow.mm */,
+				211C789E2681E1B4003D9EB4 /* FontelloLabelWithText.swift */,
 				215F8ADB25B098EA000F4D45 /* ViewController.swift */,
 				2197C8BA2638173500338898 /* WindowStroke */,
 			);
@@ -155,6 +174,7 @@
 				21094120266083B10040AC73 /* MagicDrawingBoardWindowController.xib */,
 				211C788F26817D70003D9EB4 /* NSScreen+Extensions.h */,
 				211C788E26817D70003D9EB4 /* NSScreen+Extensions.m */,
+				211C78912681840C003D9EB4 /* TestDrawingBoard.swift */,
 			);
 			path = WindowStroke;
 			sourceTree = "<group>";
@@ -238,6 +258,7 @@
 				21E5CA2525F7952F002400F8 /* MyWindow.xib in Resources */,
 				215F8AE125B098EC000F4D45 /* Main.storyboard in Resources */,
 				219634D2265611CB00BFA3F4 /* momentum-ui-icons.ttf in Resources */,
+				211C789A2681AB03003D9EB4 /* LogsWindowController.xib in Resources */,
 				21094123266083B20040AC73 /* MagicDrawingBoardWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,7 +278,9 @@
 				21A38412264E179E00F12D78 /* DDHotKeyTextField.m in Sources */,
 				21A38414264E179E00F12D78 /* GlobalShortcutHander.m in Sources */,
 				21A38411264E179E00F12D78 /* DDHotKeyUtilities.m in Sources */,
+				211C78992681AB03003D9EB4 /* LogsWindowController.swift in Sources */,
 				219634CC26560CEA00BFA3F4 /* SparkButton.swift in Sources */,
+				211C78922681840C003D9EB4 /* TestDrawingBoard.swift in Sources */,
 				21A38413264E179E00F12D78 /* DDHotKeyCenter.m in Sources */,
 				213E13A32637AAEA00DFECFF /* MouseView.swift in Sources */,
 				21E5CA2425F7952F002400F8 /* MyWindow.swift in Sources */,
@@ -265,6 +288,7 @@
 				211C789026817D71003D9EB4 /* NSScreen+Extensions.m in Sources */,
 				211C788A2680742E003D9EB4 /* FontelloButton.swift in Sources */,
 				217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */,
+				211C789F2681E1B4003D9EB4 /* FontelloLabelWithText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

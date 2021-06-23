@@ -93,9 +93,11 @@ class MagicDrawingBoardWindowController: NSWindowController {
     }
     
     override func windowDidLoad() {
+        Logs.show(log: self.description)
         super.windowDidLoad()
         
-        window?.backgroundColor = .clear
+//        window?.backgroundColor = .clear
+        window?.backgroundColor = NSColor(calibratedRed: 0, green: 1, blue: 0, alpha: 0.01)
         window?.ignoresMouseEvents = true
         window?.level = .screenSaver
         
@@ -104,6 +106,7 @@ class MagicDrawingBoardWindowController: NSWindowController {
     
     func onScreenUpdated() {
         window?.setFrame(screen.frame, display: true)
+        Logs.show(log: "window: \(window?.frame)")
     }
     
     func removeDrawing(drawingId: MagicDrawingId) {
@@ -112,7 +115,14 @@ class MagicDrawingBoardWindowController: NSWindowController {
         updateWindowVisibility()
     }
     
+    private func removeDrawingWithoutHidden(drawingId: MagicDrawingId) {
+        drawingBoardView.removeDrawing(drawingId: drawingId)
+    }
+    
     func drawWindowsBorder(aboveWindowInfoList: [MagicWindowInfo], borderedWindowInfoList: [MagicWindowInfo], drawing: MagicDrawing) {
+        
+        removeDrawingWithoutHidden(drawingId: drawing.id)
+        
         var lines = getBorderedWindowBorderLines(borderedWindowInfoList: borderedWindowInfoList, drawing: drawing)
         lines = cutOverlappedLines(lines: lines, aboveWindowInfoList: aboveWindowInfoList, borderedWindowInfoList: borderedWindowInfoList)
         lines.forEach{
@@ -133,9 +143,11 @@ class MagicDrawingBoardWindowController: NSWindowController {
     }
     
     private func updateWindowVisibility() {
-        if drawingBoardView.isEmpty {
+        if drawingBoardView.isEmpty, window?.isVisible == true {
+            Logs.show(log: "updateWindowVisibility: hide")
             close()
-        } else {
+        } else if !drawingBoardView.isEmpty, window?.isVisible == false {
+            Logs.show(log: "updateWindowVisibility: show")
             showWindow(self)
 //            if let windowNumber = window?.windowNumber {
 //                NotificationCenter.default.post(name: Notification.Name(rawValue: OnShareShouldExcludeWindow), object: self, userInfo: ["windowNumber": windowNumber])

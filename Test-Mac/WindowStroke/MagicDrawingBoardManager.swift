@@ -89,16 +89,20 @@ class MagicDrawing: NSObject {
 }
 
 class MagicWindowInfo: NSObject {
+    var name = ""
     var windowNumber: Int = 0
     var frame: CGRect = .zero
     var level: Int = 0
     var stackingOrder: Int = 0
     var pid: String = ""
+    var pName = ""
     var screen: String = ""
+    var windowAlpha: Float = 1
+    var isOnscreen = false
 }
 
 class MagicDrawingBoardManager: NSObject {
-    private var drawingBoardWindowControllers = [String: MagicDrawingBoardWindowController]()
+    var drawingBoardWindowControllers = [String: MagicDrawingBoardWindowController]()
     private var windowInfoList = [MagicWindowInfo]()
     private var drawingList = [MagicDrawing]()
     private var keyScreen: String? {
@@ -127,8 +131,14 @@ class MagicDrawingBoardManager: NSObject {
     }
     
     @objc private func updateDrawingBoardWindowController() {
+        Logs.show(log: "updateDrawingBoardWindowController \(NSScreen.screens.count)")
+        for screen in NSScreen.screens {
+            Logs.show(log: "screen:\(screen.frame)")
+        }
+        
         NSScreen.screens.forEach {
             if let uuid = $0.uuid() {
+                Logs.show(log: uuid)
                 if let windowController = drawingBoardWindowControllers[uuid] {
                     windowController.onScreenUpdated()
                 } else {
@@ -224,7 +234,7 @@ class MagicDrawingBoardManager: NSObject {
     private func startTimer() {
         guard timer?.isValid != true else { return }
         
-        let tmr = Timer(timeInterval: 0.2, target: self, selector: #selector(updateDrawing), userInfo: nil, repeats: true)
+        let tmr = Timer(timeInterval: 0.5, target: self, selector: #selector(updateDrawing), userInfo: nil, repeats: true)
         RunLoop.current.add(tmr, forMode: .common)
         self.timer = tmr
     }
@@ -247,7 +257,6 @@ class MagicDrawingBoardManager: NSObject {
                         let windowInfoListAbove = getWindowInfoListAbove(bottomWindowInfo: borderedWindowInfoList[0])
                         
                         drawingBoardWindowControllers.values.forEach { windowController in
-                            windowController.removeDrawing(drawingId: drawing.id)
                             windowController.drawWindowsBorder(aboveWindowInfoList: windowInfoListAbove, borderedWindowInfoList: borderedWindowInfoList, drawing: drawing)
                         }
                     }

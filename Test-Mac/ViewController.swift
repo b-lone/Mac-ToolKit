@@ -39,11 +39,12 @@ class ViewController: NSViewController {
     @IBOutlet weak var v2: MouseView!
     @IBOutlet weak var roundView: RoundSameSideCornerView!
     @IBOutlet weak var iconView: FontelloIcon!
+    @IBOutlet weak var label: FontelloLabelWithText!
     
     var fw = FloatingPanel()
     
     var shortcut = GlobalShortcutHander()
-//    var magicDrawingBoardManager =  MagicDrawingBoardManager()
+    var testDrawingBoard = TestDrawingBoard()
     
     static var count = 0
     
@@ -86,16 +87,10 @@ class ViewController: NSViewController {
         iconView.yOffset = 35
         iconView.layer?.cornerRadius = 30
         iconView.layer?.backgroundColor = NSColor.blue.cgColor
+        
+        setupLabel()
+        
     }
-    
-//    override func flagsChanged(with event: NSEvent) {
-//        print("\(event.modifierFlags.intersection(.deviceIndependentFlagsMask) == [.shift])")
-//        if event.modifierFlags.intersection(.deviceIndependentFlagsMask) == [.shift]  {
-//            print("2")
-//        } else {
-//            super.flagsChanged(with: event)
-//        }
-//    }
     
     override func viewWillAppear() {
         super.viewWillAppear()
@@ -127,13 +122,6 @@ class ViewController: NSViewController {
         }
     }
     
-    let window1 = 507
-    let window2 = 503
-    let window3 = 504
-    let window4 = 505
-    let window5 = 506
-    
-    
     @IBAction func onLeftButton(_ sender: Any) {
         print("onLeftButton")
 //        print("getIsCovered:\(magicDrawingBoardManager.getIsCovered(for: UInt32(window1)))")
@@ -150,15 +138,18 @@ class ViewController: NSViewController {
 //            NSScreen.screens.forEach { print("\($0.frame)") }
 //        }
         
-        let testWindow = TestWindow()
-        testWindow.test()
+//        let testWindow = TestWindow()
+//        testWindow.test()
+        
+        testDrawingBoard.start()
     }
     
     @IBAction func onRightButton(_ sender: Any) {
         print("onRightButton")
-        shortcut.registerAnswerCallHotKey(self, selectorName: "test")
+//        shortcut.registerAnswerCallHotKey(self, selectorName: "test")
 //        magicDrawingBoardManager.removeDrawing(drawingId: MagicDrawingBoardManager.inValidDrawingId)
 //        let _ = magicDrawingBoardManager.drawScreenBorder(screen: NSScreen.screens[0], style: .hoverScreen)
+        testDrawingBoard.stop()
     }
     
     @objc func test() {
@@ -168,5 +159,18 @@ class ViewController: NSViewController {
     @objc func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         print("test")
         return false
+    }
+    
+    private func setupLabel() {
+        label.labelText = "Hold   ⇧   to select multiple applications."
+        label.boldText = " ⇧ "
+        label.boldTextFont = .systemFont(ofSize: 20)
+        
+        label.fontSize = 16
+        label.spacing = 8
+        
+        label.iconColour = .black
+        label.textColour = .black
+        label.boldTextBackgroundColor = .gray
     }
 }
