@@ -8,6 +8,12 @@
 
 import Cocoa
 
+public func SPARK_LOG_DEBUG(_ msg: String?, lineNumber: Int32 = #line, fileName: String = #file, fnName: String = #function) {
+    let flName = fileName.split(separator: "/").last
+    let log = "\(NSDate.now.description) \(flName ?? "")[\(lineNumber)] \(fnName): \(msg ?? "")"
+    Logs.show(log: log)
+}
+
 class Logs: NSObject {
     class func show(log: String) {
         print(log)

@@ -227,7 +227,7 @@ class MagicDrawingBoardWindowController: NSWindowController {
         var point3: NSPoint?
         var point4: NSPoint? = line.endPoint
         if line.orientation == .horizontal {
-            if line.beginPoint.y > frame.minY, line.beginPoint.y < frame.maxY {
+            if line.beginPoint.y >= frame.minY, line.beginPoint.y <= frame.maxY {
                 if line.beginPoint.x <= frame.minX {
                     if line.endPoint.x <= frame.minX {
                     } else if line.endPoint.x > frame.minX, line.endPoint.x < frame.maxX {
@@ -256,7 +256,7 @@ class MagicDrawingBoardWindowController: NSWindowController {
                 }
             }
         } else {
-            if line.beginPoint.x > frame.minX, line.beginPoint.x < frame.maxX {
+            if line.beginPoint.x >= frame.minX, line.beginPoint.x <= frame.maxX {
                 if line.beginPoint.y <= frame.minY {
                     if line.endPoint.y <= frame.minY {
                     } else if line.endPoint.y > frame.minY, line.endPoint.y < frame.maxY {

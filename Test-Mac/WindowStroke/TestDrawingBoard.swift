@@ -10,16 +10,13 @@ import Cocoa
 
 let OnWindowCoverStateChanged = "OnWindowCoverStateChanged"
 let OnShareShouldExcludeWindow = "OnShareShouldExcludeWindow"
-func SPARK_LOG_DEBUG(_ log: String) {
-    Logs.show(log: log)
-}
 
 class TestDrawingBoard: NSObject {
     private var windowInfoList = [MagicWindowInfo]()
     private var drawingBorder: MagicDrawingBoardManager = MagicDrawingBoardManager()
     private var drawingId = MagicDrawing.inValidDrawingId
     
-    func start() {
+    func testDrawApplicationBorder(pName: String = "Terminal") {
         removeDraw()
         updateWindowInfoList()
         let list = getWindowInfoList(pName: "Terminal")
@@ -27,6 +24,11 @@ class TestDrawingBoard: NSObject {
             drawingId = drawingBorder.addDrawing(drawing: MagicDrawing.applicationBorderDrawing(applicationList: [list[0].pid]))
         }
         print("\(list.count)")
+    }
+    
+    func testDrawScreenBorder() {
+        removeDraw()
+        drawingId = drawingBorder.addDrawing(drawing: MagicDrawing.screenBorderDrawing(screen: NSScreen.main!))
     }
     
     func stop() {

@@ -141,7 +141,9 @@ class ViewController: NSViewController {
 //        let testWindow = TestWindow()
 //        testWindow.test()
         
-        testDrawingBoard.start()
+        testDrawingBoard.testDrawApplicationBorder()
+//        NSApp.runModal(for: view.window!)
+//        testDrawingBoard.testDrawScreenBorder()
     }
     
     @IBAction func onRightButton(_ sender: Any) {
@@ -149,6 +151,7 @@ class ViewController: NSViewController {
 //        shortcut.registerAnswerCallHotKey(self, selectorName: "test")
 //        magicDrawingBoardManager.removeDrawing(drawingId: MagicDrawingBoardManager.inValidDrawingId)
 //        let _ = magicDrawingBoardManager.drawScreenBorder(screen: NSScreen.screens[0], style: .hoverScreen)
+//        NSApp.stopModal()
         testDrawingBoard.stop()
     }
     
