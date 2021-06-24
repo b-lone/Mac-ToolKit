@@ -11,34 +11,106 @@ import Cocoa
 let OnWindowCoverStateChanged = "OnWindowCoverStateChanged"
 let OnShareShouldExcludeWindow = "OnShareShouldExcludeWindow"
 
-class TestDrawingBoard: NSObject {
+class TestDrawingBoard: TestCases {
     private var windowInfoList = [MagicWindowInfo]()
     private var drawingBorder: MagicDrawingBoardManager = MagicDrawingBoardManager()
-    private var drawingId = MagicDrawing.inValidDrawingId
     
-    func testDrawApplicationBorder(pName: String = "Terminal") {
-        removeDraw()
-        updateWindowInfoList()
-        let list = getWindowInfoList(pName: "Terminal")
-        if !list.isEmpty {
-            drawingId = drawingBorder.addDrawing(drawing: MagicDrawing.applicationBorderDrawing(applicationList: [list[0].pid]))
+    override init() {
+        super.init()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onWindowCoverStateChanged), name: NSNotification.Name(OnWindowCoverStateChanged), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func getTestCases() -> [String] {
+        return ["main screen", "cover state", "application border", "screen border"]
+    }
+    
+    override func onStartButton(caseName: String) {
+        if caseName == "main screen" {
+            testMainScreen()
+        } else if caseName == "cover state" {
+            testCoverState()
+        } else if caseName == "application border" {
+            testDrawApplicationBorder()
+        } else if caseName == "screen border" {
+            testDrawScreenBorder()
         }
-        print("\(list.count)")
     }
     
-    func testDrawScreenBorder() {
-        removeDraw()
-        drawingId = drawingBorder.addDrawing(drawing: MagicDrawing.screenBorderDrawing(screen: NSScreen.main!))
+    override func onStopButton(caseName: String) {
+        if caseName == "main screen" {
+            testMainScreen(start: false)
+        } else if caseName == "cover state" {
+            testCoverState(start: false)
+        } else if caseName == "application border" {
+            testDrawApplicationBorder(start: false)
+        } else if caseName == "screen border" {
+            testDrawScreenBorder(start: false)
+        }
     }
     
-    func stop() {
-        removeDraw()
+    //MARK: Case - Main Screen
+    private var testMainScreenTimer: Timer?
+    func testMainScreen(start: Bool = true) {
+        testMainScreenTimer?.invalidate()
+        if start {
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
+                SPARK_LOG_DEBUG(NSScreen.main?.uuid())
+            }
+        }
+    }
+
+    //MARK: Case - cover state
+    private var testCoverStateDrawingId = MagicDrawing.inValidDrawingId
+    func testCoverState(start: Bool = true) {
+        drawingBorder.removeDrawing(drawingId: testCoverStateDrawingId)
+        testCoverStateDrawingId = MagicDrawing.inValidDrawingId
+        if start {
+            updateWindowInfoList()
+            let list = getWindowInfoList(pName: "Terminal")
+            if !list.isEmpty {
+                testCoverStateDrawingId = drawingBorder.addDrawing(drawing: MagicDrawing.calculateWindowCoverState(windowList: [list[0].windowNumber], screenOfCoverWindows: NSScreen.main!.uuid()!))
+            }
+        }
     }
     
-    private func removeDraw() {
-        drawingBorder.removeDrawing(drawingId: drawingId)
+    @objc func onWindowCoverStateChanged(_ notification: Notification) {
+        if let userInfo = notification.userInfo, let coverState = userInfo["state"] as? Bool {
+            SPARK_LOG_DEBUG("\(coverState)")
+        }
     }
     
+    //MARK: Case - application border
+    private var testDrawApplicationBorderDrawingId = MagicDrawing.inValidDrawingId
+    func testDrawApplicationBorder(start: Bool = true) {
+        drawingBorder.removeDrawing(drawingId: testDrawApplicationBorderDrawingId)
+        testDrawApplicationBorderDrawingId = MagicDrawing.inValidDrawingId
+        if start {
+            updateWindowInfoList()
+            let list = getWindowInfoList(pName: "Terminal")
+            if !list.isEmpty {
+                testDrawApplicationBorderDrawingId = drawingBorder.addDrawing(drawing: MagicDrawing.applicationBorderDrawing(applicationList: [list[0].pid]))
+            } else {
+                SPARK_LOG_DEBUG("Can't find Terminal window.")
+            }
+        }
+    }
+    
+    //MARK: Case - screen border
+    private var testDrawScreenBorderrDrawingId = MagicDrawing.inValidDrawingId
+    func testDrawScreenBorder(start: Bool = true) {
+        drawingBorder.removeDrawing(drawingId: testDrawScreenBorderrDrawingId)
+        testDrawScreenBorderrDrawingId = MagicDrawing.inValidDrawingId
+        if start {
+            testDrawScreenBorderrDrawingId = drawingBorder.addDrawing(drawing: MagicDrawing.screenBorderDrawing(screen: NSScreen.main!))
+        }
+    }
+    
+    //MARK: private function
     private func updateWindowInfoList() {
         if let windowDescriptionList = CGWindowListCopyWindowInfo([.optionOnScreenOnly], kCGNullWindowID) as? Array<[CFString: AnyObject]> {
             windowInfoList = getWindowInfoList(from: windowDescriptionList)

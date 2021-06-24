@@ -48,6 +48,8 @@ class ViewController: NSViewController {
     
     static var count = 0
     
+    let testWindowController = TestListWindowController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         v1.wantsLayer = true
@@ -90,6 +92,8 @@ class ViewController: NSViewController {
         
         setupLabel()
         
+        testWindowController.registerTestCases(cases: testDrawingBoard)
+        
     }
     
     override func viewWillAppear() {
@@ -124,15 +128,9 @@ class ViewController: NSViewController {
     
     @IBAction func onLeftButton(_ sender: Any) {
         print("onLeftButton")
-//        print("getIsCovered:\(magicDrawingBoardManager.getIsCovered(for: UInt32(window1)))")
-        
-//        magicDrawingBoardManager.drawWindowsBorder(windowList: [window1, window4])
-        
 //        var wc: MyWindow? = MyWindow()
 //        NSApp.runModal(for: wc!.window!)
 //        wc = nil
-//
-//        magicDrawingBoardManager.drawScreenBorder(screen: NSScreen.screens[0])
         
 //        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) {_ in
 //            NSScreen.screens.forEach { print("\($0.frame)") }
@@ -141,18 +139,12 @@ class ViewController: NSViewController {
 //        let testWindow = TestWindow()
 //        testWindow.test()
         
-        testDrawingBoard.testDrawApplicationBorder()
-//        NSApp.runModal(for: view.window!)
-//        testDrawingBoard.testDrawScreenBorder()
+        testWindowController.showWindow(self)
     }
     
     @IBAction func onRightButton(_ sender: Any) {
         print("onRightButton")
 //        shortcut.registerAnswerCallHotKey(self, selectorName: "test")
-//        magicDrawingBoardManager.removeDrawing(drawingId: MagicDrawingBoardManager.inValidDrawingId)
-//        let _ = magicDrawingBoardManager.drawScreenBorder(screen: NSScreen.screens[0], style: .hoverScreen)
-//        NSApp.stopModal()
-        testDrawingBoard.stop()
     }
     
     @objc func test() {

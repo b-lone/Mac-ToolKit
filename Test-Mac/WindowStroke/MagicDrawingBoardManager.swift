@@ -34,7 +34,14 @@ enum MagicDrawingStyle {
         }
     }
     
-    var lineWidth: CGFloat { 5 }
+    var lineWidth: CGFloat {
+        switch self {
+        case .sharingScreen, .hoverScreen:
+            return 8
+        case .sharingApplication, .unsharedApplication:
+            return 5
+        }
+    }
 }
 
 class MagicDrawing: NSObject {
@@ -74,12 +81,13 @@ class MagicDrawing: NSObject {
         let drawing = MagicDrawing()
         drawing.type = .applicationBorder
         drawing.applicationList = applicationList
+        drawing.style = .sharingApplication
         return drawing
     }
     
     class func calculateWindowCoverState(windowList: [Int], screenOfCoverWindows: String) -> MagicDrawing {
         let drawing = MagicDrawing()
-        drawing.type = .screenBorder
+        drawing.type = .windowBorder
         drawing.windowList = windowList
         drawing.needDraw = false
         drawing.needCalculateCoverState = true

@@ -70,6 +70,7 @@ class MagicDrawingBoardView: NSView {
             
             bezierPath.lineWidth = line.width
             line.color.setStroke()
+            
             bezierPath.stroke()
         }
     }
@@ -157,7 +158,6 @@ class MagicDrawingBoardWindowController: NSWindowController {
     }
     
     private func getBorderLines(frame: CGRect, drawing: MagicDrawing) -> [MagicLine] {
-        let halfLineWidth = drawing.style.lineWidth / 2
         var leftBottomPoint = NSMakePoint(frame.minX, frame.minY)
         var rightBottomPoint = NSMakePoint(frame.maxX, frame.minY)
         var leftTopPoint = NSMakePoint(frame.minX, frame.maxY)
@@ -166,10 +166,14 @@ class MagicDrawingBoardWindowController: NSWindowController {
         let leftLine = MagicLine(startPoint: leftTopPoint, endPoint: leftBottomPoint)
         let rightLine = MagicLine(startPoint: rightBottomPoint, endPoint: rightTopPoint)
         
-        leftBottomPoint.x -= halfLineWidth
-        rightBottomPoint.x += halfLineWidth
-        leftTopPoint.x -= halfLineWidth
-        rightTopPoint.x += halfLineWidth
+        if drawing.needDraw {
+            let halfLineWidth = drawing.style.lineWidth / 2
+            leftBottomPoint.x -= halfLineWidth
+            rightBottomPoint.x += halfLineWidth
+            leftTopPoint.x -= halfLineWidth
+            rightTopPoint.x += halfLineWidth
+        }
+        
         let topLine = MagicLine(startPoint: leftTopPoint, endPoint: rightTopPoint)
         let bottomLine = MagicLine(startPoint: leftBottomPoint, endPoint: rightBottomPoint)
         
@@ -228,59 +232,59 @@ class MagicDrawingBoardWindowController: NSWindowController {
         var point4: NSPoint? = line.endPoint
         if line.orientation == .horizontal {
             if line.beginPoint.y >= frame.minY, line.beginPoint.y <= frame.maxY {
-                if line.beginPoint.x <= frame.minX {
-                    if line.endPoint.x <= frame.minX {
-                    } else if line.endPoint.x > frame.minX, line.endPoint.x < frame.maxX {
-                        point4?.x = frame.minX
-                    } else if line.endPoint.x >= frame.maxX {
-                        point2 = NSMakePoint(frame.minX, line.beginPoint.y)
-                        point3 = NSMakePoint(frame.maxX, line.beginPoint.y)
+                if line.beginPoint.x < frame.minX {
+                    if line.endPoint.x < frame.minX {
+                    } else if line.endPoint.x >= frame.minX, line.endPoint.x <= frame.maxX {
+                        point4?.x = frame.minX - 1
+                    } else if line.endPoint.x > frame.maxX {
+                        point2 = NSMakePoint(frame.minX - 1, line.beginPoint.y)
+                        point3 = NSMakePoint(frame.maxX + 1, line.beginPoint.y)
                     }
-                } else if line.beginPoint.x > frame.minX, line.beginPoint.x < frame.maxX {
-                    if line.endPoint.x <= frame.minX {
-                        point1?.x = frame.minX
-                    } else if line.endPoint.x > frame.minX, line.endPoint.x < frame.maxX {
+                } else if line.beginPoint.x >= frame.minX, line.beginPoint.x <= frame.maxX {
+                    if line.endPoint.x < frame.minX {
+                        point1?.x = frame.minX - 1
+                    } else if line.endPoint.x >= frame.minX, line.endPoint.x <= frame.maxX {
                         point1 = nil
                         point4 = nil
-                    } else if line.endPoint.x >= frame.maxX {
-                        point1?.x = frame.maxX
+                    } else if line.endPoint.x > frame.maxX {
+                        point1?.x = frame.maxX + 1
                     }
-                } else if line.beginPoint.x >= frame.maxX {
-                    if line.endPoint.x <= frame.minX {
-                        point2 = NSMakePoint(frame.maxX, line.beginPoint.y)
-                        point3 = NSMakePoint(frame.minX, line.beginPoint.y)
-                    } else if line.endPoint.x > frame.minX, line.endPoint.x < frame.maxX {
-                        point4?.x = frame.maxX
-                    } else if line.endPoint.x >= frame.maxX {
+                } else if line.beginPoint.x > frame.maxX {
+                    if line.endPoint.x < frame.minX {
+                        point2 = NSMakePoint(frame.maxX + 1, line.beginPoint.y)
+                        point3 = NSMakePoint(frame.minX - 1, line.beginPoint.y)
+                    } else if line.endPoint.x >= frame.minX, line.endPoint.x <= frame.maxX {
+                        point4?.x = frame.maxX + 1
+                    } else if line.endPoint.x > frame.maxX {
                     }
                 }
             }
         } else {
             if line.beginPoint.x >= frame.minX, line.beginPoint.x <= frame.maxX {
-                if line.beginPoint.y <= frame.minY {
-                    if line.endPoint.y <= frame.minY {
-                    } else if line.endPoint.y > frame.minY, line.endPoint.y < frame.maxY {
-                        point4?.y = frame.minY
-                    } else if line.endPoint.y >= frame.maxY {
-                        point2 = NSMakePoint(line.beginPoint.x, frame.minY)
-                        point3 = NSMakePoint(line.beginPoint.x, frame.maxY)
+                if line.beginPoint.y < frame.minY {
+                    if line.endPoint.y < frame.minY {
+                    } else if line.endPoint.y >= frame.minY, line.endPoint.y <= frame.maxY {
+                        point4?.y = frame.minY - 1
+                    } else if line.endPoint.y > frame.maxY {
+                        point2 = NSMakePoint(line.beginPoint.x, frame.minY - 1)
+                        point3 = NSMakePoint(line.beginPoint.x, frame.maxY + 1)
                     }
-                } else if line.beginPoint.y > frame.minY, line.beginPoint.y < frame.maxY {
-                    if line.endPoint.y <= frame.minY {
-                        point1?.y = frame.minY
-                    } else if line.endPoint.y > frame.minY, line.endPoint.y < frame.maxY {
+                } else if line.beginPoint.y >= frame.minY, line.beginPoint.y <= frame.maxY {
+                    if line.endPoint.y < frame.minY {
+                        point1?.y = frame.minY - 1
+                    } else if line.endPoint.y >= frame.minY, line.endPoint.y <= frame.maxY {
                         point1 = nil
                         point4 = nil
-                    } else if line.endPoint.y >= frame.maxY {
-                        point1?.y = frame.maxY
+                    } else if line.endPoint.y > frame.maxY {
+                        point1?.y = frame.maxY + 1
                     }
-                } else if line.beginPoint.y >= frame.maxY {
-                    if line.endPoint.y <= frame.minY {
-                        point2 = NSMakePoint(line.beginPoint.x, frame.maxY)
-                        point3 = NSMakePoint(line.beginPoint.x, frame.minY)
-                    } else if line.endPoint.y > frame.minY, line.endPoint.y < frame.maxY {
-                        point4?.y = frame.maxY
-                    } else if line.endPoint.y >= frame.maxY {
+                } else if line.beginPoint.y > frame.maxY {
+                    if line.endPoint.y < frame.minY {
+                        point2 = NSMakePoint(line.beginPoint.x, frame.maxY + 1)
+                        point3 = NSMakePoint(line.beginPoint.x, frame.minY - 1)
+                    } else if line.endPoint.y >= frame.minY, line.endPoint.y <= frame.maxY {
+                        point4?.y = frame.maxY + 1
+                    } else if line.endPoint.y > frame.maxY {
                     }
                 }
             }

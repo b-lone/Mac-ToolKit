@@ -22,6 +22,8 @@
 		215F8ADC25B098EA000F4D45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F8ADB25B098EA000F4D45 /* ViewController.swift */; };
 		215F8ADE25B098EC000F4D45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215F8ADD25B098EC000F4D45 /* Assets.xcassets */; };
 		215F8AE125B098EC000F4D45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215F8ADF25B098EC000F4D45 /* Main.storyboard */; };
+		21771E2326834A8D004F40AB /* TestListWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771E2126834A8D004F40AB /* TestListWindowController.swift */; };
+		21771E2426834A8D004F40AB /* TestListWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21771E2226834A8D004F40AB /* TestListWindowController.xib */; };
 		217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */; };
 		219634CC26560CEA00BFA3F4 /* SparkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219634CB26560CEA00BFA3F4 /* SparkButton.swift */; };
 		219634D2265611CB00BFA3F4 /* momentum-ui-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 219634D1265611CB00BFA3F4 /* momentum-ui-icons.ttf */; };
@@ -69,6 +71,8 @@
 		215F8AE025B098EC000F4D45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		215F8AE225B098EC000F4D45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		215F8AE325B098EC000F4D45 /* Test_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Test_Mac.entitlements; sourceTree = "<group>"; };
+		21771E2126834A8D004F40AB /* TestListWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListWindowController.swift; sourceTree = "<group>"; };
+		21771E2226834A8D004F40AB /* TestListWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestListWindowController.xib; sourceTree = "<group>"; };
 		217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundSameSideCornerView.swift; sourceTree = "<group>"; };
 		219634CB26560CEA00BFA3F4 /* SparkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkButton.swift; sourceTree = "<group>"; };
 		219634D1265611CB00BFA3F4 /* momentum-ui-icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "momentum-ui-icons.ttf"; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 		215F8AD825B098EA000F4D45 /* Test-Mac */ = {
 			isa = PBXGroup;
 			children = (
+				21771E252683612D004F40AB /* Test */,
 				211C78962681AADB003D9EB4 /* Log */,
 				215F8AD925B098EA000F4D45 /* AppDelegate.swift */,
 				215F8ADD25B098EC000F4D45 /* Assets.xcassets */,
@@ -148,6 +153,15 @@
 				2197C8BA2638173500338898 /* WindowStroke */,
 			);
 			path = "Test-Mac";
+			sourceTree = "<group>";
+		};
+		21771E252683612D004F40AB /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				21771E2126834A8D004F40AB /* TestListWindowController.swift */,
+				21771E2226834A8D004F40AB /* TestListWindowController.xib */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		219634CF265611CB00BFA3F4 /* Resources */ = {
@@ -254,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21771E2426834A8D004F40AB /* TestListWindowController.xib in Resources */,
 				215F8ADE25B098EC000F4D45 /* Assets.xcassets in Resources */,
 				21E5CA2525F7952F002400F8 /* MyWindow.xib in Resources */,
 				215F8AE125B098EC000F4D45 /* Main.storyboard in Resources */,
@@ -279,6 +294,7 @@
 				21A38414264E179E00F12D78 /* GlobalShortcutHander.m in Sources */,
 				21A38411264E179E00F12D78 /* DDHotKeyUtilities.m in Sources */,
 				211C78992681AB03003D9EB4 /* LogsWindowController.swift in Sources */,
+				21771E2326834A8D004F40AB /* TestListWindowController.swift in Sources */,
 				219634CC26560CEA00BFA3F4 /* SparkButton.swift in Sources */,
 				211C78922681840C003D9EB4 /* TestDrawingBoard.swift in Sources */,
 				21A38413264E179E00F12D78 /* DDHotKeyCenter.m in Sources */,
