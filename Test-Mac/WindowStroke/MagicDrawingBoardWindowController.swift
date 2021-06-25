@@ -104,6 +104,8 @@ class MagicDrawingBoardWindowController: NSWindowController {
             NotificationCenter.default.post(name: Notification.Name(rawValue: OnShareShouldExcludeWindow), object: self, userInfo: ["windowNumber": windowNumber])
         }
         
+        SPARK_LOG_DEBUG("\(window?.windowNumber)")
+        
         onScreenUpdated()
     }
     
@@ -126,6 +128,7 @@ class MagicDrawingBoardWindowController: NSWindowController {
             $0.drawing = drawing
             $0.color = isKeyScreen ? MagicDrawingStyle.sharingApplication.lineColor : MagicDrawingStyle.unsharedApplication.lineColor
         }
+        optimizingVertices(lineList: lines)
         drawingBoardView.appendLines(lines)
 
         updateWindowVisibility()
@@ -158,22 +161,13 @@ class MagicDrawingBoardWindowController: NSWindowController {
     }
     
     private func getBorderLines(frame: CGRect, drawing: MagicDrawing) -> [MagicLine] {
-        var leftBottomPoint = NSMakePoint(frame.minX, frame.minY)
-        var rightBottomPoint = NSMakePoint(frame.maxX, frame.minY)
-        var leftTopPoint = NSMakePoint(frame.minX, frame.maxY)
-        var rightTopPoint = NSMakePoint(frame.maxX, frame.maxY)
+        let leftBottomPoint = NSMakePoint(frame.minX, frame.minY)
+        let rightBottomPoint = NSMakePoint(frame.maxX, frame.minY)
+        let leftTopPoint = NSMakePoint(frame.minX, frame.maxY)
+        let rightTopPoint = NSMakePoint(frame.maxX, frame.maxY)
         
-        let leftLine = MagicLine(startPoint: leftTopPoint, endPoint: leftBottomPoint)
+        let leftLine = MagicLine(startPoint: leftBottomPoint, endPoint: leftTopPoint)
         let rightLine = MagicLine(startPoint: rightBottomPoint, endPoint: rightTopPoint)
-        
-        if drawing.needDraw {
-            let halfLineWidth = drawing.style.lineWidth / 2
-            leftBottomPoint.x -= halfLineWidth
-            rightBottomPoint.x += halfLineWidth
-            leftTopPoint.x -= halfLineWidth
-            rightTopPoint.x += halfLineWidth
-        }
-        
         let topLine = MagicLine(startPoint: leftTopPoint, endPoint: rightTopPoint)
         let bottomLine = MagicLine(startPoint: leftBottomPoint, endPoint: rightBottomPoint)
         
@@ -303,5 +297,38 @@ class MagicDrawingBoardWindowController: NSWindowController {
             return [line]
         }
         return []
+    }
+    
+    private func getAdjustedHorizontalPoint(originPoint: CGPoint, comparedPoint: CGPoint, halfLineWidth: CGFloat, isAddition: Bool) -> CGPoint {
+        let dx = originPoint.x - comparedPoint.x
+        let dy = originPoint.y - comparedPoint.y
+        
+        if abs(dy) < halfLineWidth, abs(dx) < halfLineWidth {
+            if isAddition {
+                return NSMakePoint(comparedPoint.x + halfLineWidth, originPoint.y)
+            } else {
+                return NSMakePoint(comparedPoint.x - halfLineWidth, originPoint.y)
+            }
+        }
+        return originPoint
+    }
+    
+    private func optimizingVertices(lineList: [MagicLine]) {
+        let horizontalLineList = lineList.filter{ $0.orientation == .horizontal }
+        let verticalLineList = lineList.filter{ $0.orientation == .vertical }
+        
+        var halfLineWidth: CGFloat = 0
+        if !horizontalLineList.isEmpty {
+            halfLineWidth = horizontalLineList[0].width / 2
+        }
+        
+        for horizontalLine in horizontalLineList {
+            for verticalLine in verticalLineList {
+                horizontalLine.beginPoint = getAdjustedHorizontalPoint(originPoint: horizontalLine.beginPoint, comparedPoint: verticalLine.beginPoint, halfLineWidth: halfLineWidth, isAddition: horizontalLine.beginPoint.x >= horizontalLine.endPoint.x)
+                horizontalLine.beginPoint = getAdjustedHorizontalPoint(originPoint: horizontalLine.beginPoint, comparedPoint: verticalLine.endPoint, halfLineWidth: halfLineWidth, isAddition: horizontalLine.beginPoint.x >= horizontalLine.endPoint.x)
+                horizontalLine.endPoint = getAdjustedHorizontalPoint(originPoint: horizontalLine.endPoint, comparedPoint: verticalLine.beginPoint, halfLineWidth: halfLineWidth, isAddition: horizontalLine.endPoint.x >= horizontalLine.beginPoint.x)
+                horizontalLine.endPoint = getAdjustedHorizontalPoint(originPoint: horizontalLine.endPoint, comparedPoint: verticalLine.endPoint, halfLineWidth: halfLineWidth, isAddition: horizontalLine.endPoint.x >= horizontalLine.beginPoint.x)
+            }
+        }
     }
 }

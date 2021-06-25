@@ -94,6 +94,7 @@ class ViewController: NSViewController {
         
         testWindowController.registerTestCases(cases: testDrawingBoard)
         
+        testWindowController.window?.makeKeyAndOrderFront(self)
     }
     
     override func viewWillAppear() {
@@ -128,8 +129,10 @@ class ViewController: NSViewController {
     
     @IBAction func onLeftButton(_ sender: Any) {
         print("onLeftButton")
-//        var wc: MyWindow? = MyWindow()
+        var wc: MyWindow = MyWindow()
+        wc.showWindow(self)
 //        NSApp.runModal(for: wc!.window!)
+        SPARK_LOG_DEBUG("\(wc.window?.windowNumber)")
 //        wc = nil
         
 //        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) {_ in
@@ -139,7 +142,7 @@ class ViewController: NSViewController {
 //        let testWindow = TestWindow()
 //        testWindow.test()
         
-        testWindowController.showWindow(self)
+//        testWindowController.showWindow(self)
     }
     
     @IBAction func onRightButton(_ sender: Any) {
