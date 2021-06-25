@@ -39,7 +39,7 @@ enum MagicDrawingStyle {
         case .sharingScreen, .hoverScreen:
             return 8
         case .sharingApplication, .unsharedApplication:
-            return 5
+            return 4
         }
     }
 }
@@ -102,16 +102,16 @@ class MagicWindowInfo: NSObject {
     var frame: CGRect = .zero
     var level: Int = 0
     var stackingOrder: Int = 0
-    var pid: String = ""
+    var pid = ""
     var pName = ""
-    var screen: String = ""
-    var windowAlpha: Float = 1
-    var isOnscreen = false
+    var screen = ""
 }
+
+typealias MagicWindowInfoList = [MagicWindowInfo]
 
 class MagicDrawingBoardManager: NSObject {
     var drawingBoardWindowControllers = [String: MagicDrawingBoardWindowController]()
-    private var windowInfoList = [MagicWindowInfo]()
+    private var fullWindowInfoList = MagicWindowInfoList()
     private var drawingList = [MagicDrawing]()
     private var keyScreen: String? {
         didSet {
@@ -161,7 +161,7 @@ class MagicDrawingBoardManager: NSObject {
         if windowInfo.level == kCGMainMenuWindowLevel || windowInfo.level == kCGStatusWindowLevel || windowInfo.level == kCGDockWindowLevel || windowInfo.level == kCGUtilityWindowLevel || windowInfo.level == kCGPopUpMenuWindowLevel {
             return false
         }
-        if drawingBoardWindowControllers.values.contains(where:  { $0.window!.windowNumber == windowInfo.windowNumber }) {
+        if drawingBoardWindowControllers.values.contains(where: { $0.window!.windowNumber == windowInfo.windowNumber }) {
             return false
         }
         return true
@@ -174,11 +174,17 @@ class MagicDrawingBoardManager: NSObject {
         return NSMakeRect(rect.minX, screenFrame.maxY - rect.maxY, rect.width, rect.height)
     }
     
-    private func getWindowInfoList(from windowDescriptionList: Array<[CFString: AnyObject]>) -> [MagicWindowInfo] {
-        var windowInfoList = [MagicWindowInfo]()
+    private func getWindowInfoList(from windowDescriptionList: Array<[CFString: AnyObject]>) -> MagicWindowInfoList {
+        var windowInfoList = MagicWindowInfoList()
         
         for windowDescription in windowDescriptionList {
             let windowInfo = MagicWindowInfo()
+            if let name = windowDescription[kCGWindowName] {
+                windowInfo.name = String(name as! CFString)
+            }
+            if let pName = windowDescription[kCGWindowOwnerName] {
+                windowInfo.pName = String(pName as! CFString)
+            }
             if let windowLevel = windowDescription[kCGWindowLayer] as? Int {
                 windowInfo.level = windowLevel
             }
@@ -206,23 +212,23 @@ class MagicDrawingBoardManager: NSObject {
     }
     
     private func getWindowInfo(by windowNumber: Int) -> MagicWindowInfo? {
-        return windowInfoList.first { $0.windowNumber == windowNumber }
+        return fullWindowInfoList.first { $0.windowNumber == windowNumber }
     }
     
-    private func getBorderedWindowInfoList(windowList: [Int]) -> [MagicWindowInfo] {
-        return windowInfoList.compactMap { windowList.contains(Int($0.windowNumber)) ? $0 : nil }
+    private func getBorderedWindowInfoList(windowList: [Int]) -> MagicWindowInfoList {
+        return fullWindowInfoList.filter{ windowList.contains(Int($0.windowNumber)) }
     }
     
-    private func getWindowInfoListAbove(bottomWindowInfo: MagicWindowInfo) -> [MagicWindowInfo] {
-        if let bottomIndex = windowInfoList.firstIndex(where: { $0.windowNumber == bottomWindowInfo.windowNumber }) {
-            return Array(windowInfoList[(bottomIndex + 1)...])
+    private func getWindowInfoListAbove(bottomWindowInfo: MagicWindowInfo) -> MagicWindowInfoList {
+        if let bottomIndex = fullWindowInfoList.firstIndex(where: { $0.windowNumber == bottomWindowInfo.windowNumber }) {
+            return Array(fullWindowInfoList[(bottomIndex + 1)...])
         }
         return []
     }
     
     private func updateWindowInfoList() {
         if let windowDescriptionList = CGWindowListCopyWindowInfo([.optionOnScreenOnly], kCGNullWindowID) as? Array<[CFString: AnyObject]> {
-            windowInfoList = getWindowInfoList(from: windowDescriptionList)
+            fullWindowInfoList = getWindowInfoList(from: windowDescriptionList)
         }
     }
     
@@ -254,7 +260,7 @@ class MagicDrawingBoardManager: NSObject {
             switch drawing.type {
             case .applicationBorder:
                 if let applicationList = drawing.applicationList {
-                    let borderedWindowInfoList = windowInfoList.filter { applicationList.contains($0.pid) && !excludedWindowList.contains($0.windowNumber) }
+                    let borderedWindowInfoList = fullWindowInfoList.filter { applicationList.contains($0.pid) && !excludedWindowList.contains($0.windowNumber) }
                     if !borderedWindowInfoList.isEmpty {
                         let windowInfoListAbove = getWindowInfoListAbove(bottomWindowInfo: borderedWindowInfoList[0])
                         
@@ -286,9 +292,9 @@ class MagicDrawingBoardManager: NSObject {
         startTimer()
     }
     
-    private func calculateCoverState(for coveredWindowInfoList: [MagicWindowInfo], drawing: MagicDrawing) {
+    private func calculateCoverState(for coveredWindowInfoList: MagicWindowInfoList, drawing: MagicDrawing) {
         if let screen = drawing.screenOfCoverWindows, let drawingBoardWindowController = drawingBoardWindowControllers[screen] {
-            let isCovered = drawingBoardWindowController.getIsCovered(windowInfoList: windowInfoList, coveredWindowInfoList: coveredWindowInfoList, drawing: drawing)
+            let isCovered = drawingBoardWindowController.getIsCovered(windowInfoList: fullWindowInfoList, coveredWindowInfoList: coveredWindowInfoList, drawing: drawing)
             if let oldValue = coverState[drawing.id] {
                 if isCovered != oldValue {
                     updateCoverState(isCovered, drawing: drawing)
@@ -301,6 +307,7 @@ class MagicDrawingBoardManager: NSObject {
     
     private func updateCoverState(_ isCovered: Bool, drawing: MagicDrawing) {
         coverState[drawing.id] = isCovered
+        SPARK_LOG_DEBUG("id: \(drawing.id) isCovered:\(isCovered)")
         NotificationCenter.default.post(Notification(name: Notification.Name(OnWindowCoverStateChanged), object: self, userInfo: ["drawingId" : drawing.id, "state": isCovered]))
     }
 }

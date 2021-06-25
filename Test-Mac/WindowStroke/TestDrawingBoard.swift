@@ -122,12 +122,12 @@ class TestDrawingBoard: TestCases {
         
         for windowDescription in windowDescriptionList {
             let windowInfo = MagicWindowInfo()
-            if let alpha = windowDescription[kCGWindowAlpha] as? NSNumber {
-                windowInfo.windowAlpha = alpha.floatValue
-            }
-            if let isOnscreen = windowDescription[kCGWindowIsOnscreen] as? Bool {
-                windowInfo.isOnscreen = isOnscreen
-            }
+//            if let alpha = windowDescription[kCGWindowAlpha] as? NSNumber {
+//                windowInfo.windowAlpha = alpha.floatValue
+//            }
+//            if let isOnscreen = windowDescription[kCGWindowIsOnscreen] as? Bool {
+//                windowInfo.isOnscreen = isOnscreen
+//            }
             if let name = windowDescription[kCGWindowName] {
                 windowInfo.name = String(name as! CFString)
             }
