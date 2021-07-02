@@ -26,12 +26,14 @@ class TestDrawingBoard: TestCases {
     }
     
     override func getTestCases() -> [String] {
-        return ["main screen", "cover state", "application border", "screen border"]
+        return ["frame in screen", "main screen", "cover state", "application border", "screen border"]
     }
     
     override func onStartButton(caseName: String) {
         if caseName == "main screen" {
             testMainScreen()
+        } else if caseName == "frame in screen" {
+            testScreenFrame()
         } else if caseName == "cover state" {
             testCoverState()
         } else if caseName == "application border" {
@@ -44,6 +46,8 @@ class TestDrawingBoard: TestCases {
     override func onStopButton(caseName: String) {
         if caseName == "main screen" {
             testMainScreen(start: false)
+        } else if caseName == "frame in screen" {
+            testScreenFrame(start: false)
         } else if caseName == "cover state" {
             testCoverState(start: false)
         } else if caseName == "application border" {
@@ -57,10 +61,22 @@ class TestDrawingBoard: TestCases {
     private var testMainScreenTimer: Timer?
     func testMainScreen(start: Bool = true) {
         testMainScreenTimer?.invalidate()
+        SPARK_LOG_DEBUG(NSScreen.screens[0].uuid())
         if start {
-            Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
-                SPARK_LOG_DEBUG(NSScreen.main?.uuid())
+            testMainScreenTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
+                SPARK_LOG_DEBUG(NSScreen.main!.uuid()!)
             }
+        }
+    }
+    
+    //MARK: Case - Screen Frame
+    func testScreenFrame(start: Bool = true) {
+        for screen in NSScreen.screens {
+            SPARK_LOG_DEBUG("screenFrame: \(screen.frame)")
+        }
+        let windowInfoList = getWindowInfoList(pName: "Terminal")
+        for windowInfo in windowInfoList {
+            SPARK_LOG_DEBUG("windowFrame: \(windowInfo.frame)")
         }
     }
 
@@ -70,7 +86,6 @@ class TestDrawingBoard: TestCases {
         drawingBorder.removeDrawing(drawingId: testCoverStateDrawingId)
         testCoverStateDrawingId = MagicDrawing.inValidDrawingId
         if start {
-            updateWindowInfoList()
             let list = getWindowInfoList(pName: "Terminal")
             if !list.isEmpty {
                 testCoverStateDrawingId = drawingBorder.addDrawing(drawing: MagicDrawing.calculateWindowCoverState(windowList: [list[0].windowNumber], screenOfCoverWindows: NSScreen.main!.uuid()!))
@@ -90,12 +105,12 @@ class TestDrawingBoard: TestCases {
         drawingBorder.removeDrawing(drawingId: testDrawApplicationBorderDrawingId)
         testDrawApplicationBorderDrawingId = MagicDrawing.inValidDrawingId
         if start {
-            updateWindowInfoList()
             let list = getWindowInfoList(pName: "Terminal")
+//            let list = getWindowInfoList(pName: "Any")
             if !list.isEmpty {
                 testDrawApplicationBorderDrawingId = drawingBorder.addDrawing(drawing: MagicDrawing.applicationBorderDrawing(applicationList: [list[0].pid]))
             } else {
-                SPARK_LOG_DEBUG("Can't find Terminal window.")
+                SPARK_LOG_DEBUG("Can't find window.")
             }
         }
     }
@@ -122,12 +137,9 @@ class TestDrawingBoard: TestCases {
         
         for windowDescription in windowDescriptionList {
             let windowInfo = MagicWindowInfo()
-//            if let alpha = windowDescription[kCGWindowAlpha] as? NSNumber {
-//                windowInfo.windowAlpha = alpha.floatValue
-//            }
-//            if let isOnscreen = windowDescription[kCGWindowIsOnscreen] as? Bool {
-//                windowInfo.isOnscreen = isOnscreen
-//            }
+            if let alpha = windowDescription[kCGWindowAlpha] as? NSNumber {
+                windowInfo.alpha = CGFloat(alpha.floatValue)
+            }
             if let name = windowDescription[kCGWindowName] {
                 windowInfo.name = String(name as! CFString)
             }
@@ -171,15 +183,13 @@ class TestDrawingBoard: TestCases {
         if windowInfo.level == kCGMainMenuWindowLevel || windowInfo.level == kCGStatusWindowLevel || windowInfo.level == kCGDockWindowLevel || windowInfo.level == kCGUtilityWindowLevel || windowInfo.level == kCGPopUpMenuWindowLevel {
             return false
         }
-        if drawingBorder.drawingBoardWindowControllers.values.contains(where:  { $0.window!.windowNumber == windowInfo.windowNumber }) {
-            return false
-        }
         return true
     }
     
     private func getWindowInfoList(pName: String) -> [MagicWindowInfo] {
+        updateWindowInfoList()
         return windowInfoList.filter {
-            $0.pName == pName
+            $0.pName.contains(pName)
         }
     }
 }

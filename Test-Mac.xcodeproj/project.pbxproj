@@ -22,6 +22,8 @@
 		215F8ADC25B098EA000F4D45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F8ADB25B098EA000F4D45 /* ViewController.swift */; };
 		215F8ADE25B098EC000F4D45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215F8ADD25B098EC000F4D45 /* Assets.xcassets */; };
 		215F8AE125B098EC000F4D45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215F8ADF25B098EC000F4D45 /* Main.storyboard */; };
+		2176CDF1268AC3CD00FAA4E0 /* CollectionViewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2176CDEF268AC3CD00FAA4E0 /* CollectionViewWindowController.swift */; };
+		2176CDF2268AC3CD00FAA4E0 /* CollectionViewWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2176CDF0268AC3CD00FAA4E0 /* CollectionViewWindowController.xib */; };
 		21771E2326834A8D004F40AB /* TestListWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771E2126834A8D004F40AB /* TestListWindowController.swift */; };
 		21771E2426834A8D004F40AB /* TestListWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21771E2226834A8D004F40AB /* TestListWindowController.xib */; };
 		217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */; };
@@ -71,6 +73,8 @@
 		215F8AE025B098EC000F4D45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		215F8AE225B098EC000F4D45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		215F8AE325B098EC000F4D45 /* Test_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Test_Mac.entitlements; sourceTree = "<group>"; };
+		2176CDEF268AC3CD00FAA4E0 /* CollectionViewWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewWindowController.swift; sourceTree = "<group>"; };
+		2176CDF0268AC3CD00FAA4E0 /* CollectionViewWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewWindowController.xib; sourceTree = "<group>"; };
 		21771E2126834A8D004F40AB /* TestListWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListWindowController.swift; sourceTree = "<group>"; };
 		21771E2226834A8D004F40AB /* TestListWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestListWindowController.xib; sourceTree = "<group>"; };
 		217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundSameSideCornerView.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 		215F8AD825B098EA000F4D45 /* Test-Mac */ = {
 			isa = PBXGroup;
 			children = (
+				2176CDEE268AC39800FAA4E0 /* CollectionView */,
 				21771E252683612D004F40AB /* Test */,
 				211C78962681AADB003D9EB4 /* Log */,
 				215F8AD925B098EA000F4D45 /* AppDelegate.swift */,
@@ -153,6 +158,15 @@
 				2197C8BA2638173500338898 /* WindowStroke */,
 			);
 			path = "Test-Mac";
+			sourceTree = "<group>";
+		};
+		2176CDEE268AC39800FAA4E0 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				2176CDEF268AC3CD00FAA4E0 /* CollectionViewWindowController.swift */,
+				2176CDF0268AC3CD00FAA4E0 /* CollectionViewWindowController.xib */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		21771E252683612D004F40AB /* Test */ = {
@@ -274,6 +288,7 @@
 				215F8AE125B098EC000F4D45 /* Main.storyboard in Resources */,
 				219634D2265611CB00BFA3F4 /* momentum-ui-icons.ttf in Resources */,
 				211C789A2681AB03003D9EB4 /* LogsWindowController.xib in Resources */,
+				2176CDF2268AC3CD00FAA4E0 /* CollectionViewWindowController.xib in Resources */,
 				21094123266083B20040AC73 /* MagicDrawingBoardWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +314,7 @@
 				211C78922681840C003D9EB4 /* TestDrawingBoard.swift in Sources */,
 				21A38413264E179E00F12D78 /* DDHotKeyCenter.m in Sources */,
 				213E13A32637AAEA00DFECFF /* MouseView.swift in Sources */,
+				2176CDF1268AC3CD00FAA4E0 /* CollectionViewWindowController.swift in Sources */,
 				21E5CA2425F7952F002400F8 /* MyWindow.swift in Sources */,
 				21E5CA2825F871CE002400F8 /* TestWindow.mm in Sources */,
 				211C789026817D71003D9EB4 /* NSScreen+Extensions.m in Sources */,
