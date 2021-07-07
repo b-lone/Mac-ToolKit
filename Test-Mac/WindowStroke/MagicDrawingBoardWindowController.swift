@@ -13,14 +13,22 @@ enum MagicOrientation: Int {
     case vertical
 }
 
+class MagicDrawingElement: NSObject {
+    var drawing: MagicDrawing
+    init(drawing: MagicDrawing) {
+        self.drawing = drawing
+        super.init()
+    }
+}
+typealias MagicDrawingElementList = [MagicDrawingElement]
 
-class MagicLine: NSObject {
-    var beginPoint: NSPoint {
+class MagicLine: MagicDrawingElement {
+    var beginPoint: NSPoint = .zero {
         didSet {
             updateMinPointFlag()
         }
     }
-    var endPoint: NSPoint {
+    var endPoint: NSPoint = .zero {
         didSet {
             updateMinPointFlag()
         }
@@ -88,17 +96,16 @@ class MagicLine: NSObject {
     var stackingOrder: Int = 0
     var orientation: MagicOrientation = .horizontal
     private var mColor: NSColor?
-    var drawing: MagicDrawing!
     
-    init(startPoint: NSPoint, endPoint: NSPoint) {
+    convenience init(startPoint: NSPoint, endPoint: NSPoint, drawing: MagicDrawing) {
+        self.init(drawing: drawing)
         self.beginPoint = startPoint
         self.endPoint = endPoint
-        super.init()
         updateMinPointFlag()
     }
     
     override func copy() -> Any {
-        let line = MagicLine(startPoint: beginPoint, endPoint: endPoint)
+        let line = MagicLine(startPoint: beginPoint, endPoint: endPoint, drawing: drawing)
         line.stackingOrder = stackingOrder
         line.orientation = orientation
         line.drawing = drawing
@@ -110,16 +117,14 @@ class MagicLine: NSObject {
         minPointIsBeginPoint = beginPoint.x < endPoint.x || beginPoint.y < endPoint.y
     }
 }
-
 typealias MagicLineList = [MagicLine]
 
-class MagicText: NSObject {
+class MagicText: MagicDrawingElement {
     var frame: CGRect = .zero
     var cornerRadious: CGFloat = 0
     var backgroundColor = NSColor.black.withAlphaComponent(0.6)
     var attributedString = NSAttributedString()
     var textRect: CGRect { getTextRect() }
-    var drawing: MagicDrawing!
     
     private func getTextRect() -> CGRect {
         let size = attributedString.size()
@@ -128,57 +133,49 @@ class MagicText: NSObject {
         return NSMakeRect(originX, originY, size.width, size.height)
     }
 }
-
 typealias MagicTextList = [MagicText]
 
 class MagicDrawingBoardView: NSView {
-    private var lineList = MagicLineList() {
+    private var drawingElementList = [MagicDrawingElement]() {
         didSet {
             needsDisplay = true
         }
     }
     
-    private var textList = MagicTextList() {
-        didSet {
-            needsDisplay = true
-        }
+    var isEmpty: Bool { drawingElementList.isEmpty }
+    
+    func appendDrawingElementList(_ drawingElementList: MagicDrawingElementList) {
+        self.drawingElementList += drawingElementList
     }
     
-    var isEmpty: Bool { lineList.isEmpty && textList.isEmpty }
-    
-    func appendLines(_ lineList: MagicLineList) {
-        self.lineList += lineList
-    }
-    
-    func appendLabel(_ label: MagicText) {
-        self.textList.append(label)
+    func appendDrawingElement(_ drawingElement: MagicDrawingElement) {
+        self.drawingElementList.append(drawingElement)
     }
     
     func removeDrawing(drawingId: MagicDrawingId) {
-        lineList.removeAll { $0.drawing.id == drawingId }
-        textList.removeAll  { $0.drawing.id == drawingId }
+        drawingElementList.removeAll { $0.drawing.id == drawingId }
     }
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         
-        for line in lineList {
-            let bezierPath = NSBezierPath()
-            bezierPath.move(to: line.beginPoint)
-            bezierPath.line(to: line.endPoint)
-            
-            bezierPath.lineWidth = line.width
-            line.color.setStroke()
-            
-            bezierPath.stroke()
-        }
-        
-        for text in textList {
-            let bezierPath = NSBezierPath(roundedRect: text.frame, xRadius: text.cornerRadious, yRadius: text.cornerRadious)
-            text.backgroundColor.setFill()
-            bezierPath.fill()
-            
-            text.attributedString.draw(in: text.textRect)
+        for element in drawingElementList {
+            if let line = element as? MagicLine {
+                let bezierPath = NSBezierPath()
+                bezierPath.move(to: line.beginPoint)
+                bezierPath.line(to: line.endPoint)
+                
+                bezierPath.lineWidth = line.width
+                line.color.setStroke()
+                
+                bezierPath.stroke()
+            } else if let text = element as? MagicText {
+                let bezierPath = NSBezierPath(roundedRect: text.frame, xRadius: text.cornerRadious, yRadius: text.cornerRadious)
+                text.backgroundColor.setFill()
+                bezierPath.fill()
+                
+                text.attributedString.draw(in: text.textRect)
+            }
         }
     }
 }
@@ -251,7 +248,7 @@ class MagicDrawingBoardWindowController: NSWindowController {
         }
         optimizingVertices(lineList: lineList)
         convertLineFromScreen(lineList: lineList)
-        drawingBoardView.appendLines(lineList)
+        drawingBoardView.appendDrawingElementList(lineList)
 
         updateWindowVisibility()
     }
@@ -260,13 +257,13 @@ class MagicDrawingBoardWindowController: NSWindowController {
         updateFrame()
         let lineList = getScreenBorderLines(drawing: drawing)
         lineList.forEach{ $0.drawing = drawing }
-        drawingBoardView.appendLines(lineList)
+        drawingBoardView.appendDrawingElementList(lineList)
         
         updateWindowVisibility()
     }
     
     func drawScreenLabel(label: String, drawing: MagicDrawing) {
-        let text = MagicText()
+        let text = MagicText(drawing: drawing)
         let screenFrame = screen.frame
         text.drawing = drawing
         text.frame = NSMakeRect(16, screenFrame.height - 96, 80, 80)
@@ -277,7 +274,7 @@ class MagicDrawingBoardWindowController: NSWindowController {
             .foregroundColor: NSColor.white
         ])
         
-        drawingBoardView.appendLabel(text)
+        drawingBoardView.appendDrawingElement(text)
         
         updateWindowVisibility()
     }
@@ -315,10 +312,10 @@ class MagicDrawingBoardWindowController: NSWindowController {
         let leftTopPoint = NSMakePoint(frame.minX, frame.maxY)
         let rightTopPoint = NSMakePoint(frame.maxX, frame.maxY)
         
-        let leftLine = MagicLine(startPoint: leftBottomPoint, endPoint: leftTopPoint)
-        let rightLine = MagicLine(startPoint: rightBottomPoint, endPoint: rightTopPoint)
-        let topLine = MagicLine(startPoint: leftTopPoint, endPoint: rightTopPoint)
-        let bottomLine = MagicLine(startPoint: leftBottomPoint, endPoint: rightBottomPoint)
+        let leftLine = MagicLine(startPoint: leftBottomPoint, endPoint: leftTopPoint, drawing: drawing)
+        let rightLine = MagicLine(startPoint: rightBottomPoint, endPoint: rightTopPoint, drawing: drawing)
+        let topLine = MagicLine(startPoint: leftTopPoint, endPoint: rightTopPoint, drawing: drawing)
+        let bottomLine = MagicLine(startPoint: leftBottomPoint, endPoint: rightBottomPoint, drawing: drawing)
         
 
         topLine.orientation = .horizontal
