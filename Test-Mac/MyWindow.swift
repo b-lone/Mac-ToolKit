@@ -20,10 +20,9 @@ class MyWindow: NSWindowController {
 
         window?.delegate = self
 //        SPARK_LOG_DEBUG("\(window?.windowNumber)")
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     }
     
-    @IBAction func onRightButton(_ sender: Any) {
+    @IBAction func onButtonClicked(_ sender: Any) {
 //        let alert = NSAlert()
 //        alert.messageText = "test"
 //        let wc = MyWindow()
@@ -35,7 +34,7 @@ class MyWindow: NSWindowController {
 //        }
 //        RunLoop.current.add(timer, forMode: .modalPanel)
 //        NSApp.stopModal()
-//        print("onRightButton")
+        print("onButtonClicked")
     }
 }
 
@@ -43,21 +42,5 @@ extension MyWindow: NSWindowDelegate {
     func windowWillClose(_ notification: Notification) {
         print("windowWillClose")
 //        NSApp.stopModal()
-    }
-}
-
-extension MyWindow: NSCollectionViewDelegate {
-}
-
-extension MyWindow: NSCollectionViewDataSource {
-    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
-    }
-    
-    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let item = NSCollectionViewItem()
-        item.view.wantsLayer = true
-        item.view.layer?.backgroundColor = NSColor.blue.cgColor
-        return item
     }
 }

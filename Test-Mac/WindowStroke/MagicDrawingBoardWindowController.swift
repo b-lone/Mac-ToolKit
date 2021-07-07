@@ -67,10 +67,10 @@ class MagicLine: NSObject {
         set {
             if minPointIsBeginPoint {
                 endPoint.y = newValue
-                beginPoint.y = max(beginPoint.y, newValue)
+                beginPoint.y = min(beginPoint.y, newValue)
             } else {
                 beginPoint.y = newValue
-                endPoint.y = max(endPoint.y, newValue)
+                endPoint.y = min(endPoint.y, newValue)
             }
         }
     }
@@ -113,6 +113,24 @@ class MagicLine: NSObject {
 
 typealias MagicLineList = [MagicLine]
 
+class MagicText: NSObject {
+    var frame: CGRect = .zero
+    var cornerRadious: CGFloat = 0
+    var backgroundColor = NSColor.black.withAlphaComponent(0.6)
+    var attributedString = NSAttributedString()
+    var textRect: CGRect { getTextRect() }
+    var drawing: MagicDrawing!
+    
+    private func getTextRect() -> CGRect {
+        let size = attributedString.size()
+        let originX = frame.minX + (frame.width - size.width) / 2
+        let originY = frame.minY + (frame.height - size.height) / 2
+        return NSMakeRect(originX, originY, size.width, size.height)
+    }
+}
+
+typealias MagicTextList = [MagicText]
+
 class MagicDrawingBoardView: NSView {
     private var lineList = MagicLineList() {
         didSet {
@@ -120,18 +138,25 @@ class MagicDrawingBoardView: NSView {
         }
     }
     
-    var isEmpty: Bool { lineList.isEmpty }
+    private var textList = MagicTextList() {
+        didSet {
+            needsDisplay = true
+        }
+    }
+    
+    var isEmpty: Bool { lineList.isEmpty && textList.isEmpty }
     
     func appendLines(_ lineList: MagicLineList) {
         self.lineList += lineList
     }
     
-    func removeDrawing(drawingId: MagicDrawingId) {
-        lineList.removeAll { $0.drawing.id == drawingId }
+    func appendLabel(_ label: MagicText) {
+        self.textList.append(label)
     }
     
-    func removAll() {
-        lineList.removeAll()
+    func removeDrawing(drawingId: MagicDrawingId) {
+        lineList.removeAll { $0.drawing.id == drawingId }
+        textList.removeAll  { $0.drawing.id == drawingId }
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -146,6 +171,14 @@ class MagicDrawingBoardView: NSView {
             line.color.setStroke()
             
             bezierPath.stroke()
+        }
+        
+        for text in textList {
+            let bezierPath = NSBezierPath(roundedRect: text.frame, xRadius: text.cornerRadious, yRadius: text.cornerRadious)
+            text.backgroundColor.setFill()
+            bezierPath.fill()
+            
+            text.attributedString.draw(in: text.textRect)
         }
     }
 }
@@ -184,16 +217,12 @@ class MagicDrawingBoardWindowController: NSWindowController {
         
         window?.backgroundColor = .clear
         window?.ignoresMouseEvents = true
-        setuoWindowLevel()
+        setupWindowLevel()
         
-        onScreenUpdated()
+        updateFrame()
     }
     
-    private func onScreenUpdated() {
-        window?.setFrame(screen.frame, display: true)
-    }
-    
-    private func setuoWindowLevel() {
+    private func setupWindowLevel() {
         switch level {
         case .windowBorder:
             window?.level = .floating + 1
@@ -203,27 +232,32 @@ class MagicDrawingBoardWindowController: NSWindowController {
     }
     
     func removeDrawing(drawingId: MagicDrawingId) {
-        removeDrawingLines(drawingId: drawingId)
+        drawingBoardView.removeDrawing(drawingId: drawingId)
         
         updateWindowVisibility()
     }
     
     func drawWindowsBorder(aboveWindowInfoList: [MagicWindowInfo], targetWindowInfoList: [MagicWindowInfo], drawing: MagicDrawing) {
-        removeDrawingLines(drawingId: drawing.id)
+        drawingBoardView.removeDrawing(drawingId: drawing.id)
+        
+        updateFrame()
         
         var lineList = getBorderedWindowBorderLines(borderedWindowInfoList: targetWindowInfoList, drawing: drawing)
-        lineList = cutOverlappedLines(lineList: lineList, aboveWindowInfoList: aboveWindowInfoList, borderedWindowInfoList: targetWindowInfoList)
+        var coveredWindowInfoSet = Set<MagicWindowInfo>()
+        lineList = cutOverlappedLines(lineList: lineList, aboveWindowInfoList: aboveWindowInfoList, borderedWindowInfoList: targetWindowInfoList, coveredWindowInfoSet: &coveredWindowInfoSet)
         lineList.forEach{
             $0.drawing = drawing
             $0.color = isKeyScreen ? MagicDrawingStyle.sharingApplication.lineColor : MagicDrawingStyle.unsharedApplication.lineColor
         }
         optimizingVertices(lineList: lineList)
+        convertLineFromScreen(lineList: lineList)
         drawingBoardView.appendLines(lineList)
 
         updateWindowVisibility()
     }
     
     func drawScreenBorder(drawing: MagicDrawing) {
+        updateFrame()
         let lineList = getScreenBorderLines(drawing: drawing)
         lineList.forEach{ $0.drawing = drawing }
         drawingBoardView.appendLines(lineList)
@@ -231,15 +265,29 @@ class MagicDrawingBoardWindowController: NSWindowController {
         updateWindowVisibility()
     }
     
-    private func removeDrawingLines(drawingId: MagicDrawingId) {
-        drawingBoardView.removeDrawing(drawingId: drawingId)
+    func drawScreenLabel(label: String, drawing: MagicDrawing) {
+        let text = MagicText()
+        let screenFrame = screen.frame
+        text.drawing = drawing
+        text.frame = NSMakeRect(16, screenFrame.height - 96, 80, 80)
+        text.backgroundColor = .black.withAlphaComponent(0.6)
+        text.cornerRadious = 12
+        text.attributedString = NSAttributedString(string: label, attributes: [
+            .font: NSFont.systemFont(ofSize: 40),
+            .foregroundColor: NSColor.white
+        ])
+        
+        drawingBoardView.appendLabel(text)
+        
+        updateWindowVisibility()
     }
     
     private func updateWindowVisibility() {
-        if drawingBoardView.isEmpty {
+        if drawingBoardView.isEmpty, window?.isVisible == true {
             close()
-        } else {
+        } else if !drawingBoardView.isEmpty, window?.isVisible == false {
             showWindow(self)
+            updateFrame()
             if onceFlag {
                 onceFlag = false
                 if let windowNumber = window?.windowNumber {
@@ -248,13 +296,16 @@ class MagicDrawingBoardWindowController: NSWindowController {
             }
         }
     }
+    
+    private func updateFrame() {
+        window?.setFrame(screen.frame, display: true)
+    }
 
-    func getIsCovered(windowInfoList: [MagicWindowInfo], targetWindowInfoList: [MagicWindowInfo], drawing: MagicDrawing) -> Bool {
-        SPARK_LOG_TRACE("Start-----")
+    func getIsCovered(windowInfoList: [MagicWindowInfo], targetWindowInfoList: [MagicWindowInfo], drawing: MagicDrawing, coveredWindowInfoSet: inout Set<MagicWindowInfo>) -> Bool {
+        updateFrame()
         var lineList = getBorderedWindowBorderLines(borderedWindowInfoList: targetWindowInfoList, drawing: drawing)
-        lineList = cutOverlappedLines(lineList: lineList, aboveWindowInfoList: windowInfoList, borderedWindowInfoList: [])
-        cutBeyondScreenLines(lineList: &lineList)
-        SPARK_LOG_TRACE("Stop-----")
+        lineList = cutOverlappedLines(lineList: lineList, aboveWindowInfoList: windowInfoList, borderedWindowInfoList: targetWindowInfoList, coveredWindowInfoSet: &coveredWindowInfoSet)
+        removeBeyondScreenLines(lineList: &lineList)
         return lineList.count == 0
     }
     
@@ -283,7 +334,7 @@ class MagicDrawingBoardWindowController: NSWindowController {
     }
     
     private func getWindowBorderLines(windowInfo: MagicWindowInfo, drawing: MagicDrawing) -> MagicLineList {
-        let borderLineList = getBorderLines(frame: window!.convertFromScreen(windowInfo.frame), drawing: drawing)
+        let borderLineList = getBorderLines(frame: windowInfo.frame, drawing: drawing)
         borderLineList.forEach { $0.stackingOrder = windowInfo.stackingOrder }
         return borderLineList
     }
@@ -296,28 +347,33 @@ class MagicDrawingBoardWindowController: NSWindowController {
         return borderLineList
     }
     
-    private func cutOverlappedLines(lineList: MagicLineList, aboveWindowInfoList: [MagicWindowInfo], borderedWindowInfoList: [MagicWindowInfo]) -> MagicLineList   {
+    private func cutOverlappedLines(lineList: MagicLineList, aboveWindowInfoList: [MagicWindowInfo], borderedWindowInfoList: [MagicWindowInfo], coveredWindowInfoSet: inout Set<MagicWindowInfo>) -> MagicLineList   {
         var result = lineList
         for aboveWindowInfo in aboveWindowInfoList {
             var intermediateValues = MagicLineList()
             for line in result {
-                intermediateValues += cutOverlappedLine(line: line, windowInfo: aboveWindowInfo, stackingOrderIncrease: true)
+                let cutResult = cutOverlappedLine(line: line, windowInfo: aboveWindowInfo, stackingOrderIncrease: true)
+                intermediateValues += cutResult.lineList
+                if cutResult.isLineCut {
+                    coveredWindowInfoSet.insert(aboveWindowInfo)
+                }
             }
             result = intermediateValues
         }
         for borderedWindowInfo in borderedWindowInfoList {
             var intermediateValues = MagicLineList()
             for line in result {
-                intermediateValues += cutOverlappedLine(line: line, windowInfo: borderedWindowInfo, stackingOrderIncrease: false)
+                let cutResult = cutOverlappedLine(line: line, windowInfo: borderedWindowInfo, stackingOrderIncrease: false)
+                intermediateValues += cutResult.lineList
             }
             result = intermediateValues
         }
         return result
     }
     
-    private func cutOverlappedLine(line: MagicLine, windowInfo: MagicWindowInfo, stackingOrderIncrease: Bool) -> MagicLineList {
-        guard stackingOrderIncrease && windowInfo.stackingOrder > line.stackingOrder || !stackingOrderIncrease && windowInfo.stackingOrder < line.stackingOrder else { return [line] }
-        let frame = window!.convertFromScreen(windowInfo.frame)
+    private func cutOverlappedLine(line: MagicLine, windowInfo: MagicWindowInfo, stackingOrderIncrease: Bool) -> (lineList: MagicLineList, isLineCut: Bool){
+        guard stackingOrderIncrease && windowInfo.stackingOrder > line.stackingOrder || !stackingOrderIncrease && windowInfo.stackingOrder < line.stackingOrder else { return ([line], false) }
+        let frame = windowInfo.frame
         var point1:NSPoint? = line.beginPoint
         var point2: NSPoint?
         var point3: NSPoint?
@@ -397,27 +453,34 @@ class MagicDrawingBoardWindowController: NSWindowController {
             }
         }
         
-        if isLineCut {
-            SPARK_LOG_TRACE("covered by:\(windowInfo.pName) \(windowInfo.name) \(windowInfo.frame)")
-        }
-        
         if let point1 = point1, let point2 = point2, let point3 = point3, let point4 = point4 {
             let line2 = line.copy() as! MagicLine
             line.beginPoint = point1
             line.endPoint = point2
             line2.beginPoint = point3
             line2.endPoint = point4
-            return [line, line2]
+            return ([line, line2], isLineCut)
         } else if let point1 = point1, let point4 = point4 {
             line.beginPoint = point1
             line.endPoint = point4
-            return [line]
+            return ([line], isLineCut)
         }
-        return []
+        return ([], isLineCut)
+    }
+    
+    private func removeBeyondScreenLines(lineList: inout MagicLineList) {
+        let frame = screen.frame
+        
+        lineList.removeAll {
+            $0.minX > frame.maxX || $0.maxX < frame.minX || $0.minY > frame.maxY || $0.maxY < frame.minY
+        }
     }
     
     private func cutBeyondScreenLines(lineList: inout MagicLineList) {
         let frame = screen.frame
+        
+        removeBeyondScreenLines(lineList: &lineList)
+        
         for line in lineList {
             line.minX = max(line.minX, frame.minX)
             line.maxX = min(line.maxX, frame.maxX)
@@ -457,6 +520,14 @@ class MagicDrawingBoardWindowController: NSWindowController {
                 horizontalLine.endPoint = getAdjustedHorizontalPoint(originPoint: horizontalLine.endPoint, comparedPoint: verticalLine.beginPoint, halfLineWidth: halfLineWidth, isAddition: horizontalLine.endPoint.x >= horizontalLine.beginPoint.x)
                 horizontalLine.endPoint = getAdjustedHorizontalPoint(originPoint: horizontalLine.endPoint, comparedPoint: verticalLine.endPoint, halfLineWidth: halfLineWidth, isAddition: horizontalLine.endPoint.x >= horizontalLine.beginPoint.x)
             }
+        }
+    }
+    
+    private func convertLineFromScreen(lineList: MagicLineList) {
+        guard let window = window else { return }
+        for line in lineList {
+            line.beginPoint = window.convertPoint(fromScreen: line.beginPoint)
+            line.endPoint = window.convertPoint(fromScreen: line.endPoint)
         }
     }
 }

@@ -129,7 +129,7 @@ class ViewController: NSViewController {
     
     @IBAction func onLeftButton(_ sender: Any) {
         print("onLeftButton")
-//        var wc: MyWindow = MyWindow()
+//        let wc = MyWindow()
 //        wc.showWindow(self)
 //        NSApp.runModal(for: wc!.window!)
 //        SPARK_LOG_DEBUG("\(wc.window?.windowNumber)")
@@ -160,9 +160,10 @@ class ViewController: NSViewController {
     }
     
     private func setupLabel() {
-        label.labelText = "Hold   ⇧   to select multiple applications."
-        label.boldText = " ⇧ "
-        label.boldTextFont = .systemFont(ofSize: 20)
+        label.labelText = "Hold  \u{fa0a}  to select multiple applications."
+        label.boldText = "\u{fa0a}"
+//        label.boldTextFont = .systemFont(ofSize: 20)
+        label.boldTextFont = NSFont(name: "momentum-ui-icons", size: 20)
         
         label.fontSize = 16
         label.spacing = 8

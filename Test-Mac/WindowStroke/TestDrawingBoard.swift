@@ -26,7 +26,14 @@ class TestDrawingBoard: TestCases {
     }
     
     override func getTestCases() -> [String] {
-        return ["frame in screen", "main screen", "cover state", "application border", "screen border"]
+        return [
+//            "frame in screen",
+//            "main screen",
+            "cover state",
+            "application border",
+            "screen border",
+            "screen label",
+        ]
     }
     
     override func onStartButton(caseName: String) {
@@ -40,6 +47,8 @@ class TestDrawingBoard: TestCases {
             testDrawApplicationBorder()
         } else if caseName == "screen border" {
             testDrawScreenBorder()
+        } else if caseName == "screen label" {
+            testDrawScreenLabel()
         }
     }
     
@@ -54,6 +63,8 @@ class TestDrawingBoard: TestCases {
             testDrawApplicationBorder(start: false)
         } else if caseName == "screen border" {
             testDrawScreenBorder(start: false)
+        } else if caseName == "screen label" {
+            testDrawScreenLabel(start: false)
         }
     }
     
@@ -88,15 +99,15 @@ class TestDrawingBoard: TestCases {
         if start {
             let list = getWindowInfoList(pName: "Terminal")
             if !list.isEmpty {
-                testCoverStateDrawingId = drawingBorder.addDrawing(drawing: MagicDrawing.calculateWindowCoverState(windowList: [list[0].windowNumber], screenOfCoverWindows: NSScreen.main!.uuid()!))
+                testCoverStateDrawingId = drawingBorder.addDrawing(drawing: MagicDrawing.calculateWindowCoverState(windowList: [list[0].windowNumber], screenOfCoverWindows: NSScreen.screens[1].uuid()!))
             }
         }
     }
     
     @objc func onWindowCoverStateChanged(_ notification: Notification) {
-        if let userInfo = notification.userInfo, let coverState = userInfo["state"] as? Bool {
-            SPARK_LOG_DEBUG("\(coverState)")
-        }
+//        if let userInfo = notification.userInfo, let coverState = userInfo["state"] as? Bool {
+//            SPARK_LOG_DEBUG("\(coverState)")
+//        }
     }
     
     //MARK: Case - application border
@@ -116,12 +127,22 @@ class TestDrawingBoard: TestCases {
     }
     
     //MARK: Case - screen border
-    private var testDrawScreenBorderrDrawingId = MagicDrawing.inValidDrawingId
+    private var testDrawScreenBorderDrawingId = MagicDrawing.inValidDrawingId
     func testDrawScreenBorder(start: Bool = true) {
-        drawingBorder.removeDrawing(drawingId: testDrawScreenBorderrDrawingId)
-        testDrawScreenBorderrDrawingId = MagicDrawing.inValidDrawingId
+        drawingBorder.removeDrawing(drawingId: testDrawScreenBorderDrawingId)
+        testDrawScreenBorderDrawingId = MagicDrawing.inValidDrawingId
         if start {
-            testDrawScreenBorderrDrawingId = drawingBorder.addDrawing(drawing: MagicDrawing.screenBorderDrawing(screen: NSScreen.main!))
+            testDrawScreenBorderDrawingId = drawingBorder.addDrawing(drawing: MagicDrawing.screenBorderDrawing(screen: NSScreen.main!))
+        }
+    }
+    
+    //MARK: Case - screen label
+    private var testDrawScreenLabelDrawingId = MagicDrawing.inValidDrawingId
+    func testDrawScreenLabel(start: Bool = true) {
+        drawingBorder.removeDrawing(drawingId: testDrawScreenLabelDrawingId)
+        testDrawScreenLabelDrawingId = MagicDrawing.inValidDrawingId
+        if start {
+            testDrawScreenLabelDrawingId = drawingBorder.addDrawing(drawing: MagicDrawing.screenLabel())
         }
     }
     

@@ -34,5 +34,9 @@
 	<true/>
 	<key>ATSApplicationFontsPath</key>
 	<string>Resources</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>momentum-ui-icons.ttf</string>
+	</array>
 </dict>
 </plist>

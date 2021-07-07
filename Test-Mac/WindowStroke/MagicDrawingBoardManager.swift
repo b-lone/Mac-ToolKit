@@ -49,6 +49,7 @@ class MagicDrawing: NSObject {
         case screenBorder
         case windowBorder
         case applicationBorder
+        case screenLabel
     }
     let id: MagicDrawingId
     var type = DrawingType.screenBorder
@@ -94,6 +95,12 @@ class MagicDrawing: NSObject {
         drawing.screenOfCoverWindows = screenOfCoverWindows
         return drawing
     }
+    
+    class func screenLabel() -> MagicDrawing {
+        let drawing = MagicDrawing()
+        drawing.type = .screenLabel
+        return drawing
+    }
 }
 
 class MagicWindowInfo: NSObject {
@@ -128,11 +135,14 @@ class MagicDrawingBoardManager: NSObject {
     
     private weak var timer: Timer?
     
+    //[uuid: label]
+    private var screenList = [String: String]()
+    
     override init() {
         super.init()
         
         NotificationCenter.default.addObserver(self, selector: #selector(onChangeScreenParametersNotification), name: NSApplication.didChangeScreenParametersNotification, object: nil)
-        updateDrawingBoards()
+        onChangeScreenParametersNotification()
     }
     
     deinit {
@@ -143,6 +153,7 @@ class MagicDrawingBoardManager: NSObject {
     @objc private func onChangeScreenParametersNotification() {
         SPARK_LOG_DEBUG("")
         updateDrawingBoards()
+        updateScreenList()
     }
     
     private func updateDrawingBoards() {
@@ -167,6 +178,18 @@ class MagicDrawingBoardManager: NSObject {
         drawingList.forEach{
             if $0.type == .screenBorder {
                 drawingScreenBorder(drawing: $0)
+            }
+        }
+    }
+    
+    private func updateScreenList() {
+        let uuidList = NSScreen.screens.compactMap{ $0.uuid() }
+        for (index, uuid) in uuidList.enumerated() {
+            screenList[uuid] = "\(index + 1)"
+        }
+        drawingList.forEach{
+            if $0.type == .screenLabel {
+                drawScreenLabel(drawing: $0)
             }
         }
     }
@@ -361,18 +384,30 @@ class MagicDrawingBoardManager: NSObject {
                 let targetWindowInfoList = getWindowInfoList(windowNumberList: windowNumberList)
                 guard !targetWindowInfoList.isEmpty else { return }
                 let aboveWindowInfoList = getAboveWindowInfoList(bottomWindowInfo: targetWindowInfoList[0], screen: screen)
-                let isCovered = drawingBoard.getIsCovered(windowInfoList: aboveWindowInfoList, targetWindowInfoList: targetWindowInfoList, drawing: drawing)
-                processCoverStateResult(isCovered, drawing: drawing)
+                var coveredWindowInfoSet = Set<MagicWindowInfo>()
+                let isCovered = drawingBoard.getIsCovered(windowInfoList: aboveWindowInfoList, targetWindowInfoList: targetWindowInfoList, drawing: drawing, coveredWindowInfoSet: &coveredWindowInfoSet)
+                processCoverStateResult(isCovered, drawing: drawing, coveredWindowInfoSet: coveredWindowInfoSet)
             }
         }
     }
     
-    private func processCoverStateResult(_ isCovered: Bool, drawing: MagicDrawing) {
+    private func processCoverStateResult(_ isCovered: Bool, drawing: MagicDrawing, coveredWindowInfoSet: Set<MagicWindowInfo>) {
         if coverState[drawing.id] != isCovered {
             SPARK_LOG_DEBUG("id: \(drawing.id) isCovered:\(isCovered)")
+            if isCovered {
+                coveredWindowInfoSet.forEach {
+                    SPARK_LOG_DEBUG("covered by: \($0.pName)%\($0.name) \($0.frame)")
+                }
+            }
             NotificationCenter.default.post(Notification(name: Notification.Name(OnWindowCoverStateChanged), object: self, userInfo: ["drawingId" : drawing.id, "state": isCovered]))
             
             coverState[drawing.id] = isCovered
+        }
+    }
+    //MARK: screen label
+    private func drawScreenLabel(drawing: MagicDrawing) {
+        screenBorderDrawingBoardMap.forEach {
+            $0.value.drawScreenLabel(label: screenList[$0.key] ?? "", drawing: drawing)
         }
     }
 }
@@ -388,6 +423,8 @@ extension MagicDrawingBoardManager: MagicDrawingBoardManagerProtocol {
         case .windowBorder: fallthrough
         case .applicationBorder:
             drawingWindowBorder(drawing: drawing)
+        case .screenLabel:
+            drawScreenLabel(drawing: drawing)
         }
         
         return drawing.id
