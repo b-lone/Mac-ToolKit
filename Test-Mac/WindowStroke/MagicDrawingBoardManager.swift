@@ -10,7 +10,7 @@ import Cocoa
 
 typealias MagicDrawingId = Int
 
-protocol MagicDrawingBoardManagerProtocol {
+protocol MagicDrawingBoardManagerProtocol: AnyObject {
     func addDrawing(drawing: MagicDrawing) -> MagicDrawingId
     func removeDrawing(drawingId: MagicDrawingId)
     func setKeyScreen(screen: String)
@@ -22,6 +22,7 @@ enum MagicDrawingStyle {
     case hoverScreen
     case sharingApplication
     case unsharedApplication
+    case unsharedScreen
     
     var lineColor: NSColor {
         switch self {
@@ -29,14 +30,14 @@ enum MagicDrawingStyle {
             return .orange
         case .hoverScreen:
             return .green
-        case .unsharedApplication:
+        case .unsharedApplication, .unsharedScreen:
             return .gray
         }
     }
     
     var lineWidth: CGFloat {
         switch self {
-        case .sharingScreen, .hoverScreen:
+        case .sharingScreen, .hoverScreen, .unsharedScreen:
             return 8
         case .sharingApplication, .unsharedApplication:
             return 4
@@ -184,9 +185,14 @@ class MagicDrawingBoardManager: NSObject {
     
     private func updateScreenList() {
         let uuidList = NSScreen.screens.compactMap{ $0.uuid() }
-        for (index, uuid) in uuidList.enumerated() {
-            screenList[uuid] = "\(index + 1)"
+        
+        screenList.removeAll()
+        if uuidList.count > 1 {
+            for (index, uuid) in uuidList.enumerated() {
+                screenList[uuid] = "\(index + 1)"
+            }
         }
+        
         drawingList.forEach{
             if $0.type == .screenLabel {
                 drawScreenLabel(drawing: $0)
@@ -407,7 +413,9 @@ class MagicDrawingBoardManager: NSObject {
     //MARK: screen label
     private func drawScreenLabel(drawing: MagicDrawing) {
         screenBorderDrawingBoardMap.forEach {
-            $0.value.drawScreenLabel(label: screenList[$0.key] ?? "", drawing: drawing)
+            if let label = screenList[$0.key] {
+                $0.value.drawScreenLabel(label: label, drawing: drawing)
+            }
         }
     }
 }

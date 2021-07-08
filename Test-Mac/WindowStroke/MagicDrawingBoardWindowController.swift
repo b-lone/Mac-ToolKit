@@ -266,11 +266,11 @@ class MagicDrawingBoardWindowController: NSWindowController {
         let text = MagicText(drawing: drawing)
         let screenFrame = screen.frame
         text.drawing = drawing
-        text.frame = NSMakeRect(16, screenFrame.height - 96, 80, 80)
-        text.backgroundColor = .black.withAlphaComponent(0.6)
+        text.frame = NSMakeRect(32, screenFrame.height - 152, 120, 120)
+        text.backgroundColor = NSColor.black.withAlphaComponent(0.6)
         text.cornerRadious = 12
         text.attributedString = NSAttributedString(string: label, attributes: [
-            .font: NSFont.systemFont(ofSize: 40),
+            .font: NSFont.systemFont(ofSize: 64),
             .foregroundColor: NSColor.white
         ])
         
