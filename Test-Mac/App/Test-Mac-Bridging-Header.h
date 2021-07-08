@@ -9,7 +9,6 @@
 #ifndef Test_Mac_Bridging_Header_h
 #define Test_Mac_Bridging_Header_h
 
-#import "TestWindow.h"
 #import "GlobalShortcutHander.h"
 #import "NSScreen+Extensions.h"
 

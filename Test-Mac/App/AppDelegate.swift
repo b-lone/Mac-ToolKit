@@ -14,7 +14,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
 //        Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/macOSInjection.bundle")?.load()
         // Insert code here to initialize your application
-        print(NSFontManager.shared.availableFontFamilies.contains("momentum-ui-icons"))
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
