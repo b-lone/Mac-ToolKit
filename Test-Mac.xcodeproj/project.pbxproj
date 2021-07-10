@@ -36,6 +36,7 @@
 		21ABE999269730B70063C07A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABE998269730B70063C07A /* MainViewController.swift */; };
 		21ABE99D26973B040063C07A /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABE99B26973B040063C07A /* TestListViewController.swift */; };
 		21ABE99E26973B040063C07A /* TestListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21ABE99C26973B040063C07A /* TestListViewController.xib */; };
+		21AD5146269A2D60006DF32F /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD5145269A2D60006DF32F /* MainWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +90,7 @@
 		21ABE998269730B70063C07A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		21ABE99B26973B040063C07A /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
 		21ABE99C26973B040063C07A /* TestListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestListViewController.xib; sourceTree = "<group>"; };
+		21AD5145269A2D60006DF32F /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				215F8AE225B098EC000F4D45 /* Info.plist */,
 				215F8ADF25B098EC000F4D45 /* Main.storyboard */,
 				21ABE998269730B70063C07A /* MainViewController.swift */,
+				21AD5145269A2D60006DF32F /* MainWindowController.swift */,
 				215F8AE325B098EC000F4D45 /* Test_Mac.entitlements */,
 				2132C21A264E29E60032C2FB /* Test-Mac-Bridging-Header.h */,
 			);
@@ -327,6 +330,7 @@
 				21ABE99D26973B040063C07A /* TestListViewController.swift in Sources */,
 				21A38411264E179E00F12D78 /* DDHotKeyUtilities.m in Sources */,
 				211C78992681AB03003D9EB4 /* LogsWindowController.swift in Sources */,
+				21AD5146269A2D60006DF32F /* MainWindowController.swift in Sources */,
 				219634CC26560CEA00BFA3F4 /* SparkButton.swift in Sources */,
 				211C78922681840C003D9EB4 /* TestDrawingBoard.swift in Sources */,
 				21A38413264E179E00F12D78 /* DDHotKeyCenter.m in Sources */,

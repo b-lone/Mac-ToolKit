@@ -691,7 +691,7 @@
         <!--Window Controller-->
         <scene sceneID="K1w-hJ-BSM">
             <objects>
-                <windowController id="Wrf-kd-xok" sceneMemberID="viewController">
+                <windowController id="Wrf-kd-xok" customClass="MainWindowController" customModule="Test_Mac" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="U4c-lV-FLe">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
