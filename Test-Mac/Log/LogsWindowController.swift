@@ -22,7 +22,7 @@ public func SPARK_LOG_TRACE(_ msg: String?, lineNumber: Int32 = #line, fileName:
 class Logs: NSObject {
     class func show(log: String) {
         print(log)
-        LogsWindowController.shared.insertLog(log: log + "\n")
+//        LogsWindowController.shared.insertLog(log: log + "\n")
     }
 }
 

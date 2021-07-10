@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Wrf-kd-xok">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
@@ -689,123 +689,57 @@
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
         <!--Window Controller-->
-        <scene sceneID="R2V-B0-nI4">
+        <scene sceneID="K1w-hJ-BSM">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                <windowController id="Wrf-kd-xok" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="U4c-lV-FLe">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <rect key="contentRect" x="2105" y="270" width="480" height="270"/>
+                        <rect key="screenRect" x="1680" y="-192" width="2560" height="1415"/>
+                        <view key="contentView" id="73h-yk-KXS">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
                         <connections>
-                            <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
+                            <outlet property="delegate" destination="Wrf-kd-xok" id="5ul-cR-F8S"/>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="Im5-QZ-2c8" kind="relationship" relationship="window.shadowedContentViewController" id="q02-Ms-k6S"/>
                     </connections>
                 </windowController>
-                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="4xg-dJ-1Bq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="74" y="248"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <!--Main View Controller-->
+        <scene sceneID="VQy-eQ-84Q">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Test_Mac" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController id="Im5-QZ-2c8" customClass="MainViewController" customModule="Test_Mac" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="JkL-6y-6mI">
+                        <rect key="frame" x="0.0" y="0.0" width="498" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wvp-IL-VbJ">
-                                <rect key="frame" x="383" y="136" width="66" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Right" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Uch-Rk-ntt">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="onRightButton:" target="XfG-lQ-9wD" id="Upm-ye-ttM"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="8cf-HE-6H1">
-                                <rect key="frame" x="78" y="126" width="324" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="Xgm-ns-UYG"/>
-                                    <constraint firstAttribute="height" constant="18" id="ttv-kZ-mcr"/>
-                                </constraints>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="RQM-wC-MD5">
-                                    <font key="font" metaFont="cellTitle"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xFd-Jw-nHx">
-                                <rect key="frame" x="263" y="136" width="58" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Left" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lDg-ha-yKN">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="onLeftButton:" target="XfG-lQ-9wD" id="4Do-7I-Ip9"/>
-                                </connections>
-                            </button>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9V1-Az-4Tu" customClass="RoundSameSideCornerView" customModule="Test_Mac" customModuleProvider="target">
-                                <rect key="frame" x="241" y="174" width="163" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </customView>
-                            <customView toolTip="1" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qvY-bI-xOo" customClass="MouseView" customModule="Test_Mac" customModuleProvider="target">
-                                <rect key="frame" x="9" y="73" width="163" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="XUf-zK-a7e" customClass="FontelloIcon" customModule="Test_Mac" customModuleProvider="target">
-                                <rect key="frame" x="412" y="202" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Hav-jh-9zL"/>
-                                    <constraint firstAttribute="height" constant="60" id="npk-Fe-1gn"/>
-                                </constraints>
-                            </customView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="136-kT-PiC" customClass="FontelloLabelWithText" customModule="Test_Mac" customModuleProvider="target">
-                                <rect key="frame" x="6" y="8" width="468" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" id="ggH-PR-WoB">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <customView toolTip="2" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HIv-lr-Ccv" customClass="MouseView" customModule="Test_Mac" customModuleProvider="target">
-                                <rect key="frame" x="9" y="166" width="163" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </customView>
+                            <tabView drawsBackground="NO" type="bottomTabsBezelBorder" translatesAutoresizingMaskIntoConstraints="NO" id="Gqf-UI-Nx5">
+                                <rect key="frame" x="-7" y="-6" width="512" height="280"/>
+                                <font key="font" metaFont="system"/>
+                            </tabView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="XUf-zK-a7e" secondAttribute="trailing" constant="8" id="83E-Y7-aym"/>
-                            <constraint firstAttribute="bottom" secondItem="136-kT-PiC" secondAttribute="bottom" constant="8" id="8UE-Ye-TER"/>
-                            <constraint firstItem="XUf-zK-a7e" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="8" id="C9K-dP-RVE"/>
-                            <constraint firstItem="136-kT-PiC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="8" id="K32-Rh-GDG"/>
-                            <constraint firstItem="8cf-HE-6H1" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="PNX-A9-tuF"/>
-                            <constraint firstAttribute="trailing" secondItem="136-kT-PiC" secondAttribute="trailing" constant="8" id="suf-Cn-D4e"/>
-                            <constraint firstItem="8cf-HE-6H1" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="zof-GM-neY"/>
+                            <constraint firstAttribute="trailing" secondItem="Gqf-UI-Nx5" secondAttribute="trailing" id="K4k-33-0xT"/>
+                            <constraint firstItem="Gqf-UI-Nx5" firstAttribute="leading" secondItem="JkL-6y-6mI" secondAttribute="leading" id="OfP-AX-KOe"/>
+                            <constraint firstItem="Gqf-UI-Nx5" firstAttribute="top" secondItem="JkL-6y-6mI" secondAttribute="top" id="dag-0E-TVE"/>
+                            <constraint firstAttribute="bottom" secondItem="Gqf-UI-Nx5" secondAttribute="bottom" id="g0B-Of-KnS"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="iconView" destination="XUf-zK-a7e" id="twB-gB-pkh"/>
-                        <outlet property="label" destination="136-kT-PiC" id="Y0x-De-xyc"/>
-                        <outlet property="leftButton" destination="xFd-Jw-nHx" id="45Q-Rx-9eS"/>
-                        <outlet property="roundView" destination="9V1-Az-4Tu" id="tLu-Pw-mOB"/>
-                        <outlet property="v1" destination="qvY-bI-xOo" id="RPO-Ar-iVJ"/>
-                        <outlet property="v2" destination="HIv-lr-Ccv" id="J94-8Z-wPv"/>
+                        <outlet property="tabView" destination="Gqf-UI-Nx5" id="Dnu-c0-kg7"/>
                     </connections>
                 </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="iyo-9j-vJZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="74" y="667"/>
         </scene>
     </scenes>
 </document>

@@ -18,13 +18,10 @@
 		211C789F2681E1B4003D9EB4 /* FontelloLabelWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C789E2681E1B4003D9EB4 /* FontelloLabelWithText.swift */; };
 		213E13A32637AAEA00DFECFF /* MouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213E13A22637AAEA00DFECFF /* MouseView.swift */; };
 		215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F8AD925B098EA000F4D45 /* AppDelegate.swift */; };
-		215F8ADC25B098EA000F4D45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F8ADB25B098EA000F4D45 /* ViewController.swift */; };
 		215F8ADE25B098EC000F4D45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215F8ADD25B098EC000F4D45 /* Assets.xcassets */; };
 		215F8AE125B098EC000F4D45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215F8ADF25B098EC000F4D45 /* Main.storyboard */; };
 		2176CDF1268AC3CD00FAA4E0 /* CollectionViewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2176CDEF268AC3CD00FAA4E0 /* CollectionViewWindowController.swift */; };
 		2176CDF2268AC3CD00FAA4E0 /* CollectionViewWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2176CDF0268AC3CD00FAA4E0 /* CollectionViewWindowController.xib */; };
-		21771E2326834A8D004F40AB /* TestListWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21771E2126834A8D004F40AB /* TestListWindowController.swift */; };
-		21771E2426834A8D004F40AB /* TestListWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21771E2226834A8D004F40AB /* TestListWindowController.xib */; };
 		217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */; };
 		219634CC26560CEA00BFA3F4 /* SparkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219634CB26560CEA00BFA3F4 /* SparkButton.swift */; };
 		219634D2265611CB00BFA3F4 /* momentum-ui-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 219634D1265611CB00BFA3F4 /* momentum-ui-icons.ttf */; };
@@ -33,6 +30,12 @@
 		21A38412264E179E00F12D78 /* DDHotKeyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A3840D264E179E00F12D78 /* DDHotKeyTextField.m */; };
 		21A38413264E179E00F12D78 /* DDHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A3840E264E179E00F12D78 /* DDHotKeyCenter.m */; };
 		21A38414264E179E00F12D78 /* GlobalShortcutHander.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A3840F264E179E00F12D78 /* GlobalShortcutHander.m */; };
+		21ABE9942696F8330063C07A /* MyWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABE9922696F8330063C07A /* MyWindowController.swift */; };
+		21ABE9952696F8330063C07A /* MyWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21ABE9932696F8330063C07A /* MyWindowController.xib */; };
+		21ABE9972696F8C90063C07A /* TestWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABE9962696F8C90063C07A /* TestWindow.swift */; };
+		21ABE999269730B70063C07A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABE998269730B70063C07A /* MainViewController.swift */; };
+		21ABE99D26973B040063C07A /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABE99B26973B040063C07A /* TestListViewController.swift */; };
+		21ABE99E26973B040063C07A /* TestListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21ABE99C26973B040063C07A /* TestListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,15 +66,12 @@
 		213E13A22637AAEA00DFECFF /* MouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseView.swift; sourceTree = "<group>"; };
 		215F8AD625B098EA000F4D45 /* Test-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		215F8AD925B098EA000F4D45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		215F8ADB25B098EA000F4D45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		215F8ADD25B098EC000F4D45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		215F8AE025B098EC000F4D45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		215F8AE225B098EC000F4D45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		215F8AE325B098EC000F4D45 /* Test_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Test_Mac.entitlements; sourceTree = "<group>"; };
 		2176CDEF268AC3CD00FAA4E0 /* CollectionViewWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewWindowController.swift; sourceTree = "<group>"; };
 		2176CDF0268AC3CD00FAA4E0 /* CollectionViewWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewWindowController.xib; sourceTree = "<group>"; };
-		21771E2126834A8D004F40AB /* TestListWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListWindowController.swift; sourceTree = "<group>"; };
-		21771E2226834A8D004F40AB /* TestListWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestListWindowController.xib; sourceTree = "<group>"; };
 		217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundSameSideCornerView.swift; sourceTree = "<group>"; };
 		219634CB26560CEA00BFA3F4 /* SparkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkButton.swift; sourceTree = "<group>"; };
 		219634D1265611CB00BFA3F4 /* momentum-ui-icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "momentum-ui-icons.ttf"; sourceTree = "<group>"; };
@@ -83,6 +83,12 @@
 		21A3840E264E179E00F12D78 /* DDHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHotKeyCenter.m; sourceTree = "<group>"; };
 		21A3840F264E179E00F12D78 /* GlobalShortcutHander.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalShortcutHander.m; sourceTree = "<group>"; };
 		21A38410264E179E00F12D78 /* DDHotKeyUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyUtilities.h; sourceTree = "<group>"; };
+		21ABE9922696F8330063C07A /* MyWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWindowController.swift; sourceTree = "<group>"; };
+		21ABE9932696F8330063C07A /* MyWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyWindowController.xib; sourceTree = "<group>"; };
+		21ABE9962696F8C90063C07A /* TestWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWindow.swift; sourceTree = "<group>"; };
+		21ABE998269730B70063C07A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		21ABE99B26973B040063C07A /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
+		21ABE99C26973B040063C07A /* TestListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,7 @@
 		215F8AD825B098EA000F4D45 /* Test-Mac */ = {
 			isa = PBXGroup;
 			children = (
+				21ABE9912696F2BC0063C07A /* Window */,
 				21ABE9902696DE900063C07A /* App */,
 				21ABE98F2696DE3C0063C07A /* Utils */,
 				2176CDEE268AC39800FAA4E0 /* CollectionView */,
@@ -148,8 +155,8 @@
 		21771E252683612D004F40AB /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				21771E2126834A8D004F40AB /* TestListWindowController.swift */,
-				21771E2226834A8D004F40AB /* TestListWindowController.xib */,
+				21ABE99B26973B040063C07A /* TestListViewController.swift */,
+				21ABE99C26973B040063C07A /* TestListViewController.xib */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -218,11 +225,21 @@
 				215F8ADD25B098EC000F4D45 /* Assets.xcassets */,
 				215F8AE225B098EC000F4D45 /* Info.plist */,
 				215F8ADF25B098EC000F4D45 /* Main.storyboard */,
+				21ABE998269730B70063C07A /* MainViewController.swift */,
 				215F8AE325B098EC000F4D45 /* Test_Mac.entitlements */,
 				2132C21A264E29E60032C2FB /* Test-Mac-Bridging-Header.h */,
-				215F8ADB25B098EA000F4D45 /* ViewController.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		21ABE9912696F2BC0063C07A /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				21ABE9922696F8330063C07A /* MyWindowController.swift */,
+				21ABE9932696F8330063C07A /* MyWindowController.xib */,
+				21ABE9962696F8C90063C07A /* TestWindow.swift */,
+			);
+			path = Window;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +301,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21771E2426834A8D004F40AB /* TestListWindowController.xib in Resources */,
+				21ABE99E26973B040063C07A /* TestListViewController.xib in Resources */,
+				21ABE9952696F8330063C07A /* MyWindowController.xib in Resources */,
 				215F8ADE25B098EC000F4D45 /* Assets.xcassets in Resources */,
 				215F8AE125B098EC000F4D45 /* Main.storyboard in Resources */,
 				219634D2265611CB00BFA3F4 /* momentum-ui-icons.ttf in Resources */,
@@ -302,23 +320,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				21094124266083B20040AC73 /* MagicDrawingBoardManager.swift in Sources */,
-				215F8ADC25B098EA000F4D45 /* ViewController.swift in Sources */,
 				215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */,
 				21094125266083B20040AC73 /* MagicDrawingBoardWindowController.swift in Sources */,
 				21A38412264E179E00F12D78 /* DDHotKeyTextField.m in Sources */,
 				21A38414264E179E00F12D78 /* GlobalShortcutHander.m in Sources */,
+				21ABE99D26973B040063C07A /* TestListViewController.swift in Sources */,
 				21A38411264E179E00F12D78 /* DDHotKeyUtilities.m in Sources */,
 				211C78992681AB03003D9EB4 /* LogsWindowController.swift in Sources */,
-				21771E2326834A8D004F40AB /* TestListWindowController.swift in Sources */,
 				219634CC26560CEA00BFA3F4 /* SparkButton.swift in Sources */,
 				211C78922681840C003D9EB4 /* TestDrawingBoard.swift in Sources */,
 				21A38413264E179E00F12D78 /* DDHotKeyCenter.m in Sources */,
+				21ABE9942696F8330063C07A /* MyWindowController.swift in Sources */,
 				213E13A32637AAEA00DFECFF /* MouseView.swift in Sources */,
 				2176CDF1268AC3CD00FAA4E0 /* CollectionViewWindowController.swift in Sources */,
 				211C789026817D71003D9EB4 /* NSScreen+Extensions.m in Sources */,
 				211C788A2680742E003D9EB4 /* FontelloButton.swift in Sources */,
 				217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */,
 				211C789F2681E1B4003D9EB4 /* FontelloLabelWithText.swift in Sources */,
+				21ABE9972696F8C90063C07A /* TestWindow.swift in Sources */,
+				21ABE999269730B70063C07A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

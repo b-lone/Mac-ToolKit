@@ -11,7 +11,12 @@ import Cocoa
 let OnWindowCoverStateChanged = "OnWindowCoverStateChanged"
 let OnShareShouldExcludeWindow = "OnShareShouldExcludeWindow"
 
-class TestDrawingBoard: TestCases {
+class TestDrawingBoard: NSObject {
+    let caseNameCoverState = "cover state"
+    let caseNameApplicationBorder = "application border"
+    let caseNameScreenBorder = "screen border"
+    let caseNameScreenLabel = "screen label"
+    
     private var windowInfoList = [MagicWindowInfo]()
     private var drawingBorder: MagicDrawingBoardManager = MagicDrawingBoardManager()
     
@@ -23,72 +28,6 @@ class TestDrawingBoard: TestCases {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-    }
-    
-    override func getTestCases() -> [String] {
-        return [
-//            "frame in screen",
-//            "main screen",
-            "cover state",
-            "application border",
-            "screen border",
-            "screen label",
-        ]
-    }
-    
-    override func onStartButton(caseName: String) {
-        if caseName == "main screen" {
-            testMainScreen()
-        } else if caseName == "frame in screen" {
-            testScreenFrame()
-        } else if caseName == "cover state" {
-            testCoverState()
-        } else if caseName == "application border" {
-            testDrawApplicationBorder()
-        } else if caseName == "screen border" {
-            testDrawScreenBorder()
-        } else if caseName == "screen label" {
-            testDrawScreenLabel()
-        }
-    }
-    
-    override func onStopButton(caseName: String) {
-        if caseName == "main screen" {
-            testMainScreen(start: false)
-        } else if caseName == "frame in screen" {
-            testScreenFrame(start: false)
-        } else if caseName == "cover state" {
-            testCoverState(start: false)
-        } else if caseName == "application border" {
-            testDrawApplicationBorder(start: false)
-        } else if caseName == "screen border" {
-            testDrawScreenBorder(start: false)
-        } else if caseName == "screen label" {
-            testDrawScreenLabel(start: false)
-        }
-    }
-    
-    //MARK: Case - Main Screen
-    private var testMainScreenTimer: Timer?
-    func testMainScreen(start: Bool = true) {
-        testMainScreenTimer?.invalidate()
-        SPARK_LOG_DEBUG(NSScreen.screens[0].uuid())
-        if start {
-            testMainScreenTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
-                SPARK_LOG_DEBUG(NSScreen.main!.uuid()!)
-            }
-        }
-    }
-    
-    //MARK: Case - Screen Frame
-    func testScreenFrame(start: Bool = true) {
-        for screen in NSScreen.screens {
-            SPARK_LOG_DEBUG("screenFrame: \(screen.frame)")
-        }
-        let windowInfoList = getWindowInfoList(pName: "Terminal")
-        for windowInfo in windowInfoList {
-            SPARK_LOG_DEBUG("windowFrame: \(windowInfo.frame)")
-        }
     }
 
     //MARK: Case - cover state
@@ -211,6 +150,55 @@ class TestDrawingBoard: TestCases {
         updateWindowInfoList()
         return windowInfoList.filter {
             $0.pName.contains(pName)
+        }
+    }
+}
+
+extension TestDrawingBoard: TestCasesManager {
+    var testName: String { "Drawing Board" }
+    
+    func getTestCases() -> TestCaseList {
+        var testCaseList = TestCaseList()
+        var testCase = TestCase(name: caseNameCoverState)
+        testCaseList.append(testCase)
+        
+        testCase = TestCase(name: caseNameApplicationBorder)
+        testCaseList.append(testCase)
+        
+        testCase = TestCase(name: caseNameScreenBorder)
+        testCaseList.append(testCase)
+        
+        testCase = TestCase(name: caseNameScreenLabel)
+        testCaseList.append(testCase)
+        
+        return testCaseList
+    }
+    
+    func onButton(caseName: String, actionName: String) {
+        if caseName == caseNameCoverState {
+            if actionName == TestAction.startAction {
+                testCoverState()
+            } else if actionName == TestAction.stopAction {
+                testCoverState(start: false)
+            }
+        } else if caseName == caseNameApplicationBorder {
+            if actionName == TestAction.startAction {
+                testDrawApplicationBorder()
+            } else if actionName == TestAction.stopAction {
+                testDrawApplicationBorder(start: false)
+            }
+        }  else if caseName == caseNameScreenBorder {
+            if actionName == TestAction.startAction {
+                testDrawScreenBorder()
+            } else if actionName == TestAction.stopAction {
+                testDrawScreenLabel()
+            }
+        }  else if caseName == caseNameScreenLabel {
+            if actionName == TestAction.startAction {
+                testDrawScreenBorder(start: false)
+            } else if actionName == TestAction.stopAction {
+                testDrawScreenLabel(start: false)
+            }
         }
     }
 }
