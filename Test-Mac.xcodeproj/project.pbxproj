@@ -116,9 +116,9 @@
 		215F8ACD25B098EA000F4D45 = {
 			isa = PBXGroup;
 			children = (
-				215F8AD825B098EA000F4D45 /* Test-Mac */,
 				21A38408264E179E00F12D78 /* Hotkey */,
 				215F8AD725B098EA000F4D45 /* Products */,
+				215F8AD825B098EA000F4D45 /* Test-Mac */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,13 +133,13 @@
 		215F8AD825B098EA000F4D45 /* Test-Mac */ = {
 			isa = PBXGroup;
 			children = (
-				21ABE9912696F2BC0063C07A /* Window */,
 				21ABE9902696DE900063C07A /* App */,
-				21ABE98F2696DE3C0063C07A /* Utils */,
 				2176CDEE268AC39800FAA4E0 /* CollectionView */,
 				211C78962681AADB003D9EB4 /* Log */,
 				219634CF265611CB00BFA3F4 /* Resources */,
 				21771E252683612D004F40AB /* Test */,
+				21ABE98F2696DE3C0063C07A /* Utils */,
+				21ABE9912696F2BC0063C07A /* Window */,
 				2197C8BA2638173500338898 /* WindowStroke */,
 			);
 			path = "Test-Mac";
