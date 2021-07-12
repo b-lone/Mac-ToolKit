@@ -12,11 +12,14 @@ class MainViewController: NSViewController {
     @IBOutlet weak var tabView: NSTabView!
     private var testListViewControllerList = [TestListViewController]()
     
-    private var testDrawingBoard = TestDrawingBoard()
-    private var testWindow = TestWindow()
+    private var testCasesManagerList = [TestCasesManager]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        testCasesManagerList.append(TestDrawingBoard())
+        testCasesManagerList.append(TestWindow())
+        testCasesManagerList.append(TestCoreAnimation())
         
         generateTestListViewControllerList()
         
@@ -29,9 +32,9 @@ class MainViewController: NSViewController {
     }
     
     private func generateTestListViewControllerList() {
-        var viewController = TestListViewController(testCasesManager: testDrawingBoard)
-        testListViewControllerList.append(viewController)
-        viewController = TestListViewController(testCasesManager: testWindow)
-        testListViewControllerList.append(viewController)
+        for testCasesManager in testCasesManagerList {
+            let viewController = TestListViewController(testCasesManager: testCasesManager)
+            testListViewControllerList.append(viewController)
+        }
     }
 }

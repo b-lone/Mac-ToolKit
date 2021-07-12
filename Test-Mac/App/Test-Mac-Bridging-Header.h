@@ -11,6 +11,7 @@
 
 #import "GlobalShortcutHander.h"
 #import "NSScreen+Extensions.h"
+#import "ObjCExceptionCatcher.h"
 
 
 #endif /* Test_Mac_Bridging_Header_h */

@@ -37,6 +37,13 @@
 		21ABE99D26973B040063C07A /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABE99B26973B040063C07A /* TestListViewController.swift */; };
 		21ABE99E26973B040063C07A /* TestListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21ABE99C26973B040063C07A /* TestListViewController.xib */; };
 		21AD5146269A2D60006DF32F /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD5145269A2D60006DF32F /* MainWindowController.swift */; };
+		21AD5149269B3E32006DF32F /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD5148269B3E32006DF32F /* AppContext.swift */; };
+		21AD514C269B3FC8006DF32F /* CommonTestWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD514A269B3FC8006DF32F /* CommonTestWindowController.swift */; };
+		21AD514D269B3FC8006DF32F /* CommonTestWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21AD514B269B3FC8006DF32F /* CommonTestWindowController.xib */; };
+		21AD514F269B3FFE006DF32F /* TestCoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD514E269B3FFE006DF32F /* TestCoreAnimation.swift */; };
+		21AD5151269B4215006DF32F /* LayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD5150269B4215006DF32F /* LayerDelegate.swift */; };
+		21AD5156269C8F37006DF32F /* NSView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD5155269C8F37006DF32F /* NSView+Extensions.swift */; };
+		21AD515A269C8FCD006DF32F /* ObjCExceptionCatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AD5158269C8FCD006DF32F /* ObjCExceptionCatcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -91,6 +98,14 @@
 		21ABE99B26973B040063C07A /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
 		21ABE99C26973B040063C07A /* TestListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestListViewController.xib; sourceTree = "<group>"; };
 		21AD5145269A2D60006DF32F /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		21AD5148269B3E32006DF32F /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
+		21AD514A269B3FC8006DF32F /* CommonTestWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTestWindowController.swift; sourceTree = "<group>"; };
+		21AD514B269B3FC8006DF32F /* CommonTestWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonTestWindowController.xib; sourceTree = "<group>"; };
+		21AD514E269B3FFE006DF32F /* TestCoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreAnimation.swift; sourceTree = "<group>"; };
+		21AD5150269B4215006DF32F /* LayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerDelegate.swift; sourceTree = "<group>"; };
+		21AD5155269C8F37006DF32F /* NSView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Extensions.swift"; sourceTree = "<group>"; };
+		21AD5158269C8FCD006DF32F /* ObjCExceptionCatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCExceptionCatcher.m; sourceTree = "<group>"; };
+		21AD5159269C8FCD006DF32F /* ObjCExceptionCatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCExceptionCatcher.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +150,7 @@
 			children = (
 				21ABE9902696DE900063C07A /* App */,
 				2176CDEE268AC39800FAA4E0 /* CollectionView */,
+				21AD5147269AB752006DF32F /* CoreAnimation */,
 				211C78962681AADB003D9EB4 /* Log */,
 				219634CF265611CB00BFA3F4 /* Resources */,
 				21771E252683612D004F40AB /* Test */,
@@ -157,6 +173,8 @@
 		21771E252683612D004F40AB /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				21AD514A269B3FC8006DF32F /* CommonTestWindowController.swift */,
+				21AD514B269B3FC8006DF32F /* CommonTestWindowController.xib */,
 				21ABE99B26973B040063C07A /* TestListViewController.swift */,
 				21ABE99C26973B040063C07A /* TestListViewController.xib */,
 			);
@@ -214,6 +232,9 @@
 				211C78892680742E003D9EB4 /* FontelloButton.swift */,
 				211C789E2681E1B4003D9EB4 /* FontelloLabelWithText.swift */,
 				213E13A22637AAEA00DFECFF /* MouseView.swift */,
+				21AD5155269C8F37006DF32F /* NSView+Extensions.swift */,
+				21AD5159269C8FCD006DF32F /* ObjCExceptionCatcher.h */,
+				21AD5158269C8FCD006DF32F /* ObjCExceptionCatcher.m */,
 				217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */,
 				219634CB26560CEA00BFA3F4 /* SparkButton.swift */,
 			);
@@ -223,6 +244,7 @@
 		21ABE9902696DE900063C07A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				21AD5148269B3E32006DF32F /* AppContext.swift */,
 				215F8AD925B098EA000F4D45 /* AppDelegate.swift */,
 				215F8ADD25B098EC000F4D45 /* Assets.xcassets */,
 				215F8AE225B098EC000F4D45 /* Info.plist */,
@@ -243,6 +265,15 @@
 				21ABE9962696F8C90063C07A /* TestWindow.swift */,
 			);
 			path = Window;
+			sourceTree = "<group>";
+		};
+		21AD5147269AB752006DF32F /* CoreAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				21AD5150269B4215006DF32F /* LayerDelegate.swift */,
+				21AD514E269B3FFE006DF32F /* TestCoreAnimation.swift */,
+			);
+			path = CoreAnimation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +340,7 @@
 				215F8ADE25B098EC000F4D45 /* Assets.xcassets in Resources */,
 				215F8AE125B098EC000F4D45 /* Main.storyboard in Resources */,
 				219634D2265611CB00BFA3F4 /* momentum-ui-icons.ttf in Resources */,
+				21AD514D269B3FC8006DF32F /* CommonTestWindowController.xib in Resources */,
 				211C789A2681AB03003D9EB4 /* LogsWindowController.xib in Resources */,
 				2176CDF2268AC3CD00FAA4E0 /* CollectionViewWindowController.xib in Resources */,
 				21094123266083B20040AC73 /* MagicDrawingBoardWindowController.xib in Resources */,
@@ -322,15 +354,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21AD514C269B3FC8006DF32F /* CommonTestWindowController.swift in Sources */,
 				21094124266083B20040AC73 /* MagicDrawingBoardManager.swift in Sources */,
 				215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */,
+				21AD514F269B3FFE006DF32F /* TestCoreAnimation.swift in Sources */,
 				21094125266083B20040AC73 /* MagicDrawingBoardWindowController.swift in Sources */,
 				21A38412264E179E00F12D78 /* DDHotKeyTextField.m in Sources */,
 				21A38414264E179E00F12D78 /* GlobalShortcutHander.m in Sources */,
+				21AD5149269B3E32006DF32F /* AppContext.swift in Sources */,
 				21ABE99D26973B040063C07A /* TestListViewController.swift in Sources */,
 				21A38411264E179E00F12D78 /* DDHotKeyUtilities.m in Sources */,
 				211C78992681AB03003D9EB4 /* LogsWindowController.swift in Sources */,
 				21AD5146269A2D60006DF32F /* MainWindowController.swift in Sources */,
+				21AD5151269B4215006DF32F /* LayerDelegate.swift in Sources */,
 				219634CC26560CEA00BFA3F4 /* SparkButton.swift in Sources */,
 				211C78922681840C003D9EB4 /* TestDrawingBoard.swift in Sources */,
 				21A38413264E179E00F12D78 /* DDHotKeyCenter.m in Sources */,
@@ -341,8 +377,10 @@
 				211C788A2680742E003D9EB4 /* FontelloButton.swift in Sources */,
 				217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */,
 				211C789F2681E1B4003D9EB4 /* FontelloLabelWithText.swift in Sources */,
+				21AD5156269C8F37006DF32F /* NSView+Extensions.swift in Sources */,
 				21ABE9972696F8C90063C07A /* TestWindow.swift in Sources */,
 				21ABE999269730B70063C07A /* MainViewController.swift in Sources */,
+				21AD515A269C8FCD006DF32F /* ObjCExceptionCatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
