@@ -5,11 +5,31 @@
 //  Created by Archie You on 2021/7/11.
 //  Copyright © 2021 Cisco. All rights reserved.
 //
+//https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html
+//https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/CoreAnimation_Cookbook/Introduction/Introduction.html
+//https://www.raywenderlich.com/3096-calayers-tutorial-for-ios-introduction-to-calayers
+//https://developer.apple.com/library/archive/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html
+//
+//       -----------------------
+//      |      UIKit/AppKit     |
+//       -----------------------
+//      |     Core Animation    |
+//       -----------------------
+//      | Metal | Core Graphics |
+//       -----------------------
+//      |    Graphics Hardware  |
+//       -----------------------
+// point-based coordinate systems and unit coordinate systems
+//The bounds defines the coordinate system of the layer itself and encompasses the layer’s size on the screen. The position property defines the location of the layer relative to its parent’s coordinate system.
+//In iOS, the origin of the bounds rectangle is in the top-left corner of the layer by default, and in OS X it is in the bottom-left corner.
+//The position property is located in the middle of the layer.
+//You must not mark a layer as opaque if it also has a nonzero corner radius
+//the corner radius does not affect the image in the layer’s contents property unless the masksToBounds property is set to YES. However, the corner radius always affects how the layer’s background color and border are drawn.
+//The main reason for doing so is that once added to the layer, you cannot modify the CIFilter object itself. However, you can use the layer’s setValue:forKeyPath: method to change filter values after the fact.
 
 import Cocoa
 
-//https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/CoreAnimation_Cookbook/Introduction/Introduction.html
-//https://www.raywenderlich.com/3096-calayers-tutorial-for-ios-introduction-to-calayers
+
 
 class LayerDelegate: NSObject, CALayerDelegate, CAAnimationDelegate {
     var layer: CALayer?
@@ -101,5 +121,10 @@ class LayerView: NSView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func makeBackingLayer() -> CALayer {
+        let layer = CALayer()
+        return layer
     }
 }

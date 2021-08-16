@@ -35,7 +35,7 @@ extension TestWindow: TestCasesManager {
     }
     
     func onButton(caseName: String, actionName: String) {
-        if caseName == testName {
+        if caseName == caseName {
             if actionName == TestAction.startAction {
             } else if actionName == TestAction.stopAction {
             }

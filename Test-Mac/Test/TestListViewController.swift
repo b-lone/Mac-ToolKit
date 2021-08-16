@@ -57,7 +57,8 @@ class TestListViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .purple.withAlphaComponent(0.8)
+        
         setup()
     }
     
@@ -166,7 +167,11 @@ private class TableViewButton: NSButton {
         layer?.cornerRadius = 4
         
         let action = testCase.actionList[index]
-        title = action.title
+        attributedTitle = NSAttributedString(string: action.title, attributes: [
+            .foregroundColor : NSColor.white,
+            .font: NSFont.systemFont(ofSize: NSFont.systemFontSize)
+        ])
+        isBordered = false
         
         if index == 0 {
             borderColor = .red
@@ -180,8 +185,8 @@ private class TableViewButton: NSButton {
             borderColor = .cyan
         } else if index == 5 {
             borderColor = .blue
-        } else if index == 6 {
-            borderColor = .purple
+//        } else if index == 6 {
+//            borderColor = .purple
         } else {
             borderColor = .black
         }
@@ -193,6 +198,8 @@ private class TableViewLabel: NSTextField {
     init(title: String) {
         self.title = title
         super.init(frame: .zero)
+        textColor = .white
+        drawsBackground = false
     }
     
     required init?(coder: NSCoder) {

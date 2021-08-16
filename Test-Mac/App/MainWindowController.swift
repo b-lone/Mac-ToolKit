@@ -13,6 +13,8 @@ class MainWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
     
+        window?.appearance = NSAppearance(named: .vibrantDark)
+        
         if let appDelegate = NSApp.delegate as? AppDelegate {
             appDelegate.mainWindowController = self
         }

@@ -28,13 +28,14 @@ public func SPARK_LOG_ERROR(_ msg: String?, lineNumber: Int32 = #line, fileName:
 class Logs: NSObject {
     class func show(log: String) {
         print(log)
-//        LogsWindowController.shared.insertLog(log: log + "\n")
+        LogsWindowController.shared.insertLog(log: log + "\n")
     }
 }
 
 class LogsWindowController: NSWindowController {
     override var windowNibName: NSNib.Name? { "LogsWindowController" }
     @IBOutlet var textView: NSTextView!
+    @IBOutlet weak var contentView: NSView!
     static let shared = LogsWindowController()
     
     private init() {
@@ -48,10 +49,13 @@ class LogsWindowController: NSWindowController {
     
     override func windowDidLoad() {
         super.windowDidLoad()
+        window?.backgroundColor = .clear
+        window?.appearance = NSAppearance(named: .vibrantDark)
     }
     
     @objc func insertLog(log: String) {
         textView.string += log
+        showWindow(self)
     }
     
 }

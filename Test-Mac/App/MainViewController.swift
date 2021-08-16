@@ -17,9 +17,12 @@ class MainViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.layer?.backgroundColor = NSColor.black.cgColor
+        
         testCasesManagerList.append(TestDrawingBoard())
-        testCasesManagerList.append(TestWindow())
+//        testCasesManagerList.append(TestWindow())
         testCasesManagerList.append(TestCoreAnimation())
+        testCasesManagerList.append(TestBonjour())
         
         generateTestListViewControllerList()
         
@@ -27,6 +30,7 @@ class MainViewController: NSViewController {
             let tabItem = NSTabViewItem()
             tabItem.label = viewController.testName
             tabItem.view = viewController.view
+            
             tabView.addTabViewItem(tabItem)
         }
     }

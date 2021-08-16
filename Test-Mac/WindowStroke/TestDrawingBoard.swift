@@ -191,11 +191,11 @@ extension TestDrawingBoard: TestCasesManager {
             if actionName == TestAction.startAction {
                 testDrawScreenBorder()
             } else if actionName == TestAction.stopAction {
-                testDrawScreenLabel()
+                testDrawScreenBorder(start: false)
             }
         }  else if caseName == caseNameScreenLabel {
             if actionName == TestAction.startAction {
-                testDrawScreenBorder(start: false)
+                testDrawScreenLabel()
             } else if actionName == TestAction.stopAction {
                 testDrawScreenLabel(start: false)
             }

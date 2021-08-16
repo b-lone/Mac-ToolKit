@@ -717,7 +717,7 @@
         <scene sceneID="VQy-eQ-84Q">
             <objects>
                 <viewController id="Im5-QZ-2c8" customClass="MainViewController" customModule="Test_Mac" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="JkL-6y-6mI">
+                    <view key="view" wantsLayer="YES" id="JkL-6y-6mI">
                         <rect key="frame" x="0.0" y="0.0" width="498" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>

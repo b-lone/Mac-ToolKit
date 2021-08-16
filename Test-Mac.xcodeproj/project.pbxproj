@@ -16,6 +16,7 @@
 		211C78992681AB03003D9EB4 /* LogsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C78972681AB03003D9EB4 /* LogsWindowController.swift */; };
 		211C789A2681AB03003D9EB4 /* LogsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211C78982681AB03003D9EB4 /* LogsWindowController.xib */; };
 		211C789F2681E1B4003D9EB4 /* FontelloLabelWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C789E2681E1B4003D9EB4 /* FontelloLabelWithText.swift */; };
+		213978E326A0151800F9751D /* CppTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 213978E226A0151800F9751D /* CppTest.mm */; };
 		213E13A32637AAEA00DFECFF /* MouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213E13A22637AAEA00DFECFF /* MouseView.swift */; };
 		215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F8AD925B098EA000F4D45 /* AppDelegate.swift */; };
 		215F8ADE25B098EC000F4D45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215F8ADD25B098EC000F4D45 /* Assets.xcassets */; };
@@ -44,6 +45,8 @@
 		21AD5151269B4215006DF32F /* LayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD5150269B4215006DF32F /* LayerDelegate.swift */; };
 		21AD5156269C8F37006DF32F /* NSView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AD5155269C8F37006DF32F /* NSView+Extensions.swift */; };
 		21AD515A269C8FCD006DF32F /* ObjCExceptionCatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AD5158269C8FCD006DF32F /* ObjCExceptionCatcher.m */; };
+		21B479D826A0F1DB003A91FB /* BonjourClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B479D626A0F1DB003A91FB /* BonjourClient.swift */; };
+		21B479DB26A0F582003A91FB /* TestBonjour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B479DA26A0F582003A91FB /* TestBonjour.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +74,8 @@
 		211C78982681AB03003D9EB4 /* LogsWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogsWindowController.xib; sourceTree = "<group>"; };
 		211C789E2681E1B4003D9EB4 /* FontelloLabelWithText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontelloLabelWithText.swift; sourceTree = "<group>"; };
 		2132C21A264E29E60032C2FB /* Test-Mac-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Test-Mac-Bridging-Header.h"; sourceTree = "<group>"; };
+		213978E126A0151800F9751D /* CppTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CppTest.h; sourceTree = "<group>"; };
+		213978E226A0151800F9751D /* CppTest.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CppTest.mm; sourceTree = "<group>"; };
 		213E13A22637AAEA00DFECFF /* MouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseView.swift; sourceTree = "<group>"; };
 		215F8AD625B098EA000F4D45 /* Test-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		215F8AD925B098EA000F4D45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +111,8 @@
 		21AD5155269C8F37006DF32F /* NSView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+Extensions.swift"; sourceTree = "<group>"; };
 		21AD5158269C8FCD006DF32F /* ObjCExceptionCatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCExceptionCatcher.m; sourceTree = "<group>"; };
 		21AD5159269C8FCD006DF32F /* ObjCExceptionCatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCExceptionCatcher.h; sourceTree = "<group>"; };
+		21B479D626A0F1DB003A91FB /* BonjourClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourClient.swift; sourceTree = "<group>"; };
+		21B479DA26A0F582003A91FB /* TestBonjour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBonjour.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				21ABE9902696DE900063C07A /* App */,
+				21B479D526A0F1AF003A91FB /* Bonjour */,
 				2176CDEE268AC39800FAA4E0 /* CollectionView */,
 				21AD5147269AB752006DF32F /* CoreAnimation */,
 				211C78962681AADB003D9EB4 /* Log */,
@@ -253,6 +261,8 @@
 				21AD5145269A2D60006DF32F /* MainWindowController.swift */,
 				215F8AE325B098EC000F4D45 /* Test_Mac.entitlements */,
 				2132C21A264E29E60032C2FB /* Test-Mac-Bridging-Header.h */,
+				213978E126A0151800F9751D /* CppTest.h */,
+				213978E226A0151800F9751D /* CppTest.mm */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -274,6 +284,15 @@
 				21AD514E269B3FFE006DF32F /* TestCoreAnimation.swift */,
 			);
 			path = CoreAnimation;
+			sourceTree = "<group>";
+		};
+		21B479D526A0F1AF003A91FB /* Bonjour */ = {
+			isa = PBXGroup;
+			children = (
+				21B479D626A0F1DB003A91FB /* BonjourClient.swift */,
+				21B479DA26A0F582003A91FB /* TestBonjour.swift */,
+			);
+			path = Bonjour;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +377,7 @@
 				21094124266083B20040AC73 /* MagicDrawingBoardManager.swift in Sources */,
 				215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */,
 				21AD514F269B3FFE006DF32F /* TestCoreAnimation.swift in Sources */,
+				21B479D826A0F1DB003A91FB /* BonjourClient.swift in Sources */,
 				21094125266083B20040AC73 /* MagicDrawingBoardWindowController.swift in Sources */,
 				21A38412264E179E00F12D78 /* DDHotKeyTextField.m in Sources */,
 				21A38414264E179E00F12D78 /* GlobalShortcutHander.m in Sources */,
@@ -373,8 +393,10 @@
 				21ABE9942696F8330063C07A /* MyWindowController.swift in Sources */,
 				213E13A32637AAEA00DFECFF /* MouseView.swift in Sources */,
 				2176CDF1268AC3CD00FAA4E0 /* CollectionViewWindowController.swift in Sources */,
+				213978E326A0151800F9751D /* CppTest.mm in Sources */,
 				211C789026817D71003D9EB4 /* NSScreen+Extensions.m in Sources */,
 				211C788A2680742E003D9EB4 /* FontelloButton.swift in Sources */,
+				21B479DB26A0F582003A91FB /* TestBonjour.swift in Sources */,
 				217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */,
 				211C789F2681E1B4003D9EB4 /* FontelloLabelWithText.swift in Sources */,
 				21AD5156269C8F37006DF32F /* NSView+Extensions.swift in Sources */,
