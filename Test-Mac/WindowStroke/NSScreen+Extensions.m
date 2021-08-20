@@ -65,4 +65,10 @@
     
     return [self frame];
 }
+
+-(NSString * _Nonnull) frameInfo
+{
+    return [[NSString alloc] initWithFormat:@"{screen: %@, frame: %@}", [self displayName], NSStringFromRect(self.frame)];
+}
+
 @end

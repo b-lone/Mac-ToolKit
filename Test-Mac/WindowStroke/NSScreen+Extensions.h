@@ -16,5 +16,6 @@
 -(nullable NSNumber*) displayID;
 -(nullable NSString*) uuid;
 -(NSRect) getFlippedCoordinateFrame;
+-(NSString * _Nonnull) frameInfo;
 
 @end

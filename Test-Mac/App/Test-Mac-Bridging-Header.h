@@ -13,6 +13,7 @@
 #import "NSScreen+Extensions.h"
 #import "ObjCExceptionCatcher.h"
 #import "CppTest.h"
+#import "MobileDeviceAdapter.h"
 
 
 #endif /* Test_Mac_Bridging_Header_h */
