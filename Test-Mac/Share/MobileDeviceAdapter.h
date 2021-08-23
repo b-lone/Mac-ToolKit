@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MobileDeviceAdapterDelegate <NSObject>
 
 - (void)mobileDeviceAdapter:(MobileDeviceAdapter *) adapter deviceCallback:(int)status;
-- (void)mobileDeviceAdapterOnCaptureWindowTimer:(MobileDeviceAdapter *) adapter;
 
 @end
 

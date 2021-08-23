@@ -23,7 +23,6 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
     WBX_AMDeviceIsPaired wbx_AMDeviceIsPaired;
     WBX_AMDeviceValidatePairing wbx_AMDeviceValidatePairing;
     wbx_device_notification* deviceNotification;
-    NSMutableArray* mDeviceList;
 }
 @end
 
@@ -50,7 +49,7 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
 }
 
 - (void)deviceNotificationSubscribe {
-    wbx_AMDeviceNotificationSubscribe(&mydevicecallback, 0, 0, (void*)CFBridgingRetain(self), &deviceNotification);
+    wbx_AMDeviceNotificationSubscribe(&mydevicecallback, 0, 0, (__bridge void*)(self), &deviceNotification);
 }
 
 - (void)deviceNotificationUnSubscribe {
@@ -60,32 +59,23 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
 }
 
 - (void)enableHalDevice:(int)bEnable {
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(queue,^() {
-        CMIOObjectPropertyAddress prop  = {
-            kCMIOHardwarePropertyAllowScreenCaptureDevices,
-            kCMIOObjectPropertyScopeGlobal,
-            kCMIOObjectPropertyElementMaster
-        };
-        UInt32 allow = bEnable;
-
-        CMIOObjectSetPropertyData(kCMIOObjectSystemObject, &prop, 0, NULL, sizeof(allow), &allow);
-    });
+    CMIOObjectPropertyAddress prop  = {
+        kCMIOHardwarePropertyAllowScreenCaptureDevices,
+        kCMIOObjectPropertyScopeGlobal,
+        kCMIOObjectPropertyElementMaster
+    };
+    UInt32 allow = bEnable;
+    
+    CMIOObjectSetPropertyData(kCMIOObjectSystemObject, &prop, 0, NULL, sizeof(allow), &allow);
 }
 
-//connect a already trust device, msg = 1
-//connect a not trust device, then trust, msg =4
 - (void)myDeviceCallback:(wbx_device_notification_callback_info*)info
 {
     if(info == nil || info->dev == nil) return;
     
-    SPARK_LOG_DEBUG("MyDeviceCallback,msg = " << info->msg);
+    SPARK_LOG_DEBUG("msg = " << info->msg);
     if(info->msg == 1)
     {
-        NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
-        [dict setObject:[NSValue valueWithPointer:info->dev] forKey:@"device"];
-        
-        int status = 0;
         int ret = wbx_AMDeviceConnect(info->dev);
         if(ret == 0)
         {
@@ -95,52 +85,22 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
                 ret = wbx_AMDeviceValidatePairing(info->dev);
                 if(ret == 0)
                 {
-                    SPARK_LOG_DEBUG("MyDeviceCallback, detect trust computer");
+                    SPARK_LOG_DEBUG("detect trust device");
                     [self.delegate mobileDeviceAdapter:self deviceCallback:1];
-                    status = 1;
                 }
             }
         }
-        
-        [dict setObject:[NSNumber numberWithInt:status] forKey:@"status"];
-        [mDeviceList addObject:dict];
     }
     else if(info->msg == 2)
     {
-        SPARK_LOG_DEBUG("MyDeviceCallback,detect device plug out");
-        for(int k = 0; k < [mDeviceList count]; k++)
-        {
-            NSDictionary* dict = [mDeviceList objectAtIndex:k];
-            if([[dict objectForKey:@"device"] pointerValue] == info->dev)
-            {
-                [mDeviceList removeObjectAtIndex:k];
-                break;
-            }
-        }
-        
+        SPARK_LOG_DEBUG("detect device plug out");
         [self.delegate mobileDeviceAdapter:self deviceCallback:2];
     }
     else if(info->msg == 4)
     {
-        SPARK_LOG_DEBUG("MyDeviceCallback, detect trust computer");
-        
-        for(int k = 0; k < [mDeviceList count]; k++)
-        {
-            NSMutableDictionary* dict = [mDeviceList objectAtIndex:k];
-            if([[dict objectForKey:@"device"] pointerValue] == info->dev)
-            {
-                [dict setObject:[NSNumber numberWithInt:1] forKey:@"status"];
-                break;
-            }
-        }
+        SPARK_LOG_DEBUG("detect trust device");
         [self.delegate mobileDeviceAdapter:self deviceCallback:4];
     }
-    
-    SPARK_LOG_DEBUG("mDeviceList size:" << mDeviceList.count);
-}
-
-- (void)onCaptureWindowTimer {
-    [self.delegate mobileDeviceAdapterOnCaptureWindowTimer:self];
 }
 
 @end
@@ -148,5 +108,5 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
 void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* arg)
 {
     MobileDeviceAdapter* pThis = (__bridge MobileDeviceAdapter*)arg;
-    [pThis myDeviceCallback:cb];
+    [pThis myDeviceCallback: cb];
 }
