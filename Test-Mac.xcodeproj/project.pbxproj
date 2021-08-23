@@ -53,6 +53,7 @@
 		21AD515A269C8FCD006DF32F /* ObjCExceptionCatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AD5158269C8FCD006DF32F /* ObjCExceptionCatcher.m */; };
 		21B479D826A0F1DB003A91FB /* BonjourClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B479D626A0F1DB003A91FB /* BonjourClient.swift */; };
 		21B479DB26A0F582003A91FB /* TestBonjour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B479DA26A0F582003A91FB /* TestBonjour.swift */; };
+		21BD408626D352CF0020878E /* PreviewWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BD408526D352CF0020878E /* PreviewWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -133,6 +134,9 @@
 		21AD5159269C8FCD006DF32F /* ObjCExceptionCatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCExceptionCatcher.h; sourceTree = "<group>"; };
 		21B479D626A0F1DB003A91FB /* BonjourClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourClient.swift; sourceTree = "<group>"; };
 		21B479DA26A0F582003A91FB /* TestBonjour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBonjour.swift; sourceTree = "<group>"; };
+		21BD408226D34C670020878E /* WBXIosScreenCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBXIosScreenCapture.h; sourceTree = "<group>"; };
+		21BD408326D34C670020878E /* WBXIosScreenCapture.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WBXIosScreenCapture.mm; sourceTree = "<group>"; };
+		21BD408526D352CF0020878E /* PreviewWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,11 +330,14 @@
 				210C5E7B26CBADDC00F69BFF /* MobileDevice.h */,
 				210C5E8426CCA0BD00F69BFF /* MobileDeviceAdapter.h */,
 				210C5E8526CCA0BD00F69BFF /* MobileDeviceAdapter.mm */,
+				21BD408526D352CF0020878E /* PreviewWindow.swift */,
 				210C5E7626CB72A400F69BFF /* ShareIosScreenCapture.swift */,
 				210C5E7826CB9F7200F69BFF /* ShareIosScreenCaptureHelper.h */,
 				210C5E7926CB9F7200F69BFF /* ShareIosScreenCaptureHelper.m */,
 				21AC7DA326CA392C004E439F /* ShareManager.swift */,
 				21AC7DA226CA392C004E439F /* ShareManagerComponent.swift */,
+				21BD408226D34C670020878E /* WBXIosScreenCapture.h */,
+				21BD408326D34C670020878E /* WBXIosScreenCapture.mm */,
 			);
 			name = Share;
 			path = "Test-Mac/Share";
@@ -439,6 +446,7 @@
 				21AD514F269B3FFE006DF32F /* TestCoreAnimation.swift in Sources */,
 				210C5E7726CB72A400F69BFF /* ShareIosScreenCapture.swift in Sources */,
 				21B479D826A0F1DB003A91FB /* BonjourClient.swift in Sources */,
+				21BD408626D352CF0020878E /* PreviewWindow.swift in Sources */,
 				210C5E8E26CCAF9E00F69BFF /* RootLogger.cpp in Sources */,
 				21094125266083B20040AC73 /* MagicDrawingBoardWindowController.swift in Sources */,
 				21A38412264E179E00F12D78 /* DDHotKeyTextField.m in Sources */,

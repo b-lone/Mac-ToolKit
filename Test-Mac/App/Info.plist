@@ -38,5 +38,7 @@
 	<array>
 		<string>momentum-ui-icons.ttf</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>We want to use it!</string>
 </dict>
 </plist>

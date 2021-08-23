@@ -1,6 +1,6 @@
 //
 //  MobileDeviceAdapter.m
-//  Test-Mac
+//  WebexTeams
 //
 //  Created by Archie You on 2021/8/18.
 //  Copyright © 2021 Cisco. All rights reserved.
@@ -9,6 +9,9 @@
 #import "MobileDeviceAdapter.h"
 #import "MobileDevice.h"
 #import "../Log/SparkLogger.h"
+#import <CoreMediaIO/CMIOHardwareObject.h>
+#import <CoreMediaIO/CMIOHardwareDevice.h>
+#import <CoreMediaIO/CMIOHardwareSystem.h>
 
 void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* arg);
 @interface MobileDeviceAdapter()
@@ -50,20 +53,37 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
     wbx_AMDeviceNotificationSubscribe(&mydevicecallback, 0, 0, (void*)CFBridgingRetain(self), &deviceNotification);
 }
 
+- (void)deviceNotificationUnSubscribe {
+    if (deviceNotification) {
+        wbx_AMDeviceNotificationUnsubscribe(deviceNotification);
+    }
+}
+
+- (void)enableHalDevice:(int)bEnable {
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue,^() {
+        CMIOObjectPropertyAddress prop  = {
+            kCMIOHardwarePropertyAllowScreenCaptureDevices,
+            kCMIOObjectPropertyScopeGlobal,
+            kCMIOObjectPropertyElementMaster
+        };
+        UInt32 allow = bEnable;
+
+        CMIOObjectSetPropertyData(kCMIOObjectSystemObject, &prop, 0, NULL, sizeof(allow), &allow);
+    });
+}
+
 //connect a already trust device, msg = 1
 //connect a not trust device, then trust, msg =4
 - (void)myDeviceCallback:(wbx_device_notification_callback_info*)info
 {
-    if(info == nil || info->dev == nil)
-        return;
+    if(info == nil || info->dev == nil) return;
     
     SPARK_LOG_DEBUG("MyDeviceCallback,msg = " << info->msg);
     if(info->msg == 1)
     {
         NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
         [dict setObject:[NSValue valueWithPointer:info->dev] forKey:@"device"];
-        
-        //marked,after sync with wendy,[mInstructionView setDeviceAttached:YES];
         
         int status = 0;
         int ret = wbx_AMDeviceConnect(info->dev);
@@ -76,29 +96,11 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
                 if(ret == 0)
                 {
                     SPARK_LOG_DEBUG("MyDeviceCallback, detect trust computer");
-//                    if(mReselectTimer)
-//                    {
-//                        [mReselectTimer invalidate];
-//                        mReselectTimer = nil;
-//                    }
-                    
-//                    if(gbHalDeviceEnabled)
-//                    {
-//                        mReselectTimer = [NSTimer scheduledTimerWithTimeInterval:6.0 target:self selector:@selector(reselectTimer:) userInfo:nil repeats:NO];
-//                        [[NSRunLoop currentRunLoop] addTimer:mReselectTimer forMode:NSModalPanelRunLoopMode];
-//                        [[NSRunLoop currentRunLoop] addTimer:mReselectTimer forMode: NSEventTrackingRunLoopMode];
-//                    }
-                    
+                    [self.delegate mobileDeviceAdapter:self deviceCallback:1];
                     status = 1;
-//                    if(mReEnablHalTimer == nil)
-//                        [self EnableHalDevice:1];
                 }
             }
-            
-            wbx_AMDeviceDisconnect(info->dev);
         }
-        
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kIOSDeviceCableConnect object:nil];
         
         [dict setObject:[NSNumber numberWithInt:status] forKey:@"status"];
         [mDeviceList addObject:dict];
@@ -116,16 +118,11 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
             }
         }
         
-//        if([mDeviceList count] == 0)
-//            [mInstructionView setDeviceAttached:NO];
-        
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kIOSDeviceCableDisonnect object:nil];
+        [self.delegate mobileDeviceAdapter:self deviceCallback:2];
     }
     else if(info->msg == 4)
     {
         SPARK_LOG_DEBUG("MyDeviceCallback, detect trust computer");
-        
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kIOSDeviceTrused object:nil];
         
         for(int k = 0; k < [mDeviceList count]; k++)
         {
@@ -136,9 +133,14 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
                 break;
             }
         }
-        
-//        [self ReEnableHalDevice];
+        [self.delegate mobileDeviceAdapter:self deviceCallback:4];
     }
+    
+    SPARK_LOG_DEBUG("mDeviceList size:" << mDeviceList.count);
+}
+
+- (void)onCaptureWindowTimer {
+    [self.delegate mobileDeviceAdapterOnCaptureWindowTimer:self];
 }
 
 @end

@@ -1,6 +1,6 @@
 //
 //  MobileDevice.h
-//  Test-Mac
+//  WebexTeams
 //
 //  Created by Archie You on 2021/8/17.
 //  Copyright © 2021 Cisco. All rights reserved.
