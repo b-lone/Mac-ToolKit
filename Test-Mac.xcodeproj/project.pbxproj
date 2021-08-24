@@ -11,8 +11,8 @@
 		21094124266083B20040AC73 /* MagicDrawingBoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094121266083B10040AC73 /* MagicDrawingBoardManager.swift */; };
 		21094125266083B20040AC73 /* MagicDrawingBoardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094122266083B20040AC73 /* MagicDrawingBoardWindowController.swift */; };
 		210C5E7726CB72A400F69BFF /* ShareIosScreenCaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E7626CB72A400F69BFF /* ShareIosScreenCaptureManager.swift */; };
-		210C5E7F26CC9EE900F69BFF /* CFBundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E7E26CC9EE900F69BFF /* CFBundle+Extensions.swift */; };
-		210C5E8126CC9F8800F69BFF /* CFURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E8026CC9F8800F69BFF /* CFURL+Extensions.swift */; };
+		210C5E7F26CC9EE900F69BFF /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E7E26CC9EE900F69BFF /* Bundle+Extensions.swift */; };
+		210C5E8126CC9F8800F69BFF /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E8026CC9F8800F69BFF /* URL+Extensions.swift */; };
 		210C5E8626CCA0BD00F69BFF /* MobileDeviceAdapter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E8526CCA0BD00F69BFF /* MobileDeviceAdapter.mm */; };
 		210C5E8E26CCAF9E00F69BFF /* RootLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E8D26CCAF9E00F69BFF /* RootLogger.cpp */; };
 		211C788A2680742E003D9EB4 /* FontelloButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C78892680742E003D9EB4 /* FontelloButton.swift */; };
@@ -74,8 +74,8 @@
 		21094122266083B20040AC73 /* MagicDrawingBoardWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicDrawingBoardWindowController.swift; sourceTree = "<group>"; };
 		210C5E7626CB72A400F69BFF /* ShareIosScreenCaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareIosScreenCaptureManager.swift; sourceTree = "<group>"; };
 		210C5E7B26CBADDC00F69BFF /* MobileDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileDevice.h; sourceTree = "<group>"; };
-		210C5E7E26CC9EE900F69BFF /* CFBundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFBundle+Extensions.swift"; sourceTree = "<group>"; };
-		210C5E8026CC9F8800F69BFF /* CFURL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFURL+Extensions.swift"; sourceTree = "<group>"; };
+		210C5E7E26CC9EE900F69BFF /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		210C5E8026CC9F8800F69BFF /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		210C5E8426CCA0BD00F69BFF /* MobileDeviceAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileDeviceAdapter.h; sourceTree = "<group>"; };
 		210C5E8526CCA0BD00F69BFF /* MobileDeviceAdapter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MobileDeviceAdapter.mm; sourceTree = "<group>"; };
 		210C5E8926CCA7C200F69BFF /* SparkLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SparkLogger.h; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 		210C5E7D26CC9E9300F69BFF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				210C5E7E26CC9EE900F69BFF /* CFBundle+Extensions.swift */,
-				210C5E8026CC9F8800F69BFF /* CFURL+Extensions.swift */,
+				210C5E7E26CC9EE900F69BFF /* Bundle+Extensions.swift */,
+				210C5E8026CC9F8800F69BFF /* URL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -431,7 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21AD514C269B3FC8006DF32F /* CommonTestWindowController.swift in Sources */,
-				210C5E7F26CC9EE900F69BFF /* CFBundle+Extensions.swift in Sources */,
+				210C5E7F26CC9EE900F69BFF /* Bundle+Extensions.swift in Sources */,
 				21094124266083B20040AC73 /* MagicDrawingBoardManager.swift in Sources */,
 				215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */,
 				21AD514F269B3FFE006DF32F /* TestCoreAnimation.swift in Sources */,
@@ -452,7 +452,7 @@
 				21A38413264E179E00F12D78 /* DDHotKeyCenter.m in Sources */,
 				21ABE9942696F8330063C07A /* MyWindowController.swift in Sources */,
 				213E13A32637AAEA00DFECFF /* MouseView.swift in Sources */,
-				210C5E8126CC9F8800F69BFF /* CFURL+Extensions.swift in Sources */,
+				210C5E8126CC9F8800F69BFF /* URL+Extensions.swift in Sources */,
 				2176CDF1268AC3CD00FAA4E0 /* CollectionViewWindowController.swift in Sources */,
 				213978E326A0151800F9751D /* CppTest.mm in Sources */,
 				211C789026817D71003D9EB4 /* NSScreen+Extensions.m in Sources */,

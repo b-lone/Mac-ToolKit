@@ -29,7 +29,7 @@ class Logs: NSObject {
     class func show(log: String) {
         print(log)
         DispatchQueue.main.async {
-            LogsWindowController.shared.insertLog(log: log + "\n")
+//            LogsWindowController.shared.insertLog(log: log + "\n")
         }
         
     }

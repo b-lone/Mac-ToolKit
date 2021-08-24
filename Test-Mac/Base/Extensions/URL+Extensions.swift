@@ -8,8 +8,8 @@
 
 import Cocoa
 
-extension CFURL {
-    class func getSysPrivateFrameWorkFolder() -> CFURL? {
+extension URL {
+    public static func getSysPrivateFrameWorkFolder() -> URL? {
         let shareFileManager = FileManager.default
         let possibleURLs = shareFileManager.urls(for: .libraryDirectory, in: .systemDomainMask)
         
@@ -26,7 +26,7 @@ extension CFURL {
         
         SPARK_LOG_DEBUG("\(framworkURL?.absoluteString ?? "")")
         if let framworkURL = framworkURL {
-            return framworkURL as CFURL
+            return framworkURL
         }
         return nil
     }

@@ -19,7 +19,7 @@ class MainViewController: NSViewController {
         
         view.layer?.backgroundColor = NSColor.black.cgColor
         
-        testCasesManagerList.append(TestDrawingBoard())
+//        testCasesManagerList.append(TestDrawingBoard())
 //        testCasesManagerList.append(TestWindow())
         testCasesManagerList.append(TestCoreAnimation())
         testCasesManagerList.append(TestBonjour())

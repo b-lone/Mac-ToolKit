@@ -39,4 +39,9 @@ extension CommonTestWindowController: NSWindowDelegate {
             delegate?.windowController(self, didResize: size)
         }
     }
+    
+    func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
+        delegate?.windowController(self, didResize: frameSize)
+        return frameSize
+    }
 }

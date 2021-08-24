@@ -8,13 +8,13 @@
 
 import Cocoa
 
-extension CFBundle {    
-    class func loadPrivateFrameworkBundle(frameworkName: String) -> CFBundle? {
+extension Bundle {    
+    public class func loadPrivateFrameworkBundle(frameworkName: String) -> CFBundle? {
         var bundleURL: CFURL?
         var bundle: CFBundle?
         
-        if let baseURL = CFURL.getSysPrivateFrameWorkFolder() {
-            bundleURL = CFURLCreateCopyAppendingPathComponent(kCFAllocatorSystemDefault, baseURL, frameworkName as CFString, false)
+        if let baseURL = URL.getSysPrivateFrameWorkFolder() {
+            bundleURL = CFURLCreateCopyAppendingPathComponent(kCFAllocatorSystemDefault, baseURL as CFURL, frameworkName as CFString, false)
         }
         
         if let bundleURL = bundleURL {

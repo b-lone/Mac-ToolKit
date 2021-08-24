@@ -92,7 +92,7 @@ class ShareIosScreenCaptureManager: NSObject, ShareIosScreenCaptureManagerProtoc
     }
     
     private func setupMobileDeviceAdapter() {
-        mobileDeviceBundle = CFBundle.loadPrivateFrameworkBundle(frameworkName: "MobileDevice.framework")
+        mobileDeviceBundle = Bundle.loadPrivateFrameworkBundle(frameworkName: "MobileDevice.framework")
         if let mobileDeviceBundle = mobileDeviceBundle {
             mobileDeviceAdapter = MobileDeviceAdapter(mobileDeviceBundle: mobileDeviceBundle)
         }
