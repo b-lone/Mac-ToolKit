@@ -9,10 +9,9 @@
 import Cocoa
 
 extension CFBundle {    
-    class func loadPrivateFrameworkBundle(frameworkName: String, bundle: inout CFBundle?) -> Bool {
-        var result = false
+    class func loadPrivateFrameworkBundle(frameworkName: String) -> CFBundle? {
         var bundleURL: CFURL?
-        bundle = nil
+        var bundle: CFBundle?
         
         if let baseURL = CFURL.getSysPrivateFrameWorkFolder() {
             bundleURL = CFURLCreateCopyAppendingPathComponent(kCFAllocatorSystemDefault, baseURL, frameworkName as CFString, false)
@@ -22,16 +21,12 @@ extension CFBundle {
             bundle = CFBundleCreate(kCFAllocatorSystemDefault, bundleURL)
         }
         
-        if let bundle = bundle {
-            result = CFBundleLoadExecutable(bundle)
+        if let bundle = bundle, CFBundleLoadExecutable(bundle) {
+            SPARK_LOG_DEBUG("load success!")
+            return bundle
+        } else {
+            SPARK_LOG_ERROR("load failed!")
+            return nil
         }
-        
-        if !result {
-            bundle = nil
-        }
-        
-        SPARK_LOG_DEBUG("result:\(result)")
-
-        return result
     }
 }

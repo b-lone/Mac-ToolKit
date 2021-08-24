@@ -28,7 +28,10 @@ public func SPARK_LOG_ERROR(_ msg: String?, lineNumber: Int32 = #line, fileName:
 class Logs: NSObject {
     class func show(log: String) {
         print(log)
-        LogsWindowController.shared.insertLog(log: log + "\n")
+        DispatchQueue.main.async {
+            LogsWindowController.shared.insertLog(log: log + "\n")
+        }
+        
     }
 }
 

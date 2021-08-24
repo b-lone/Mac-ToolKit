@@ -58,7 +58,7 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
     }
 }
 
-- (void)enableHalDevice:(int)bEnable {
+- (void)enableHalDevice:(BOOL)bEnable {
     CMIOObjectPropertyAddress prop  = {
         kCMIOHardwarePropertyAllowScreenCaptureDevices,
         kCMIOObjectPropertyScopeGlobal,
@@ -66,7 +66,9 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
     };
     UInt32 allow = bEnable;
     
-    CMIOObjectSetPropertyData(kCMIOObjectSystemObject, &prop, 0, NULL, sizeof(allow), &allow);
+    CMIOObjectSetPropertyData(kCMIOObjectSystemObject, &prop, 0, NULL, 4, &allow);
+//    2021-08-23 22:09:07.200677+0800 Test-Mac[67096:3020389] [] CMIOHardware.cpp:379:CMIOObjectGetPropertyData Error: 2003332927, failed
+//    2003332927: kAudioCodecUnknownPropertyError
 }
 
 - (void)myDeviceCallback:(wbx_device_notification_callback_info*)info
@@ -86,7 +88,6 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
                 if(ret == 0)
                 {
                     SPARK_LOG_DEBUG("detect trust device");
-                    [self.delegate mobileDeviceAdapter:self deviceCallback:1];
                 }
             }
         }
@@ -94,12 +95,10 @@ void mydevicecallback(struct wbx_device_notification_callback_info * cb, void* a
     else if(info->msg == 2)
     {
         SPARK_LOG_DEBUG("detect device plug out");
-        [self.delegate mobileDeviceAdapter:self deviceCallback:2];
     }
     else if(info->msg == 4)
     {
         SPARK_LOG_DEBUG("detect trust device");
-        [self.delegate mobileDeviceAdapter:self deviceCallback:4];
     }
 }
 

@@ -10,8 +10,7 @@
 		21094123266083B20040AC73 /* MagicDrawingBoardWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21094120266083B10040AC73 /* MagicDrawingBoardWindowController.xib */; };
 		21094124266083B20040AC73 /* MagicDrawingBoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094121266083B10040AC73 /* MagicDrawingBoardManager.swift */; };
 		21094125266083B20040AC73 /* MagicDrawingBoardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094122266083B20040AC73 /* MagicDrawingBoardWindowController.swift */; };
-		210C5E7726CB72A400F69BFF /* ShareIosScreenCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E7626CB72A400F69BFF /* ShareIosScreenCapture.swift */; };
-		210C5E7A26CB9F7300F69BFF /* ShareIosScreenCaptureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E7926CB9F7200F69BFF /* ShareIosScreenCaptureHelper.m */; };
+		210C5E7726CB72A400F69BFF /* ShareIosScreenCaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E7626CB72A400F69BFF /* ShareIosScreenCaptureManager.swift */; };
 		210C5E7F26CC9EE900F69BFF /* CFBundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E7E26CC9EE900F69BFF /* CFBundle+Extensions.swift */; };
 		210C5E8126CC9F8800F69BFF /* CFURL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E8026CC9F8800F69BFF /* CFURL+Extensions.swift */; };
 		210C5E8626CCA0BD00F69BFF /* MobileDeviceAdapter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 210C5E8526CCA0BD00F69BFF /* MobileDeviceAdapter.mm */; };
@@ -53,7 +52,7 @@
 		21AD515A269C8FCD006DF32F /* ObjCExceptionCatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AD5158269C8FCD006DF32F /* ObjCExceptionCatcher.m */; };
 		21B479D826A0F1DB003A91FB /* BonjourClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B479D626A0F1DB003A91FB /* BonjourClient.swift */; };
 		21B479DB26A0F582003A91FB /* TestBonjour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B479DA26A0F582003A91FB /* TestBonjour.swift */; };
-		21BD408626D352CF0020878E /* PreviewWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BD408526D352CF0020878E /* PreviewWindow.swift */; };
+		21FBAF9426D3D5DB00717FDC /* TestShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBAF9326D3D5DB00717FDC /* TestShare.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,9 +72,7 @@
 		21094120266083B10040AC73 /* MagicDrawingBoardWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MagicDrawingBoardWindowController.xib; sourceTree = "<group>"; };
 		21094121266083B10040AC73 /* MagicDrawingBoardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicDrawingBoardManager.swift; sourceTree = "<group>"; };
 		21094122266083B20040AC73 /* MagicDrawingBoardWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicDrawingBoardWindowController.swift; sourceTree = "<group>"; };
-		210C5E7626CB72A400F69BFF /* ShareIosScreenCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareIosScreenCapture.swift; sourceTree = "<group>"; };
-		210C5E7826CB9F7200F69BFF /* ShareIosScreenCaptureHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareIosScreenCaptureHelper.h; sourceTree = "<group>"; };
-		210C5E7926CB9F7200F69BFF /* ShareIosScreenCaptureHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareIosScreenCaptureHelper.m; sourceTree = "<group>"; };
+		210C5E7626CB72A400F69BFF /* ShareIosScreenCaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareIosScreenCaptureManager.swift; sourceTree = "<group>"; };
 		210C5E7B26CBADDC00F69BFF /* MobileDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileDevice.h; sourceTree = "<group>"; };
 		210C5E7E26CC9EE900F69BFF /* CFBundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFBundle+Extensions.swift"; sourceTree = "<group>"; };
 		210C5E8026CC9F8800F69BFF /* CFURL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFURL+Extensions.swift"; sourceTree = "<group>"; };
@@ -134,9 +131,7 @@
 		21AD5159269C8FCD006DF32F /* ObjCExceptionCatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCExceptionCatcher.h; sourceTree = "<group>"; };
 		21B479D626A0F1DB003A91FB /* BonjourClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourClient.swift; sourceTree = "<group>"; };
 		21B479DA26A0F582003A91FB /* TestBonjour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBonjour.swift; sourceTree = "<group>"; };
-		21BD408226D34C670020878E /* WBXIosScreenCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBXIosScreenCapture.h; sourceTree = "<group>"; };
-		21BD408326D34C670020878E /* WBXIosScreenCapture.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WBXIosScreenCapture.mm; sourceTree = "<group>"; };
-		21BD408526D352CF0020878E /* PreviewWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewWindow.swift; sourceTree = "<group>"; };
+		21FBAF9326D3D5DB00717FDC /* TestShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestShare.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,14 +325,10 @@
 				210C5E7B26CBADDC00F69BFF /* MobileDevice.h */,
 				210C5E8426CCA0BD00F69BFF /* MobileDeviceAdapter.h */,
 				210C5E8526CCA0BD00F69BFF /* MobileDeviceAdapter.mm */,
-				21BD408526D352CF0020878E /* PreviewWindow.swift */,
-				210C5E7626CB72A400F69BFF /* ShareIosScreenCapture.swift */,
-				210C5E7826CB9F7200F69BFF /* ShareIosScreenCaptureHelper.h */,
-				210C5E7926CB9F7200F69BFF /* ShareIosScreenCaptureHelper.m */,
+				210C5E7626CB72A400F69BFF /* ShareIosScreenCaptureManager.swift */,
 				21AC7DA326CA392C004E439F /* ShareManager.swift */,
 				21AC7DA226CA392C004E439F /* ShareManagerComponent.swift */,
-				21BD408226D34C670020878E /* WBXIosScreenCapture.h */,
-				21BD408326D34C670020878E /* WBXIosScreenCapture.mm */,
+				21FBAF9326D3D5DB00717FDC /* TestShare.swift */,
 			);
 			name = Share;
 			path = "Test-Mac/Share";
@@ -444,15 +435,13 @@
 				21094124266083B20040AC73 /* MagicDrawingBoardManager.swift in Sources */,
 				215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */,
 				21AD514F269B3FFE006DF32F /* TestCoreAnimation.swift in Sources */,
-				210C5E7726CB72A400F69BFF /* ShareIosScreenCapture.swift in Sources */,
+				210C5E7726CB72A400F69BFF /* ShareIosScreenCaptureManager.swift in Sources */,
 				21B479D826A0F1DB003A91FB /* BonjourClient.swift in Sources */,
-				21BD408626D352CF0020878E /* PreviewWindow.swift in Sources */,
 				210C5E8E26CCAF9E00F69BFF /* RootLogger.cpp in Sources */,
 				21094125266083B20040AC73 /* MagicDrawingBoardWindowController.swift in Sources */,
 				21A38412264E179E00F12D78 /* DDHotKeyTextField.m in Sources */,
 				21A38414264E179E00F12D78 /* GlobalShortcutHander.m in Sources */,
 				21AD5149269B3E32006DF32F /* AppContext.swift in Sources */,
-				210C5E7A26CB9F7300F69BFF /* ShareIosScreenCaptureHelper.m in Sources */,
 				21ABE99D26973B040063C07A /* TestListViewController.swift in Sources */,
 				21A38411264E179E00F12D78 /* DDHotKeyUtilities.m in Sources */,
 				211C78992681AB03003D9EB4 /* LogsWindowController.swift in Sources */,
@@ -474,6 +463,7 @@
 				211C789F2681E1B4003D9EB4 /* FontelloLabelWithText.swift in Sources */,
 				21AD5156269C8F37006DF32F /* NSView+Extensions.swift in Sources */,
 				21ABE9972696F8C90063C07A /* TestWindow.swift in Sources */,
+				21FBAF9426D3D5DB00717FDC /* TestShare.swift in Sources */,
 				21ABE999269730B70063C07A /* MainViewController.swift in Sources */,
 				21AD515A269C8FCD006DF32F /* ObjCExceptionCatcher.m in Sources */,
 			);

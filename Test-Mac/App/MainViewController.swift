@@ -23,6 +23,7 @@ class MainViewController: NSViewController {
 //        testCasesManagerList.append(TestWindow())
         testCasesManagerList.append(TestCoreAnimation())
         testCasesManagerList.append(TestBonjour())
+        testCasesManagerList.append(TestShare())
         
         generateTestListViewControllerList()
         
