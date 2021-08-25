@@ -39,12 +39,6 @@ extension TestShare: TestCasesManager {
             if actionName == "Start" {
                 iosScreenCaptureManager.start()
                 shareIosScreenWindowController.showWindow(nil)
-                if let screen = shareIosScreenWindowController.window?.screen {
-                    let screenFrame = screen.frame
-                    let size = NSMakeSize(screenFrame.height * 0.6, screenFrame.height * 0.6)
-                    shareIosScreenWindowController.window?.setContentSize(size)
-                    shareIosScreenWindowController.window?.center()
-                }
             } else if actionName == "Stop" {
                 iosScreenCaptureManager.stop()
                 shareIosScreenWindowController.close()

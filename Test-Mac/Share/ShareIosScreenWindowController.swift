@@ -14,17 +14,20 @@ protocol ShareIosScreenWindowControllerProtocol {
     var iosScreenCaptureManager: ShareIosScreenCaptureManagerProtocol { get }
 }
 
+class ShareIosScreenWindow: NSWindow {
+    override var canBecomeKey: Bool { true }
+}
+
 class ShareIosScreenWindowController: NSWindowController {
     override var windowNibName: NSNib.Name? { "ShareIosScreenWindowController" }
     @IBOutlet weak var contentView: NSView!
     @IBOutlet weak var previewView: NSView!
     let iosScreenCaptureManager: ShareIosScreenCaptureManagerProtocol = ShareIosScreenCaptureManager()
     
-    var previewRatio:CGFloat = 1 {
+    private var previewRatio:CGFloat = 1680 / 1050 {
         didSet {
-            if let size = window?.frame.size {
-                window?.animator().setContentSize(getSizeKeepRatio(size))
-                window?.animator().center()
+            if oldValue != previewRatio {
+                updateWindowSize()
             }
         }
     }
@@ -41,18 +44,42 @@ class ShareIosScreenWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         
+        contentView.wantsLayer = true
+        contentView.layer?.cornerRadius = 8
+        
         previewView.wantsLayer = true
         previewView.layer = iosScreenCaptureManager.captureVideoPreviewLayer
         
-        window?.delegate = self
         iosScreenCaptureManager.delegate = self
-        
+        window?.delegate = self
+        window?.styleMask.insert(.resizable)
+        window?.backgroundColor = .clear
+        window?.hasShadow = true
+        window?.isMovableByWindowBackground = true
+    }
+    
+    override func mouseDown(with event: NSEvent) {
+        super.mouseDown(with: event)
+    }
+    
+    override func showWindow(_ sender: Any?) {
+        super.showWindow(sender)
+        updateWindowSize()
     }
     
     private func getSizeKeepRatio(_ size: NSSize) -> NSSize {
-        let width = floor(size.height * previewRatio)
-        let height = floor(size.width / previewRatio)
+        let width = size.height * previewRatio
+        let height = size.width / previewRatio
         return NSMakeSize(min(size.width, width), min(size.height, height))
+    }
+    
+    private func updateWindowSize() {
+        guard let window = window else { return }
+        guard let screen = window.screen ?? NSScreen.main else { return }
+        let screenFrame = screen.frame
+        let size = getSizeKeepRatio(NSMakeSize(screenFrame.height * 0.8, screenFrame.height * 0.8))
+        window.animator().setContentSize(getSizeKeepRatio(size))
+        window.animator().center()
     }
 }
 

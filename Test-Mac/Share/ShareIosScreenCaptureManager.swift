@@ -77,7 +77,7 @@ class ShareIosScreenCaptureManager: NSObject, ShareIosScreenCaptureManagerProtoc
         setupCaptureVideoPreviewLayer()
         setupMobileDeviceAdapter()
         
-        captureSession.sessionPreset = .medium
+        captureSession.sessionPreset = .high
         
         NotificationCenter.default.addObserver(self, selector: #selector(onDeviceConnected(_:)), name: .AVCaptureDeviceWasConnected, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onDeviceDisconnected(_:)), name: .AVCaptureDeviceWasDisconnected, object: nil)
