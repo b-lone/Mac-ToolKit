@@ -8,6 +8,7 @@
 
 import Cocoa
 protocol CommonTestWindowControllerDelegate: AnyObject {
+    func windowController(_ windowController: CommonTestWindowController, willResize newSize: NSSize) -> NSSize
     func windowController(_ windowController: CommonTestWindowController, didResize size: NSSize)
 }
 
@@ -41,7 +42,6 @@ extension CommonTestWindowController: NSWindowDelegate {
     }
     
     func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
-        delegate?.windowController(self, didResize: frameSize)
-        return frameSize
+        return delegate?.windowController(self, willResize: frameSize) ?? frameSize
     }
 }

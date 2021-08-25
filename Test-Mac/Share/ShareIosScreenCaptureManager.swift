@@ -13,6 +13,7 @@ import CoreMediaIO
 protocol ShareIosScreenCaptureManagerDelegate: AnyObject {
     func shareIosScreenCaptureManager(_ manager: ShareIosScreenCaptureManager, onIosDeviceAvailableChanged isAvailable: Bool)
     func shareIosScreenCaptureManager(_ manager: ShareIosScreenCaptureManager, onPreviewSizeChanged size: NSSize)
+    func shareIosScreenCaptureManager(_ manager: ShareIosScreenCaptureManager, onCaptureSessionStateChanged isRunning: Bool)
 }
 
 protocol ShareIosScreenCaptureManagerProtocol: AnyObject {
@@ -20,6 +21,7 @@ protocol ShareIosScreenCaptureManagerProtocol: AnyObject {
     var delegate: ShareIosScreenCaptureManagerDelegate? { get set }
     var isIosDeviceAvailable: Bool  { get }
     var isRunning: Bool  { get }
+    var deviceName: String? { get }
     func start()
     func stop()
 }
@@ -32,10 +34,12 @@ class ShareIosScreenCaptureManager: NSObject, ShareIosScreenCaptureManagerProtoc
     private var captureDeviceInput: AVCaptureDeviceInput?
     private var captureMovieFileOutput: AVCaptureMovieFileOutput?
     private(set) var captureVideoPreviewLayer: AVCaptureVideoPreviewLayer
+    private var captureAudioPreviewOutput = AVCaptureAudioPreviewOutput()
     
     private var currentCaptureDevice: AVCaptureDevice?
     private var iosDeviceList = [String: AVCaptureDevice]()
     var isIosDeviceAvailable: Bool { return iosDeviceList.isEmpty }
+    var deviceName: String? { currentCaptureDevice?.localizedName }
     
     var isRunning: Bool { captureSession.isRunning }
     var isStarted = false
@@ -83,6 +87,8 @@ class ShareIosScreenCaptureManager: NSObject, ShareIosScreenCaptureManagerProtoc
         
         enableHalDevice(true)
         mobileDeviceAdapter?.deviceNotificationSubscribe()
+        
+        captureAudioPreviewOutput.volume = 1
     }
     
     private func clear() {
@@ -200,8 +206,15 @@ class ShareIosScreenCaptureManager: NSObject, ShareIosScreenCaptureManagerProtoc
             return SPARK_LOG_DEBUG("create AVCaptureDeviceInput error")
         }
         
-        captureSession.addInput(captureDeviceInput)
+        if captureSession.canAddInput(captureDeviceInput) {
+            captureSession.addInput(captureDeviceInput)
+            SPARK_LOG_DEBUG("[addInput] \(captureDeviceInput.description)")
+        }
         
+        if captureSession.canAddOutput(captureAudioPreviewOutput) {
+            captureSession.addOutput(captureAudioPreviewOutput)
+            SPARK_LOG_DEBUG("[addOutput] \(captureAudioPreviewOutput.description)")
+        }
         
 //        let captureMovieFileOutput = AVCaptureMovieFileOutput()
 //        self.captureMovieFileOutput = captureMovieFileOutput
@@ -224,13 +237,13 @@ class ShareIosScreenCaptureManager: NSObject, ShareIosScreenCaptureManagerProtoc
             if let self = self {
                 guard self.isRunning else { return }
                 self.captureSession.stopRunning()
-                if let captureDeviceInput = self.captureDeviceInput {
-                    self.captureSession.removeInput(captureDeviceInput)
-                    self.captureDeviceInput = nil
+                for input in self.captureSession.inputs {
+                    self.captureSession.removeInput(input)
+                    SPARK_LOG_DEBUG("[removeInput] \(input.description)")
                 }
-                if let movieOutput = self.captureMovieFileOutput {
-                    self.captureSession.removeOutput(movieOutput)
-                    self.captureMovieFileOutput = nil
+                for output in self.captureSession.outputs {
+                    self.captureSession.removeOutput(output)
+                    SPARK_LOG_DEBUG("[removeOutput] \(output.description)")
                 }
                 self.currentCaptureDevice = nil
                 SPARK_LOG_DEBUG("stopRunning finished!")
@@ -246,10 +259,16 @@ class ShareIosScreenCaptureManager: NSObject, ShareIosScreenCaptureManagerProtoc
     
     @objc func onCaptureSessionStart(_ notification: Notification) {
         SPARK_LOG_DEBUG(#function)
+        if notification.object as? AVCaptureSession === captureSession {
+            delegate?.shareIosScreenCaptureManager(self, onCaptureSessionStateChanged: true)
+        }
     }
     
     @objc func onCaptureSessionStop(_ notification: Notification) {
         SPARK_LOG_DEBUG(#function)
+        if notification.object as? AVCaptureSession === captureSession {
+            delegate?.shareIosScreenCaptureManager(self, onCaptureSessionStateChanged: false)
+        }
     }
     
     @objc func onCaptureInputPortFormatDescriptionDidChange(_ notification: Notification) {

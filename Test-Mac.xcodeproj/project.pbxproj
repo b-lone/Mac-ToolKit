@@ -53,6 +53,8 @@
 		21B479D826A0F1DB003A91FB /* BonjourClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B479D626A0F1DB003A91FB /* BonjourClient.swift */; };
 		21B479DB26A0F582003A91FB /* TestBonjour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B479DA26A0F582003A91FB /* TestBonjour.swift */; };
 		21FBAF9426D3D5DB00717FDC /* TestShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBAF9326D3D5DB00717FDC /* TestShare.swift */; };
+		21FBB08126D65BB700717FDC /* ShareIosScreenWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBB07F26D65BB700717FDC /* ShareIosScreenWindowController.swift */; };
+		21FBB08226D65BB700717FDC /* ShareIosScreenWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21FBB08026D65BB700717FDC /* ShareIosScreenWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -132,6 +134,8 @@
 		21B479D626A0F1DB003A91FB /* BonjourClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourClient.swift; sourceTree = "<group>"; };
 		21B479DA26A0F582003A91FB /* TestBonjour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBonjour.swift; sourceTree = "<group>"; };
 		21FBAF9326D3D5DB00717FDC /* TestShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestShare.swift; sourceTree = "<group>"; };
+		21FBB07F26D65BB700717FDC /* ShareIosScreenWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareIosScreenWindowController.swift; sourceTree = "<group>"; };
+		21FBB08026D65BB700717FDC /* ShareIosScreenWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareIosScreenWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +330,8 @@
 				210C5E8426CCA0BD00F69BFF /* MobileDeviceAdapter.h */,
 				210C5E8526CCA0BD00F69BFF /* MobileDeviceAdapter.mm */,
 				210C5E7626CB72A400F69BFF /* ShareIosScreenCaptureManager.swift */,
+				21FBB07F26D65BB700717FDC /* ShareIosScreenWindowController.swift */,
+				21FBB08026D65BB700717FDC /* ShareIosScreenWindowController.xib */,
 				21AC7DA326CA392C004E439F /* ShareManager.swift */,
 				21AC7DA226CA392C004E439F /* ShareManagerComponent.swift */,
 				21FBAF9326D3D5DB00717FDC /* TestShare.swift */,
@@ -418,6 +424,7 @@
 				219634D2265611CB00BFA3F4 /* momentum-ui-icons.ttf in Resources */,
 				21AD514D269B3FC8006DF32F /* CommonTestWindowController.xib in Resources */,
 				211C789A2681AB03003D9EB4 /* LogsWindowController.xib in Resources */,
+				21FBB08226D65BB700717FDC /* ShareIosScreenWindowController.xib in Resources */,
 				2176CDF2268AC3CD00FAA4E0 /* CollectionViewWindowController.xib in Resources */,
 				21094123266083B20040AC73 /* MagicDrawingBoardWindowController.xib in Resources */,
 			);
@@ -430,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21FBB08126D65BB700717FDC /* ShareIosScreenWindowController.swift in Sources */,
 				21AD514C269B3FC8006DF32F /* CommonTestWindowController.swift in Sources */,
 				210C5E7F26CC9EE900F69BFF /* Bundle+Extensions.swift in Sources */,
 				21094124266083B20040AC73 /* MagicDrawingBoardManager.swift in Sources */,

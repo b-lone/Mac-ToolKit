@@ -10,18 +10,13 @@ import Cocoa
 
 class TestShare: NSObject {
     let caseNameCaptureIosScreen = "capture iOS screen"
-    let iosScreenCaptureManager: ShareIosScreenCaptureManagerProtocol = ShareIosScreenCaptureManager()
-    let previewWindowController = CommonTestWindowController()
+    var iosScreenCaptureManager: ShareIosScreenCaptureManagerProtocol { shareIosScreenWindowController.iosScreenCaptureManager }
+    let shareIosScreenWindowController: IShareIosScreenWindowController = ShareIosScreenWindowController()
     
     override init() {
         super.init()
-        iosScreenCaptureManager.delegate = self
-        previewWindowController.contentView.wantsLayer = true
-        previewWindowController.window?.setContentSize(NSMakeSize(640, 480))
-        previewWindowController.contentView?.layer?.addSublayer(iosScreenCaptureManager.captureVideoPreviewLayer)
-        
-        previewWindowController.delegate = self
     }
+    
 }
 
 extension TestShare: TestCasesManager {
@@ -43,26 +38,17 @@ extension TestShare: TestCasesManager {
         if caseName == caseNameCaptureIosScreen {
             if actionName == "Start" {
                 iosScreenCaptureManager.start()
-                previewWindowController.showWindow(nil)
+                shareIosScreenWindowController.showWindow(nil)
+                if let screen = shareIosScreenWindowController.window?.screen {
+                    let screenFrame = screen.frame
+                    let size = NSMakeSize(screenFrame.height * 0.6, screenFrame.height * 0.6)
+                    shareIosScreenWindowController.window?.setContentSize(size)
+                    shareIosScreenWindowController.window?.center()
+                }
             } else if actionName == "Stop" {
                 iosScreenCaptureManager.stop()
-                previewWindowController.close()
+                shareIosScreenWindowController.close()
             }
         }
-    }
-}
-
-extension TestShare: ShareIosScreenCaptureManagerDelegate {
-    func shareIosScreenCaptureManager(_ manager: ShareIosScreenCaptureManager, onIosDeviceAvailableChanged isAvailable: Bool) {
-    }
-    
-    func shareIosScreenCaptureManager(_ manager: ShareIosScreenCaptureManager, onPreviewSizeChanged size: NSSize) {
-//        previewWindow.setContentSize(size)
-    }
-}
-
-extension TestShare: CommonTestWindowControllerDelegate {
-    func windowController(_ windowController: CommonTestWindowController, didResize size: NSSize) {
-        iosScreenCaptureManager.captureVideoPreviewLayer.frame = NSMakeRect(0, 0, size.width, size.height)
     }
 }
