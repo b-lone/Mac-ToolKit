@@ -10,18 +10,34 @@ import Cocoa
 
 public func SPARK_LOG_DEBUG(_ msg: String?, lineNumber: Int32 = #line, fileName: String = #file, fnName: String = #function) {
     let flName = fileName.split(separator: "/").last
-    let log = "\(NSDate.now.description) \(flName ?? "")[\(lineNumber)] \(fnName): \(msg ?? "")"
+    var log = ""
+    if #available(macOS 10.15, *) {
+        log = "\(NSDate.now.description) \(flName ?? "")[\(lineNumber)] \(fnName): \(msg ?? "")"
+    } else {
+        log = "\(NSDate().description) \(flName ?? "")[\(lineNumber)] \(fnName): \(msg ?? "")"
+    }
+    
     Logs.show(log: log)
 }
 public func SPARK_LOG_TRACE(_ msg: String?, lineNumber: Int32 = #line, fileName: String = #file, fnName: String = #function) {
     let flName = fileName.split(separator: "/").last
-    let log = "\(NSDate.now.description) \(flName ?? "")[\(lineNumber)] \(fnName): \(msg ?? "")"
+    var log = ""
+    if #available(macOS 10.15, *) {
+        log = "\(NSDate.now.description) \(flName ?? "")[\(lineNumber)] \(fnName): \(msg ?? "")"
+    } else {
+        log = "\(NSDate().description) \(flName ?? "")[\(lineNumber)] \(fnName): \(msg ?? "")"
+    }
     Logs.show(log: log)
 }
 
 public func SPARK_LOG_ERROR(_ msg: String?, lineNumber: Int32 = #line, fileName: String = #file, fnName: String = #function) {
     let flName = fileName.split(separator: "/").last
-    let log = "\(NSDate.now.description) \(flName ?? "")[\(lineNumber)] \(fnName): \(msg ?? "")"
+    var log = ""
+    if #available(macOS 10.15, *) {
+        log = "\(NSDate.now.description) \(flName ?? "")[\(lineNumber)] \(fnName): \(msg ?? "")"
+    } else {
+        log = "\(NSDate().description) \(flName ?? "")[\(lineNumber)] \(fnName): \(msg ?? "")"
+    }
     Logs.show(log: log)
 }
 

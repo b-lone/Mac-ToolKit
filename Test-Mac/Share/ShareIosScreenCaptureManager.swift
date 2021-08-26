@@ -30,7 +30,6 @@ class ShareIosScreenCaptureManager: NSObject, ShareIosScreenCaptureManagerProtoc
     weak var delegate: ShareIosScreenCaptureManagerDelegate?
     
     private let captureSession = AVCaptureSession()
-    private let captureDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.externalUnknown], mediaType: nil, position: .unspecified)
     private var captureDeviceInput: AVCaptureDeviceInput?
     private var captureMovieFileOutput: AVCaptureMovieFileOutput?
     private(set) var captureVideoPreviewLayer: AVCaptureVideoPreviewLayer
@@ -148,7 +147,13 @@ class ShareIosScreenCaptureManager: NSObject, ShareIosScreenCaptureManagerProtoc
         SPARK_LOG_DEBUG(#function)
         guard currentCaptureDevice == nil else { return SPARK_LOG_DEBUG("currentDevice isn't empty") }
         
-        let deviceList = captureDeviceDiscoverySession.devices
+        var deviceList = [AVCaptureDevice]()
+        if #available(macOS 10.15, *) {
+            let captureDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.externalUnknown], mediaType: nil, position: .unspecified)
+            deviceList = captureDeviceDiscoverySession.devices
+        } else {
+            deviceList = AVCaptureDevice.devices()
+        }
         
         var iosDevices = [String: AVCaptureDevice]()
         for device in deviceList {
@@ -272,10 +277,14 @@ class ShareIosScreenCaptureManager: NSObject, ShareIosScreenCaptureManagerProtoc
     }
     
     @objc func onCaptureInputPortFormatDescriptionDidChange(_ notification: Notification) {
-        if let port = notification.object as? AVCaptureInput.Port, port.mediaType == .video {
-            if let dimensions = port.formatDescription?.dimensions {
-                changePreviewSize(size: NSMakeSize(CGFloat(dimensions.width), CGFloat(dimensions.height)))
-            }
+        guard let port = notification.object as? AVCaptureInput.Port, port.mediaType == .video, port.input == captureDeviceInput else { return }
+        guard let formatDescription = port.formatDescription else { return }
+        if #available(macOS 10.15, *) {
+            let dimensions = formatDescription.dimensions
+            changePreviewSize(size: NSMakeSize(CGFloat(dimensions.width), CGFloat(dimensions.height)))
+        } else {
+            let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription)
+            changePreviewSize(size: NSMakeSize(CGFloat(dimensions.width), CGFloat(dimensions.height)))
         }
     }
     
