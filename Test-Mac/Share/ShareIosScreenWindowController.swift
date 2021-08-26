@@ -53,6 +53,8 @@ class ShareIosScreenWindowController: NSWindowController {
         
         contentView.wantsLayer = true
         contentView.layer?.cornerRadius = 8
+        contentView.layer?.borderWidth = 1
+        contentView.layer?.borderColor = .black
         
         previewView.wantsLayer = true
         previewView.layer = iosScreenCaptureManager.captureVideoPreviewLayer
@@ -76,8 +78,8 @@ class ShareIosScreenWindowController: NSWindowController {
     
     private func getSizeKeepRatio(_ size: NSSize) -> NSSize {
         guard let previewRatio = previewRatio else { return size }
-        let width = floor(size.height * previewRatio)
-        let height = floor(size.width / previewRatio)
+        let width = round(size.height * previewRatio)
+        let height = round(size.width / previewRatio)
         return NSMakeSize(min(size.width, width), min(size.height, height))
     }
     

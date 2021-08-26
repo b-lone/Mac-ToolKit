@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
 //        Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/macOSInjection.bundle")?.load()
+//        NSScreen.screens.forEach { print($0.frameInfo()) }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
