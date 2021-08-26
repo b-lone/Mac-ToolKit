@@ -15,6 +15,7 @@ protocol MagicDrawingBoardManagerProtocol: AnyObject {
     func removeDrawing(drawingId: MagicDrawingId)
     func setKeyScreen(screen: String)
     func setExcludedWindowNumberList(windowNumberList: [Int])
+    func getWindowInfoList(exclude: Bool) -> MagicWindowInfoList
 }
 
 enum MagicDrawingStyle {
@@ -87,6 +88,16 @@ class MagicDrawing: NSObject {
         return drawing
     }
     
+    class func windowBorderDrawing(windowNumberList: [Int]) -> MagicDrawing {
+        let drawing = MagicDrawing()
+        drawing.type = .windowBorder
+        drawing.windowNumberList = windowNumberList
+        drawing.needDraw = true
+        drawing.needCalculateCoverState = false
+        drawing.style = .sharingApplication
+        return drawing
+    }
+    
     class func calculateWindowCoverState(windowList: [Int], screenOfCoverWindows: String) -> MagicDrawing {
         let drawing = MagicDrawing()
         drawing.type = .windowBorder
@@ -125,9 +136,8 @@ class MagicDrawingBoardManager: NSObject {
     private var drawingList = [MagicDrawing]()
     private var keyScreen: String? {
         didSet {
-            if let keyScreen = keyScreen {
-                windowBorderDrawingBoardMap.values.forEach{ $0.isKeyScreen = false }
-                windowBorderDrawingBoardMap[keyScreen]?.isKeyScreen = true
+            if oldValue != keyScreen {
+                updateKeyFrame()
             }
         }
     }
@@ -138,6 +148,8 @@ class MagicDrawingBoardManager: NSObject {
     
     //[uuid: label]
     private var screenList = [String: String]()
+    
+    private let pNameBlacklist = ["screencapture"]
     
     override init() {
         super.init()
@@ -152,9 +164,14 @@ class MagicDrawingBoardManager: NSObject {
     }
     
     @objc private func onChangeScreenParametersNotification() {
-        SPARK_LOG_DEBUG("")
+        var frameString = ""
+        NSScreen.screens.forEach {
+            frameString += $0.frameInfo()
+        }
+        SPARK_LOG_DEBUG(frameString)
         updateDrawingBoards()
         updateScreenList()
+        updateKeyFrame()
     }
     
     private func updateDrawingBoards() {
@@ -199,6 +216,17 @@ class MagicDrawingBoardManager: NSObject {
             }
         }
     }
+    
+    private func updateKeyFrame() {
+        if keyScreen == nil || !NSScreen.screens.contains(where: {$0.uuid() == keyScreen}) {
+            keyScreen = NSScreen.main?.uuid()
+        }
+        
+        if let keyScreen = keyScreen {
+            windowBorderDrawingBoardMap.values.forEach{ $0.isKeyScreen = false }
+            windowBorderDrawingBoardMap[keyScreen]?.isKeyScreen = true
+        }
+    }
    
     //MARK: generate window info
     private func isValidWindow(windowInfo: MagicWindowInfo) -> Bool {
@@ -212,6 +240,9 @@ class MagicDrawingBoardManager: NSObject {
             return false
         }
         if windowBorderDrawingBoardMap.values.contains(where: { $0.window?.windowNumber == windowInfo.windowNumber }) {
+            return false
+        }
+        if pNameBlacklist.contains(windowInfo.pName) {
             return false
         }
         return true
@@ -318,7 +349,7 @@ class MagicDrawingBoardManager: NSObject {
     }
     
     private func updatefullWindowInfoList() {
-        if let windowDescriptionList = CGWindowListCopyWindowInfo([.optionOnScreenOnly], kCGNullWindowID) as? Array<[CFString: AnyObject]> {
+        if let windowDescriptionList = CGWindowListCopyWindowInfo([.optionOnScreenOnly, .excludeDesktopElements], kCGNullWindowID) as? Array<[CFString: AnyObject]> {
             fullWindowInfoList = transferToWindowInfoList(from: windowDescriptionList)
         }
     }
@@ -360,8 +391,11 @@ class MagicDrawingBoardManager: NSObject {
             case .applicationBorder:
                 processDrawApplicationBorder(drawing: drawing)
             case .windowBorder:
-                if drawing.needCalculateCoverState, !drawing.needDraw {
+                if drawing.needCalculateCoverState {
                     processCalculateCoverState(drawing: drawing)
+                }
+                if drawing.needDraw {
+                    processDrawWindowBorder(drawing: drawing)
                 }
             default: break
             }
@@ -371,14 +405,25 @@ class MagicDrawingBoardManager: NSObject {
     private func processDrawApplicationBorder(drawing: MagicDrawing) {
         if let pidList = drawing.pidList {
             let targetWindowInfoList = getWindowInfoList(pidList: pidList, exclude: true)
-            for (screen, drawingBoard) in  windowBorderDrawingBoardMap {
-                let subTargetWindowInfoList = targetWindowInfoList.filter{ $0.screen == screen }
-                if !subTargetWindowInfoList.isEmpty {
-                    let aboveWindowInfoList = getAboveWindowInfoList(bottomWindowInfo: subTargetWindowInfoList[0], screen: screen)
-                    drawingBoard.drawWindowsBorder(aboveWindowInfoList: aboveWindowInfoList, targetWindowInfoList: subTargetWindowInfoList, drawing: drawing)
-                } else {
-                    drawingBoard.removeDrawing(drawingId: drawing.id)
-                }
+            drawWindowBorder(targetWindowInfoList: targetWindowInfoList, drawing: drawing)
+        }
+    }
+    
+    private func processDrawWindowBorder(drawing: MagicDrawing) {
+        if let windowNumberList = drawing.windowNumberList {
+            let targetWindowInfoList = getWindowInfoList(windowNumberList: windowNumberList)
+            drawWindowBorder(targetWindowInfoList: targetWindowInfoList, drawing: drawing)
+        }
+    }
+    
+    private func drawWindowBorder(targetWindowInfoList: MagicWindowInfoList, drawing: MagicDrawing) {
+        for (screen, drawingBoard) in  windowBorderDrawingBoardMap {
+            let subTargetWindowInfoList = targetWindowInfoList.filter{ $0.screen == screen }
+            if !subTargetWindowInfoList.isEmpty {
+                let aboveWindowInfoList = getAboveWindowInfoList(bottomWindowInfo: subTargetWindowInfoList[0], screen: screen)
+                drawingBoard.drawWindowsBorder(aboveWindowInfoList: aboveWindowInfoList, targetWindowInfoList: subTargetWindowInfoList, drawing: drawing)
+            } else {
+                drawingBoard.removeDrawing(drawingId: drawing.id)
             }
         }
     }
@@ -458,5 +503,10 @@ extension MagicDrawingBoardManager: MagicDrawingBoardManagerProtocol {
     func setExcludedWindowNumberList(windowNumberList: [Int]) {
         SPARK_LOG_DEBUG("\(windowNumberList.count)")
         excludedWindowNumberList = windowNumberList
+    }
+    
+    func getWindowInfoList(exclude: Bool) -> MagicWindowInfoList {
+        updatefullWindowInfoList()
+        return exclude ? fullWindowInfoList.filter{ !excludedWindowNumberList.contains($0.windowNumber) } : fullWindowInfoList
     }
 }

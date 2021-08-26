@@ -55,6 +55,12 @@
 		21FBAF9426D3D5DB00717FDC /* TestShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBAF9326D3D5DB00717FDC /* TestShare.swift */; };
 		21FBB08126D65BB700717FDC /* ShareIosScreenWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBB07F26D65BB700717FDC /* ShareIosScreenWindowController.swift */; };
 		21FBB08226D65BB700717FDC /* ShareIosScreenWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21FBB08026D65BB700717FDC /* ShareIosScreenWindowController.xib */; };
+		21FBB2D526D7647C00717FDC /* ShareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBB2D426D7647C00717FDC /* ShareModel.swift */; };
+		21FBB2D826D766D400717FDC /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBB2D726D766D400717FDC /* NSImage+Extensions.swift */; };
+		21FBB2DA26D7682800717FDC /* NSScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBB2D926D7682800717FDC /* NSScreen+Extensions.swift */; };
+		21FBB2DC26D76BF500717FDC /* Process+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBB2DB26D76BF500717FDC /* Process+Extensions.swift */; };
+		21FBB2DF26D76CDB00717FDC /* TelephonyServiceProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FBB2DE26D76CDB00717FDC /* TelephonyServiceProxy.m */; };
+		21FBB2E426D76E0900717FDC /* ShareSourceVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBB2E326D76E0900717FDC /* ShareSourceVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -136,6 +142,14 @@
 		21FBAF9326D3D5DB00717FDC /* TestShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestShare.swift; sourceTree = "<group>"; };
 		21FBB07F26D65BB700717FDC /* ShareIosScreenWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareIosScreenWindowController.swift; sourceTree = "<group>"; };
 		21FBB08026D65BB700717FDC /* ShareIosScreenWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareIosScreenWindowController.xib; sourceTree = "<group>"; };
+		21FBB2D426D7647C00717FDC /* ShareModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareModel.swift; sourceTree = "<group>"; };
+		21FBB2D626D7656F00717FDC /* CHSourceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSourceType.h; sourceTree = "<group>"; };
+		21FBB2D726D766D400717FDC /* NSImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
+		21FBB2D926D7682800717FDC /* NSScreen+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSScreen+Extensions.swift"; sourceTree = "<group>"; };
+		21FBB2DB26D76BF500717FDC /* Process+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Process+Extensions.swift"; sourceTree = "<group>"; };
+		21FBB2DD26D76CDB00717FDC /* TelephonyServiceProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TelephonyServiceProxy.h; sourceTree = "<group>"; };
+		21FBB2DE26D76CDB00717FDC /* TelephonyServiceProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TelephonyServiceProxy.m; sourceTree = "<group>"; };
+		21FBB2E326D76E0900717FDC /* ShareSourceVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSourceVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +175,9 @@
 			isa = PBXGroup;
 			children = (
 				210C5E7E26CC9EE900F69BFF /* Bundle+Extensions.swift */,
+				21FBB2D726D766D400717FDC /* NSImage+Extensions.swift */,
+				21FBB2D926D7682800717FDC /* NSScreen+Extensions.swift */,
+				21FBB2DB26D76BF500717FDC /* Process+Extensions.swift */,
 				210C5E8026CC9F8800F69BFF /* URL+Extensions.swift */,
 			);
 			path = Extensions;
@@ -290,7 +307,10 @@
 				21AD5159269C8FCD006DF32F /* ObjCExceptionCatcher.h */,
 				21AD5158269C8FCD006DF32F /* ObjCExceptionCatcher.m */,
 				217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */,
+				21FBB2E326D76E0900717FDC /* ShareSourceVM.swift */,
 				219634CB26560CEA00BFA3F4 /* SparkButton.swift */,
+				21FBB2DD26D76CDB00717FDC /* TelephonyServiceProxy.h */,
+				21FBB2DE26D76CDB00717FDC /* TelephonyServiceProxy.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -326,6 +346,8 @@
 		21AC7DA126CA392C004E439F /* Share */ = {
 			isa = PBXGroup;
 			children = (
+				21FBB2D626D7656F00717FDC /* CHSourceType.h */,
+				21FBB2D426D7647C00717FDC /* ShareModel.swift */,
 				210C5E7B26CBADDC00F69BFF /* MobileDevice.h */,
 				210C5E8426CCA0BD00F69BFF /* MobileDeviceAdapter.h */,
 				210C5E8526CCA0BD00F69BFF /* MobileDeviceAdapter.mm */,
@@ -446,14 +468,18 @@
 				210C5E7726CB72A400F69BFF /* ShareIosScreenCaptureManager.swift in Sources */,
 				21B479D826A0F1DB003A91FB /* BonjourClient.swift in Sources */,
 				210C5E8E26CCAF9E00F69BFF /* RootLogger.cpp in Sources */,
+				21FBB2DF26D76CDB00717FDC /* TelephonyServiceProxy.m in Sources */,
 				21094125266083B20040AC73 /* MagicDrawingBoardWindowController.swift in Sources */,
+				21FBB2D826D766D400717FDC /* NSImage+Extensions.swift in Sources */,
 				21A38412264E179E00F12D78 /* DDHotKeyTextField.m in Sources */,
 				21A38414264E179E00F12D78 /* GlobalShortcutHander.m in Sources */,
+				21FBB2DC26D76BF500717FDC /* Process+Extensions.swift in Sources */,
 				21AD5149269B3E32006DF32F /* AppContext.swift in Sources */,
 				21ABE99D26973B040063C07A /* TestListViewController.swift in Sources */,
 				21A38411264E179E00F12D78 /* DDHotKeyUtilities.m in Sources */,
 				211C78992681AB03003D9EB4 /* LogsWindowController.swift in Sources */,
 				21AD5146269A2D60006DF32F /* MainWindowController.swift in Sources */,
+				21FBB2E426D76E0900717FDC /* ShareSourceVM.swift in Sources */,
 				21AD5151269B4215006DF32F /* LayerDelegate.swift in Sources */,
 				219634CC26560CEA00BFA3F4 /* SparkButton.swift in Sources */,
 				211C78922681840C003D9EB4 /* TestDrawingBoard.swift in Sources */,
@@ -468,12 +494,14 @@
 				21B479DB26A0F582003A91FB /* TestBonjour.swift in Sources */,
 				217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */,
 				210C5E8626CCA0BD00F69BFF /* MobileDeviceAdapter.mm in Sources */,
+				21FBB2DA26D7682800717FDC /* NSScreen+Extensions.swift in Sources */,
 				211C789F2681E1B4003D9EB4 /* FontelloLabelWithText.swift in Sources */,
 				21AD5156269C8F37006DF32F /* NSView+Extensions.swift in Sources */,
 				21ABE9972696F8C90063C07A /* TestWindow.swift in Sources */,
 				21FBAF9426D3D5DB00717FDC /* TestShare.swift in Sources */,
 				21ABE999269730B70063C07A /* MainViewController.swift in Sources */,
 				21AD515A269C8FCD006DF32F /* ObjCExceptionCatcher.m in Sources */,
+				21FBB2D526D7647C00717FDC /* ShareModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

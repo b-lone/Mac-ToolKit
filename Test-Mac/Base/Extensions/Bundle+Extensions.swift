@@ -29,4 +29,17 @@ extension Bundle {
             return nil
         }
     }
+    public class func getSparkBundle() -> Bundle? {
+        #if os(iOS)
+        return Bundle(identifier: "com.cisco.CommonHeadResources")
+        #else
+        let bundles = Bundle.allBundles
+        for bundle in bundles {
+            if bundle.bundleIdentifier == "Cisco-Systems.Spark.main" {
+                return bundle
+            }
+        }
+        return nil
+        #endif
+    }
 }

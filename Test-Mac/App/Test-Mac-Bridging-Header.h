@@ -14,6 +14,8 @@
 #import "ObjCExceptionCatcher.h"
 #import "CppTest.h"
 #import "MobileDeviceAdapter.h"
+#import "CHSourceType.h"
+#import "TelephonyServiceProxy.h"
 
 
 #endif /* Test_Mac_Bridging_Header_h */
