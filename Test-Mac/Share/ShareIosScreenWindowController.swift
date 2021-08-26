@@ -1,6 +1,6 @@
 //
 //  ShareIosScreenWindowController.swift
-//  Test-Mac
+//  Webex
 //
 //  Created by Archie You on 2021/7/11.
 //  Copyright © 2021 Cisco. All rights reserved.
@@ -24,13 +24,20 @@ class ShareIosScreenWindowController: NSWindowController {
     @IBOutlet weak var previewView: NSView!
     let iosScreenCaptureManager: ShareIosScreenCaptureManagerProtocol = ShareIosScreenCaptureManager()
     
-    private var previewRatio:CGFloat = 1680 / 1050 {
+    private var previewRatio:CGFloat? {
+        willSet {
+            if let frame = window?.frame, let previewRatio = previewRatio {
+                frameMap[previewRatio] = frame
+            }
+        }
         didSet {
             if oldValue != previewRatio {
-                updateWindowSize()
+                updateWindowFrame()
             }
         }
     }
+    
+    private var frameMap = [CGFloat: NSRect]()
     
     init() {
         super.init(window: nil)
@@ -64,22 +71,26 @@ class ShareIosScreenWindowController: NSWindowController {
     
     override func showWindow(_ sender: Any?) {
         super.showWindow(sender)
-        updateWindowSize()
+        updateWindowFrame()
     }
     
     private func getSizeKeepRatio(_ size: NSSize) -> NSSize {
-        let width = size.height * previewRatio
-        let height = size.width / previewRatio
+        guard let previewRatio = previewRatio else { return size }
+        let width = floor(size.height * previewRatio)
+        let height = floor(size.width / previewRatio)
         return NSMakeSize(min(size.width, width), min(size.height, height))
     }
     
-    private func updateWindowSize() {
+    private func updateWindowFrame() {
         guard let window = window else { return }
-        guard let screen = window.screen ?? NSScreen.main else { return }
-        let screenFrame = screen.frame
-        let size = getSizeKeepRatio(NSMakeSize(screenFrame.height * 0.8, screenFrame.height * 0.8))
-        window.animator().setContentSize(getSizeKeepRatio(size))
-        window.animator().center()
+        if let previewRatio = previewRatio, let frame = frameMap[previewRatio]  {
+            window.setFrame(frame, display: true, animate: true)
+        } else if let screen = window.screen ?? NSScreen.main {
+            let screenFrame = screen.frame
+            let size = getSizeKeepRatio(NSMakeSize(screenFrame.width * 0.8, screenFrame.height * 0.8))
+            window.animator().setContentSize(size)
+            window.animator().center()
+        }
     }
 }
 
