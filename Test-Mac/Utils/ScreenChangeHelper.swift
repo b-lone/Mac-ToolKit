@@ -15,18 +15,22 @@ class ScreenChangeHelper: NSObject {
     static let userInfoKeyRemovedScreen = "userInfoKeyRemovedScreen"
     static let userInfoKeyUpdatedScreen = "userInfoKeyUpdatedScreen"
     
-    private var screenFrameMap = [String: NSRect]()
+    private var screenMap = [String: NSRect]()
     override init() {
         super.init()
         
-        updateScreenFrameMap()
+        updateScreenMap()
         NotificationCenter.default.addObserver(self, selector: #selector(onChangeScreenParametersNotification), name: NSApplication.didChangeScreenParametersNotification, object: nil)
     }
     
-    private func updateScreenFrameMap() {
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func updateScreenMap() {
         NSScreen.screens.forEach {
             if let uuid = $0.uuid() {
-                screenFrameMap[uuid] = $0.frame
+                screenMap[uuid] = $0.frame
             }
         }
     }
@@ -40,11 +44,11 @@ class ScreenChangeHelper: NSObject {
         }
         
         var addedScreen = [NSScreen]()
-        var removedScreen = Array(screenFrameMap.keys)
+        var removedScreen = Array(screenMap.keys)
         var updatedScreen = [NSScreen]()
         
         for (uuid, screen) in screenMap {
-            if let frame = screenFrameMap[uuid] {
+            if let frame = screenMap[uuid]?.frame {
                 removedScreen.removeAll{ $0 == uuid }
                 if screen.frame != frame {
                     updatedScreen.append(screen)
@@ -54,7 +58,7 @@ class ScreenChangeHelper: NSObject {
             }
         }
         
-        updateScreenFrameMap()
+        updateScreenMap()
         
         if !addedScreen.isEmpty || !removedScreen.isEmpty {
             let userInfo:[String: Any] = [ScreenChangeHelper.userInfoKeyAddedScreen: addedScreen,

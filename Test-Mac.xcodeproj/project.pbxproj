@@ -23,6 +23,7 @@
 		211C789F2681E1B4003D9EB4 /* FontelloLabelWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C789E2681E1B4003D9EB4 /* FontelloLabelWithText.swift */; };
 		213978E326A0151800F9751D /* CppTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 213978E226A0151800F9751D /* CppTest.mm */; };
 		213E13A32637AAEA00DFECFF /* MouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213E13A22637AAEA00DFECFF /* MouseView.swift */; };
+		215F52DF2705659800F4ADD0 /* ScreenChangeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F52DE2705659800F4ADD0 /* ScreenChangeHelper.swift */; };
 		215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F8AD925B098EA000F4D45 /* AppDelegate.swift */; };
 		215F8ADE25B098EC000F4D45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215F8ADD25B098EC000F4D45 /* Assets.xcassets */; };
 		215F8AE125B098EC000F4D45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215F8ADF25B098EC000F4D45 /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 		213978E126A0151800F9751D /* CppTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CppTest.h; sourceTree = "<group>"; };
 		213978E226A0151800F9751D /* CppTest.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CppTest.mm; sourceTree = "<group>"; };
 		213E13A22637AAEA00DFECFF /* MouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseView.swift; sourceTree = "<group>"; };
+		215F52DE2705659800F4ADD0 /* ScreenChangeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenChangeHelper.swift; sourceTree = "<group>"; };
 		215F8AD625B098EA000F4D45 /* Test-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		215F8AD925B098EA000F4D45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		215F8ADD25B098EC000F4D45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 		21ABE98F2696DE3C0063C07A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				215F52DE2705659800F4ADD0 /* ScreenChangeHelper.swift */,
 				211C78892680742E003D9EB4 /* FontelloButton.swift */,
 				211C789E2681E1B4003D9EB4 /* FontelloLabelWithText.swift */,
 				213E13A22637AAEA00DFECFF /* MouseView.swift */,
@@ -472,6 +475,7 @@
 				21094125266083B20040AC73 /* MagicDrawingBoardWindowController.swift in Sources */,
 				21FBB2D826D766D400717FDC /* NSImage+Extensions.swift in Sources */,
 				21A38412264E179E00F12D78 /* DDHotKeyTextField.m in Sources */,
+				215F52DF2705659800F4ADD0 /* ScreenChangeHelper.swift in Sources */,
 				21A38414264E179E00F12D78 /* GlobalShortcutHander.m in Sources */,
 				21FBB2DC26D76BF500717FDC /* Process+Extensions.swift in Sources */,
 				21AD5149269B3E32006DF32F /* AppContext.swift in Sources */,
