@@ -1,0 +1,1695 @@
+{
+  "name": "SystemHighContrast",
+  "tokens": {
+    "alertBackground-default": {
+      "normal": "HighlightColor"
+    },
+    "alertBackground-success": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "checked": "HighlightColor",
+      "focused": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "alertBackground-error": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "checked": "HighlightColor",
+      "focused": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "alertBackground-warning": {
+      "normal": "HighlightColor"
+    },
+    "alertText-default": {
+      "normal": "HighlightTextColor"
+    },
+    "alertText-error": {
+      "normal": "HotlightColor",
+      "hovered": "WindowColor",
+      "checked": "WindowColor",
+      "pressed": "WindowColor",
+      "focused": "WindowColor"
+    },
+    "wx-alertText-error-meeting-conflict": {
+      "normal": "GrayTextColor",
+      "hovered": "WindowColor",
+      "checked": "WindowColor",
+      "pressed": "WindowColor",
+      "focused": "WindowColor"
+    },
+    "alertText-success": {
+      "normal": "HighlightColor",
+      "hovered": "WindowColor",
+      "checked": "WindowColor",
+      "pressed": "WindowColor",
+      "focused": "WindowColor"
+    },
+    "alertText-warning": {
+      "normal": "HighlightTextColor"
+    },
+    "background-primary": {
+      "normal": "WindowColor",
+      "hovered": "WindowColor"
+    },
+    "background-quaternary": {
+      "normal": "WindowColor",
+      "hovered": "WindowColor"
+    },
+    "background-secondary": {
+      "normal": "WindowColor",
+      "hovered": "WindowColor"
+    },
+    "background-tertiary": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "checked": "HighlightColor",
+      "focused": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "button-cancel": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "buttonJoin-primary": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "buttonJoin-primary-outline": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-outline-join": {
+      "normal": "HighlightColor",
+      "hovered": "WindowColor",
+      "checked": "WindowColor",
+      "pressed": "WindowColor",
+      "focused": "WindowColor"
+    },
+    "buttonOutline-cancel": {
+      "normal": "ButtonTextColor"
+    },
+    "buttonOutline-primary": {
+      "normal": "ButtonTextColor"
+    },
+    "buttonOutline-primary-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "checked": "HighlightColor"
+    },
+    "buttonOutline-secondary": {
+      "normal": "ButtonTextColor"
+    },
+    "buttonOutlineText-cancel": {
+      "normal": "ButtonTextColor"
+    },
+    "buttonOutlineText-primary": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "buttonOutlineText-secondary": {
+      "normal": "ButtonTextColor"
+    },
+    "button-primary": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "button-primary-outline": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-secondary": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "button-secondary-outline": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-tertiary": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "checked": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "buttonText-tertiary": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor"
+    },
+    "buttonText-primary": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "buttonText-ghost": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "buttonText-secondary": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "buttonText-cancel": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "edit-space-settings-button": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "edit-space-settings-buttonText": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "edit-space-settings-buttonBorder": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "inputBackground": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "WindowColor"
+    },
+    "signIn-inputOutline": {
+      "normal": "WindowTextColor",
+      "focused": "HighlightColor"
+    },
+    "wx-default-checkbox": {
+      "normal": "HighlightColor",
+      "hovered": "HotlightColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "checkbox-indicator": {
+      "normal": "ButtonFaceColor",
+      "disabled": "GrayTextColor"
+    },
+    "checkbox-checked-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HotlightColor",
+      "checked": "HighlightColor"
+    },
+    "inputBackground-error": {
+      "normal": "WindowColor"
+    },
+    "inputBackground-warning": {
+      "normal": "WindowColor"
+    },
+    "input-focusRing": {
+      "normal": "HighlightColor"
+    },
+    "inputOutline": {
+      "focused": "HighlightColor",
+      "normal": "WindowTextColor"
+    },
+    "inputOutline-error": {
+      "normal": "HighlightColor"
+    },
+    "inputOutline-warning": {
+      "normal": "HighlightColor"
+    },
+    "inputText-error": {
+      "normal": "HighlightColor"
+    },
+    "inputText-primary": {
+      "normal": "WindowTextColor",
+      "checked": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "inputText-secondary": {
+      "normal": "WindowTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-inputText-secondary-inverted": {
+      "normal": "WindowTextColor",
+      "focused": "WindowColor",
+      "checked": "WindowColor",
+      "hovered": "WindowColor",
+      "pressed": "WindowColor",
+      "disabled": "GrayTextColor"
+    },
+    "inputText-warning": {
+      "normal": "HighlightColor"
+    },
+    "listItem-primary": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "GrayTextColor",
+      "focused": "HotlightColor"
+    },
+    "listItem-quaternary": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "disabled": "GrayTextColor",
+      "focused": "HotlightColor"
+    },
+    "listItem-secondary": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "disabled": "GrayTextColor",
+      "focused": "HotlightColor"
+    },
+    "listItem-tertiary": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "disabled": "GrayTextColor",
+      "focused": "HotlightColor"
+    },
+    "mainList-indicator": {
+      "normal": "HotlightColor",
+      "hovered": "WindowColor",
+      "focused": "WindowColor"
+    },
+    "mainList-item": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HighlightColor",
+      "checked": "HighlightColor",
+      "disabled": "GrayTextColor",
+      "focused": "HotlightColor"
+    },
+    "modal-decorative-button-primary": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "modal-decorative-button-text-primary": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "modal-decorative-button-secondary": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "modal-decorative-button-text-secondary": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "modal-text-primary": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "modal-decorativeBackground-primary-mint": {
+      "normal": "WindowColor"
+    },
+    "modal-decorativeBackground-primary-gold": {
+      "normal": "WindowColor"
+    },
+    "modal-decorativeBackground-primary-violet": {
+      "normal": "WindowColor"
+    },
+    "modal-decorativeBackground-primary-slate": {
+      "normal": "WindowColor"
+    },
+    "modal-decorativeBackground-primary-cobalt": {
+      "normal": "WindowColor"
+    },
+    "modal-decorativeBackground-primary-blue": {
+      "normal": "WindowColor"
+    },
+    "modal-decorativeBackground-secondary-slate": {
+      "normal": "WindowColor"
+    },
+    "modal-decorativeBackground-secondary-yellow": {
+      "normal": "WindowColor"
+    },
+    "modal-decorativeBackground-secondary-violet": {
+      "normal": "WindowColor"
+    },
+    "modal-decorativeTitle-slate": {
+      "normal": "WindowTextColor"
+    },
+    "modal-decorativeTitle-gold": {
+      "normal": "WindowTextColor"
+    },
+    "modal-decorativeTitle-violet": {
+      "normal": "WindowTextColor"
+    },
+    "modal-decorativeTitle-mint": {
+      "normal": "WindowTextColor"
+    },
+    "modal-decorativeTitle-green": {
+      "normal": "WindowTextColor"
+    },
+    "modal-decorativeTitle-cobalt": {
+      "normal": "WindowTextColor"
+    },
+    "wx-softLanding-leftSide-background": {
+      "normal": "WindowColor",
+      "hovered": "WindowColor",
+      "checked": "WindowTextColor"
+    },
+    "overlay-primary": {
+      "normal": "WindowColor"
+    },
+    "overlay-secondary": {
+      "normal": "WindowColor"
+    },
+    "popover-background": {
+      "normal": "WindowColor"
+    },
+    "popover-background-coachmark": {
+      "normal": "WindowColor"
+    },
+    "legacy-separator-primary": {
+      "normal": "WindowTextColor"
+    },
+    "legacy-separator-secondary": {
+      "normal": "WindowTextColor"
+    },
+    "message-listItem": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HighlightColor"
+    },
+    "text-highlight": {
+      "normal": "HighlightColor"
+    },
+    "text-hyperlink": {
+      "normal": "HotlightColor",
+      "hovered": "HotlightColor",
+      "focused": "HighlightColor"
+    },
+    "text-primary": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "listitem-tick": {
+      "normal": "HotlightColor",
+      "hovered": "HotlightColor",
+      "focused": "HighlightColor"
+    },
+    "wx-text-primary-meeting-info": {
+      "normal": "HotlightColor",
+      "hovered": "WindowColor",
+      "checked": "WindowColor",
+      "pressed": "WindowColor",
+      "focused": "WindowColor"
+    },
+    "text-secondary": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "footer-background": {
+      "normal": "WindowColor"
+    },
+    "wx-globalFooterButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor",
+      "checked": "HighlightColor"
+    },
+    "wx-globalFooterButton-Outline": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-globalFooterButton-Text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-globalFooterButton-Text-Focus": {
+      "normal": "HighlightTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-incomingMessageToast-replyLabel": {
+      "normal": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-incomingMessageToast-fileLabel": {
+      "normal": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-teams-combobox-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-teams-combobox-border": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-teams-combobox-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-callForwardItemBrush-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor"
+    },
+    "wx-callForwardListItemBrush-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor",
+      "checked": "HighlightColor"
+    },
+    "wx-meetingsTabButton-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "focused": "HighlightTextColor"
+    },
+    "wx-meetingsTabButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "wx-mentionsHighlight-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HotlightColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-filteredListHeader-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-filteredListBody-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-spaceListSubHeading-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-spaceList-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-brickletItem-background": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "GrayTextColor",
+      "focused": "HotlightColor"
+    },
+    "wx-brickletItemHeader-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "wx-brickletItemTimer-text": {
+      "normal": "WindowTextColor"
+    },
+    "wx-brickletJoinButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "wx-brickletJoinButtonIMOnly-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "wx-brickletJoinButtonZSM-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "wx-brickletJoinButtonZSMSharing-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "wx-brickletJoinCalling-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "wx-brickletJoinedAdminButton-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "wx-brickletJoinedButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "wx-brickletNotificationIcon-background": {
+      "normal": "WindowTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "wx-avatarInitials-text": {
+      "normal": "ButtonFaceColor",
+      "hovered": "ButtonTextColor"
+    },
+    "wx-teamButton-background": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor"
+    },
+    "wx-default-avatar-background": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonFaceColor",
+      "pressed": "ButtonFaceColor"
+    },
+    "wx-subheading-text": {
+      "normal": "WindowTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-customButtonValueIcon": {
+      "normal": "HighlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-customButtonValue-border": {
+      "normal": "WindowTextColor"
+    },
+    "wx-cancelButton-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-cancelButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "wx-callHistory-item-missed": {
+      "normal": "GrayTextColor"
+    },
+    "wx-cancelButton-background-outline": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "buttonJoinBorder-primary": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-call-control-button-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HotlightColor",
+      "focused": "HotlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-call-control-button-border": {
+      "normal": "ButtonTextColor",
+      "focused": "HighlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-call-control-button-text": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-interstitial-background": {
+      "normal": "WindowColor"
+    },
+    "wx-interstitial-frame-video-background": {
+      "normal": "WindowColor"
+    },
+    "wx-interstitial-frame-video-border": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-interstitial-button-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HotlightColor",
+      "focused": "HotlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-callWindowContent-background": {
+      "normal": "WindowColor"
+    },
+    "wx-call-splitter-background": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-interstitial-frame-background": {
+      "normal": "WindowColor"
+    },
+    "wx-interstitial-change-video-button-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HotlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-interstitial-change-video-button-border": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-interstitial-not-mirrored-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "wx-interstitial-mirrored-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "wx-interstitial-mirrored-text-mirror": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-interstitial-mirrored-text-unmirror": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-plusButtonThirdColumn-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "wx-call-control-moreButton-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HotlightColor",
+      "checked": "HighlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-new-participantsListDelegate-background": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "GrayTextColor",
+      "focused": "HotlightColor"
+    },
+    "wx-transparent-button": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "WindowColor"
+    },
+    "wx-spaceTabs-text": {
+      "normal": "HotlightColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor",
+      "checked": "ButtonTextColor"
+    },
+    "wx-spaceTabs-underline": {
+      "normal": "HighlightColor"
+    },
+    "wx-menuList-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HighlightColor"
+    },
+    "wx-layout-menu-button-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HotlightColor",
+      "checked": "HighlightColor"
+    },
+    "wx-layout-menu-button-border": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-lobbyView-background": {
+      "normal": "WindowColor"
+    },
+    "wx-meeting-reminder-border": {
+      "normal": "WindowTextColor"
+    },
+    "wx-callWindowContainer-background": {
+      "normal": "WindowColor"
+    },
+    "wx-interstitial-button-border": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-call-dialog-border": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-secondColumn-border": {
+      "normal": "WindowColor"
+    },
+    "wx-addParticipantsButtonInCall-icon": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-call-control-panelButton-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HotlightColor",
+      "checked": "HighlightColor"
+    },
+    "wx-call-control-panelButton-border": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-nametag-background": {
+      "normal": "WindowColor"
+    },
+    "wx-addButton-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "wx-addButton-text": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-addButton-icon": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-videotoolbar-background": {
+      "normal": "WindowColor"
+    },
+    "wx-share-sharing-border-color-outline": {
+      "normal": "WindowColor"
+    },
+    "wx-transparent-background": {
+      "normal": "WindowColor"
+    },
+    "wx-transparent-border": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-meetingRSVPStatus-tentativeButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "wx-meetingRSVPStatus-acceptButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "wx-meetingRSVPStatus-declineButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "wx-meetingRSVPStatus-button-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-meetingRSVPStatus-button-border": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-addParticipantsButton-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HotlightColor",
+      "checked": "HighlightColor"
+    },
+    "wx-addParticipantsButton-background-outline": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-placeHolder-text": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-popover-background": {
+      "normal": "WindowColor"
+    },
+    "wx-multitask-panel-button-background": {
+      "normal": "WindowColor"
+    },
+    "wx-multitask-panel-button-background-outline": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-filmStripPipWidget-background": {
+      "normal": "WindowColor"
+    },
+    "wx-selfMessageCircleIcon": {
+      "normal": "GrayTextColor"
+    },
+    "wx-selfMessageCircle-border": {
+      "normal": "WindowTextColor"
+    },
+    "wx-titilebar-meetingInfo-svg-text": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-titilebar-meetingInfoButton-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HotlightColor"
+    },
+    "appNav-icon": {
+      "normal": "HotlightColor",
+      "hovered": "WindowColor",
+      "pressed": "WindowColor",
+      "checked": "WindowColor",
+      "disabled": "GrayTextColor"
+    },
+    "appNav-background": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "WindowTextColor",
+      "checked": "HighlightColor"
+    },
+    "appNav-badge-text": {
+      "normal": "HighlightTextColor"
+    },
+    "appNav-badge": {
+      "normal": "WindowTextColor"
+    },
+    "wx-listItemText-primary": {
+      "normal": "WindowTextColor",
+      "focused": "HighlightTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-listItemText-secondary": {
+      "normal": "WindowTextColor",
+      "focused": "HighlightTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-space-header-button-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "wx-conversationActivitiesShareButton": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "wx-conversationActivitiesShareButtonOutline": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "appHeader": {
+      "normal": "WindowColor"
+    },
+    "appHeader-border": {
+      "normal": "WindowTextColor"
+    },
+    "appHeader-buttonDevice": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "checked": "HighlightColor"
+    },
+    "appHeader-buttonDevice-text-active": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "appHeader-buttonPlus": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "appHeader-buttonPlus-icon": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "appHeader-buttonStatus": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "checked": "HighlightColor"
+    },
+    "appHeader-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor"
+    },
+    "wx-lineEdit-border": {
+      "normal": "WindowTextColor",
+      "focused": "HighlightColor"
+    },
+    "wx-customStatusEmojiButton": {
+      "normal": "WindowTextColor",
+      "focused": "HighlightColor"
+    },
+    "wx-general-list-background": {
+      "normal": "WindowColor"
+    },
+    "wx-general-list-text": {
+      "normal": "WindowTextColor",
+      "focused": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "checked": "WindowTextColor"
+    },
+    "wx-buttonCall-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "checked": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "wx-comboBox-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "WindowColor",
+      "disabled": "WindowColor",
+      "focused": "WindowColor"
+    },
+    "wx-defaultOnSecondColumn-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor"
+    },
+    "wx-emojiPickerCategory-border-top": {
+      "normal": "WindowTextColor",
+      "hovered": "HotlightColor",
+      "pressed": "HighlightColor",
+      "checked": "HighlightColor",
+      "focused": "HighlightColor"
+    },
+    "wx-emojiPickerSearch-background": {
+      "normal": "WindowColor",
+      "hovered": "WindowColor"
+    },
+    "wx-emojiPickerSearch-border": {
+      "normal": "WindowColor",
+      "focused": "HighlightColor"
+    },
+    "wx-emojiPickerEmoji-background": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "focused": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "wx-emojiPickerSkin-background": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "checked": "HighlightColor"
+    },
+    "wx-emojiPickerCategory-icon": {
+      "normal": "WindowTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-errorText": {
+      "normal": "HighlightColor"
+    },
+    "wx-externalParticipants-background": {
+      "normal": "WindowColor"
+    },
+    "wx-externalParticipants-text": {
+      "normal": "HighlightColor"
+    },
+    "wx-ghTopBarMinimizeMaximizeButton-text": {
+      "normal": "HotlightColor",
+      "hovered": "ButtonFaceColor",
+      "pressed": "ButtonFaceColor"
+    },
+    "wx-ghTopBarCloseButton-text": {
+      "normal": "HotlightColor",
+      "hovered": "ButtonFaceColor",
+      "pressed": "ButtonFaceColor"
+    },
+    "wx-ghTopBarCloseButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-menuItemButton-text": {
+      "normal": "WindowTextColor",
+      "focused": "HighlightTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-callMoreEndPopupMenu-item-background": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "GrayTextColor",
+      "focused": "HotlightColor"
+    },
+    "wx-themeButton-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "checked": "HighlightColor"
+    },
+    "wx-topBarMainMinMaxButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-searchInputBoxContainer-icon": {
+      "normal": "WindowTextColor"
+    },
+    "wx-searchItemNewSpaceItemPenAndBrush": {
+      "normal": "WindowColor"
+    },
+    "wx-default-border": {
+      "normal": "WindowTextColor"
+    },
+    "wx-defaultBorderForButton": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-default-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HotlightColor",
+      "focused": "HotlightColor",
+      "pressed": "HotlightColor"
+    },
+    "wx-default-invertedColor-text": {
+      "normal": "WindowColor"
+    },
+    "wx-infoButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "wx-inputActionButton-background": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HighlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-favorite-icon": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightColor",
+      "checked": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HighlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-textEdit-background": {
+      "normal": "WindowTextColor"
+    },
+    "wx-textEdit-text": {
+      "normal": "WindowTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-textInputBoxCode-background": {
+      "normal": "WindowColor"
+    },
+    "wx-headingColor-text": {
+      "normal": "WindowTextColor"
+    },
+    "wx-insightsButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "wx-scheduleButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "wx-scheduleButton-icon": {
+      "normal": "ButtonFaceColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-buttonJoin-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "wx-buttonJoinIcon-background": {
+      "normal": "ButtonFaceColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-buttonJoinIconOBTP-background": {
+      "normal": "ButtonFaceColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-contextMenu-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor"
+    },
+    "wx-contextMenu-text": {
+      "normal": "HighlightTextColor"
+    },
+    "signIn-inputBackground": {
+      "normal": "ButtonFaceColor"
+    },
+    "appHeader-searchBar": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "appHeader-searchBar-active": {
+      "normal": "WindowColor"
+    },
+    "appHeader-searchBar-outline-active": {
+      "normal": "WindowTextColor"
+    },
+    "wx-topBarSearchButton-text": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-ghCancelSearchButton": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "wx-ghCancelSearchButton-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "wx-gh-cancelSearch-icon": {
+      "normal": "WindowTextColor"
+    },
+    "wx-ghSearchInputBoxActive-border": {
+      "normal": "HighlightColor"
+    },
+    "wx-ghSearchInputBox-text": {
+      "normal": "WindowTextColor"
+    },
+    "wx-ghSearchInputBox-background": {
+      "normal": "WindowColor"
+    },
+    "wx-ghSearchModifier-background": {
+      "normal": "WindowTextColor"
+    },
+    "wx-ghSearchModifier-text": {
+      "normal": "WindowColor"
+    },
+    "wx-searchInputBox-text": {
+      "normal": "WindowTextColor"
+    },
+    "wx-searchItem-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor"
+    },
+    "wx-searchItemDelegatorMoreButton-background": {
+      "normal": "HighlightColor"
+    },
+    "wx-searchPlaceholder-text": {
+      "normal": "WindowTextColor"
+    },
+    "wx-searchInputBox-border": {
+      "normal": "WindowTextColor"
+    },
+    "wx-searchInputBox-background": {
+      "normal": "WindowColor"
+    },
+    "wx-messageInputActionMarkDownButton-background": {
+      "normal": "HighlightColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor"
+    },
+    "wx-markButton-background": {
+      "normal": "WindowTextColor"
+    },
+    "wx-headingColor-background": {
+      "normal": "WindowColor"
+    },
+    "wx-messageInputActionExternalParticipantButton-background": {
+      "normal": "HotlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-inputBoxWidgetHasExternalParticipant-background": {
+      "normal": "WindowColor"
+    },
+    "wx-inputBoxWidgetHasExternalParticipant-border": {
+      "normal": "HotlightColor"
+    },
+    "wx-inputBoxWidgetMentions-text": {
+      "normal": "HotlightColor"
+    },
+    "wx-textInputBoxLink-text": {
+      "normal": "HotlightColor"
+    },
+    "wx-textInputBoxMessage-text": {
+      "normal": "WindowTextColor"
+    },
+    "wx-classificationInputBox-background": {
+      "normal": "WindowTextColor"
+    },
+    "wx-classificationInputBox-border": {
+      "normal": "GrayTextColor"
+    },
+    "wx-closeAssociationCall": {
+      "normal": "HotlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "wx-inputBoxWidgetWithoutExternalParticipant-border": {
+      "normal": "WindowTextColor"
+    },
+    "wx-overlay-background": {
+      "normal": "WindowColor"
+    },
+    "wx-subheadingInverted-text": {
+      "normal": "HighlightTextColor"
+    },
+    "wx-sendMessage-icon": {
+      "normal": "WindowTextColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "checked": "HotlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-searchPeoplePresence-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor"
+    },
+    "wx-searchResultListImage-background": {
+      "normal": "HotlightColor"
+    },
+    "wx-quoteWidgetBar-background": {
+      "normal": "WindowColor"
+    },
+    "wx-quoteWidget-background": {
+      "normal": "WindowTextColor"
+    },
+    "wx-participantsListDelegate-background": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HighlightColor",
+      "checked": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "wx-searchResultSeparator-background": {
+      "normal": "WindowColor"
+    },
+    "wx-popupMenuItem-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "wx-popupMenuItem-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-inverted-button-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonFaceColor",
+      "focused": "ButtonFaceColor",
+      "pressed": "ButtonFaceColor"
+    },
+    "wx-meetingsInnerButton-color": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-teams-combobox-dropdown-arrow": {
+      "normal": "WindowTextColor"
+    },
+    "wx-dividerLine-background": {
+      "normal": "WindowColor"
+    },
+    "wx-defaultTextWithPressed-text": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowColor",
+      "disabled": "WindowColor"
+    },
+    "wx-giphyIntegrationWidgetCancelSearchButton-background": {
+      "normal": "WindowTextColor"
+    },
+    "wx-balloon-background": {
+      "normal": "WindowColor"
+    },
+    "wx-balloon-border": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-balloon-text": {
+      "normal": "ButtonTextColor"
+    },
+    "button-ghost": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "button-ghost-border": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "focused": "HotlightColor"
+    },
+    "wx-filterControlBackground": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "focused": "HotlightColor",
+      "checked": "HighlightColor"
+    },
+    "wx-filterControlIcon": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "checked": "HighlightTextColor"
+    },
+    "wx-interstitial-join-button-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor"
+    },
+    "wx-contactCardViewButtonIcon": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-contentTabViewFilesButton": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "disabled": "ButtonFaceColor",
+      "checked": "HighlightColor"
+    },
+    "wx-contentTabViewFilesButtonChecked": {
+      "normal": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "wx-contentTabViewLinksButton": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "disabled": "ButtonFaceColor",
+      "checked": "HighlightColor"
+    },
+    "wx-contentTabViewLinksButtonChecked": {
+      "normal": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "wx-contentTabViewRecordingsButton": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "disabled": "ButtonFaceColor",
+      "checked": "HighlightColor"
+    },
+    "wx-contentTabViewRecordingsButtonChecked": {
+      "normal": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "wx-contentTabViewWhiteboardButton": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "disabled": "ButtonFaceColor",
+      "checked": "HighlightColor"
+    },
+    "wx-contentTabViewWhiteboardButtonChecked": {
+      "normal": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "wx-contentTabViewButton-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-contentTabViewButtonChecked-text": {
+      "normal": "HighlightTextColor"
+    },
+    "wx-linkActivityItem-background": {
+      "normal": "WindowColor"
+    },
+    "wx-linkActivityFocusRect": {
+      "normal": "HighlightColor"
+    },
+    "wx-linkActivityNoFavIcon-background": {
+      "normal": "WindowColor"
+    },
+    "wx-linkActivityNoFavIcon": {
+      "normal": "WindowTextColor"
+    },
+    "wx-linkActivityHoverRect-background": {
+      "normal": "WindowColor"
+    },
+    "wx-linkActivityButton-background": {
+      "normal": "WindowColor"
+    },
+    "wx-linkActivityButton-text": {
+      "normal": "WindowTextColor"
+    },
+    "wx-filesListButton-background": {
+      "normal": "WindowColor"
+    },
+    "wx-filesListIcon-border": {
+      "normal": "WindowTextColor"
+    },
+    "wx-semiTransparentPreview-background": {
+      "normal": "WindowColor"
+    },
+    "wx-buttonTab-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "checked": "HighlightColor",
+      "focused": "HighlightColor"
+    },
+    "wx-buttonTab-text": {
+      "normal": "HotlightColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "checked": "HighlightTextColor"
+    },
+    "wx-buttonTab-border": {
+      "normal": "WindowColor"
+    },
+    "wx-underlineButton-background": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "checked": "HighlightColor",
+      "focused": "HighlightColor"
+    },
+    "wx-plusButtonSecColumn-border": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-tabSelectorView-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "focused": "HighlightTextColor"
+    },
+    "wx-checkMark": {
+      "normal": "HighlightColor",
+      "hovered": "WindowColor",
+      "focused": "WindowColor",
+      "checked": "WindowColor",
+      "pressed": "WindowColor"
+    },
+    "wx-customListViewHeader-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "focused": "HighlightTextColor"
+    },
+    "wx-customListViewSubHeader-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "focused": "HighlightTextColor"
+    },
+    "wx-customListViewIcon": {
+      "normal": "WindowColor"
+    },
+    "wx-teamNameLabel-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "focused": "HighlightTextColor"
+    },
+    "modal-decorative-button-text": {
+      "normal": "HotlightColor"
+    },
+    "wx-brickletItemValid-text": {
+      "normal": "WindowTextColor"
+    },
+    "wx-popupLabel-background": {
+      "normal": "WindowColor"
+    },
+    "wx-popupLabel-border": {
+      "normal": "WindowTextColor"
+    },
+    "wx-recordingContainer-border": {
+      "normal": "HighlightColor"
+    },
+    "wx-addNewTeamButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "disabled": "ButtonFaceColor",
+      "checked": "HotlightColor"
+    },
+    "wx-addNewTeamButton-border": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-addNewTeamButtonIcon": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-addNewTeam-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor"
+    },
+    "wx-addNewTeam-text": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-unreadMessageIndicator": {
+      "normal": "HotlightColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "wx-MediaOptionTitleFontColor": {
+      "normal": "WindowTextColor",
+      "focused": "HighlightTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-meeting-list-item-background": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "GrayTextColor",
+      "focused": "HighlightColor"
+    },
+    "wx-meetingIcon": {
+      "normal": "WindowTextColor",
+      "focused": "HighlightTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-meetingSpaceName": {
+      "normal": "HotlightColor",
+      "focused": "HighlightTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-meetingInProgress": {
+      "normal": "GrayTextColor",
+      "focused": "HighlightTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor"
+    },
+    "wx-deviceConnection-border": {
+      "normal": "ButtonTextColor"
+    },
+    "wx-underlineButton-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "ButtonTextColor",
+      "checked": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "wx-device-premeeting-volume-control": {
+      "normal": "WindowColor"
+    },
+    "wx-device-newvolumn-control-button-border": {
+      "normal": "WindowTextColor"
+    },
+    "wx-device-newvolumn-control-button-background": {
+      "normal": "WindowColor",
+      "hovered": "WindowColor",
+      "pressed": "WindowColor"
+    },
+    "wx-device-volume-control-border": {
+      "normal": "WindowTextColor"
+    },
+    "wx-device-disconnect-button": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "checked": "ButtonTextColor"
+    },
+    "wx-auxDeviceItem-text": {
+      "normal": "ButtonTextColor",
+      "disabled": "ButtonTextColor"
+    },
+    "separator-secondary": {
+      "normal": "ButtonTextColor"
+    },
+    "modal-primary-background":{
+      "normal": "WindowColor"
+    },
+    "modal-primary-border": {
+      "normal": "ButtonTextColor"
+    },
+    "listitem-textprimary":{
+      "normal": "WindowTextColor",
+      "focused": "HighlightTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "listitem-textsecondary":{
+      "normal": "WindowTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "listitem-background": {
+      "normal": "WindowColor",
+      "hovered": "HotlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "GrayTextColor",
+      "focused": "HotlightColor"
+    }
+  }
+}

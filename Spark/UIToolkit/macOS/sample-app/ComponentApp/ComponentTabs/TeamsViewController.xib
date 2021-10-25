@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TeamsViewController" customModule="ComponentApp" customModuleProvider="target">
+            <connections>
+                <outlet property="actionableLabelStackView" destination="6QG-kn-UwM" id="XPS-f6-AUH"/>
+                <outlet property="backgroundView" destination="Hz6-mo-xeY" id="sII-i0-5BS"/>
+                <outlet property="compactStackView" destination="gXH-HK-fYd" id="eJ6-gK-g7E"/>
+                <outlet property="largeActionLabel" destination="FPY-df-V4C" id="ung-ca-9aY"/>
+                <outlet property="largeStackView" destination="y49-bk-33b" id="XMv-nF-maA"/>
+                <outlet property="mediumActionLabel" destination="duN-wi-BS6" id="gAU-fc-2mN"/>
+                <outlet property="mediumStackView" destination="wOQ-88-MNX" id="z9o-Kl-GF2"/>
+                <outlet property="smallActionLabel" destination="NZv-AN-DEN" id="F8t-JZ-d6m"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY" customClass="UTBackgroundView" customModule="UIToolkit">
+            <rect key="frame" x="0.0" y="0.0" width="711" height="299"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <box fixedFrame="YES" title="Medium" translatesAutoresizingMaskIntoConstraints="NO" id="vPn-KJ-9dl">
+                    <rect key="frame" x="17" y="219" width="664" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="TW0-1q-6kD">
+                        <rect key="frame" x="3" y="3" width="658" height="42"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOQ-88-MNX">
+                                <rect key="frame" x="8" y="34" width="0.0" height="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="wOQ-88-MNX" firstAttribute="top" secondItem="TW0-1q-6kD" secondAttribute="top" constant="8" id="byt-Cr-Fa4"/>
+                            <constraint firstItem="wOQ-88-MNX" firstAttribute="leading" secondItem="TW0-1q-6kD" secondAttribute="leading" constant="8" id="fKt-qb-U84"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" title="Large" translatesAutoresizingMaskIntoConstraints="NO" id="Oa5-Nw-UDJ">
+                    <rect key="frame" x="17" y="155" width="664" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="jcw-iB-NX0">
+                        <rect key="frame" x="3" y="3" width="658" height="42"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y49-bk-33b">
+                                <rect key="frame" x="8" y="34" width="0.0" height="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="y49-bk-33b" firstAttribute="top" secondItem="jcw-iB-NX0" secondAttribute="top" constant="8" id="tsE-mV-y6Y"/>
+                            <constraint firstItem="y49-bk-33b" firstAttribute="leading" secondItem="jcw-iB-NX0" secondAttribute="leading" constant="8" id="wUD-9e-9z6"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" title="Compact (small)" translatesAutoresizingMaskIntoConstraints="NO" id="TV7-Up-b1i">
+                    <rect key="frame" x="17" y="83" width="664" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="n2x-zU-fnK">
+                        <rect key="frame" x="3" y="3" width="658" height="42"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXH-HK-fYd">
+                                <rect key="frame" x="8" y="34" width="0.0" height="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="gXH-HK-fYd" firstAttribute="leading" secondItem="n2x-zU-fnK" secondAttribute="leading" constant="8" id="QLx-hR-Op7"/>
+                            <constraint firstItem="gXH-HK-fYd" firstAttribute="top" secondItem="n2x-zU-fnK" secondAttribute="top" constant="8" id="eqF-Ew-gas"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" title="Actionable" translatesAutoresizingMaskIntoConstraints="NO" id="b9d-sa-xru">
+                    <rect key="frame" x="17" y="16" width="414" height="63"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="RUX-Rq-bz3">
+                        <rect key="frame" x="3" y="3" width="408" height="45"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6QG-kn-UwM">
+                                <rect key="frame" x="8" y="21" width="115" height="16"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NZv-AN-DEN" customClass="UTTeamLabel" customModule="UIToolkit">
+                                        <rect key="frame" x="-2" y="0.0" width="37" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Team" id="UHw-RV-Kv1">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="duN-wi-BS6" customClass="UTTeamLabel" customModule="UIToolkit">
+                                        <rect key="frame" x="39" y="0.0" width="37" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Team" id="rav-Gj-zxs">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FPY-df-V4C" customClass="UTTeamLabel" customModule="UIToolkit">
+                                        <rect key="frame" x="80" y="0.0" width="37" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Team" id="db9-nj-ZKl">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="6QG-kn-UwM" firstAttribute="leading" secondItem="RUX-Rq-bz3" secondAttribute="leading" constant="8" id="yGY-wW-JaA"/>
+                            <constraint firstItem="6QG-kn-UwM" firstAttribute="top" secondItem="RUX-Rq-bz3" secondAttribute="top" constant="8" id="zly-tr-wCD"/>
+                        </constraints>
+                    </view>
+                </box>
+            </subviews>
+            <point key="canvasLocation" x="-34.5" y="167.5"/>
+        </customView>
+    </objects>
+</document>

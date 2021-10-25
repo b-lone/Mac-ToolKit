@@ -1,0 +1,203 @@
+{
+  "name": "JadeDark",
+  "parent": "Dark",
+  "tokens": {
+    "listItem-primary": {
+      "normal": "transparent",
+      "hovered": "jade-90",
+      "pressed": "jade-80",
+      "checked": "jade-80"
+    },
+    "listItem-secondary": {
+      "normal": "transparent",
+      "hovered": "jade-90",
+      "pressed": "jade-80"
+    },
+    "listItem-tertiary": {
+      "normal": "transparent",
+      "hovered": "jade-80",
+      "pressed": "jade-70"
+    },
+    "listItem-quaternary": {
+      "normal": "transparent",
+      "hovered": "jade-70",
+      "pressed": "jade-60"
+    },
+    "footer-background": {
+      "normal": "jade-95"
+    },
+    "appNav-icon": {
+      "normal": "jade-20",
+      "pressed": "jade-10",
+      "checked": "jade-10"
+    },
+    "appNav-background": {
+      "normal": "jade-95",
+      "hovered": "jade-90",
+      "pressed": "jade-80",
+      "checked": "jade-70"
+    },
+    "wx-globalFooterButton-background": {
+      "normal": "transparent",
+      "hovered": "jade-80",
+      "pressed": "jade-70",
+      "checked": "jade-70"
+    },
+    "mainList-indicator": {
+      "normal": "mint-30"
+    },
+    "wx-brickletItem-background": {
+      "normal": "jade-95",
+      "hovered": "jade-90",
+      "pressed": "jade-80",
+      "focused": "jade-80"
+    },
+    "wx-filterControlBackground": {
+      "normal": "jade-95",
+      "hovered": "jade-90",
+      "disabled": "jade-80"
+    },
+    "wx-topBarMainMinMaxButton-background": {
+      "normal": "jade-90",
+      "hovered": "jade-95",
+      "pressed": "jade-100"
+    },
+    "wx-underlineButton-background": {
+      "normal": "transparent",
+      "hovered": "jade-90",
+      "pressed": "jade-80"
+    },
+    "background-secondary": {
+      "normal": "jade-95"
+    },
+    "background-tertiary": {
+      "normal": "jade-90"
+    },
+    "theme-gradient-secondary-0-background": {
+      "normal": "jade-90"
+    },
+    "appHeader-buttonPlus": {
+      "normal": "jade-90",
+      "hovered": "jade-95",
+      "pressed": "jade-100"
+    },
+    "appHeader": {
+      "normal": "jade-90"
+    },
+    "appHeader-searchBar": {
+      "normal": "jade-80",
+      "hovered": "jade-95",
+      "pressed": "jade-100"
+    },
+    "appHeader-searchBar-active": {
+      "normal": "jade-80",
+      "hovered": "jade-95",
+      "pressed": "jade-100"
+    },
+    "wx-searchPlaceholder-text": {
+      "normal": "gray-05"
+    },
+    "appHeader-searchBar-outline-active": {
+      "normal": "jade-70"
+    },
+    "appHeader-buttonStatus": {
+      "normal": "jade-90",
+      "hovered": "jade-95",
+      "pressed": "jade-100"
+    },
+    "appHeader-buttonDevice": {
+      "normal": "jade-90",
+      "hovered": "jade-95",
+      "pressed": "jade-100"
+    },
+    "appHeader-buttonDevice-text-active": {
+      "normal": "mint-30"
+    },
+    "legacy-separator-primary": {
+      "normal": "jade-80"
+    },
+    "button-primary": {
+      "normal": "jade-60",
+      "hovered": "jade-70",
+      "pressed": "jade-80",
+      "checked": "jade-80",
+      "disabled": "gray-90"
+    },
+    "button-primary-outline": {
+      "normal": "jade-60",
+      "hovered": "jade-70",
+      "pressed": "jade-80",
+      "checked": "jade-80",
+      "disabled": "gray-90"
+    },
+    "buttonOutline-primary-background": {
+      "normal": "transparent",
+      "hovered": "jade-70",
+      "pressed": "jade-80",
+      "checked": "jade-80",
+      "disabled": "gray-20"
+    },
+    "buttonOutline-primary": {
+      "normal": "jade-40",
+      "hovered": "jade-30",
+      "pressed": "jade-20",
+      "checked": "jade-20",
+      "disabled": "gray-20"
+    },
+    "buttonOutlineText-primary": {
+      "normal": "jade-40",
+      "hovered": "gray-05",
+      "pressed": "gray-05",
+      "checked": "gray-05",
+      "disabled": "gray-40"
+    },
+    "button-secondary": {
+      "normal": "gray-60",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "checked": "gray-80",
+      "disabled": "gray-20"
+    },
+    "button-secondary-outline": {
+      "normal": "gray-60",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "checked": "gray-80",
+      "disabled": "gray-20"
+    },
+    "buttonText-secondary": {
+      "normal": "gray-05",
+      "disabled": "gray-40"
+    },
+    "mainList": {
+      "normal": "jade-95",
+      "hovered": "jade-90",
+      "pressed": "jade-80"
+    },
+    "mainList-item": {
+      "normal": "jade-95",
+      "hovered": "jade-90",
+      "pressed": "jade-80",
+      "checked": "jade-90"
+    },
+    "text-hyperlink": {
+      "normal": "mint-30",
+      "hovered": "mint-10",
+      "pressed": "mint-10",
+      "disabled": "gray-40"
+    },
+    "wx-checkMark": {
+      "normal": "mint-30",
+      "hovered": "mint-10",
+      "pressed": "mint-10",
+      "disabled": "gray-40"
+    },
+    "wx-sendMessage-icon": {
+      "normal": "jade-60",
+      "hovered": "jade-70",
+      "pressed": "jade-80",
+      "checked": "jade-80",
+      "disabled": "gray-90"
+    }
+  }
+}

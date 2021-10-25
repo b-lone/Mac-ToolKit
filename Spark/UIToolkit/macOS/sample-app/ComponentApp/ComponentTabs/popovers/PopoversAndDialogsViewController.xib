@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PopoversAndDialogsViewController" customModule="ComponentApp" customModuleProvider="target">
+            <connections>
+                <outlet property="createCallTosatButton" destination="CfJ-cm-kdX" id="LiV-uZ-0yL"/>
+                <outlet property="createMeetingInfoToast" destination="uic-qr-EFR" id="MKE-tH-Kil"/>
+                <outlet property="createMeetingReminderButton" destination="LZW-3k-GSg" id="8IM-zN-Ucw"/>
+                <outlet property="createTextToast" destination="NEu-uU-Ywm" id="dPm-mq-ibm"/>
+                <outlet property="createToastButton" destination="eRS-QW-NSL" id="PVA-XF-PAU"/>
+                <outlet property="showPopoverButton1" destination="WA9-rS-ltx" id="0Xt-re-OVd"/>
+                <outlet property="showPopoverButton2" destination="7f8-wk-OiW" id="Hyn-zb-psM"/>
+                <outlet property="showPopoverButton3" destination="SkB-49-WLL" id="NYQ-Al-Uro"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="583" height="419"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <box fixedFrame="YES" title="Popovers" translatesAutoresizingMaskIntoConstraints="NO" id="7sf-ch-jK7">
+                    <rect key="frame" x="17" y="285" width="520" height="114"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="M4K-9b-5GJ">
+                        <rect key="frame" x="3" y="3" width="514" height="96"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F76-S1-YhQ">
+                                <rect key="frame" x="8" y="68" width="199" height="20"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WA9-rS-ltx" customClass="UTRoundButton" customModule="UIToolkit">
+                                        <rect key="frame" x="-7" y="-7" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pSf-z7-peT">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="showPopoverButton1Action:" target="-2" id="vLz-XP-um7"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7f8-wk-OiW" customClass="UTRoundButton" customModule="UIToolkit">
+                                        <rect key="frame" x="62" y="-7" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0m1-fF-sDw">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="showPopoverButton2Action:" target="-2" id="s1M-ES-hqR"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SkB-49-WLL" customClass="UTRoundButton" customModule="UIToolkit">
+                                        <rect key="frame" x="131" y="-7" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6AA-qO-Aph">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="showPopoverButton3Action:" target="-2" id="cdc-wE-61t"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="F76-S1-YhQ" firstAttribute="leading" secondItem="M4K-9b-5GJ" secondAttribute="leading" constant="8" id="baP-tl-4NW"/>
+                            <constraint firstItem="F76-S1-YhQ" firstAttribute="top" secondItem="M4K-9b-5GJ" secondAttribute="top" constant="8" id="mql-it-azv"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" title="Toasts" translatesAutoresizingMaskIntoConstraints="NO" id="A33-bL-zcv">
+                    <rect key="frame" x="17" y="42" width="217" height="235"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="s9j-0v-Hfm">
+                        <rect key="frame" x="3" y="3" width="211" height="217"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalClippingResistancePriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6N-bj-lV2">
+                                <rect key="frame" x="0.0" y="77" width="103" height="140"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eRS-QW-NSL" customClass="UTPillButton" customModule="UIToolkit">
+                                        <rect key="frame" x="1" y="105" width="109" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Create toast" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oUB-bK-15a">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="createToastAction:" target="-2" id="fqi-4H-KxL"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NEu-uU-Ywm" customClass="UTPillButton" customModule="UIToolkit">
+                                        <rect key="frame" x="1" y="77" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="x1i-ze-OY0">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="createTextToastAction:" target="-2" id="GwS-4U-tNa"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LZW-3k-GSg" customClass="UTPillButton" customModule="UIToolkit">
+                                        <rect key="frame" x="1" y="49" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kqy-Sv-QhG">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="createMeetingReminderToastAction:" target="-2" id="Zhe-Zi-0xd"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uic-qr-EFR" customClass="UTPillButton" customModule="UIToolkit">
+                                        <rect key="frame" x="1" y="21" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KJI-Wf-fFd">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="createMeetingInfoToast:" target="-2" id="7MB-wg-uwj"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CfJ-cm-kdX" customClass="UTPillButton" customModule="UIToolkit">
+                                        <rect key="frame" x="1" y="-7" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bJE-mw-GPL">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="createCallToastAction:" target="-2" id="2GC-8H-t72"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <edgeInsets key="edgeInsets" left="8" right="0.0" top="8" bottom="0.0"/>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="S6N-bj-lV2" secondAttribute="trailing" constant="16" id="RGA-Wo-2Ul"/>
+                            <constraint firstItem="S6N-bj-lV2" firstAttribute="leading" secondItem="s9j-0v-Hfm" secondAttribute="leading" id="RZM-jq-c6s"/>
+                            <constraint firstItem="S6N-bj-lV2" firstAttribute="top" secondItem="s9j-0v-Hfm" secondAttribute="top" id="t8c-9y-0gB"/>
+                        </constraints>
+                    </view>
+                </box>
+            </subviews>
+            <point key="canvasLocation" x="-90.5" y="206.5"/>
+        </customView>
+    </objects>
+</document>

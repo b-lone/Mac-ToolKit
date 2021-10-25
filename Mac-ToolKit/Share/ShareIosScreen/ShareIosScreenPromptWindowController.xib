@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ShareIosScreenPromptWindowController" customModule="Mac_ToolKit" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="NpV-3n-bs0" id="0ur-vx-IVX"/>
+                <outlet property="effectView" destination="ixL-Zq-kAB" id="gol-Tc-sBa"/>
+                <outlet property="spinner" destination="bok-UK-cOo" id="bv3-vH-4cc"/>
+                <outlet property="step1ContainerView" destination="ktW-Ig-75m" id="89H-Rh-mRF"/>
+                <outlet property="step1ImageView" destination="OWp-YW-ddd" id="WWf-fd-7U4"/>
+                <outlet property="step1Label" destination="tSp-JQ-4or" id="lPd-28-k1r"/>
+                <outlet property="step1LabelView" destination="yli-UL-dfP" id="2CB-1v-6YE"/>
+                <outlet property="step1NumLabel" destination="DId-qy-UIW" id="6pD-hn-Mwv"/>
+                <outlet property="step2ContainerView" destination="gJe-Vt-DkL" id="bw1-ql-zci"/>
+                <outlet property="step2ImageView" destination="O23-1P-0bx" id="57Y-Py-uuB"/>
+                <outlet property="step2Label" destination="aNH-ZX-yEf" id="ZIi-n2-9xX"/>
+                <outlet property="step2LabelView" destination="9ed-uu-p5d" id="vJN-MB-5la"/>
+                <outlet property="step2NumLabel" destination="zkN-Dp-AMd" id="UNj-08-jHK"/>
+                <outlet property="titleLabel" destination="Pry-qq-Yt1" id="8Rd-KC-ck8"/>
+                <outlet property="window" destination="Z7o-AV-WUb" id="9ib-lE-ah5"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Share Prompt" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="Z7o-AV-WUb" customClass="CanBecomeKeyWindow" customModule="Mac_ToolKit" customModuleProvider="target">
+            <windowStyleMask key="styleMask" fullSizeContentView="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="-742" y="1423" width="888" height="600"/>
+            <rect key="screenRect" x="-2560" y="0.0" width="2560" height="1415"/>
+            <view key="contentView" id="NpV-3n-bs0">
+                <rect key="frame" x="0.0" y="0.0" width="888" height="600"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="ixL-Zq-kAB">
+                        <rect key="frame" x="0.0" y="0.0" width="888" height="600"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="bok-UK-cOo" customClass="UTSpinnerView" customModule="UIToolkit">
+                                <rect key="frame" x="84" y="476" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="3mF-BE-yNJ"/>
+                                    <constraint firstAttribute="height" constant="32" id="CZP-6t-j56"/>
+                                </constraints>
+                            </customView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pry-qq-Yt1" customClass="UTLabel" customModule="UIToolkit">
+                                <rect key="frame" x="138" y="462" width="668" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="664" id="Rur-6e-U2g"/>
+                                </constraints>
+                                <textFieldCell key="cell" title="Sharing will start automatically after you taking the following actions…" id="BFR-c4-Edk">
+                                    <font key="font" metaFont="system" size="26"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ktW-Ig-75m">
+                                <rect key="frame" x="84" y="96" width="340" height="320"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="yli-UL-dfP">
+                                        <rect key="frame" x="24" y="268" width="36" height="28"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DId-qy-UIW" customClass="UTLabel" customModule="UIToolkit">
+                                                <rect key="frame" x="11" y="6" width="14" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="1" id="woW-jf-0zx">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="98D-Ah-Yw6"/>
+                                            <constraint firstAttribute="height" constant="28" id="ANB-Hk-ORo"/>
+                                            <constraint firstItem="DId-qy-UIW" firstAttribute="centerY" secondItem="yli-UL-dfP" secondAttribute="centerY" id="Pat-fn-uf2"/>
+                                            <constraint firstItem="DId-qy-UIW" firstAttribute="centerX" secondItem="yli-UL-dfP" secondAttribute="centerX" id="SpS-lN-4zu"/>
+                                        </constraints>
+                                    </customView>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OWp-YW-ddd">
+                                        <rect key="frame" x="90" y="120" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="b84-2U-srF"/>
+                                            <constraint firstAttribute="width" constant="160" id="kBh-FV-9Kq"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="share-ios-computer-phone-light" id="xBp-se-Lif"/>
+                                    </imageView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tSp-JQ-4or" customClass="UTLabel" customModule="UIToolkit">
+                                        <rect key="frame" x="22" y="64" width="296" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="292" id="jIq-v9-cFH"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" alignment="center" title="Connect your iPhone or iPad to this computer." id="IBQ-Gq-ry0">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="yli-UL-dfP" firstAttribute="top" secondItem="ktW-Ig-75m" secondAttribute="top" constant="24" id="DLx-gK-Ngg"/>
+                                    <constraint firstAttribute="width" constant="340" id="J62-sf-3Ug"/>
+                                    <constraint firstItem="OWp-YW-ddd" firstAttribute="top" secondItem="ktW-Ig-75m" secondAttribute="top" constant="40" id="WJH-K2-3SC"/>
+                                    <constraint firstAttribute="height" constant="320" id="XuG-h0-OKQ"/>
+                                    <constraint firstItem="OWp-YW-ddd" firstAttribute="centerX" secondItem="ktW-Ig-75m" secondAttribute="centerX" id="bqi-fx-aam"/>
+                                    <constraint firstItem="tSp-JQ-4or" firstAttribute="centerX" secondItem="ktW-Ig-75m" secondAttribute="centerX" id="dPp-G7-dcT"/>
+                                    <constraint firstItem="yli-UL-dfP" firstAttribute="leading" secondItem="ktW-Ig-75m" secondAttribute="leading" constant="24" id="mzs-hl-ORy"/>
+                                    <constraint firstItem="tSp-JQ-4or" firstAttribute="centerY" secondItem="ktW-Ig-75m" secondAttribute="bottom" constant="-72" id="yOO-MD-oHd"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="gJe-Vt-DkL">
+                                <rect key="frame" x="464" y="96" width="340" height="320"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="9ed-uu-p5d">
+                                        <rect key="frame" x="24" y="268" width="36" height="28"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zkN-Dp-AMd" customClass="UTLabel" customModule="UIToolkit">
+                                                <rect key="frame" x="10" y="6" width="16" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="2" id="Mqs-jA-5os">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="zkN-Dp-AMd" firstAttribute="centerX" secondItem="9ed-uu-p5d" secondAttribute="centerX" id="24E-EE-Dp6"/>
+                                            <constraint firstAttribute="height" constant="28" id="Ix9-DY-S3I"/>
+                                            <constraint firstItem="zkN-Dp-AMd" firstAttribute="centerY" secondItem="9ed-uu-p5d" secondAttribute="centerY" id="nfM-go-99I"/>
+                                            <constraint firstAttribute="width" constant="36" id="z6v-CE-fcz"/>
+                                        </constraints>
+                                    </customView>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O23-1P-0bx">
+                                        <rect key="frame" x="90" y="120" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="CB5-Xy-Uwr"/>
+                                            <constraint firstAttribute="width" constant="160" id="rAb-9e-Nc4"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="share-ios-tap-on-phone-light" id="oo5-mz-a8R"/>
+                                    </imageView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aNH-ZX-yEf">
+                                        <rect key="frame" x="22" y="64" width="296" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="292" id="ade-rY-43z"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" alignment="center" id="hqv-of-DYC">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aNH-ZX-yEf" firstAttribute="centerY" secondItem="gJe-Vt-DkL" secondAttribute="bottom" constant="-72" id="6uE-ba-t6l"/>
+                                    <constraint firstItem="9ed-uu-p5d" firstAttribute="leading" secondItem="gJe-Vt-DkL" secondAttribute="leading" constant="24" id="KE8-6x-H6x"/>
+                                    <constraint firstAttribute="height" constant="320" id="e8c-jY-1nC"/>
+                                    <constraint firstAttribute="width" constant="340" id="exx-Gp-SBq"/>
+                                    <constraint firstItem="O23-1P-0bx" firstAttribute="centerX" secondItem="gJe-Vt-DkL" secondAttribute="centerX" id="fEf-Yh-yK6"/>
+                                    <constraint firstItem="9ed-uu-p5d" firstAttribute="top" secondItem="gJe-Vt-DkL" secondAttribute="top" constant="24" id="mYa-8t-60o"/>
+                                    <constraint firstItem="aNH-ZX-yEf" firstAttribute="centerX" secondItem="gJe-Vt-DkL" secondAttribute="centerX" id="vTO-6v-Vf4"/>
+                                    <constraint firstItem="O23-1P-0bx" firstAttribute="top" secondItem="gJe-Vt-DkL" secondAttribute="top" constant="40" id="zY1-EQ-Lfo"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Pry-qq-Yt1" firstAttribute="centerY" secondItem="bok-UK-cOo" secondAttribute="centerY" id="M77-Jp-2Dj"/>
+                            <constraint firstItem="bok-UK-cOo" firstAttribute="top" secondItem="ixL-Zq-kAB" secondAttribute="top" constant="92" id="NtI-mL-Jve"/>
+                            <constraint firstAttribute="bottom" secondItem="ktW-Ig-75m" secondAttribute="bottom" constant="96" id="NvP-GB-xM2"/>
+                            <constraint firstItem="gJe-Vt-DkL" firstAttribute="centerY" secondItem="ktW-Ig-75m" secondAttribute="centerY" id="RxV-An-Qga"/>
+                            <constraint firstItem="Pry-qq-Yt1" firstAttribute="leading" secondItem="bok-UK-cOo" secondAttribute="trailing" constant="24" id="YCN-q3-dgG"/>
+                            <constraint firstItem="ktW-Ig-75m" firstAttribute="leading" secondItem="ixL-Zq-kAB" secondAttribute="leading" constant="84" id="d0h-Oo-Hsa"/>
+                            <constraint firstAttribute="trailing" secondItem="gJe-Vt-DkL" secondAttribute="trailing" constant="84" id="fKw-xH-euv"/>
+                            <constraint firstItem="bok-UK-cOo" firstAttribute="leading" secondItem="ixL-Zq-kAB" secondAttribute="leading" constant="84" id="uiP-Mi-uEn"/>
+                        </constraints>
+                    </visualEffectView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ixL-Zq-kAB" firstAttribute="top" secondItem="NpV-3n-bs0" secondAttribute="top" id="9pb-QI-oqs"/>
+                    <constraint firstItem="ixL-Zq-kAB" firstAttribute="leading" secondItem="NpV-3n-bs0" secondAttribute="leading" id="Afg-Wd-t4d"/>
+                    <constraint firstAttribute="trailing" secondItem="ixL-Zq-kAB" secondAttribute="trailing" id="VFb-jx-qzV"/>
+                    <constraint firstAttribute="bottom" secondItem="ixL-Zq-kAB" secondAttribute="bottom" id="yEM-Oi-hoY"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="139" y="144"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="share-ios-computer-phone-light" width="160" height="160"/>
+        <image name="share-ios-tap-on-phone-light" width="160" height="160"/>
+    </resources>
+</document>

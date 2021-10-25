@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="104px" viewBox="0 0 180 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Themes_illustration</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Themes_illustration" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Iteration-Announcements-5.0" transform="translate(-630.000000, -253.000000)">
+            <g id="Dialog" transform="translate(162.000000, 120.000000)">
+                <g id="window" transform="translate(258.000000, 67.000000)">
+                    <g id="illustration" transform="translate(210.000000, 66.000000)">
+                        <path d="M131.5,79 C131.776,79 132,79.224 132,79.5 C132,79.776 131.776,80 131.5,80 L56,80 L56,11 L21,11 C17.687,11 15,13.687 15,17 L15,96 L147,96 L147,17 C147,13.687 144.313,11 141,11 L57,11 L57,79 L131.5,79 Z" id="fill" fill="#C2C2C2"></path>
+                        <path d="M56,0 L56,11 L57,11 L57,1 L179,1 L179,79 L162.5,79 C162.224,79 162,79.224 162,79.5 C162,79.776 162.224,80 162.5,80 L180,80 L180,0 L56,0 Z" id="fill" fill="#AFAFAF"></path>
+                        <path d="M156,104 L6,104 C2.687,104 0,101.313 0,98 L0,96 L162,96 L162,98 C162,101.313 159.313,104 156,104" id="fill" fill="#AFAFAF"></path>
+                        <polygon id="fill" fill="#222222" points="62 74 174 74 174 6 62 6"></polygon>
+                        <polygon id="fill" fill="#151515" points="62 74 107 74 107 6 62 6"></polygon>
+                        <path d="M72,13.5 C72,14.881 70.881,16 69.5,16 C68.119,16 67,14.881 67,13.5 C67,12.119 68.119,11 69.5,11 C70.881,11 72,12.119 72,13.5" id="fill" fill="#666666"></path>
+                        <path d="M99.5,16 L79.5,16 C78.125,16 77,14.875 77,13.5 C77,12.125 78.125,11 79.5,11 L99.5,11 C100.875,11 102,12.125 102,13.5 C102,14.875 100.875,16 99.5,16" id="fill" fill="#666666"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

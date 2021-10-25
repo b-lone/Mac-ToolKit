@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="232px" height="104px" viewBox="0 0 232 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>img_edit_104</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M200,43.959251 C196.744109,42.6940826 193.203111,42 189.5,42 C173.483742,42 160.5,54.9837423 160.5,71 C160.5,74.1416481 160.999566,77.1666162 161.923593,79.9998 L0,79.9998 L0,-0.0002 L200,-0.0002 L200,43.959251 Z" id="path-1"></path>
+    </defs>
+    <g id="img_edit_104" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Announcement---default" transform="translate(-604.000000, -253.000000)">
+            <g id="Dialog" transform="translate(174.000000, 128.000000)">
+                <g id="window" transform="translate(246.000000, 63.000000)">
+                    <g id="illustration" transform="translate(184.000000, 62.000000)">
+                        <g id="img_edit-message" transform="translate(6.000000, 3.000000)">
+                            <g id="message" transform="translate(0.500000, 21.000200)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="message-bg" fill-opacity="0.32" fill="#C2C2C2" transform="translate(100.000000, 39.999800) scale(1, -1) translate(-100.000000, -39.999800) " xlink:href="#path-1"></use>
+                                <path d="M27.5,28 C25.85,28 24.5,26.65 24.5,25 C24.5,23.351 25.85,22 27.5,22 L123.5,22 C125.149,22 126.5,23.351 126.5,25 C126.5,26.65 125.149,28 123.5,28 L27.5,28 Z" id="text" fill-opacity="0.28" fill="#000000"></path>
+                                <path d="M27.59375,44 C25.8921875,44 24.5,42.65 24.5,41 C24.5,39.351 25.8921875,38 27.59375,38 L153.40625,38 C155.106781,38 156.5,39.351 156.5,41 C156.5,42.649 155.106781,44 153.40625,44 L27.59375,44 Z" id="text" fill-opacity="0.28" fill="#000000"></path>
+                                <path d="M27.5,60 C25.85,60 24.5,58.65 24.5,57 C24.5,55.351 25.85,54 27.5,54 L63.5,54 C65.149,54 66.5,55.351 66.5,57 C66.5,58.65 65.149,60 63.5,60 L27.5,60 Z" id="text" fill-opacity="0.28" fill="#000000"></path>
+                                <rect id="Rectangle" fill-opacity="0.28" fill="#000000" x="77" y="53" width="2" height="8" rx="1"></rect>
+                                <rect id="Rectangle" fill-opacity="0.28" fill="#000000" x="95" y="53" width="2" height="8" rx="1"></rect>
+                                <rect id="Rectangle" fill-opacity="0.28" fill="#000000" x="113" y="53" width="2" height="8" rx="1"></rect>
+                                <rect id="Rectangle" stroke-opacity="0.28" stroke="#000000" stroke-width="2" x="84" y="54" width="6" height="6" rx="1"></rect>
+                                <rect id="Rectangle" stroke-opacity="0.28" stroke="#000000" stroke-width="2" x="102" y="54" width="6" height="6" rx="3"></rect>
+                                <rect id="Rectangle" fill="#2ED557" x="72.5" y="55.9998" width="47" height="2" rx="1"></rect>
+                            </g>
+                            <g id="reply-icon" transform="translate(166.000000, 0.000200)">
+                                <circle id="Oval" fill="#2ED557" cx="24" cy="30" r="24"></circle>
+                                <g id="format/edit_16" transform="translate(15.000000, 21.000000)" fill="#FFFFFF">
+                                    <g id="edit_16">
+                                        <path d="M2.009025,13.4233543 L1.298025,16.6987448 L4.5684,15.9866544 L16.343775,4.19434742 C16.6869,3.85182293 16.874775,3.39662591 16.874775,2.91213403 C16.874775,2.42764215 16.6869,1.97244513 16.343775,1.62992064 C15.6609,0.943744937 14.467275,0.943744937 13.7844,1.62992064 L2.009025,13.4233543 Z M0.562275,18.0001125 C0.4149,18.0001125 0.2709,17.9415228 0.164025,17.8344839 C0.029025,17.6992768 -0.02835,17.5032266 0.013275,17.3161902 L0.9459,13.0222401 C0.9684,12.916328 1.021275,12.8194296 1.09665,12.7428123 L12.989025,0.833325858 C14.096025,-0.277625286 16.03215,-0.277625286 17.13915,0.833325858 C17.693775,1.3876747 17.999775,2.1268065 17.999775,2.91213403 C17.999775,3.69746157 17.693775,4.43546664 17.13915,4.99094221 L5.2479,16.9004286 C5.172525,16.9759192 5.075775,17.0288753 4.970025,17.0525365 L0.681525,17.9865918 C0.64215,17.9956056 0.60165,18.0001125 0.562275,18.0001125 L0.562275,18.0001125 Z" id="fill"></path>
+                                    </g>
+                                </g>
+                                <path d="M6,47.7296084 C11.0741452,51.6607364 17.4388265,53.9998 24.3486508,53.9998 C40.9317456,53.9998 54.375,40.5275793 54.375,23.9087528 C54.375,14.1627537 49.7516535,5.49892179 42.5830258,-0.0002" id="Path" stroke="#AFAFAF" stroke-linecap="round" stroke-linejoin="round" transform="translate(30.187500, 26.999800) scale(1, -1) translate(-30.187500, -26.999800) "></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

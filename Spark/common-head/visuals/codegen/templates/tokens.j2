@@ -1,0 +1,43 @@
+{% include 'autogen_header.j2' %}
+
+#pragma once
+
+#include <string>
+
+namespace {{utils.namespace()}}
+{
+    enum class Token
+    {
+        Unknown,
+{%- for token in tokens %}
+        {{token.cc_name}}{{ "," if not loop.last }}
+{%- endfor %}
+    };
+
+    static inline std::string tokenToString(Token t)
+    {
+        switch(t)
+        {
+        {%- for token in tokens %}
+            case Token::{{token.cc_name}}:
+                return "{{token.name}}";
+        {%- endfor %}
+            default:
+              return "Unknown";
+        }
+    }
+
+    static inline Token tokenFromString(std::string s)
+    {
+        {%- for token in tokens %}
+        if ("{{token.name}}" == s)
+        {
+            return Token::{{token.cc_name}};
+        }
+        {%- endfor %}
+
+        return Token::Unknown;
+    }
+}
+
+using SVT = SemanticVisuals::Token;

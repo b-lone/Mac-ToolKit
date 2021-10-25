@@ -1,0 +1,34 @@
+{% include 'autogen_header.j2' %}
+
+#pragma once
+
+#include "Tokens.h"
+#include "ITheme.h"
+#include "Colors.h"
+
+#include <memory>
+
+
+namespace {{utils.namespace()}}
+{
+    class {{theme_name}}Theme: public ITheme
+    {
+    public:
+        explicit {{theme_name}}Theme(std::shared_ptr<Colors> colors);
+
+        [[nodiscard]] ThemeColors getThemeColors() const override;
+        [[nodiscard]] std::string getName() const override;
+        [[nodiscard]] ColorSet getColorSet(Token token) const override;
+        [[nodiscard]] ColorSet getColorSet(const std::string& tokenString) const override;
+        [[nodiscard]] Color getColorByPath(const std::string& path) const override;
+
+        [[nodiscard]] std::string tokenToString(Token token) const override;
+        [[nodiscard]] Token tokenFromString(const std::string& tokenString) const override;
+
+        [[nodiscard]] virtual bool isValidToken(Token token) const override;
+
+    private:
+        std::shared_ptr<Colors> mColors;
+        ThemeColors mThemeColors;
+    };
+}

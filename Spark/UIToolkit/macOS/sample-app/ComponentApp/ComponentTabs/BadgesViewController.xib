@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="BadgesViewController" customModule="ComponentApp" customModuleProvider="target">
+            <connections>
+                <outlet property="alertButton" destination="pzP-Fa-z8o" id="MMX-tM-OUY"/>
+                <outlet property="alertIndicatorBadge" destination="DdI-Fu-Pte" id="vFE-c2-fPb"/>
+                <outlet property="badgeCountStackView" destination="eiI-cW-kgd" id="G8g-07-GEy"/>
+                <outlet property="chipStackView" destination="lPg-1y-Q7a" id="7av-Nf-JpM"/>
+                <outlet property="indicatorBadge" destination="9SG-8P-QSU" id="Xr5-QQ-zrE"/>
+                <outlet property="mentionButton" destination="5cN-0c-5Ls" id="pYH-dF-AKL"/>
+                <outlet property="mentionIndicatorBadge" destination="eg4-b8-Mdi" id="dMG-xy-143"/>
+                <outlet property="multilineStackView" destination="jNQ-64-agl" id="Ck2-St-E2U"/>
+                <outlet property="muteButton" destination="eiS-uK-VSJ" id="4qg-PG-mBk"/>
+                <outlet property="muteIndicatorBadge" destination="XWd-Kw-aV0" id="K2S-sV-v1e"/>
+                <outlet property="newlyAddedBadge" destination="dJS-Js-jDO" id="zGw-Dl-zYH"/>
+                <outlet property="newlyAddedButton" destination="Vib-pt-8zn" id="BeR-zN-70x"/>
+                <outlet property="outgoingCallBadge" destination="PlT-yi-luz" id="PZg-JU-CYT"/>
+                <outlet property="outgoingCallButton" destination="dfP-4f-va8" id="wJb-w7-3na"/>
+                <outlet property="shortcutKeyStackView" destination="d6l-QS-o55" id="ruQ-zX-d9r"/>
+                <outlet property="shortcutsStackView" destination="cZJ-Br-2fm" id="M5L-p9-XJO"/>
+                <outlet property="shortcutsStackView2" destination="8B1-f2-AfZ" id="6GD-Ps-SOV"/>
+                <outlet property="shortcutsStackView3" destination="tcH-mr-dz7" id="UuT-XN-efv"/>
+                <outlet property="tagStackView" destination="7qU-4h-onb" id="Rff-LL-47H"/>
+                <outlet property="teamMarkerStackView" destination="aAN-mW-Tnh" id="Ooe-Pc-U65"/>
+                <outlet property="unreadButton" destination="cDE-5v-NiL" id="7Mr-BB-RPH"/>
+                <outlet property="unreadIndicatorBadge" destination="3Mg-Rp-jlh" id="DYA-8q-kIq"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="1041" height="628"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <box fixedFrame="YES" borderType="line" title="Indicator Badge" translatesAutoresizingMaskIntoConstraints="NO" id="Kkv-cy-v1L">
+                    <rect key="frame" x="17" y="390" width="296" height="221"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="WsM-mI-lRK">
+                        <rect key="frame" x="3" y="3" width="290" height="203"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <box fixedFrame="YES" borderType="line" title="Is selected" translatesAutoresizingMaskIntoConstraints="NO" id="A6E-TP-dOo">
+                                <rect key="frame" x="143" y="16" width="134" height="167"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="0u4-fa-CO9">
+                                    <rect key="frame" x="3" y="3" width="128" height="149"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TRF-at-OyW">
+                                            <rect key="frame" x="16" y="80" width="12" height="52"/>
+                                            <subviews>
+                                                <customView placeholderIntrinsicWidth="12" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="3Mg-Rp-jlh" customClass="UTIndicatorBadge" customModule="UIToolkit">
+                                                    <rect key="frame" x="0.0" y="40" width="12" height="12"/>
+                                                </customView>
+                                                <customView placeholderIntrinsicWidth="12" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="eg4-b8-Mdi" customClass="UTIndicatorBadge" customModule="UIToolkit">
+                                                    <rect key="frame" x="0.0" y="20" width="12" height="12"/>
+                                                </customView>
+                                                <customView placeholderIntrinsicWidth="12" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="DdI-Fu-Pte" customClass="UTIndicatorBadge" customModule="UIToolkit">
+                                                    <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>
+                                                </customView>
+                                            </subviews>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqi-l8-6II">
+                                            <rect key="frame" x="14" y="36" width="90" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="isSelected" bezelStyle="regularSquare" imagePosition="left" inset="2" id="X8X-f6-zcl">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="isSelectedCheckBox:" target="-2" id="cgO-s0-jty"/>
+                                            </connections>
+                                        </button>
+                                        <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i6u-YR-6jb">
+                                            <rect key="frame" x="44" y="80" width="12" height="52"/>
+                                            <subviews>
+                                                <customView placeholderIntrinsicWidth="12" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="dJS-Js-jDO" customClass="UTIndicatorBadge" customModule="UIToolkit">
+                                                    <rect key="frame" x="0.0" y="40" width="12" height="12"/>
+                                                </customView>
+                                                <customView placeholderIntrinsicWidth="12" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="XWd-Kw-aV0" customClass="UTIndicatorBadge" customModule="UIToolkit">
+                                                    <rect key="frame" x="0.0" y="20" width="12" height="12"/>
+                                                </customView>
+                                                <customView placeholderIntrinsicWidth="12" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="PlT-yi-luz" customClass="UTIndicatorBadge" customModule="UIToolkit">
+                                                    <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>
+                                                </customView>
+                                            </subviews>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
+                                    </subviews>
+                                </view>
+                            </box>
+                            <box fixedFrame="YES" borderType="line" title="Type" translatesAutoresizingMaskIntoConstraints="NO" id="tsu-mV-QNo">
+                                <rect key="frame" x="9" y="8" width="128" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="Tof-kf-0wq">
+                                    <rect key="frame" x="3" y="3" width="122" height="157"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z7h-b9-g2m">
+                                            <rect key="frame" x="8" y="129" width="14" height="14"/>
+                                            <subviews>
+                                                <customView placeholderIntrinsicWidth="14" placeholderIntrinsicHeight="14" translatesAutoresizingMaskIntoConstraints="NO" id="9SG-8P-QSU" customClass="UTIndicatorBadge" customModule="UIToolkit">
+                                                    <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                                </customView>
+                                            </subviews>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
+                                        <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZS-2p-Mdy">
+                                            <rect key="frame" x="8" y="12" width="107" height="106"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cDE-5v-NiL">
+                                                    <rect key="frame" x="-2" y="89" width="71" height="18"/>
+                                                    <buttonCell key="cell" type="radio" title="Unread" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="DLC-Zk-jlk">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="badgeTypeRadioButtonAction:" target="-2" id="cOR-jl-Hhf"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5cN-0c-5Ls">
+                                                    <rect key="frame" x="-2" y="71" width="76" height="18"/>
+                                                    <buttonCell key="cell" type="radio" title="Mention" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="ykR-Wj-psA">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="badgeTypeRadioButtonAction:" target="-2" id="974-B9-dN1"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pzP-Fa-z8o">
+                                                    <rect key="frame" x="-2" y="53" width="56" height="18"/>
+                                                    <buttonCell key="cell" type="radio" title="Alert" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="ESU-cX-ptx">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="badgeTypeRadioButtonAction:" target="-2" id="jpe-xP-gLr"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eiS-uK-VSJ">
+                                                    <rect key="frame" x="-2" y="35" width="57" height="18"/>
+                                                    <buttonCell key="cell" type="radio" title="Mute" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Z4i-k0-deq">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="badgeTypeRadioButtonAction:" target="-2" id="o04-Xm-IKF"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vib-pt-8zn">
+                                                    <rect key="frame" x="-2" y="17" width="107" height="18"/>
+                                                    <buttonCell key="cell" type="radio" title="Newly Added" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="rrV-dz-9VD">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="badgeTypeRadioButtonAction:" target="-2" id="Vq8-xQ-Px7"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dfP-4f-va8">
+                                                    <rect key="frame" x="-2" y="-1" width="109" height="18"/>
+                                                    <buttonCell key="cell" type="radio" title="Outgoing Call" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="JFv-yM-Sc5">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="badgeTypeRadioButtonAction:" target="-2" id="ZI3-i0-xUK"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
+                                    </subviews>
+                                </view>
+                            </box>
+                        </subviews>
+                    </view>
+                </box>
+                <box fixedFrame="YES" borderType="line" title="Badge" translatesAutoresizingMaskIntoConstraints="NO" id="IJM-vM-YlJ">
+                    <rect key="frame" x="326" y="454" width="146" height="154"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="F0L-Hc-QHP">
+                        <rect key="frame" x="3" y="3" width="140" height="136"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eiI-cW-kgd">
+                                <rect key="frame" x="20" y="20" width="18" height="96"/>
+                                <subviews>
+                                    <customView placeholderIntrinsicWidth="18" placeholderIntrinsicHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Lhw-T3-82p" customClass="UTBadge" customModule="UIToolkit">
+                                        <rect key="frame" x="0.0" y="78" width="18" height="18"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="count">
+                                                <integer key="value" value="9"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </customView>
+                                    <customView placeholderIntrinsicWidth="18" placeholderIntrinsicHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="JO6-zj-UZj" customClass="UTBadge" customModule="UIToolkit">
+                                        <rect key="frame" x="0.0" y="52" width="18" height="18"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="count">
+                                                <integer key="value" value="99"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </customView>
+                                    <customView placeholderIntrinsicWidth="18" placeholderIntrinsicHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="k55-CY-wY8" customClass="UTBadge" customModule="UIToolkit">
+                                        <rect key="frame" x="0.0" y="26" width="18" height="18"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="count">
+                                                <integer key="value" value="999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </customView>
+                                    <customView placeholderIntrinsicWidth="18" placeholderIntrinsicHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Izy-Fw-XsK" customClass="UTBadge" customModule="UIToolkit">
+                                        <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="count">
+                                                <integer key="value" value="1001"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxCount">
+                                                <integer key="value" value="1000"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </customView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                    </view>
+                </box>
+                <box fixedFrame="YES" title="ShotcutKey Label" translatesAutoresizingMaskIntoConstraints="NO" id="t8c-Ly-P19">
+                    <rect key="frame" x="326" y="390" width="146" height="54"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="ilv-eQ-Rbj">
+                        <rect key="frame" x="3" y="3" width="140" height="36"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d6l-QS-o55">
+                                <rect key="frame" x="8" y="28" width="0.0" height="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="d6l-QS-o55" firstAttribute="leading" secondItem="ilv-eQ-Rbj" secondAttribute="leading" constant="8" id="Bzp-ol-DXP"/>
+                            <constraint firstItem="d6l-QS-o55" firstAttribute="top" secondItem="ilv-eQ-Rbj" secondAttribute="top" constant="8" id="WDC-V8-ymG"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" title="Shortcut" translatesAutoresizingMaskIntoConstraints="NO" id="nuz-XD-cav">
+                    <rect key="frame" x="17" y="272" width="296" height="114"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="rCq-N1-H3e">
+                        <rect key="frame" x="3" y="3" width="290" height="96"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cZJ-Br-2fm" customClass="UTShortcutStackView" customModule="UIToolkit">
+                                <rect key="frame" x="8" y="88" width="0.0" height="0.0"/>
+                            </stackView>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8B1-f2-AfZ" customClass="UTShortcutStackView" customModule="UIToolkit">
+                                <rect key="frame" x="8" y="80" width="0.0" height="0.0"/>
+                            </stackView>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcH-mr-dz7" customClass="UTShortcutStackView" customModule="UIToolkit">
+                                <rect key="frame" x="8" y="72" width="0.0" height="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="tcH-mr-dz7" firstAttribute="top" secondItem="8B1-f2-AfZ" secondAttribute="bottom" constant="8" id="2P8-Xo-RMH"/>
+                            <constraint firstItem="8B1-f2-AfZ" firstAttribute="leading" secondItem="rCq-N1-H3e" secondAttribute="leading" constant="8" id="Xjz-vY-Kn9"/>
+                            <constraint firstItem="cZJ-Br-2fm" firstAttribute="leading" secondItem="rCq-N1-H3e" secondAttribute="leading" constant="8" id="b2h-9A-eCH"/>
+                            <constraint firstItem="cZJ-Br-2fm" firstAttribute="top" secondItem="rCq-N1-H3e" secondAttribute="top" constant="8" id="bg4-iy-bY3"/>
+                            <constraint firstItem="8B1-f2-AfZ" firstAttribute="top" secondItem="cZJ-Br-2fm" secondAttribute="bottom" constant="8" id="jF6-CK-gVr"/>
+                            <constraint firstItem="tcH-mr-dz7" firstAttribute="leading" secondItem="rCq-N1-H3e" secondAttribute="leading" constant="8" id="q8t-vJ-6hz"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" title="Multiline Chip" translatesAutoresizingMaskIntoConstraints="NO" id="HT4-Dn-joB">
+                    <rect key="frame" x="17" y="186" width="385" height="82"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="8g8-X5-bEG">
+                        <rect key="frame" x="3" y="3" width="379" height="64"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jNQ-64-agl">
+                                <rect key="frame" x="16" y="48" width="0.0" height="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="jNQ-64-agl" firstAttribute="leading" secondItem="8g8-X5-bEG" secondAttribute="leading" constant="16" id="CLc-s0-Rvc"/>
+                            <constraint firstItem="jNQ-64-agl" firstAttribute="top" secondItem="8g8-X5-bEG" secondAttribute="top" constant="16" id="ElG-xK-ljz"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" title="Tag" translatesAutoresizingMaskIntoConstraints="NO" id="c2b-d7-dPl">
+                    <rect key="frame" x="483" y="186" width="296" height="422"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="9Gj-cp-Kwl">
+                        <rect key="frame" x="3" y="3" width="290" height="404"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7qU-4h-onb">
+                                <rect key="frame" x="8" y="396" width="0.0" height="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="7qU-4h-onb" firstAttribute="leading" secondItem="9Gj-cp-Kwl" secondAttribute="leading" constant="8" id="Vcp-X6-tWU"/>
+                            <constraint firstItem="7qU-4h-onb" firstAttribute="top" secondItem="9Gj-cp-Kwl" secondAttribute="top" constant="8" id="qiR-Gv-Ib4"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" title="Chip" translatesAutoresizingMaskIntoConstraints="NO" id="r18-dR-Trf">
+                    <rect key="frame" x="781" y="186" width="255" height="425"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="UvI-HE-f3R">
+                        <rect key="frame" x="3" y="3" width="249" height="407"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lPg-1y-Q7a">
+                                <rect key="frame" x="8" y="399" width="0.0" height="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="lPg-1y-Q7a" firstAttribute="leading" secondItem="UvI-HE-f3R" secondAttribute="leading" constant="8" id="Eqp-5z-JIy"/>
+                            <constraint firstItem="lPg-1y-Q7a" firstAttribute="top" secondItem="UvI-HE-f3R" secondAttribute="top" constant="8" id="Vmq-jV-6ct"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" title="Team marker" translatesAutoresizingMaskIntoConstraints="NO" id="Ham-sY-mm7">
+                    <rect key="frame" x="17" y="75" width="385" height="96"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="wWF-K5-FdC">
+                        <rect key="frame" x="3" y="3" width="379" height="78"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aAN-mW-Tnh">
+                                <rect key="frame" x="8" y="70" width="0.0" height="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="aAN-mW-Tnh" firstAttribute="top" secondItem="wWF-K5-FdC" secondAttribute="top" constant="8" id="Vui-Nu-SVT"/>
+                            <constraint firstItem="aAN-mW-Tnh" firstAttribute="leading" secondItem="wWF-K5-FdC" secondAttribute="leading" constant="8" id="avT-JI-vNv"/>
+                        </constraints>
+                    </view>
+                </box>
+            </subviews>
+            <point key="canvasLocation" x="41.5" y="331"/>
+        </customView>
+    </objects>
+</document>

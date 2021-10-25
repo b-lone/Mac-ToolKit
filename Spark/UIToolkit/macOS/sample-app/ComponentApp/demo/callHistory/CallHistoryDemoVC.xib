@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CallHistoryDemoVC" customModule="ComponentApp" customModuleProvider="target">
+            <connections>
+                <outlet property="rhsTabContainerView" destination="wP6-zd-Egd" id="DjM-sn-4dV"/>
+                <outlet property="rhsTabView" destination="Aeh-Cr-MxW" id="0c5-XL-c9m"/>
+                <outlet property="splitView" destination="C6f-Jf-SXg" id="5vb-9X-3ia"/>
+                <outlet property="tabView" destination="4NM-M9-rQA" id="Wv2-V7-1Kc"/>
+                <outlet property="tabViewContainer" destination="Mf3-rZ-Iwz" id="BEl-NN-7NW"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="680" height="479"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <splitView dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C6f-Jf-SXg">
+                    <rect key="frame" x="0.0" y="0.0" width="680" height="479"/>
+                    <subviews>
+                        <customView id="Mf3-rZ-Iwz">
+                            <rect key="frame" x="0.0" y="0.0" width="349" height="479"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="4NM-M9-rQA" customClass="UTTabView" customModule="UIToolkit">
+                                    <rect key="frame" x="0.0" y="0.0" width="349" height="479"/>
+                                </customView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="4NM-M9-rQA" firstAttribute="leading" secondItem="Mf3-rZ-Iwz" secondAttribute="leading" id="5sF-HM-Mvk"/>
+                                <constraint firstAttribute="bottom" secondItem="4NM-M9-rQA" secondAttribute="bottom" id="7hf-uM-gnH"/>
+                                <constraint firstItem="4NM-M9-rQA" firstAttribute="top" secondItem="Mf3-rZ-Iwz" secondAttribute="top" id="PYe-YO-4b7"/>
+                                <constraint firstAttribute="trailing" secondItem="4NM-M9-rQA" secondAttribute="trailing" id="WK7-GM-swl"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="oH9-kS-mcR"/>
+                            </constraints>
+                        </customView>
+                        <customView id="wP6-zd-Egd">
+                            <rect key="frame" x="350" y="0.0" width="330" height="479"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <tabView drawsBackground="NO" allowsTruncatedLabels="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="Aeh-Cr-MxW">
+                                    <rect key="frame" x="0.0" y="0.0" width="330" height="479"/>
+                                    <font key="font" metaFont="system"/>
+                                </tabView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Aeh-Cr-MxW" secondAttribute="bottom" id="BL0-sE-aVH"/>
+                                <constraint firstAttribute="trailing" secondItem="Aeh-Cr-MxW" secondAttribute="trailing" id="JAe-u6-F8R"/>
+                                <constraint firstItem="Aeh-Cr-MxW" firstAttribute="leading" secondItem="wP6-zd-Egd" secondAttribute="leading" id="Pb7-mj-uBW"/>
+                                <constraint firstItem="Aeh-Cr-MxW" firstAttribute="top" secondItem="wP6-zd-Egd" secondAttribute="top" id="bz9-v2-N6Y"/>
+                            </constraints>
+                        </customView>
+                    </subviews>
+                    <holdingPriorities>
+                        <real value="359"/>
+                        <real value="250"/>
+                    </holdingPriorities>
+                </splitView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="C6f-Jf-SXg" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="LCu-jl-af9"/>
+                <constraint firstAttribute="bottom" secondItem="C6f-Jf-SXg" secondAttribute="bottom" id="MK6-gJ-4ah"/>
+                <constraint firstAttribute="trailing" secondItem="C6f-Jf-SXg" secondAttribute="trailing" id="qaE-7p-BmI"/>
+                <constraint firstItem="C6f-Jf-SXg" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="rck-TF-2eT"/>
+            </constraints>
+            <point key="canvasLocation" x="239" y="257.5"/>
+        </customView>
+    </objects>
+</document>

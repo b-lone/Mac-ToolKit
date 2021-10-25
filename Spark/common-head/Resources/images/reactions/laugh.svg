@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 155 155" style="enable-background:new 0 0 155 155;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:#31221C;}
+	.st2{fill:#FF5C41;}
+	.st3{fill:#FFFFFF;}
+	.st4{fill:none;stroke:#31221C;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<g id="head">
+	
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-360.0822" y1="-964.4041" x2="-213.0822" y2="-964.4041" gradientTransform="matrix(0 1 -1 0 -886.9041 364.0822)">
+		<stop  offset="0.0005" style="stop-color:#FFDD33"/>
+		<stop  offset="0.3193" style="stop-color:#FFDA34"/>
+		<stop  offset="0.5357" style="stop-color:#FFD138"/>
+		<stop  offset="0.7218" style="stop-color:#FFC23D"/>
+		<stop  offset="0.8897" style="stop-color:#FFAD46"/>
+		<stop  offset="1" style="stop-color:#FF9A4D"/>
+	</linearGradient>
+	<circle class="st0" cx="77.5" cy="77.5" r="73.5"/>
+</g>
+<g id="mouth">
+	<path class="st1" d="M128.0069,81.089c0.2209-2.0922-1.5838-3.9017-4-4c-2.1688-0.0882-90.8312-0.0882-93,0
+		c-2.4162,0.0983-4.2209,1.9078-4,4c2.0101,19.006,17.6282,49.3099,48,51h5C110.3786,130.399,125.9968,100.0951,128.0069,81.089z"/>
+</g>
+<g id="tongue">
+	<path class="st2" d="M78.0069,107.089h-1c-11.6051,0.1884-20.1664,4.0369-25,11c6.3374,5.2493,15.1263,8.8762,25,9h1
+		c9.8737-0.1238,18.6626-3.7507,25-9C98.1732,111.1259,89.612,107.2774,78.0069,107.089z"/>
+</g>
+<g id="teeth">
+	<g>
+		<path class="st3" d="M77.0069,82.0527"/>
+		<path class="st3" d="M121.0069,82.089c-20.9426,0-66.0574,0-87,0c1.6517,3.4451,19.3934,8.5217,42,8.9642v0.0358h3v-0.0358
+			C101.6135,90.6108,119.3551,85.5342,121.0069,82.089z"/>
+	</g>
+</g>
+<g id="eye_x28_l_x29_">
+	<polyline class="st4" points="34.0069,64.089 61.0069,54.089 36.0069,42.089 	"/>
+</g>
+<g id="eye_x28_r_x29_">
+	<polyline class="st4" points="121.0069,64.089 94.0069,54.089 119.0069,42.089 	"/>
+</g>
+</svg>

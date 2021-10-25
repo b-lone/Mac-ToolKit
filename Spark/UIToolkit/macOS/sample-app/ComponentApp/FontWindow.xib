@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="FontWindow" customModule="ComponentApp" customModuleProvider="target">
+            <connections>
+                <outlet property="applyScaleButton" destination="osf-r9-ky8" id="Ymq-4J-fYh"/>
+                <outlet property="fontSizeTextField" destination="Kee-DD-v4m" id="sTS-66-iAb"/>
+                <outlet property="sampleLabel" destination="jFV-Tm-DFb" id="zDl-dB-gKQ"/>
+                <outlet property="scaleFactor" destination="CPQ-zg-AUH" id="VlW-Ko-FEe"/>
+                <outlet property="tablePlaceholder" destination="TGw-1m-HHN" id="okU-Qc-kRo"/>
+                <outlet property="tableTitle" destination="IsN-DO-F3m" id="RlD-xl-kZX"/>
+                <outlet property="weightTextField" destination="RFj-rK-tSN" id="ed7-TN-6sJ"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Font" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5" customClass="UTWindow" customModule="UIToolkit">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="695" height="524"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
+            <view key="contentView" misplaced="YES" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="695" height="552"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1z-pP-709">
+                        <rect key="frame" x="20" y="20" width="264" height="484"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IsN-DO-F3m" customClass="UTLabel" customModule="UIToolkit">
+                                <rect key="frame" x="-2" y="468" width="126" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Semantic font token" id="8NQ-GN-Mom">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="TGw-1m-HHN">
+                                <rect key="frame" x="0.0" y="0.0" width="264" height="460"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="264" id="GQc-vc-ibC"/>
+                        </constraints>
+                        <visibilityPriorities>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
+                        </visibilityPriorities>
+                        <customSpacing>
+                            <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
+                        </customSpacing>
+                    </stackView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jFV-Tm-DFb" customClass="UTLabel" customModule="UIToolkit">
+                        <rect key="frame" x="297" y="20" width="380" height="278"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" id="7Ll-SG-CIg">
+                            <font key="font" metaFont="system"/>
+                            <string key="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box fixedFrame="YES" title="Scale factor" translatesAutoresizingMaskIntoConstraints="NO" id="9up-eQ-gCN">
+                        <rect key="frame" x="490" y="374" width="177" height="114"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView" id="dge-Z3-9fg">
+                            <rect key="frame" x="3" y="3" width="171" height="96"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWz-VX-kmd">
+                                    <rect key="frame" x="0.0" y="0.0" width="171" height="96"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CPQ-zg-AUH" customClass="UTTextField" customModule="UIToolkit">
+                                            <rect key="frame" x="16" y="48" width="96" height="32"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="VnL-SZ-0YN">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="osf-r9-ky8" customClass="UTPillButton" customModule="UIToolkit">
+                                            <rect key="frame" x="16" y="16" width="39" height="24"/>
+                                            <buttonCell key="cell" type="bevel" title="Apply" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="5we-XW-ZWy">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="applyScaleAction:" target="-2" id="JXq-Ib-w8H"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <edgeInsets key="edgeInsets" left="16" right="16" top="16" bottom="16"/>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="gWz-VX-kmd" firstAttribute="top" secondItem="dge-Z3-9fg" secondAttribute="top" id="8s1-I9-ykK"/>
+                                <constraint firstAttribute="trailing" secondItem="gWz-VX-kmd" secondAttribute="trailing" id="mfh-d9-Zlm"/>
+                                <constraint firstAttribute="bottom" secondItem="gWz-VX-kmd" secondAttribute="bottom" id="sGK-lW-ixp"/>
+                                <constraint firstItem="gWz-VX-kmd" firstAttribute="leading" secondItem="dge-Z3-9fg" secondAttribute="leading" id="xRS-s6-7s5"/>
+                            </constraints>
+                        </view>
+                    </box>
+                    <box fixedFrame="YES" title="Font properties" translatesAutoresizingMaskIntoConstraints="NO" id="TEy-9e-kso">
+                        <rect key="frame" x="296" y="367" width="177" height="114"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView" id="boZ-Q7-09r">
+                            <rect key="frame" x="3" y="3" width="171" height="96"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nce-ne-4wg">
+                                    <rect key="frame" x="0.0" y="30" width="86" height="48"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kee-DD-v4m" customClass="UTLabel" customModule="UIToolkit">
+                                            <rect key="frame" x="6" y="32" width="82" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Point size: --" id="8RC-4X-m75">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RFj-rK-tSN" customClass="UTLabel" customModule="UIToolkit">
+                                            <rect key="frame" x="6" y="0.0" width="66" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Weight: --" id="eYI-Mz-OKG">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                    <edgeInsets key="edgeInsets" left="8" right="8" top="0.0" bottom="0.0"/>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                            </subviews>
+                        </view>
+                    </box>
+                    <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PoC-XZ-3e8">
+                        <rect key="frame" x="312" y="328" width="99" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="English" drawsBackground="YES" completes="NO" numberOfVisibleItems="2" id="pL4-pb-xxc">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <objectValues>
+                                <string>English</string>
+                                <string>French</string>
+                            </objectValues>
+                        </comboBoxCell>
+                        <connections>
+                            <action selector="comboBoxAction:" target="-2" id="I5t-Wl-pQl"/>
+                        </connections>
+                    </comboBox>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="G1z-pP-709" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="48" id="71C-15-xsn"/>
+                    <constraint firstItem="G1z-pP-709" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" symbolic="YES" id="M75-21-SNZ"/>
+                    <constraint firstAttribute="bottom" secondItem="G1z-pP-709" secondAttribute="bottom" constant="20" symbolic="YES" id="rYX-Ic-8Gd"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+            <point key="canvasLocation" x="48.5" y="271"/>
+        </window>
+    </objects>
+</document>

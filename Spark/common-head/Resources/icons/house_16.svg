@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>house_16</title>
+    <desc>Created with Sketch.</desc>
+    <g id="house_16" stroke="none" stroke-width="1" fill-rule="evenodd">
+        <path d="M13,14 C13,14.552 12.552,15 12,15 L11,15 L11,8.5 C11,8.224 10.776,8 10.5,8 L5.5,8 C5.224,8 5,8.224 5,8.5 L5,15 L4,15 C3.449,15 3,14.552 3,14 L3,6.634 C3,6.509 3.046,6.389 3.131,6.296 L8,0.985 L12.869,6.296 C12.953,6.389 13,6.509 13,6.634 L13,14 Z M6,15 L10,15 L10,9 L6,9 L6,15 Z M13.605,5.621 L8.737,0.309 C8.359,-0.103 7.642,-0.103 7.263,0.309 L2.395,5.621 C2.14,5.897 2,6.257 2,6.634 L2,14 C2,15.103 2.897,16 4,16 L12,16 C13.103,16 14,15.103 14,14 L14,6.634 C14,6.257 13.86,5.897 13.605,5.621 L13.605,5.621 Z" id="fill"></path>
+    </g>
+</svg>

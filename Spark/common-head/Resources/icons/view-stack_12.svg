@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>format/view-stack_12</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="view-stack_12" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="format/view-stack_12" fill="#000000">
+            <g id="view-stack_12" transform="translate(1.000000, 1.000000)">
+                <g id="icon" fill-rule="nonzero">
+                    <path d="M1.5,7 C1.22385763,7 1,7.22385763 1,7.5 L1,8.5 C1,8.77614237 1.22385763,9 1.5,9 L8.5,9 C8.77614237,9 9,8.77614237 9,8.5 L9,7.5 C9,7.22385763 8.77614237,7 8.5,7 L1.5,7 Z M1.5,6 L8.5,6 C9.32842712,6 10,6.67157288 10,7.5 L10,8.5 C10,9.32842712 9.32842712,10 8.5,10 L1.5,10 C0.671572875,10 0,9.32842712 0,8.5 L0,7.5 C-1.11022302e-16,6.67157288 0.671572875,6 1.5,6 Z M1.5,0 L8.5,0 C9.32842712,0 10,0.671572875 10,1.5 L10,2.5 C10,3.32842712 9.32842712,4 8.5,4 L1.5,4 C0.671572875,4 0,3.32842712 0,2.5 L0,1.5 C-1.11022302e-16,0.671572875 0.671572875,0 1.5,0 Z M1.5,1 C1.22385763,1 1,1.22385763 1,1.5 L1,2.5 C1,2.77614237 1.22385763,3 1.5,3 L8.5,3 C8.77614237,3 9,2.77614237 9,2.5 L9,1.5 C9,1.22385763 8.77614237,1 8.5,1 L1.5,1 Z" id="fill"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

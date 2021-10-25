@@ -1,0 +1,100 @@
+{% include 'autogen_header.j2' %}
+
+{%- set cname = theme_name + 'Theme' %}
+
+#include "{{cname}}.h"
+
+#include <algorithm>
+#include <utility>
+
+
+namespace {{utils.namespace()}}
+{
+    {{cname}}::{{cname}}(std::shared_ptr<Colors> colors) : mColors(std::move(colors))
+    {
+{% if (tokens is defined) and tokens %}
+        auto color = [this](const std::string& name) { return *mColors->getColor(name); };
+{% endif %}
+
+{%- for token in tokens %}
+        mThemeColors.emplace_back(Token::{{token.cc_name}}, "{{token.name}}",
+            ColorSet{color("{{token.normal}}")}{{utils.gen_setters(token)}});
+{%- endfor %}
+    }
+
+    ThemeColors {{cname}}::getThemeColors() const
+    {
+        return mThemeColors;
+    }
+
+    template<typename T>
+    static ColorSet getColorSetImpl(T searchKey, const ThemeColors& themeColors)
+    {
+        const auto colorSetIt = std::find_if(std::cbegin(themeColors), std::cend(themeColors), [=](auto themeColor)
+            {
+                return std::get<T>(themeColor) == searchKey;
+            });
+
+        return colorSetIt != std::end(themeColors) ? std::get<ColorSet>(*colorSetIt) : ColorSet{ Color{} };
+    }
+
+    ColorSet {{cname}}::getColorSet(Token token) const
+    {
+        return getColorSetImpl(token, mThemeColors);
+    }
+
+    ColorSet {{cname}}::getColorSet(const std::string& tokenString) const
+    {
+        return getColorSetImpl(tokenString, mThemeColors);
+    }
+
+    Color {{cname}}::getColorByPath(const std::string& path) const
+    {
+        return Color{};
+    }
+
+    std::string {{cname}}::getName() const
+    {
+        return "{{theme_name}}";
+    }
+
+    std::string {{cname}}::tokenToString(Token token) const
+    {
+        return SemanticVisuals::tokenToString(token);
+    }
+
+/*
+    std::string {{cname}}::tokenToString(Token token) const
+    {
+        const auto colorSetIt = std::find_if(std::cbegin(mThemeColors), std::cend(mThemeColors), [=](auto t)
+        {
+            return std::get<Token>(t) == token;
+        });
+
+        return colorSetIt != std::end(mThemeColors) ? std::get<std::string>(*colorSetIt) : "";
+    }
+*/
+
+    Token {{cname}}::tokenFromString(const std::string& tokenString) const
+    {
+        return SemanticVisuals::tokenFromString(tokenString);
+    }
+
+/*
+    Token {{cname}}::tokenFromString(const std::string& tokenString) const
+    {
+        const auto colorSetIt = std::find_if(std::cbegin(mThemeColors), std::cend(mThemeColors), [=](auto t)
+        {
+            return std::get<std::string>(t) == tokenString;
+        });
+
+        return colorSetIt != std::end(mThemeColors) ? std::get<Token>(*colorSetIt) : Token::Unknown;
+    }
+*/
+
+    bool {{cname}}::isValidToken(Token token) const
+    {
+        return token != Token::Unknown;
+    }
+
+}

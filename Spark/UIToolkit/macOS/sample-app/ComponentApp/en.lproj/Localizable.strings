@@ -1,0 +1,64 @@
+/* 
+  LocalisedStrings.strings
+  UIToolkit
+
+  Created by James Nestor on 05/07/2021.
+  
+*/
+
+/* No comment provided by engineer. */
+"Error" = "Error";
+
+/* No comment provided by engineer. */
+"General announcement" = "General announcement";
+
+/* No comment provided by engineer. */
+"Lorem ipsum dolor site aw aetns ctetuer adipiscing elit nullam amarte." = "Lorem ipsum dolor site aw aetns ctetuer adipiscing elit nullam amarte.";
+
+/* No comment provided by engineer. */
+"Make a call or join a meeting" = "Make a call or join a meeting";
+
+/* No comment provided by engineer. */
+"Success" = "Success";
+
+/* No comment provided by engineer. */
+"To call another person who uses %@, type their name or email in the search bar." = "To call another person who uses %@, type their name or email in the search bar.";
+
+/* No comment provided by engineer. */
+"To join a meeting, type or paste the address, such as conf_room123@companyabc.com." = "To join a meeting, type or paste the address, such as conf_room123@companyabc.com.";
+
+/* No comment provided by engineer. */
+"Transient state..." = "Transient state...";
+
+/* No comment provided by engineer. */
+"Warning" = "Warning";
+
+/* No comment provided by engineer. */
+"Yesterday" = "Yesterday";
+
+/* No comment provided by engineer. */
+"Alert label" = "Alert label";
+
+/* No comment provided by engineer. */
+"Answer" = "Answer";
+
+/* No comment provided by engineer. */
+"Decline" = "Decline";
+
+/* No comment provided by engineer. */
+"Message" = "Message";
+
+/* No comment provided by engineer. */
+"Meeting Reminder" = "Meeting Reminder";
+
+/* No comment provided by engineer. */
+"Meeting name" = "Meeting name";
+
+/* No comment provided by engineer. */
+"Space name" = "Space name";
+
+/* No comment provided by engineer. */
+"now" = "now";
+
+/* No comment provided by engineer. */
+"Incoming call" = "Incoming call";

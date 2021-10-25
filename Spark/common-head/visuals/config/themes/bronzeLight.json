@@ -1,0 +1,210 @@
+{
+  "name": "BronzeLight",
+  "parent": "Default",
+  "tokens": {
+    "listItem-primary": {
+      "normal": "transparent",
+      "hovered": "bronze-10",
+      "pressed": "bronze-20",
+      "checked": "bronze-20"
+    },
+    "listItem-secondary": {
+      "normal": "transparent",
+      "hovered": "bronze-10",
+      "pressed": "bronze-20"
+    },
+    "listItem-tertiary": {
+      "normal": "transparent",
+      "hovered": "bronze-20",
+      "pressed": "bronze-30"
+    },
+    "listItem-quaternary": {
+      "normal": "transparent",
+      "hovered": "bronze-30",
+      "pressed": "bronze-40"
+    },
+    "footer-background": {
+      "normal": "bronze-05"
+    },
+    "appNav-icon": {
+      "normal": "bronze-70",
+      "pressed": "bronze-80",
+      "checked": "bronze-80"
+    },
+    "appNav-background": {
+      "normal": "bronze-05",
+      "hovered": "bronze-10",
+      "pressed": "bronze-20",
+      "checked": "bronze-20"
+    },
+    "wx-globalFooterButton-background": {
+      "normal": "transparent",
+      "hovered": "bronze-10",
+      "pressed": "bronze-20",
+      "checked": "bronze-20"
+    },
+    "mainList-indicator": {
+      "normal": "mint-60"
+    },
+    "wx-brickletItem-background": {
+      "normal": "bronze-05",
+      "hovered": "bronze-10",
+      "pressed": "bronze-20",
+      "focused": "bronze-20"
+    },
+    "wx-filterControlBackground": {
+      "normal": "bronze-05",
+      "hovered": "bronze-10",
+      "disabled": "bronze-20"
+    },
+    "wx-topBarMainMinMaxButton-background": {
+      "normal": "bronze-70",
+      "hovered": "bronze-80",
+      "pressed": "bronze-90"
+    },
+    "wx-underlineButton-background": {
+      "normal": "transparent",
+      "hovered": "bronze-10",
+      "pressed": "bronze-20"
+    },
+    "background-secondary": {
+      "normal": "bronze-05"
+    },
+    "background-tertiary": {
+      "normal": "bronze-10"
+    },
+    "theme-gradient-secondary-0-background": {
+      "normal": "bronze-10"
+    },
+    "appHeader-buttonPlus": {
+      "normal": "bronze-70",
+      "hovered": "bronze-80",
+      "pressed": "bronze-90"
+    },
+    "appHeader-buttonPlus-icon": {
+      "normal": "gray-05",
+      "disabled": "gray-60"
+    },
+    "appHeader": {
+      "normal": "bronze-70"
+    },
+    "appHeader-searchBar": {
+      "normal": "bronze-80",
+      "hovered": "bronze-90",
+      "pressed": "bronze-95"
+    },
+    "appHeader-searchBar-active": {
+      "normal": "bronze-80",
+      "hovered": "bronze-90",
+      "pressed": "bronze-95"
+    },
+    "wx-searchPlaceholder-text": {
+      "normal": "gray-05"
+    },
+    "appHeader-searchBar-outline-active": {
+      "normal": "bronze-70"
+    },
+    "appHeader-buttonStatus": {
+      "normal": "bronze-70",
+      "hovered": "bronze-80",
+      "pressed": "bronze-90"
+    },
+    "appHeader-buttonDevice": {
+      "normal": "bronze-70",
+      "hovered": "bronze-80",
+      "pressed": "bronze-90"
+    },
+    "appHeader-buttonDevice-text-active": {
+      "normal": "mint-30"
+    },
+    "legacy-separator-primary": {
+      "normal": "bronze-20"
+    },
+    "legacy-separator-secondary": {
+      "normal": "bronze-30"
+    },
+    "button-primary": {
+      "normal": "bronze-60",
+      "hovered": "bronze-70",
+      "pressed": "bronze-80",
+      "checked": "bronze-80",
+      "disabled": "gray-20"
+    },
+    "button-primary-outline": {
+      "normal": "bronze-60",
+      "hovered": "bronze-70",
+      "pressed": "bronze-80",
+      "checked": "bronze-80",
+      "disabled": "gray-20"
+    },
+    "buttonOutline-primary-background": {
+      "normal": "transparent",
+      "hovered": "bronze-70",
+      "pressed": "bronze-80",
+      "checked": "bronze-80",
+      "disabled": "gray-20"
+    },
+    "buttonOutline-primary": {
+      "normal": "bronze-70",
+      "hovered": "bronze-70",
+      "pressed": "bronze-80",
+      "checked": "bronze-80",
+      "disabled": "gray-20"
+    },
+    "buttonOutlineText-primary": {
+      "normal": "bronze-70",
+      "hovered": "gray-05",
+      "pressed": "gray-05",
+      "checked": "gray-05",
+      "disabled": "gray-40"
+    },
+    "button-secondary": {
+      "normal": "gray-30",
+      "hovered": "gray-40",
+      "pressed": "gray-50",
+      "checked": "gray-50",
+      "disabled": "gray-20"
+    },
+    "button-secondary-outline": {
+      "normal": "gray-30",
+      "hovered": "gray-40",
+      "pressed": "gray-50",
+      "checked": "gray-50",
+      "disabled": "gray-20"
+    },
+    "buttonText-secondary": {
+      "normal": "gray-100",
+      "disabled": "gray-40"
+    },
+    "mainList": {
+      "normal": "bronze-05",
+      "hovered": "bronze-10",
+      "pressed": "bronze-20"
+    },
+    "mainList-item": {
+      "normal": "bronze-05",
+      "hovered": "bronze-10",
+      "pressed": "bronze-20",
+      "checked": "bronze-10"
+    },
+    "text-hyperlink": {
+      "normal": "mint-70",
+      "hovered": "mint-90",
+      "pressed": "mint-90",
+      "disabled": "gray-40"
+    },
+    "wx-checkMark": {
+      "normal": "mint-70",
+      "hovered": "mint-90",
+      "pressed": "mint-90",
+      "disabled": "gray-40"
+    },
+    "wx-sendMessage-icon": {
+      "normal": "bronze-60",
+      "hovered": "bronze-70",
+      "pressed": "bronze-80",
+      "checked": "bronze-80",
+      "disabled": "gray-20"
+    }
+  }
+}

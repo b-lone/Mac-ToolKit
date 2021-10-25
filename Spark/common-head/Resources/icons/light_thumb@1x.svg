@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="140px" height="88px" viewBox="0 0 140 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    
+    <defs>
+        <rect id="path-1" x="0" y="0" width="14" height="88"></rect>
+        <rect id="path-3" x="56" y="0" width="84" height="88"></rect>
+        <rect id="path-5" x="0" y="0" width="140" height="88"></rect>
+    </defs>
+    <g id="light_thumb@1x" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Sidenav-update-3.0" transform="translate(-626.000000, -283.000000)">
+            <g id="Dialog" transform="translate(440.000000, 20.000000)">
+                <g id="content" transform="translate(160.000000, 30.000000)">
+                    <g id="item" transform="translate(20.000000, 75.000000)">
+                        <g transform="translate(6.000000, 158.000000)" id="light-thumbnail">
+                            <g>
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="tabs" fill="#010101" xlink:href="#path-1"></use>
+                                <mask id="mask-4" fill="white">
+                                    <use xlink:href="#path-3"></use>
+                                </mask>
+                                <use id="tabs" fill="#FFFFFF" transform="translate(98.000000, 44.000000) scale(-1, 1) translate(-98.000000, -44.000000) " xlink:href="#path-3"></use>
+                                <polygon id="sidebar" fill="#EBEBEB" points="14 0 14 88 56 88 56 0"></polygon>
+                                <polygon id="search" fill="#E0E0E0" points="14 21.0789474 56 21.0789474 56 30.4473684 14 30.4473684"></polygon>
+                                <rect id="search" fill="#FFFFFF" fill-rule="nonzero" x="21" y="7.02631579" width="28" height="4.68421053" rx="2.33333333"></rect>
+                                <mask id="mask-6" fill="white">
+                                    <use xlink:href="#path-5"></use>
+                                </mask>
+                                <rect stroke="#F5F5F5" stroke-width="2" x="1" y="1" width="138" height="86"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

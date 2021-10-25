@@ -1,0 +1,210 @@
+{
+  "name": "LavenderLight",
+  "parent": "Default",
+  "tokens": {
+    "listItem-primary": {
+      "normal": "transparent",
+      "hovered": "lavender-10",
+      "pressed": "lavender-20",
+      "checked": "lavender-20"
+    },
+    "listItem-secondary": {
+      "normal": "lavender-05",
+      "hovered": "lavender-10",
+      "pressed": "lavender-20"
+    },
+    "listItem-tertiary": {
+      "normal": "gray-10",
+      "hovered": "lavender-20",
+      "pressed": "lavender-30"
+    },
+    "listItem-quaternary": {
+      "normal": "gray-20",
+      "hovered": "lavender-30",
+      "pressed": "lavender-40"
+    },
+    "footer-background": {
+      "normal": "lavender-05"
+    },
+    "appNav-icon": {
+      "normal": "lavender-70",
+      "pressed": "lavender-80",
+      "checked": "lavender-80"
+    },
+    "appNav-background": {
+      "normal": "lavender-05",
+      "hovered": "lavender-10",
+      "pressed": "lavender-20",
+      "checked": "lavender-20"
+    },
+    "wx-globalFooterButton-background": {
+      "normal": "transparent",
+      "hovered": "lavender-10",
+      "pressed": "lavender-20",
+      "checked": "lavender-20"
+    },
+    "mainList-indicator": {
+      "normal": "mint-60"
+    },
+    "wx-brickletItem-background": {
+      "normal": "lavender-05",
+      "hovered": "lavender-10",
+      "pressed": "lavender-20",
+      "focused": "lavender-20"
+    },
+    "wx-filterControlBackground": {
+      "normal": "lavender-05",
+      "hovered": "lavender-10",
+      "disabled": "lavender-20"
+    },
+    "wx-topBarMainMinMaxButton-background": {
+      "normal": "lavender-70",
+      "hovered": "lavender-80",
+      "pressed": "lavender-90"
+    },
+    "wx-underlineButton-background": {
+      "normal": "transparent",
+      "hovered": "lavender-10",
+      "pressed": "lavender-20"
+    },
+    "background-secondary": {
+      "normal": "lavender-05"
+    },
+    "background-tertiary": {
+      "normal": "lavender-10"
+    },
+    "theme-gradient-secondary-0-background": {
+      "normal": "lavender-10"
+    },
+    "appHeader-buttonPlus": {
+      "normal": "lavender-70",
+      "hovered": "lavender-80",
+      "pressed": "lavender-90"
+    },
+    "appHeader-buttonPlus-icon": {
+      "normal": "gray-05",
+      "disabled": "gray-60"
+    },
+    "appHeader": {
+      "normal": "lavender-70"
+    },
+    "appHeader-searchBar": {
+      "normal": "lavender-80",
+      "hovered": "lavender-90",
+      "pressed": "lavender-95"
+    },
+    "appHeader-searchBar-active": {
+      "normal": "lavender-80",
+      "hovered": "lavender-90",
+      "pressed": "lavender-95"
+    },
+    "wx-searchPlaceholder-text": {
+      "normal": "gray-05"
+    },
+    "appHeader-searchBar-outline-active": {
+      "normal": "lavender-70"
+    },
+    "appHeader-buttonStatus": {
+      "normal": "lavender-70",
+      "hovered": "lavender-80",
+      "pressed": "lavender-90"
+    },
+    "appHeader-buttonDevice": {
+      "normal": "lavender-70",
+      "hovered": "lavender-80",
+      "pressed": "lavender-90"
+    },
+    "appHeader-buttonDevice-text-active": {
+      "normal": "mint-30"
+    },
+    "legacy-separator-primary": {
+      "normal": "lavender-20"
+    },
+    "legacy-separator-secondary": {
+      "normal": "lavender-30"
+    },
+    "button-primary": {
+      "normal": "lavender-60",
+      "hovered": "lavender-70",
+      "pressed": "lavender-80",
+      "checked": "lavender-80",
+      "disabled": "gray-20"
+    },
+    "button-primary-outline": {
+      "normal": "lavender-60",
+      "hovered": "lavender-70",
+      "pressed": "lavender-80",
+      "checked": "lavender-80",
+      "disabled": "gray-20"
+    },
+    "buttonOutline-primary-background": {
+      "normal": "transparent",
+      "hovered": "lavender-70",
+      "pressed": "lavender-80",
+      "checked": "lavender-80",
+      "disabled": "gray-20"
+    },
+    "buttonOutline-primary": {
+      "normal": "lavender-70",
+      "hovered": "lavender-70",
+      "pressed": "lavender-80",
+      "checked": "lavender-80",
+      "disabled": "gray-20"
+    },
+    "buttonOutlineText-primary": {
+      "normal": "lavender-70",
+      "hovered": "gray-05",
+      "pressed": "gray-05",
+      "checked": "gray-05",
+      "disabled": "gray-40"
+    },
+    "button-secondary": {
+      "normal": "gray-30",
+      "hovered": "gray-40",
+      "pressed": "gray-50",
+      "checked": "gray-50",
+      "disabled": "gray-20"
+    },
+    "button-secondary-outline": {
+      "normal": "gray-30",
+      "hovered": "gray-40",
+      "pressed": "gray-50",
+      "checked": "gray-50",
+      "disabled": "gray-20"
+    },
+    "buttonText-secondary": {
+      "normal": "gray-100",
+      "disabled": "gray-40"
+    },
+    "mainList": {
+      "normal": "lavender-05",
+      "hovered": "lavender-10",
+      "pressed": "lavender-20"
+    },
+    "mainList-item": {
+      "normal": "lavender-05",
+      "hovered": "lavender-10",
+      "pressed": "lavender-20",
+      "checked": "lavender-10"
+    },
+    "text-hyperlink": {
+      "normal": "mint-70",
+      "hovered": "mint-90",
+      "pressed": "mint-90",
+      "disabled": "gray-40"
+    },
+    "wx-checkMark": {
+      "normal": "mint-70",
+      "hovered": "mint-90",
+      "pressed": "mint-90",
+      "disabled": "gray-40"
+    },
+    "wx-sendMessage-icon": {
+      "normal": "lavender-60",
+      "hovered": "lavender-70",
+      "pressed": "lavender-80",
+      "checked": "lavender-80",
+      "disabled": "gray-20"
+    }
+  }
+}

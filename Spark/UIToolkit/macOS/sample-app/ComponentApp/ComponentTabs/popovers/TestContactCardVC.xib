@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TestContactCardVC" customModule="ComponentApp" customModuleProvider="target">
+            <connections>
+                <outlet property="acitonButtonStackView" destination="bzV-lb-zxf" id="13P-V6-Yr3"/>
+                <outlet property="audioCallButton" destination="jcU-9i-Bij" id="3PW-qP-nsB"/>
+                <outlet property="availabilityLabel" destination="V4M-H7-YIA" id="oBb-Bk-ffB"/>
+                <outlet property="avatarView" destination="I94-5Z-Vr7" id="zNM-Fq-e3r"/>
+                <outlet property="departmentLabel" destination="I9M-cJ-X5M" id="pfa-KQ-LTD"/>
+                <outlet property="departmentValue" destination="AEc-9G-XBI" id="4xM-hm-BV3"/>
+                <outlet property="displayNameLabel" destination="EqY-f9-gff" id="zX0-DF-hG2"/>
+                <outlet property="emailButton" destination="FHu-xu-hNe" id="mK0-01-BrW"/>
+                <outlet property="emailLabel" destination="j8O-eF-X0r" id="gx8-Rb-481"/>
+                <outlet property="emailLink" destination="oVq-jB-Haf" id="Jkf-fu-hzx"/>
+                <outlet property="jobTitle" destination="yjv-Za-zl0" id="MnK-Zl-4kM"/>
+                <outlet property="managerLabel" destination="XXZ-Ec-1tz" id="iCJ-3Y-jS9"/>
+                <outlet property="managerValue" destination="CGM-Sd-RTW" id="R00-gG-INi"/>
+                <outlet property="messageButton" destination="2GI-RP-tZI" id="Fr5-P2-dJn"/>
+                <outlet property="mobileLabel" destination="QuX-nT-QkZ" id="YN3-Cw-nrt"/>
+                <outlet property="mobileNumber" destination="LBh-I0-ufq" id="EXc-JX-KfV"/>
+                <outlet property="mobileNumberStackView" destination="aps-GI-3ez" id="r0O-Pv-k87"/>
+                <outlet property="peopleInsightsButton" destination="gOk-Y7-D3f" id="jE7-2f-YKT"/>
+                <outlet property="pmrButton" destination="IoO-lU-aiY" id="uTq-ke-yIB"/>
+                <outlet property="presenceSeparatorLabel" destination="OpH-1W-Wp5" id="Jvv-Rk-z7h"/>
+                <outlet property="statusLabel" destination="89f-w7-gEQ" id="RN8-zh-Zny"/>
+                <outlet property="testCoverImage" destination="C8h-SO-bNm" id="6Zi-Ux-aWW"/>
+                <outlet property="videoCallButton" destination="xZG-ps-1xd" id="r8W-ee-Ojj"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="workLabel" destination="L4K-uK-jmV" id="EAQ-as-iOH"/>
+                <outlet property="workNumber" destination="naW-8q-loC" id="Wal-iC-WA5"/>
+                <outlet property="workNumberStackView" destination="MAV-GF-TTC" id="Rcs-Kw-aga"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="310" height="448"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="C8h-SO-bNm">
+                    <rect key="frame" x="0.0" y="335" width="310" height="113"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="113" id="JHY-Ra-HVX"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="I94-5Z-Vr7" customClass="UTAvatarView" customModule="UIToolkit">
+                    <rect key="frame" x="119" y="294" width="72" height="72"/>
+                    <constraints>
+                        <constraint firstAttribute="width" priority="250" constant="72" id="ZlA-ZS-fOc"/>
+                        <constraint firstAttribute="height" constant="72" id="xVn-Ws-YOc"/>
+                    </constraints>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EqY-f9-gff" customClass="UTLabel" customModule="UIToolkit">
+                    <rect key="frame" x="105" y="266" width="100" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Sonali Pritchard" id="oJY-Ry-no8">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mFg-Oq-J0y">
+                    <rect key="frame" x="93" y="248" width="124" height="16"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V4M-H7-YIA" customClass="UTLabel" customModule="UIToolkit">
+                            <rect key="frame" x="-2" y="0.0" width="42" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Active" id="zIY-B7-aC7">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OpH-1W-Wp5" customClass="UTLabel" customModule="UIToolkit">
+                            <rect key="frame" x="40" y="0.0" width="11" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="•" id="r9u-Go-far">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="89f-w7-gEQ" customClass="UTLabel" customModule="UIToolkit">
+                            <rect key="frame" x="51" y="0.0" width="75" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Lets rock it!" id="P5G-uB-YKH">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+                <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bzV-lb-zxf">
+                    <rect key="frame" x="53" y="204" width="204" height="32"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2GI-RP-tZI" customClass="UTRoundButton" customModule="UIToolkit">
+                            <rect key="frame" x="0.0" y="8" width="45" height="16"/>
+                            <buttonCell key="cell" type="bevel" title="Button" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="cRU-8c-8gJ">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="messageButtonAction:" target="-2" id="xh0-56-kPQ"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xZG-ps-1xd" customClass="UTRoundButton" customModule="UIToolkit">
+                            <rect key="frame" x="53" y="8" width="45" height="16"/>
+                            <buttonCell key="cell" type="bevel" title="Button" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="A76-ZN-BlR">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="videoCallButtonAction:" target="-2" id="q8d-oa-w2K"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jcU-9i-Bij" customClass="UTRoundButton" customModule="UIToolkit">
+                            <rect key="frame" x="106" y="8" width="45" height="16"/>
+                            <buttonCell key="cell" type="bevel" title="Button" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="sS9-iF-VGQ">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gOk-Y7-D3f" customClass="UTRoundButton" customModule="UIToolkit">
+                            <rect key="frame" x="159" y="8" width="45" height="16"/>
+                            <buttonCell key="cell" type="bevel" title="Button" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="FeI-wj-dvK">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="w0H-HW-vfp"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+                <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="1000" verticalClippingResistancePriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfy-ef-4xu">
+                    <rect key="frame" x="16" y="52" width="278" height="136"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yjv-Za-zl0" customClass="UTLabel" customModule="UIToolkit">
+                            <rect key="frame" x="44" y="120" width="191" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="DESIGNER. USER EXPERIENCE" id="feE-0p-QVD">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="1000" verticalHuggingPriority="1000" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CnW-WP-6co">
+                            <rect key="frame" x="89" y="96" width="100" height="16"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j8O-eF-X0r" customClass="UTLabel" customModule="UIToolkit">
+                                    <rect key="frame" x="-2" y="0.0" width="41" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Email:" id="4Tb-by-hnJ">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <button verticalHuggingPriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="oVq-jB-Haf" customClass="UTHyperlinkButton" customModule="UIToolkit">
+                                    <rect key="frame" x="41" y="0.0" width="59" height="16"/>
+                                    <buttonCell key="cell" type="bevel" title="joe blogs" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="iE5-9z-YYb">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="1000" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAV-GF-TTC">
+                            <rect key="frame" x="114" y="72" width="50" height="16"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L4K-uK-jmV" customClass="UTLabel" customModule="UIToolkit">
+                                    <rect key="frame" x="-2" y="0.0" width="40" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Work:" id="0Nf-4d-Mrm">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="naW-8q-loC" customClass="UTHyperlinkButton" customModule="UIToolkit">
+                                    <rect key="frame" x="40" y="0.0" width="10" height="16"/>
+                                    <buttonCell key="cell" type="bevel" title="1" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="WPo-D8-fgk">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="1000" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aps-GI-3ez">
+                            <rect key="frame" x="109" y="48" width="61" height="16"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QuX-nT-QkZ" customClass="UTLabel" customModule="UIToolkit">
+                                    <rect key="frame" x="-2" y="0.0" width="49" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Mobile:" id="mZt-qi-klW">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LBh-I0-ufq" customClass="UTHyperlinkButton" customModule="UIToolkit">
+                                    <rect key="frame" x="49" y="0.0" width="12" height="16"/>
+                                    <buttonCell key="cell" type="bevel" title="2" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="Ocx-um-Aej">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="1000" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dCv-Qo-hrJ">
+                            <rect key="frame" x="64" y="24" width="151" height="16"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I9M-cJ-X5M" customClass="UTLabel" customModule="UIToolkit">
+                                    <rect key="frame" x="-2" y="0.0" width="81" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Department:" id="q4A-0O-cKi">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AEc-9G-XBI" customClass="UTLabel" customModule="UIToolkit">
+                                    <rect key="frame" x="77" y="0.0" width="76" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Engineering" id="Dt6-ZU-BkS">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="1000" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZVo-fQ-kqv">
+                            <rect key="frame" x="80" y="0.0" width="119" height="16"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XXZ-Ec-1tz" customClass="UTLabel" customModule="UIToolkit">
+                                    <rect key="frame" x="-2" y="0.0" width="61" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Manager:" id="BaE-ro-1BA">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CGM-Sd-RTW" customClass="UTLabel" customModule="UIToolkit">
+                                    <rect key="frame" x="57" y="0.0" width="64" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Joe Blogs" id="hSn-UT-6mh">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" priority="250" constant="240" id="RpY-Oa-ak4"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+                <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="1000" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J1F-kF-VaD">
+                    <rect key="frame" x="129" y="20" width="52" height="16"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IoO-lU-aiY" customClass="UTRoundButton" customModule="UIToolkit">
+                            <rect key="frame" x="0.0" y="0.0" width="22" height="16"/>
+                            <buttonCell key="cell" type="bevel" title="[P]" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="xRV-VE-1Bi">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FHu-xu-hNe" customClass="UTRoundButton" customModule="UIToolkit">
+                            <rect key="frame" x="30" y="0.0" width="22" height="16"/>
+                            <buttonCell key="cell" type="bevel" title="[E]" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="EaM-0X-BpX">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="I94-5Z-Vr7" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="82" id="8IX-7Y-tZi"/>
+                <constraint firstItem="I94-5Z-Vr7" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="OVq-MV-pOt"/>
+                <constraint firstItem="EqY-f9-gff" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Sz2-Hl-H1G"/>
+                <constraint firstItem="C8h-SO-bNm" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="VrO-nZ-kIt"/>
+                <constraint firstAttribute="trailing" secondItem="yfy-ef-4xu" secondAttribute="trailing" constant="16" id="ZK9-EV-5rQ"/>
+                <constraint firstItem="C8h-SO-bNm" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="a0x-7w-miV"/>
+                <constraint firstItem="yfy-ef-4xu" firstAttribute="top" secondItem="bzV-lb-zxf" secondAttribute="bottom" constant="16" id="aZr-HS-49c"/>
+                <constraint firstItem="bzV-lb-zxf" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="bHU-5e-kAe"/>
+                <constraint firstItem="bzV-lb-zxf" firstAttribute="top" secondItem="mFg-Oq-J0y" secondAttribute="bottom" constant="12" id="btz-o0-1Bz"/>
+                <constraint firstItem="mFg-Oq-J0y" firstAttribute="top" secondItem="EqY-f9-gff" secondAttribute="bottom" constant="2" id="hZW-cP-vku"/>
+                <constraint firstAttribute="trailing" secondItem="C8h-SO-bNm" secondAttribute="trailing" id="i1r-jN-KOn"/>
+                <constraint firstItem="EqY-f9-gff" firstAttribute="top" secondItem="I94-5Z-Vr7" secondAttribute="bottom" constant="12" id="pCi-iw-zRf"/>
+                <constraint firstItem="yfy-ef-4xu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="pNS-Nd-ukt"/>
+                <constraint firstItem="J1F-kF-VaD" firstAttribute="top" secondItem="yfy-ef-4xu" secondAttribute="bottom" constant="16" id="pku-L3-2TX"/>
+                <constraint firstItem="mFg-Oq-J0y" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="tkA-Mk-n7R"/>
+                <constraint firstAttribute="bottom" secondItem="J1F-kF-VaD" secondAttribute="bottom" constant="20" symbolic="YES" id="vQg-vw-Fy7"/>
+                <constraint firstItem="J1F-kF-VaD" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="vQt-HY-wq5"/>
+            </constraints>
+            <point key="canvasLocation" x="-148" y="135"/>
+        </customView>
+    </objects>
+</document>

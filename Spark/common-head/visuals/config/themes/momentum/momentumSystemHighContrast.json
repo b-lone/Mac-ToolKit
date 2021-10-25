@@ -1,0 +1,1433 @@
+{
+  "name": "MomentumSystemHighContrast",
+  "parent": "SystemHighContrast",
+  "tokens": {
+    "avatar-presence-icon-active": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-presence-icon-meeting": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-presence-icon-schedule": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-presence-icon-dnd": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-presence-icon-presenting": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-presence-icon-quiet-hours": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-presence-icon-away": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-presence-icon-ooo": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-presence-icon-background": {
+      "normal": "WindowColor"
+    },
+    "avatar-color-avatar-text": {
+      "normal": "HighlightTextColor"
+    },
+    "avatar-color-avatar-background-default": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-color-avatar-background-gold": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-color-avatar-background-orange": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-color-avatar-background-lime": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-color-avatar-background-mint": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-color-avatar-background-cyan": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-color-avatar-background-cobalt": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-color-avatar-background-slate": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-color-avatar-background-violet": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-color-avatar-background-purple": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-color-avatar-background-pink": {
+      "normal": "WindowTextColor"
+    },
+    "avatar-chat-bubble-icon-normal": {
+      "normal": "HighlightColor"
+    },
+    "avatar-chat-bubble-icon-hover": {
+      "normal": "ButtonFaceColor"
+    },
+    "avatar-chat-bubble-icon-pressed": {
+      "normal": "ButtonFaceColor"
+    },
+    "avatar-chat-bubble-icon-active": {
+      "normal": "PlaceholderColor"
+    },
+    "avatar-chat-bubble-icon-disabled": {
+      "normal": "GrayTextColor"
+    },
+    "avatar-chat-bubble-border-normal": {
+      "normal": "ButtonTextColor"
+    },
+    "badge-background": {
+      "normal": "WindowTextColor"
+    },
+    "badge-text": {
+      "normal": "HighlightTextColor"
+    },
+    "badge-notification-indicator": {
+      "normal": "ButtonTextColor"
+    },
+    "banner-announcement-text": {
+      "normal": "ButtonTextColor"
+    },
+    "banner-announcement-background": {
+      "normal": "HighlightColor"
+    },
+    "banner-success-text": {
+      "normal": "ButtonTextColor"
+    },
+    "banner-success-background": {
+      "normal": "HighlightColor"
+    },
+    "banner-error-text": {
+      "normal": "ButtonTextColor"
+    },
+    "banner-error-background": {
+      "normal": "HighlightColor"
+    },
+    "banner-issue-text": {
+      "normal": "WindowColor"
+    },
+    "banner-issue-background": {
+      "normal": "HighlightColor"
+    },
+    "banner-transient-text": {
+      "normal": "ButtonTextColor"
+    },
+    "banner-transient-background": {
+      "normal": "HighlightColor"
+    },
+    "button-primary-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "button-primary-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-primary-border": {
+      "normal": "ButtonTextColor"
+    },
+    "button-secondary-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "button-secondary-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-secondary-border": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-cancel-ghost-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "button-cancel-ghost-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-cancel-fill-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "button-cancel-fill-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-cancel-fill-border": {
+      "normal": "ButtonTextColor"
+    },
+    "button-cancel-outline-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "button-cancel-outline-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-cancel-outline-border": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-accent-ghost-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "button-accent-ghost-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-accent-fill-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "button-accent-fill-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-accent-fill-border": {
+      "normal": "ButtonTextColor"
+    },
+    "button-message-ghost-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "button-message-ghost-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-message-fill-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "button-message-fill-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-message-fill-border": {
+      "normal": "ButtonTextColor"
+    },
+    "button-join-fill-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "button-join-fill-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-join-fill-border": {
+      "normal": "ButtonTextColor"
+    },
+    "button-join-outline-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "button-join-outline-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-join-outline-border": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-counter-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "button-counter-text": {
+      "normal": "HighlightTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "button-counter-border": {
+      "normal": "ButtonTextColor"
+    },
+    "button-dialpad-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "button-dialpad-text-number": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-dialpad-text-characters": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-dialpad-border": {
+      "normal": "ButtonTextColor"
+    },
+    "button-dialpad-special-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "button-dialpad-special-text-number": {
+      "normal": "ButtonTextColor"
+    },
+    "button-dialpad-special-text-characters": {
+      "normal": "WindowTextColor"
+    },
+    "button-hyperlink-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "button-hyperlink-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "focused": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-hyperlink-border": {
+      "normal": "ButtonTextColor",
+      "focused": "ButtonTextColor"
+    },
+    "button-layout-background": {
+      "normal": "PlaceholderColor",
+      "hovered": "PlaceholderColor",
+      "pressed": "PlaceholderColor",
+      "disabled": "PlaceholderColor"
+    },
+    "button-layout-text": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-layout-border": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "button-group-separator-background": {
+      "normal": "ButtonTextColor"
+    },
+    "button-ghost-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "button-ghost-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "button-ghost-border": {
+      "normal": "ButtonFaceColor"
+    },
+    "coachmarkteaching-background": {
+      "normal": "PlaceholderColor"
+    },
+    "coachmarkteaching-button-primary-background": {
+      "normal": "PlaceholderColor",
+      "hovered": "PlaceholderColor",
+      "pressed": "PlaceholderColor",
+      "disabled": "PlaceholderColor"
+    },
+    "coachmarkteaching-button-primary-text": {
+      "normal": "ButtonTextColor",
+      "disabled": "PlaceholderColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "coachmarkteaching-button-primary-border": {
+      "normal": "PlaceholderColor",
+      "disabled": "PlaceholderColor"
+    },
+    "coachmarkteaching-button-secondary-background": {
+      "normal": "PlaceholderColor",
+      "hovered": "PlaceholderColor",
+      "pressed": "PlaceholderColor",
+      "disabled": "PlaceholderColor"
+    },
+    "coachmarkteaching-button-secondary-text": {
+      "normal": "HighlightTextColor",
+      "disabled": "GrayTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "coachmarkteaching-button-secondary-border": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "coachmarkteaching-button-hyperlink-background": {
+      "normal": "PlaceholderColor"
+    },
+    "coachmarkteaching-button-hyperlink-text": {
+      "normal": "PlaceholderColor",
+      "hovered": "HotlightColor",
+      "pressed": "HotlightColor",
+      "focused": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "coachmarkteaching-button-hyperlink-border": {
+      "normal": "ButtonTextColor",
+      "focused": "ButtonTextColor"
+    },
+    "codeinput-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "checked": "HighlightColor",
+      "focused": "WindowColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "codeinput-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "focused": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "codeinput-border": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "checked": "HighlightColor",
+      "focused": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "codeinput-error-background": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "checked": "HighlightColor"
+    },
+    "codeinput-error-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "checked": "HighlightTextColor"
+    },
+    "codeinput-error-border": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "checked": "ButtonTextColor"
+    },
+    "label-primary-text": {
+      "normal": "ButtonTextColor",
+      "disabled": "GrayTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "label-secondary-text": {
+      "normal": "WindowTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "label-success-text": {
+      "normal": "ButtonTextColor"
+    },
+    "label-warning-text": {
+      "normal": "WindowColor"
+    },
+    "label-error-text": {
+      "normal": "ButtonTextColor"
+    },
+    "listitem-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "listitem-textprimary": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "listitem-textsecondary": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "listitem-textmissed": {
+      "normal": "ButtonTextColor"
+    },
+    "listitem-tick": {
+      "normal": "HighlightColor",
+      "hovered": "ButtonFaceColor",
+      "pressed": "ButtonFaceColor",
+      "disabled": "GrayTextColor"
+    },
+    "listitem-icon": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "listitem-dotdivider": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "ButtonTextColor"
+    },
+    "popover-primary-background": {
+      "normal": "WindowColor"
+    },
+    "reaction-badge-primary-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "reaction-badge-primary-unreacted-text": {
+      "normal": "ButtonTextColor"
+    },
+    "reaction-badge-primary-reacted-text": {
+      "normal": "ButtonTextColor"
+    },
+    "reaction-badge-primary-border": {
+      "normal": "WindowTextColor"
+    },
+    "search-placeholder-text": {
+      "normal": "WindowTextColor"
+    },
+    "search-text": {
+      "normal": "ButtonTextColor",
+      "checked": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "search-border": {
+      "normal": "ButtonTextColor",
+      "checked": "HighlightColor"
+    },
+    "search-background": {
+      "disabled": "ButtonFaceColor",
+      "normal": "WindowColor",
+      "checked": "WindowColor"
+    },
+    "separator-primary": {
+      "normal": "ButtonTextColor"
+    },
+    "separator-secondary": {
+      "normal": "WindowTextColor"
+    },
+    "spinner-loading-cursor": {
+      "normal": "HighlightColor"
+    },
+    "spinner-loading-track": {
+      "normal": "PlaceholderColor"
+    },
+    "spinner-progress-cursor": {
+      "normal": "HighlightColor"
+    },
+    "spinner-progress-track": {
+      "normal": "PlaceholderColor"
+    },
+    "tab-active-background": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tab-active-text": {
+      "normal": "HighlightTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "tab-inactive-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tab-inactive-text": {
+      "normal": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "tab-refresh": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "PlaceholderColor"
+    },
+    "tab-orange": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor"
+    },
+    "tab-gold": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor"
+    },
+    "tab-lime": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor"
+    },
+    "tab-mint": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor"
+    },
+    "tab-cyan": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor"
+    },
+    "tab-pink": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor"
+    },
+    "tab-slate": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor"
+    },
+    "tab-violet": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor"
+    },
+    "tab-cobalt": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor"
+    },
+    "tab-purple": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor"
+    },
+    "teamMarker-background-default": {
+      "normal": "WindowTextColor"
+    },
+    "teamMarker-background-gold": {
+      "normal": "WindowTextColor"
+    },
+    "teamMarker-background-orange": {
+      "normal": "WindowTextColor"
+    },
+    "teamMarker-background-lime": {
+      "normal": "WindowTextColor"
+    },
+    "teamMarker-background-mint": {
+      "normal": "WindowTextColor"
+    },
+    "teamMarker-background-cyan": {
+      "normal": "WindowTextColor"
+    },
+    "teamMarker-background-cobalt": {
+      "normal": "WindowTextColor"
+    },
+    "teamMarker-background-slate": {
+      "normal": "WindowTextColor"
+    },
+    "teamMarker-background-violet": {
+      "normal": "WindowTextColor"
+    },
+    "teamMarker-background-purple": {
+      "normal": "WindowTextColor"
+    },
+    "teamMarker-background-pink": {
+      "normal": "WindowTextColor"
+    },
+    "teamMarker-background-archived": {
+      "normal": "WindowTextColor"
+    },
+    "textinput-placeholder-text": {
+      "normal": "WindowTextColor"
+    },
+    "textinput-background": {
+      "normal": "WindowColor",
+      "pressed": "HighlightColor",
+      "hovered": "HighlightColor",
+      "focused": "WindowColor",
+      "checked": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "textinput-text": {
+      "normal": "ButtonTextColor",
+      "pressed": "WindowTextColor",
+      "hovered": "ButtonTextColor",
+      "focused": "ButtonTextColor",
+      "checked": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "textinput-border": {
+      "normal": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "focused": "HighlightColor",
+      "checked": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "textinput-error-background": {
+      "normal": "HighlightColor",
+      "pressed": "HighlightColor",
+      "hovered": "HighlightColor",
+      "focused": "HighlightColor"
+    },
+    "textinput-error-text": {
+      "normal": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "focused": "ButtonTextColor"
+    },
+    "textinput-error-border": {
+      "normal": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "focused": "ButtonTextColor"
+    },
+    "alertbadge-default-background": {
+      "normal": "WindowColor",
+      "hovered": "WindowColor",
+      "pressed": "WindowColor"
+    },
+    "alertbadge-default-text": {
+      "normal": "WindowTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "alertbadge-announcement-background": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "alertbadge-announcement-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HotlightColor",
+      "pressed": "PlaceholderColor"
+    },
+    "alertbadge-warning-background": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "alertbadge-warning-text": {
+      "normal": "WindowColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "PlaceholderColor"
+    },
+    "alertbadge-important-background": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "alertbadge-important-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "PlaceholderColor"
+    },
+    "alertbadge-general-background": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "alertbadge-general-text": {
+      "normal": "WindowColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "PlaceholderColor"
+    },
+    "cancelicon-default-icon": {
+      "normal": "WindowTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "card-active-background": {
+      "normal": "HighlightColor"
+    },
+    "card-inactive-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "card-cancelled-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "card-disabled-border": {
+      "normal": "GrayTextColor"
+    },
+    "checkbox-checked-background": {
+      "normal": "HighlightColor",
+      "hovered": "ButtonFaceColor",
+      "pressed": "ButtonFaceColor",
+      "disabled": "GrayTextColor"
+    },
+    "checkbox-checked-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "checkbox-checked-border": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "ButtonTextColor"
+    },
+    "checkbox-checked-icon": {
+      "normal": "WindowColor",
+      "hovered": "WindowColor",
+      "pressed": "WindowColor",
+      "disabled": "WindowColor"
+    },
+    "checkbox-unchecked-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "HighlightColor"
+    },
+    "checkbox-unchecked-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "checkbox-unchecked-border": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "HighlightColor"
+    },
+    "combobox-placeholder-text": {
+      "normal": "WindowTextColor"
+    },
+    "combobox-background": {
+      "normal": "WindowColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "checked": "HighlightColor",
+      "focused": "WindowColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "combobox-text": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor",
+      "checked": "ButtonTextColor",
+      "focused": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "combobox-border": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "checked": "HighlightColor",
+      "focused": "HighlightColor",
+      "disabled": "ButtonTextColor"
+    },
+    "globalHeader-textfield-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "checked": "HighlightColor",
+      "focused": "ButtonFaceColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "globalHeader-textfield-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "checked": "ButtonTextColor",
+      "focused": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "globalHeader-textfield-border": {
+      "normal": "ButtonFaceColor",
+      "hovered": "ButtonFaceColor",
+      "checked": "HighlightColor",
+      "focused": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "globalHeader-textfield-borderModifier": {
+      "normal": "ButtonFaceColor",
+      "hovered": "ButtonFaceColor",
+      "checked": "HighlightColor",
+      "focused": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "globalHeader-textfieldPlaceholderText-text": {
+      "normal": "WindowTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "globalHeader-buttonDevice-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "globalHeader-buttonDevice-text-inactive": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "globalHeader-buttonDevice-text-active": {
+      "normal": "ButtonTextColor"
+    },
+    "globalHeader-buttonIcon-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "globalHeader-buttonIcon-icon": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "globalHeader-buttonStatus-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "globalHeader-buttonStatus-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "globalHeader-container-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "globalHeader-modifierChip-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "globalHeader-modifierChip-text": {
+      "normal": "HighlightTextColor"
+    },
+    "globalHeader-textfieldWin-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "ButtonFaceColor",
+      "checked": "ButtonFaceColor",
+      "focused": "ButtonFaceColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "globalHeader-maxMinButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "globalHeader-maxMinButton-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "globalHeader-closeButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "globalHeader-closeButton-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "globalHeader-searchCancelButton-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "globalHeader-searchCancelButton-border": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "ButtonTextColor"
+    },
+    "globalHeader-searchCancelButton-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "ButtonTextColor"
+    },
+    "theme-gradient-primary-0-background": {
+      "normal": "PlaceholderColor"
+    },
+    "theme-gradient-primary-1-background": {
+      "normal": "PlaceholderColor"
+    },
+    "theme-gradient-secondary-0-background": {
+      "normal": "PlaceholderColor"
+    },
+    "theme-gradient-secondary-1-background": {
+      "normal": "PlaceholderColor"
+    },
+    "interactiveicon-container-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "interactiveicon-primary-filled-icon-inactive": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "interactiveicon-primary-filled-icon-active": {
+      "normal": "ButtonTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "interactiveicon-primary-outline-icon-inactive": {
+      "normal": "WindowTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "interactiveicon-primary-outline-icon-active": {
+      "normal": "ButtonTextColor",
+      "hovered": "HotlightColor",
+      "pressed": "PlaceholderColor",
+      "disabled": "GrayTextColor"
+    },
+    "interactiveicon-secondary-filled-icon-inactive": {
+      "normal": "WindowTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "interactiveicon-secondary-filled-icon-active": {
+      "normal": "ButtonTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "interactiveicon-tertiary-filled-icon-inactive": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "interactiveicon-tertiary-filled-favorite-icon-active": {
+      "normal": "WindowColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "PlaceholderColor",
+      "disabled": "GrayTextColor"
+    },
+    "interactiveicon-quaternary-filled-icon-active": {
+      "normal": "ButtonTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "meetingmarker-default-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "meetingmarker-active-background": {
+      "normal": "ButtonFaceColor"
+    },
+    "meetingmarker-inactive-background": {
+      "normal": "HighlightColor"
+    },
+    "menulistbackground-primary-background": {
+      "normal": "WindowColor"
+    },
+    "menulistbackground-primary-border": {
+      "normal": "WindowTextColor"
+    },
+    "menulistbackground-secondary-background": {
+      "normal": "WindowColor"
+    },
+    "menulistbackground-secondary-border": {
+      "normal": "WindowTextColor"
+    },
+    "menulistbackground-tertiary-background": {
+      "normal": "WindowColor"
+    },
+    "menulistbackground-tertiary-border": {
+      "normal": "WindowTextColor"
+    },
+    "modal-primary-background": {
+      "normal": "WindowColor"
+    },
+    "modal-primary-border": {
+      "normal": "WindowTextColor"
+    },
+    "modal-secondary-background": {
+      "normal": "WindowColor"
+    },
+    "modal-secondary-border": {
+      "normal": "WindowTextColor"
+    },
+    "modal-tertiary-background": {
+      "normal": "WindowColor"
+    },
+    "modal-tertiary-border": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-one-text": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-one-outline": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-two-text": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-two-outline": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-three-text": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-three-outline": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-four-text": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-four-outline": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-five-text": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-five-outline": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-six-text": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-six-outline": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-seven-text": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-seven-outline": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-eight-text": {
+      "normal": "WindowTextColor"
+    },
+    "multilineChip-eight-outline": {
+      "normal": "WindowTextColor"
+    },
+    "navigationtab-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "checked": "HighlightColor"
+    },
+    "navigationtab-text": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "checked": "ButtonTextColor"
+    },
+    "overlayFade-primary-background": {
+      "normal": "PlaceholderColor"
+    },
+    "overlayFade-secondary-background": {
+      "normal": "PlaceholderColor"
+    },
+    "panel-primary-background": {
+      "normal": "WindowColor"
+    },
+    "panel-secondary-background": {
+      "normal": "WindowColor"
+    },
+    "panel-tertiary-background": {
+      "normal": "WindowColor"
+    },
+    "scrollbar-track-background": {
+      "normal": "ButtonFaceColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "scrollbar-thumb-background": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "scrollbar-arrow-button-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "GrayTextColor"
+    },
+    "scrollbar-arrow-button-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "sharewindow-preview-active": {
+      "normal": "PlaceholderColor"
+    },
+    "sharewindow-preview-inactive": {
+      "normal": "PlaceholderColor"
+    },
+    "sharewindow-border-selected": {
+      "normal": "PlaceholderColor"
+    },
+    "sharewindow-border-active": {
+      "normal": "PlaceholderColor"
+    },
+    "sharewindow-border-inactive": {
+      "normal": "PlaceholderColor"
+    },
+    "sharewindow-control-text-primary": {
+      "normal": "ButtonTextColor"
+    },
+    "sharewindow-control-button-primary-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "ButtonFaceColor"
+    },
+    "sharewindow-control-button-primary-text": {
+      "normal": "WindowTextColor",
+      "hovered": "WindowTextColor",
+      "pressed": "WindowTextColor",
+      "disabled": "WindowTextColor"
+    },
+    "sharewindow-control-button-primary-border": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "ButtonTextColor"
+    },
+    "sharewindow-control-button-secondary-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor",
+      "disabled": "HighlightColor"
+    },
+    "sharewindow-control-button-secondary-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "sharewindow-control-button-secondary-border": {
+      "normal": "PlaceholderColor",
+      "hovered": "PlaceholderColor",
+      "pressed": "PlaceholderColor",
+      "disabled": "PlaceholderColor"
+    },
+    "sharewindow-control-button-active-background": {
+      "normal": "PlaceholderColor",
+      "hovered": "PlaceholderColor",
+      "pressed": "PlaceholderColor",
+      "disabled": "PlaceholderColor"
+    },
+    "sharewindow-control-button-active-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
+    "sharewindow-control-button-active-border": {
+      "normal": "PlaceholderColor",
+      "hovered": "PlaceholderColor",
+      "pressed": "PlaceholderColor",
+      "disabled": "PlaceholderColor"
+    },
+    "sharewindow-viewwindow-active": {
+      "normal": "PlaceholderColor"
+    },
+    "sharewindow-viewwindow-hovered": {
+      "normal": "WindowTextColor"
+    },
+    "sharewindow-viewwindow-selected": {
+      "normal": "HighlightColor"
+    },
+    "tag-static-background": {
+      "normal": "WindowColor"
+    },
+    "tag-static-text": {
+      "normal": "ButtonTextColor"
+    },
+    "tag-static-border": {
+      "normal": "ButtonTextColor"
+    },
+    "tag-overlay-background": {
+      "normal": "WindowColor"
+    },
+    "tag-overlay-text": {
+      "normal": "WindowTextColor"
+    },
+    "tag-overlay-border": {
+      "normal": "PlaceholderColor"
+    },
+    "tag-primary-background": {
+      "normal": "WindowColor",
+      "hovered": "WindowColor",
+      "pressed": "WindowColor"
+    },
+    "tag-primary-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "tag-primary-border": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "tag-cobalt-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-cobalt-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "tag-cobalt-border": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-lime-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-lime-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "tag-lime-border": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-mint-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-mint-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "tag-mint-border": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-slate-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-slate-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "tag-slate-border": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-violet-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-violet-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "tag-violet-border": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-purple-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-purple-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "tag-purple-border": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-orange-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-orange-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "tag-orange-border": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-gold-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "tag-gold-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
+    "tag-gold-border": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    }
+  }
+}

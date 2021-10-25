@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CalendarCardViewController" customModule="ComponentApp" customModuleProvider="target">
+            <connections>
+                <outlet property="acceptedRadioButton" destination="EV6-FW-lnF" id="zFH-zO-xFq"/>
+                <outlet property="activeRadioButton" destination="d4k-ex-ix6" id="b52-ut-KcT"/>
+                <outlet property="calendarCard" destination="sqd-hi-lPJ" id="Nlo-fK-pLf"/>
+                <outlet property="cancelledRadioButton" destination="YHS-c4-ih1" id="fVq-LX-YrO"/>
+                <outlet property="inactiveRadioButton" destination="MqH-1c-32n" id="676-tY-Bcd"/>
+                <outlet property="noResponseRadioButton" destination="tq0-9c-DdX" id="BHU-jJ-uY1"/>
+                <outlet property="pastRadioButton" destination="06e-AE-Zxl" id="AVj-4E-Rmk"/>
+                <outlet property="tentativeRadioButton" destination="INE-Qs-Nse" id="Pr6-8G-TYe"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="484" height="327"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="qKJ-7G-1St">
+                    <rect key="frame" x="0.0" y="0.0" width="484" height="327"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Umv-TK-Lg7">
+                            <rect key="frame" x="10" y="291" width="117" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="PY5-XL-4R7"/>
+                            </constraints>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Calendar Cards" id="NK0-i9-FDD">
+                                <font key="font" metaFont="system" size="16"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="sqd-hi-lPJ" customClass="UTCard" customModule="UIToolkit">
+                            <rect key="frame" x="12" y="149" width="316" height="78"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="316" id="LRW-wy-BPl"/>
+                                <constraint firstAttribute="height" constant="78" id="WRk-QH-usc"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="78" id="fAP-87-W8x"/>
+                                <constraint firstAttribute="width" constant="316" id="tRy-Jp-SMk"/>
+                            </constraints>
+                        </customView>
+                        <stackView distribution="fillProportionally" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IRJ-Xx-kKi">
+                            <rect key="frame" x="12" y="235" width="316" height="16"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pM3-NC-3y7">
+                                    <rect key="frame" x="-2" y="0.0" width="38" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Type:" id="lzw-c3-j0t">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EV6-FW-lnF">
+                                    <rect key="frame" x="40" y="-1" width="83" height="18"/>
+                                    <buttonCell key="cell" type="radio" title="accepted" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="vNx-U2-TCS">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="accetptedSelected:" target="-2" id="4ce-GR-jUQ"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="INE-Qs-Nse">
+                                    <rect key="frame" x="129" y="-1" width="80" height="18"/>
+                                    <buttonCell key="cell" type="radio" title="tentative" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="L4F-y4-IEN">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="tentativeSelected:" target="-2" id="2Kr-48-rcJ"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tq0-9c-DdX">
+                                    <rect key="frame" x="215" y="-1" width="101" height="18"/>
+                                    <buttonCell key="cell" type="radio" title="no response" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="W95-WJ-LYK">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="noResponseSelected:" target="-2" id="4m4-1I-NlV"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <stackView distribution="fillProportionally" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xjd-IW-H61">
+                            <rect key="frame" x="12" y="255" width="341" height="28"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="21K-ci-zGh" userLabel="Type:">
+                                    <rect key="frame" x="-2" y="12" width="47" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Status:" id="IGa-1S-NBd">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d4k-ex-ix6">
+                                    <rect key="frame" x="49" y="11" width="63" height="18"/>
+                                    <buttonCell key="cell" type="radio" title="active" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="9ed-8r-SyV">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="activeSelected:" target="-2" id="e6f-P1-abq"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YHS-c4-ih1">
+                                    <rect key="frame" x="118" y="11" width="85" height="18"/>
+                                    <buttonCell key="cell" type="radio" title="cancelled" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="TQk-k7-jYg">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="cancelledSelected:" target="-2" id="yob-6s-Nag"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MqH-1c-32n">
+                                    <rect key="frame" x="209" y="11" width="73" height="18"/>
+                                    <buttonCell key="cell" type="radio" title="inactive" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="BRj-Mc-cf9">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="inactiveSelected:" target="-2" id="rZG-yH-4ty"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="06e-AE-Zxl">
+                                    <rect key="frame" x="288" y="11" width="53" height="18"/>
+                                    <buttonCell key="cell" type="radio" title="past" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="j9k-Az-7dX">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="pastSelected:" target="-2" id="PHh-Jo-ViR"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="CG4-eH-hhU"/>
+                            </constraints>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="sqd-hi-lPJ" firstAttribute="top" secondItem="IRJ-Xx-kKi" secondAttribute="bottom" constant="8" id="ATB-bv-BB8"/>
+                        <constraint firstItem="IRJ-Xx-kKi" firstAttribute="leading" secondItem="qKJ-7G-1St" secondAttribute="leading" constant="12" id="D9b-y6-6kn"/>
+                        <constraint firstItem="sqd-hi-lPJ" firstAttribute="leading" secondItem="qKJ-7G-1St" secondAttribute="leading" constant="12" id="IgK-OX-GC9"/>
+                        <constraint firstItem="Xjd-IW-H61" firstAttribute="leading" secondItem="qKJ-7G-1St" secondAttribute="leading" constant="12" id="UJg-vc-5kf"/>
+                        <constraint firstItem="Umv-TK-Lg7" firstAttribute="top" secondItem="qKJ-7G-1St" secondAttribute="top" constant="8" id="bu7-WU-jTl"/>
+                        <constraint firstItem="Xjd-IW-H61" firstAttribute="top" secondItem="Umv-TK-Lg7" secondAttribute="bottom" constant="8" symbolic="YES" id="cBt-Ff-3iS"/>
+                        <constraint firstItem="Umv-TK-Lg7" firstAttribute="leading" secondItem="qKJ-7G-1St" secondAttribute="leading" constant="12" id="d3F-Q8-k5U"/>
+                        <constraint firstItem="IRJ-Xx-kKi" firstAttribute="top" secondItem="Xjd-IW-H61" secondAttribute="bottom" constant="4" id="wvH-to-PWO"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qKJ-7G-1St" secondAttribute="trailing" id="RqI-KJ-Zpg"/>
+                <constraint firstItem="qKJ-7G-1St" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Uhy-NF-jFl"/>
+                <constraint firstItem="qKJ-7G-1St" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="XNl-MP-n1G"/>
+                <constraint firstAttribute="bottom" secondItem="qKJ-7G-1St" secondAttribute="bottom" id="w5a-z6-Y8v"/>
+            </constraints>
+            <point key="canvasLocation" x="-58" y="135.5"/>
+        </customView>
+    </objects>
+</document>

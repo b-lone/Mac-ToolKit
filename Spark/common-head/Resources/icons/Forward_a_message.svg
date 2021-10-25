@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="210px" height="81px" viewBox="0 0 210 81" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>Forward_a_message</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Forward_a_message" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Forward-Message-1.0" transform="translate(-812.000000, -374.000000)">
+            <g id="App" transform="translate(162.000000, 102.000000)">
+                <g id="content" transform="translate(584.000000, 76.000000)">
+                    <g id="Forward-a-Message" transform="translate(66.000000, 196.000000)">
+                        <path d="M86.68,3.67 C70.063888,3.67425832 55.4452209,14.6464073 50.8,30.6 C48.0060552,29.46111 45.0171491,28.8769147 42,28.88 L41.62,28.88 C34.6513656,28.8815771 28.0486089,31.9995455 23.62,37.38 C21.6542476,36.7046965 19.58847,36.3665987 17.51,36.38 L17.2,36.38 C9.72479452,36.3650627 2.95967641,40.8056548 0,47.67 L139.69,47.67 C139.31787,37.0124043 131.775366,27.9597541 121.36,25.67 C115.312339,12.2795595 101.982791,3.67227841 87.29,3.67 L86.68,3.67 Z" id="Path" fill="#16B1E0" fill-rule="nonzero" opacity="0.25"></path>
+                        <path d="M29.52,24.14 C30.64,56.14 57.06,81.22 88.52,80.14 C98.7292558,79.7935899 108.649816,76.6642394 117.21,71.09" id="Path" stroke="#16B1E0" stroke-width="0.99" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.96"></path>
+                        <polygon id="Path" points="119.38 37.01 123.1 69.28 128.26 47.44 209 0.5"></polygon>
+                        <polygon id="Path" fill="#16B1E0" fill-rule="nonzero" points="119.38 37.01 123.1 69.28 128.26 47.44 209 0.5"></polygon>
+                        <polygon id="Path" points="128.26 47.44 154.06 67.1 209 0.5"></polygon>
+                        <polygon id="Path" stroke="#16B1E0" fill="#FFFFFF" fill-rule="nonzero" stroke-linejoin="round" points="128.26 47.44 154.06 67.1 209 0.5"></polygon>
+                        <polygon id="Path" points="209 0.5 97.45 23.61 119.38 37.01"></polygon>
+                        <polygon id="Path" stroke="#16B1E0" fill="#FFFFFF" fill-rule="nonzero" stroke-linejoin="round" points="209 0.5 97.45 23.61 119.38 37.01"></polygon>
+                        <polygon id="Path" points="128.26 42.44 123.1 64.28 137.69 49.63"></polygon>
+                        <polygon id="Path" fill="#16B1E0" fill-rule="nonzero" opacity="0.5" points="123.1 69.28 137.69 54.63 128.26 47.44"></polygon>
+                        <polygon id="Path" stroke="#16B1E0" stroke-linejoin="round" points="119.38 37.01 123.1 69.28 128.26 47.44 209 0.5"></polygon>
+                        <polygon id="Path" stroke="#16B1E0" stroke-linejoin="round" points="123.1 69.28 137.69 54.63 128.26 47.44"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AlertsVC" customModule="ComponentApp" customModuleProvider="target">
+            <connections>
+                <outlet property="alertBadgeStackView" destination="mEA-4e-ORn" id="ZeP-Ah-XY0"/>
+                <outlet property="error" destination="OHN-OB-Qsv" id="7BN-F6-iyk"/>
+                <outlet property="errorTwoLineAlertWithClose" destination="Cyt-gQ-3cA" id="AqE-5Z-sK2"/>
+                <outlet property="focus" destination="7Y2-SY-GVR" id="6Ca-Jd-7mq"/>
+                <outlet property="generalTwoLineAlertWithClose" destination="N2T-ye-sh2" id="7ct-Di-8TP"/>
+                <outlet property="lhsStackView" destination="ZTH-Cr-qhT" id="3b3-fZ-tye"/>
+                <outlet property="rhsStackView" destination="AaD-u3-W0w" id="boO-pa-IK5"/>
+                <outlet property="sep" destination="0KP-UG-b1T" id="BoN-yt-Kak"/>
+                <outlet property="successTwoLineAlertWithClose" destination="Igi-wL-EeT" id="chK-kg-eUq"/>
+                <outlet property="twoLineCloseStackView" destination="2Yz-kz-PWV" id="X5c-ZS-sMS"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="warn" destination="BTh-EY-GJm" id="oOY-Vy-gMM"/>
+                <outlet property="warningTwoLineAlertWithClose" destination="nK0-2h-qQD" id="LaC-pW-wiO"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="1332" height="587"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTH-Cr-qhT">
+                    <rect key="frame" x="0.0" y="587" width="400" height="0.0"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="400" id="LQI-HD-y8B"/>
+                    </constraints>
+                </stackView>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AaD-u3-W0w">
+                    <rect key="frame" x="416" y="587" width="400" height="0.0"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="400" id="F2a-Ng-mKj"/>
+                    </constraints>
+                </stackView>
+                <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mEA-4e-ORn">
+                    <rect key="frame" x="16" y="579" width="0.0" height="0.0"/>
+                </stackView>
+                <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" verticalHuggingPriority="750" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="240" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Yz-kz-PWV">
+                    <rect key="frame" x="832" y="347" width="400" height="240"/>
+                    <subviews>
+                        <customView verticalHuggingPriority="750" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="Igi-wL-EeT" customClass="UTAlertBanner" customModule="UIToolkit">
+                            <rect key="frame" x="0.0" y="177" width="400" height="47"/>
+                        </customView>
+                        <customView placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="0KP-UG-b1T" customClass="UTGradientSeparator" customModule="UIToolkit">
+                            <rect key="frame" x="0.0" y="164" width="400" height="5"/>
+                        </customView>
+                        <customView verticalHuggingPriority="750" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="Cyt-gQ-3cA" customClass="UTAlertBanner" customModule="UIToolkit">
+                            <rect key="frame" x="0.0" y="110" width="400" height="46"/>
+                        </customView>
+                        <customView verticalHuggingPriority="750" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="nK0-2h-qQD" customClass="UTAlertBanner" customModule="UIToolkit">
+                            <rect key="frame" x="0.0" y="55" width="400" height="47"/>
+                        </customView>
+                        <customView verticalHuggingPriority="750" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="N2T-ye-sh2" customClass="UTAlertBanner" customModule="UIToolkit">
+                            <rect key="frame" x="0.0" y="9" width="400" height="38"/>
+                        </customView>
+                        <customView placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="OHN-OB-Qsv" customClass="UTGradientSeparator" customModule="UIToolkit">
+                            <rect key="frame" x="0.0" y="0.0" width="400" height="1"/>
+                        </customView>
+                    </subviews>
+                    <edgeInsets key="edgeInsets" left="0.0" right="0.0" top="16" bottom="0.0"/>
+                    <constraints>
+                        <constraint firstItem="Cyt-gQ-3cA" firstAttribute="top" secondItem="2Yz-kz-PWV" secondAttribute="top" constant="84" id="35T-k6-3Zr"/>
+                        <constraint firstItem="N2T-ye-sh2" firstAttribute="top" secondItem="2Yz-kz-PWV" secondAttribute="top" constant="193" id="3TH-wZ-XLj"/>
+                        <constraint firstItem="0KP-UG-b1T" firstAttribute="top" secondItem="2Yz-kz-PWV" secondAttribute="top" constant="71" id="9m7-LY-ftV"/>
+                        <constraint firstItem="OHN-OB-Qsv" firstAttribute="top" secondItem="2Yz-kz-PWV" secondAttribute="top" constant="239" id="SUB-ay-SKD"/>
+                        <constraint firstAttribute="width" constant="400" id="Z69-8s-85N"/>
+                        <constraint firstItem="0KP-UG-b1T" firstAttribute="top" secondItem="Igi-wL-EeT" secondAttribute="bottom" constant="8" symbolic="YES" id="cfA-dv-kb5"/>
+                        <constraint firstItem="nK0-2h-qQD" firstAttribute="top" secondItem="2Yz-kz-PWV" secondAttribute="top" constant="138" id="tAT-Ei-vaH"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+                <stackView distribution="fillProportionally" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="240" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pyM-g3-Adh">
+                    <rect key="frame" x="832" y="20" width="400" height="316"/>
+                    <subviews>
+                        <customView placeholderIntrinsicWidth="5" placeholderIntrinsicHeight="300" translatesAutoresizingMaskIntoConstraints="NO" id="7Y2-SY-GVR" customClass="UTGradientSeparator" customModule="UIToolkit">
+                            <rect key="frame" x="0.0" y="0.0" width="196" height="300"/>
+                        </customView>
+                        <customView placeholderIntrinsicWidth="5" placeholderIntrinsicHeight="300" translatesAutoresizingMaskIntoConstraints="NO" id="BTh-EY-GJm" customClass="UTGradientSeparator" customModule="UIToolkit">
+                            <rect key="frame" x="204" y="0.0" width="196" height="300"/>
+                        </customView>
+                    </subviews>
+                    <edgeInsets key="edgeInsets" left="0.0" right="0.0" top="16" bottom="0.0"/>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="mEA-4e-ORn" firstAttribute="top" secondItem="ZTH-Cr-qhT" secondAttribute="bottom" constant="8" id="0ti-Tn-Ota"/>
+                <constraint firstItem="AaD-u3-W0w" firstAttribute="leading" secondItem="ZTH-Cr-qhT" secondAttribute="trailing" constant="16" id="4Hy-Ym-j5a"/>
+                <constraint firstItem="2Yz-kz-PWV" firstAttribute="leading" secondItem="AaD-u3-W0w" secondAttribute="trailing" constant="16" id="NRg-wG-eN5"/>
+                <constraint firstItem="mEA-4e-ORn" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="f0p-rm-fP8"/>
+                <constraint firstItem="AaD-u3-W0w" firstAttribute="top" secondItem="ZTH-Cr-qhT" secondAttribute="top" id="fZE-1N-uXG"/>
+                <constraint firstItem="2Yz-kz-PWV" firstAttribute="top" secondItem="AaD-u3-W0w" secondAttribute="top" id="gBG-R1-zQh"/>
+                <constraint firstItem="ZTH-Cr-qhT" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="jzP-kX-xsH"/>
+                <constraint firstItem="ZTH-Cr-qhT" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="tDu-vA-kMD"/>
+            </constraints>
+            <point key="canvasLocation" x="-100" y="212.5"/>
+        </customView>
+    </objects>
+</document>

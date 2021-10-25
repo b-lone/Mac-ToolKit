@@ -1,0 +1,12 @@
+{% include 'autogen_header.j2' %}
+
+#import "CHSemanticToken.h"
+
+SemanticVisuals::Token CHSemanticTokenToCPP(CHSemanticToken token) {
+    switch (token) {
+{%- for token in tokens %}
+        case {{utils.to_apple_token(token.cc_name)}}:
+            return SemanticVisuals::Token::{{token.cc_name}};
+{%- endfor %}
+    }
+}

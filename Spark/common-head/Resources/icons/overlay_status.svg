@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="3px" viewBox="0 0 9 3" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>overlay_status</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Presence-Visual-Refresh" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Avatar-availability-updates" transform="translate(-204.000000, -257.000000)" fill="#FFFFFF">
+            <g id="Group" transform="translate(150.000000, 79.000000)">
+                <g id="avatar" transform="translate(40.000000, 149.000000)">
+                    <g id="overlay_status" transform="translate(14.500000, 29.000000)">
+                        <rect id="Rectangle" x="0" y="2" width="6" height="1"></rect>
+                        <rect id="Rectangle" x="0" y="0" width="8" height="1"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

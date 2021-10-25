@@ -1,0 +1,64 @@
+/* 
+  LocalisedStrings.strings
+  UIToolkit
+
+  Created by James Nestor on 05/07/2021.
+  
+*/
+
+/* No comment provided by engineer. */
+"Error" = "Erreur";
+
+/* No comment provided by engineer. */
+"General announcement" = "Annonce générale";
+
+/* No comment provided by engineer. */
+"Lorem ipsum dolor site aw aetns ctetuer adipiscing elit nullam amarte." = "Lorem ipsum dolor site aw aetns ctetuer adipiscing elit nullam amarte.";
+
+/* No comment provided by engineer. */
+"Make a call or join a meeting" = "Passer un appel ou rejoindre une réunion";
+
+/* No comment provided by engineer. */
+"Success" = "Succès";
+
+/* No comment provided by engineer. */
+"To call another person who uses %@, type their name or email in the search bar." = "Pour appeler une autre personne qui utilise %@, saisissez son nom ou son e-mail dans la barre de recherche.";
+
+/* No comment provided by engineer. */
+"To join a meeting, type or paste the address, such as conf_room123@companyabc.com." = "Pour rejoindre une réunion, saisissez ou collez l'adresse, telle que conf_room123@companyabc.com.";
+
+/* No comment provided by engineer. */
+"Transient state..." = "Etat transitoire...";
+
+/* No comment provided by engineer. */
+"Warning" = "Avertissement";
+
+/* No comment provided by engineer. */
+"Yesterday" = "Hier";
+
+/* No comment provided by engineer. */
+"Alert label" = "Étiquette d'alerte";
+
+/* No comment provided by engineer. */
+"Answer" = "Répondre";
+
+/* No comment provided by engineer. */
+"Decline" = "Déclin";
+
+/* No comment provided by engineer. */
+"Message" = "Un message";
+
+/* No comment provided by engineer. */
+"Meeting Reminder" = "Rappel de réunion";
+
+/* No comment provided by engineer. */
+"Meeting name" = "Nom de la réunion";
+
+/* No comment provided by engineer. */
+"Space name" = "Nom de l'espace";
+
+/* No comment provided by engineer. */
+"now" = "à présent";
+
+/* No comment provided by engineer. */
+"Incoming call" = "Appel entrant";

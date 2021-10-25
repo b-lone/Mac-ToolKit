@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="13px" viewBox="0 0 14 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>status indicator@1x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="status_indicator" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Custom-Status-Indicator-1.1" transform="translate(-180.000000, -133.000000)">
+            <g id="App" transform="translate(162.000000, 103.000000)">
+                <g id="tabs">
+                    <g id="avatar" transform="translate(18.000000, 30.000000)">
+                        <g id="availability">
+                            <g id="status_indicator">
+                                <g transform="translate(7.000000, 6.500000) scale(-1, 1) translate(-7.000000, -6.500000) ">
+                                    <path d="M1.5,0.5 L12.5,0.5 C13.0522847,0.5 13.5,0.94771525 13.5,1.5 L13.5,9.13636364 C13.5,9.68864839 13.0522847,10.1363636 12.5,10.1363636 L11.474026,10.1363636 L11.474026,10.1363636 L11.474026,12.5 L7.42207792,10.1363636 L1.5,10.1363636 C0.94771525,10.1363636 0.5,9.68864839 0.5,9.13636364 L0.5,1.5 C0.5,0.94771525 0.94771525,0.5 1.5,0.5 Z" id="Rectangle" fill="#FFFFFF" transform="translate(7.000000, 6.500000) scale(-1, 1) translate(-7.000000, -6.500000) "></path>
+                                    <path d="M12.25,0 L1.75,0 C0.783501688,0 0,0.760034452 0,1.69758446 L0,8.61964529 L0.00801100774,8.783134 C0.0928098755,9.64398124 0.84035453,10.3172298 1.75,10.3172298 L7.26016667,10.3172298 L12,13 L11.9991667,10.3172298 L12.25,10.3172298 C13.2164983,10.3172298 14,9.5571953 14,8.61964529 L14,1.69758446 C14,0.760034452 13.2164983,0 12.25,0 Z M1.6,1 L12.4,1 C12.7313708,1 13,1.2623714 13,1.58602293 L13,8.75471435 C13,9.07836588 12.7313708,9.34073728 12.4,9.34073728 L10.9428571,9.34073728 L10.942,11.25 L7.59078091,9.34073728 L1.6,9.34073728 C1.26862915,9.34073728 1,9.07836588 1,8.75471435 L1,1.58602293 C1,1.2623714 1.26862915,1 1.6,1 Z" id="Rectangle" fill="#171B1F" fill-rule="nonzero" transform="translate(7.000000, 6.500000) scale(-1, 1) translate(-7.000000, -6.500000) "></path>
+                                    <rect id="Rectangle" fill="#24282B" transform="translate(7.000000, 4.000000) scale(-1, 1) translate(-7.000000, -4.000000) " x="3.5" y="3.5" width="7" height="1" rx="0.5"></rect>
+                                    <rect id="Rectangle" fill="#24282B" transform="translate(7.000000, 6.000000) scale(-1, 1) translate(-7.000000, -6.000000) " x="3.5" y="5.5" width="7" height="1" rx="0.5"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

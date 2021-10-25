@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TablesViewController" customModule="ComponentApp" customModuleProvider="target">
+            <connections>
+                <outlet property="applyButton" destination="DsW-uX-qHk" id="Dpp-PK-jK1"/>
+                <outlet property="compactCheckBox" destination="iMA-Dy-Uun" id="zKy-yU-DQw"/>
+                <outlet property="legacyCheckBox" destination="1HN-Lk-b3D" id="ANS-Ol-BJU"/>
+                <outlet property="reloadTableDataButton" destination="RJB-v4-wGE" id="luf-Db-iEh"/>
+                <outlet property="splitView" destination="SAi-9Z-ujG" id="vNn-pf-fVQ"/>
+                <outlet property="tabView" destination="5sG-jS-qZR" id="e7A-Q9-Qkn"/>
+                <outlet property="tableIdTextField" destination="NNE-Ze-G35" id="cmU-tk-FOU"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="799" height="421"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <splitView dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SAi-9Z-ujG">
+                    <rect key="frame" x="0.0" y="0.0" width="799" height="421"/>
+                    <subviews>
+                        <customView id="Ppo-p0-QVc">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="421"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="5sG-jS-qZR" customClass="UTTabView" customModule="UIToolkit">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="421"/>
+                                </customView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="5sG-jS-qZR" firstAttribute="leading" secondItem="Ppo-p0-QVc" secondAttribute="leading" id="A4e-cU-rlY"/>
+                                <constraint firstItem="5sG-jS-qZR" firstAttribute="top" secondItem="Ppo-p0-QVc" secondAttribute="top" id="KiF-W7-FDh"/>
+                                <constraint firstAttribute="trailing" secondItem="5sG-jS-qZR" secondAttribute="trailing" id="Rdl-yj-w4X"/>
+                                <constraint firstAttribute="bottom" secondItem="5sG-jS-qZR" secondAttribute="bottom" id="tPd-eu-ycq"/>
+                            </constraints>
+                        </customView>
+                        <customView fixedFrame="YES" id="IwW-pM-5nA">
+                            <rect key="frame" x="383" y="0.0" width="416" height="421"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1HN-Lk-b3D">
+                                    <rect key="frame" x="18" y="384" width="70" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Legacy" bezelStyle="regularSquare" imagePosition="left" inset="2" id="sef-xj-Wfg">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="legacyCheckBoxAction:" target="-2" id="igj-ia-M6n"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-Dy-Uun">
+                                    <rect key="frame" x="18" y="362" width="81" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Compact" bezelStyle="regularSquare" imagePosition="left" inset="2" id="jud-P1-RiY">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="compactCheckBoxAction:" target="-2" id="Xkf-qF-sVd"/>
+                                    </connections>
+                                </button>
+                                <box fixedFrame="YES" title="Select row with ID" translatesAutoresizingMaskIntoConstraints="NO" id="DdV-hf-J66">
+                                    <rect key="frame" x="17" y="227" width="144" height="110"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <view key="contentView" id="c8t-OG-l0L">
+                                        <rect key="frame" x="3" y="3" width="138" height="92"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kP6-L7-bhS">
+                                                <rect key="frame" x="0.0" y="27" width="138" height="65"/>
+                                                <subviews>
+                                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NNE-Ze-G35" customClass="UTTextField" customModule="UIToolkit">
+                                                        <rect key="frame" x="16" y="28" width="96" height="21"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="TlX-50-lgZ">
+                                                            <font key="font" usesAppearanceFont="YES"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DsW-uX-qHk" customClass="UTPillButton" customModule="UIToolkit">
+                                                        <rect key="frame" x="9" y="-7" width="69" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Apply" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ckg-5T-CAY">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="selectRowWithIdAction:" target="-2" id="tAw-Mp-iOd"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="edgeInsets" left="16" right="16" top="16" bottom="0.0"/>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="kP6-L7-bhS" firstAttribute="leading" secondItem="c8t-OG-l0L" secondAttribute="leading" id="9IM-BN-x7L"/>
+                                            <constraint firstAttribute="trailing" secondItem="kP6-L7-bhS" secondAttribute="trailing" id="CGA-m1-aEe"/>
+                                            <constraint firstItem="kP6-L7-bhS" firstAttribute="top" secondItem="c8t-OG-l0L" secondAttribute="top" id="io5-9S-UeB"/>
+                                        </constraints>
+                                    </view>
+                                </box>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RJB-v4-wGE" customClass="UTPillButton" customModule="UIToolkit">
+                                    <rect key="frame" x="25" y="184" width="140" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="Reload table data" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MUS-mX-5Sc">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="reloadTableData:" target="-2" id="jGQ-Uh-UkS"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </customView>
+                    </subviews>
+                    <holdingPriorities>
+                        <real value="250"/>
+                        <real value="250"/>
+                    </holdingPriorities>
+                </splitView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="SAi-9Z-ujG" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="TOd-Ox-1bH"/>
+                <constraint firstItem="SAi-9Z-ujG" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Ty0-iR-TgW"/>
+                <constraint firstAttribute="trailing" secondItem="SAi-9Z-ujG" secondAttribute="trailing" id="UXW-23-TSI"/>
+                <constraint firstAttribute="bottom" secondItem="SAi-9Z-ujG" secondAttribute="bottom" id="kap-yV-TRA"/>
+            </constraints>
+            <point key="canvasLocation" x="-34.5" y="399.5"/>
+        </customView>
+    </objects>
+</document>

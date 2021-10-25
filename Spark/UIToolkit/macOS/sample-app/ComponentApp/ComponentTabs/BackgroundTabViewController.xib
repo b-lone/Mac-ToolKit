@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="BackgroundTabViewController" customModule="ComponentApp" customModuleProvider="target">
+            <connections>
+                <outlet property="clearOverlayView" destination="bcL-Ji-H8e" id="sGw-W7-6Xu"/>
+                <outlet property="normalOverlayView" destination="AoJ-MW-7ea" id="uaT-bG-Dwh"/>
+                <outlet property="primaryGradientOverlayView" destination="ozT-5e-HL7" id="iRM-kF-KNi"/>
+                <outlet property="secondaryGradientOverlayView" destination="ooI-Ha-HSX" id="yKd-1l-are"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="1302" height="677"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="AoJ-MW-7ea" userLabel="clearView" customClass="UTBackgroundView" customModule="UIToolkit">
+                    <rect key="frame" x="20" y="0.0" width="100" height="677"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="SBw-59-Euz"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="ooI-Ha-HSX" userLabel="secondaryGradient" customClass="UTBackgroundView" customModule="UIToolkit">
+                    <rect key="frame" x="430" y="0.0" width="300" height="677"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="SRo-x9-StQ"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="bcL-Ji-H8e" userLabel="clear" customClass="UTBackgroundView" customModule="UIToolkit">
+                    <rect key="frame" x="735" y="0.0" width="100" height="677"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="YXK-Qn-F1W"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="ozT-5e-HL7" userLabel="primaryGradient" customClass="UTBackgroundView" customModule="UIToolkit">
+                    <rect key="frame" x="125" y="0.0" width="300" height="677"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="CuQ-Zc-aXa"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="bcL-Ji-H8e" firstAttribute="leading" secondItem="ooI-Ha-HSX" secondAttribute="trailing" constant="5" id="3qy-Vf-Q9c"/>
+                <constraint firstItem="AoJ-MW-7ea" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="ISK-lV-vvu"/>
+                <constraint firstItem="ozT-5e-HL7" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="NJn-s6-Hxi"/>
+                <constraint firstItem="bcL-Ji-H8e" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Ro2-dC-EPy"/>
+                <constraint firstAttribute="bottom" secondItem="ozT-5e-HL7" secondAttribute="bottom" id="RzY-h5-IKC"/>
+                <constraint firstAttribute="bottom" secondItem="bcL-Ji-H8e" secondAttribute="bottom" id="X3w-Os-Qhr"/>
+                <constraint firstItem="ooI-Ha-HSX" firstAttribute="leading" secondItem="ozT-5e-HL7" secondAttribute="trailing" constant="5" id="XEK-xq-3fc"/>
+                <constraint firstItem="ooI-Ha-HSX" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Yia-lK-mX9"/>
+                <constraint firstItem="AoJ-MW-7ea" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="iUy-gP-0TY"/>
+                <constraint firstAttribute="bottom" secondItem="AoJ-MW-7ea" secondAttribute="bottom" id="jOY-bL-rjV"/>
+                <constraint firstAttribute="bottom" secondItem="ooI-Ha-HSX" secondAttribute="bottom" id="l4U-a1-3Pq"/>
+                <constraint firstItem="ozT-5e-HL7" firstAttribute="leading" secondItem="AoJ-MW-7ea" secondAttribute="trailing" constant="5" id="tXH-oY-7Vh"/>
+            </constraints>
+            <point key="canvasLocation" x="83" y="340.5"/>
+        </customView>
+    </objects>
+</document>

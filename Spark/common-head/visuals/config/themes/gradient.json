@@ -1,0 +1,102 @@
+{
+  "name": "Gradient",
+  "parent": "Dark",
+  "tokens": {
+    "background-gradient-start": {
+      "normal": "blue-90"
+    },
+    "background-gradient-end": {
+      "normal": "plum-90"
+    },
+    "content-gradient-start": {
+      "normal": "blue-80"
+    },
+    "content-gradient-end": {
+      "normal": "plum-80"
+    },
+    "listItem-primary": {
+      "normal": "transparent",
+      "hovered": "black-100-alpha-08",
+      "pressed": "black-100-alpha-20",
+      "checked": "black-100-alpha-20"
+    },
+    "listItem-secondary": {
+      "normal": "transparent",
+      "hovered": "black-100-alpha-08",
+      "pressed": "black-100-alpha-20"
+    },
+    "legacy-separator-primary": {
+      "normal": "transparent"
+    },
+    "legacy-separator-secondary": {
+      "normal": "transparent"
+    },
+    "footer-background": {
+      "normal": "transparent"
+    },
+    "appHeader": {
+      "normal": "transparent"
+    },
+    "appHeader-buttonStatus": {
+      "normal": "transparent",
+      "hovered": "black-100-alpha-08",
+      "pressed": "black-100-alpha-20",
+      "checked": "black-100-alpha-20"
+    },
+    "appHeader-buttonDevice": {
+      "normal": "transparent",
+      "hovered": "black-100-alpha-08",
+      "pressed": "black-100-alpha-20",
+      "checked": "black-100-alpha-20"
+    },
+    "appHeader-searchBar": {
+      "normal": "white-100-alpha-16",
+      "hovered": "white-100-alpha-40",
+      "pressed": "white-100-alpha-40"
+    },
+    "appHeader-searchBar-active": {
+      "normal": "white-100-alpha-16",
+      "hovered": "white-100-alpha-40",
+      "pressed": "white-100-alpha-40"
+    },
+    "appHeader-buttonPlus": {
+      "normal": "transparent",
+      "hovered": "black-100-alpha-08",
+      "pressed": "black-100-alpha-20"
+    },
+    "appNav-background": {
+      "normal": "transparent",
+      "hovered": "black-100-alpha-08",
+      "pressed": "black-100-alpha-20",
+      "checked": "black-100-alpha-20",
+      "disabled": "black-100-alpha-60"
+    },
+    "mainList": {
+      "normal": "transparent",
+      "hovered": "black-100-alpha-08",
+      "pressed": "black-100-alpha-20"
+    },
+    "mainList-item": {
+      "normal": "transparent",
+      "hovered": "black-100-alpha-08",
+      "pressed": "black-100-alpha-20",
+      "checked": "black-100-alpha-08"
+    },
+    "wx-externalParticipants-background": {
+      "normal": "yellow-10-alpha-25"
+    },
+    "wx-topBarMainMinMaxButton-background": {
+      "normal": "transparent",
+      "hovered": "black-100-alpha-08",
+      "pressed": "black-100-alpha-20"
+    },
+    "wx-transparent-button": {
+      "normal": "transparent",
+      "hovered": "black-100-alpha-08",
+      "pressed": "black-100-alpha-20",
+      "disabled": "transparent",
+      "focused": "black-100-alpha-08",
+      "checked": "transparent"
+    }
+  }
+}

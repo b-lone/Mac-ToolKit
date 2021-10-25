@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="12px" viewBox="0 0 14 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>presenting@1x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Presence-Visual-Refresh" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Avatar-availability-updates" transform="translate(-486.000000, -250.000000)" fill="#F5655D">
+            <g id="Group" transform="translate(150.000000, 79.000000)">
+                <g id="avatar" transform="translate(312.000000, 149.000000)">
+                    <g id="availability">
+                        <g id="presenting" transform="translate(24.000000, 22.000000)">
+                            <path d="M9,12 L2,12 C0.8954305,12 1.3527075e-16,11.1045695 0,10 L0,5 C-1.3527075e-16,3.8954305 0.8954305,3 2,3 L2,8 C2,9.1045695 2.8954305,10 4,10 L4,10 L11,10 C11,11.1045695 10.1045695,12 9,12 Z" id="Combined-Shape"></path>
+                            <rect id="Rectangle" x="3" y="0" width="11" height="9" rx="2"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

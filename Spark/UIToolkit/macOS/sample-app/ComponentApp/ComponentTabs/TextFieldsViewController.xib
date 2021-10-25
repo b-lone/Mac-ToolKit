@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TextFieldsViewController" customModule="ComponentApp" customModuleProvider="target">
+            <connections>
+                <outlet property="characterCountTextField" destination="xGb-qh-97T" id="NZ9-Q6-gJb"/>
+                <outlet property="errorRadioButton" destination="3nC-7M-6nd" id="ryu-YP-h7B"/>
+                <outlet property="hintTextField" destination="Hn0-Xl-oIb" id="g6w-jw-ujD"/>
+                <outlet property="httpsAutoFillTextField" destination="tFw-u5-gfQ" id="Rmk-2p-b2O"/>
+                <outlet property="largeInputTextField" destination="Sr1-eO-8JX" id="sqP-D4-djc"/>
+                <outlet property="linkLabel" destination="skE-dj-kn4" id="tRO-VU-O1R"/>
+                <outlet property="mediumInputTextField" destination="wnp-3T-4zh" id="b3V-Wf-bTN"/>
+                <outlet property="mediumSearchTextField" destination="Fe5-6o-OHE" id="1ou-ox-LSn"/>
+                <outlet property="noErrorRadioButton" destination="vuy-sw-PyY" id="QcP-fQ-9cG"/>
+                <outlet property="passwordTextField" destination="UCC-5x-cpY" id="fnR-kb-b7U"/>
+                <outlet property="pinStackView" destination="BzJ-tE-gL0" id="mNE-Ia-WYp"/>
+                <outlet property="searchModifierTextField" destination="cG2-hx-fXn" id="uCM-ct-jYp"/>
+                <outlet property="searchStackView" destination="9hg-PO-p4g" id="z2s-an-p8Q"/>
+                <outlet property="testHintlabel" destination="A7B-DS-AWP" id="Lc4-Fd-tZI"/>
+                <outlet property="textfieldStackView" destination="79C-9Y-Oqz" id="Fxu-ul-JvO"/>
+                <outlet property="validationHintErrorRadioButton" destination="JGT-XT-dZL" id="euo-2S-BdM"/>
+                <outlet property="validationHintNoErrorRadioButton" destination="HEA-W1-Qih" id="Zpq-de-a49"/>
+                <outlet property="validationHintTextField" destination="qBw-lE-4yB" id="Qxe-iI-QRm"/>
+                <outlet property="validationTextFieldLarge" destination="mhf-gK-Gy7" id="IbE-0r-Bov"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="923" height="677"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <box fixedFrame="YES" borderType="none" title="Search input text filed" translatesAutoresizingMaskIntoConstraints="NO" id="mUv-Ox-z97">
+                    <rect key="frame" x="17" y="442" width="238" height="105"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="k1y-Ww-3hj">
+                        <rect key="frame" x="0.0" y="0.0" width="238" height="90"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9hg-PO-p4g">
+                                <rect key="frame" x="0.0" y="32" width="238" height="58"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hcR-6O-AHq" customClass="UTSearchInputTextField" customModule="UIToolkit">
+                                        <rect key="frame" x="8" y="29" width="96" height="21"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Search large" drawsBackground="YES" id="7xS-ib-XQK">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fe5-6o-OHE" customClass="UTSearchInputTextField" customModule="UIToolkit">
+                                        <rect key="frame" x="8" y="0.0" width="96" height="21"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Medium search" drawsBackground="YES" id="xkH-zi-F2Z">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <edgeInsets key="edgeInsets" left="8" right="8" top="8" bottom="0.0"/>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="9hg-PO-p4g" firstAttribute="leading" secondItem="k1y-Ww-3hj" secondAttribute="leading" id="J5m-28-KNp"/>
+                            <constraint firstItem="9hg-PO-p4g" firstAttribute="top" secondItem="k1y-Ww-3hj" secondAttribute="top" id="Sf5-r8-orw"/>
+                            <constraint firstAttribute="trailing" secondItem="9hg-PO-p4g" secondAttribute="trailing" id="fb7-Cy-ex4"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" borderType="none" title="Input text field" translatesAutoresizingMaskIntoConstraints="NO" id="IiA-ip-ELB">
+                    <rect key="frame" x="17" y="551" width="238" height="106"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="IXh-6u-gGk">
+                        <rect key="frame" x="0.0" y="0.0" width="238" height="91"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="79C-9Y-Oqz">
+                                <rect key="frame" x="0.0" y="43" width="238" height="48"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sr1-eO-8JX" customClass="UTTextField" customModule="UIToolkit">
+                                        <rect key="frame" x="4" y="24" width="236" height="16"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="Large text field placeholder text" id="JSg-3n-ZT9">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wnp-3T-4zh" customClass="UTTextField" customModule="UIToolkit">
+                                        <rect key="frame" x="4" y="0.0" width="236" height="16"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="Medium text field placeholder text" id="Lju-PZ-wRX">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <edgeInsets key="edgeInsets" left="8" right="8" top="8" bottom="0.0"/>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="79C-9Y-Oqz" secondAttribute="trailing" id="DcP-n0-Gft"/>
+                            <constraint firstItem="79C-9Y-Oqz" firstAttribute="top" secondItem="IXh-6u-gGk" secondAttribute="top" id="ig6-R7-NOJ"/>
+                            <constraint firstItem="79C-9Y-Oqz" firstAttribute="leading" secondItem="IXh-6u-gGk" secondAttribute="leading" id="ivG-UH-K5a"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" borderType="none" title="Validation text field" translatesAutoresizingMaskIntoConstraints="NO" id="cFR-nh-sgt">
+                    <rect key="frame" x="270" y="511" width="263" height="146"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="maf-Rr-W8Y">
+                        <rect key="frame" x="0.0" y="0.0" width="263" height="131"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YIh-XC-IZ1">
+                                <rect key="frame" x="0.0" y="57" width="263" height="74"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mhf-gK-Gy7" customClass="UTTextField" customModule="UIToolkit">
+                                        <rect key="frame" x="6" y="50" width="228" height="16"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="Validation textfield large" id="XD4-Ac-X0y">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4gT-5e-UxF">
+                                        <rect key="frame" x="8" y="8" width="75" height="34"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vuy-sw-PyY">
+                                                <rect key="frame" x="-2" y="17" width="77" height="18"/>
+                                                <buttonCell key="cell" type="radio" title="No error" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="XAQ-Mp-iXo">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="validationStateAction:" target="-2" id="QD8-9z-UIa"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3nC-7M-6nd">
+                                                <rect key="frame" x="-2" y="-1" width="56" height="18"/>
+                                                <buttonCell key="cell" type="radio" title="Error" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Bc1-GP-03l">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="validationStateAction:" target="-2" id="pSd-YN-i5E"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <edgeInsets key="edgeInsets" left="8" right="8" top="8" bottom="8"/>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="YIh-XC-IZ1" firstAttribute="top" secondItem="maf-Rr-W8Y" secondAttribute="top" id="0H1-lw-9H1"/>
+                            <constraint firstAttribute="trailing" secondItem="YIh-XC-IZ1" secondAttribute="trailing" id="AFY-2Z-trT"/>
+                            <constraint firstItem="YIh-XC-IZ1" firstAttribute="leading" secondItem="maf-Rr-W8Y" secondAttribute="leading" id="Cvu-cW-Dgh"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" borderType="none" title="Hint text field" translatesAutoresizingMaskIntoConstraints="NO" id="G97-8y-3fU">
+                    <rect key="frame" x="545" y="551" width="332" height="112"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="ENT-uh-fxx">
+                        <rect key="frame" x="0.0" y="0.0" width="332" height="97"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hn0-Xl-oIb" customClass="UTInputTextFieldWithHint" customModule="UIToolkit">
+                                <rect key="frame" x="20" y="17" width="286" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="textFieldPlaceholderString" value="Hint text field placeholder"/>
+                                </userDefinedRuntimeAttributes>
+                            </customView>
+                        </subviews>
+                    </view>
+                </box>
+                <box fixedFrame="YES" borderType="none" title="Validation hint text field" translatesAutoresizingMaskIntoConstraints="NO" id="vqq-2v-aRK">
+                    <rect key="frame" x="545" y="376" width="337" height="158"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="i9n-Vw-Kyb">
+                        <rect key="frame" x="0.0" y="0.0" width="337" height="143"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBw-lE-4yB" customClass="UTValidationTextFieldWithHint" customModule="UIToolkit">
+                                <rect key="frame" x="20" y="72" width="291" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="hintString" value="Input hint"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="textFieldPlaceholderString" value="validation hint text field"/>
+                                </userDefinedRuntimeAttributes>
+                            </customView>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w4y-fE-2eF">
+                                <rect key="frame" x="25" y="29" width="75" height="32"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HEA-W1-Qih">
+                                        <rect key="frame" x="-2" y="15" width="77" height="18"/>
+                                        <buttonCell key="cell" type="radio" title="No error" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="KPm-Vh-KRb">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="validationHintStateAction:" target="-2" id="wNc-7B-bS5"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JGT-XT-dZL">
+                                        <rect key="frame" x="-2" y="-1" width="56" height="18"/>
+                                        <buttonCell key="cell" type="radio" title="Error" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="FnQ-tq-lzP">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="validationHintStateAction:" target="-2" id="Zz2-rM-P8r"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                    </view>
+                </box>
+                <box fixedFrame="YES" borderType="none" title="Pin text field" translatesAutoresizingMaskIntoConstraints="NO" id="QTu-LW-PIY">
+                    <rect key="frame" x="17" y="247" width="493" height="191"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="xWF-xQ-C5w">
+                        <rect key="frame" x="0.0" y="0.0" width="493" height="176"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BzJ-tE-gL0">
+                                <rect key="frame" x="0.0" y="168" width="8" height="8"/>
+                                <edgeInsets key="edgeInsets" left="8" right="0.0" top="8" bottom="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="BzJ-tE-gL0" firstAttribute="leading" secondItem="xWF-xQ-C5w" secondAttribute="leading" id="yC2-yZ-jRY"/>
+                            <constraint firstItem="BzJ-tE-gL0" firstAttribute="top" secondItem="xWF-xQ-C5w" secondAttribute="top" id="zED-B7-Gc3"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" borderType="none" title="Password" translatesAutoresizingMaskIntoConstraints="NO" id="OBZ-9J-Lwf">
+                    <rect key="frame" x="545" y="253" width="332" height="114"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="z1e-hJ-f4k">
+                        <rect key="frame" x="0.0" y="0.0" width="332" height="99"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OLV-gf-4v1">
+                                <rect key="frame" x="8" y="70" width="316" height="21"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UCC-5x-cpY" customClass="UTPasswordTextField" customModule="UIToolkit">
+                                        <rect key="frame" x="0.0" y="0.0" width="96" height="21"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Enter password" id="gfE-LV-OYd">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OLV-gf-4v1" secondAttribute="trailing" constant="8" id="2Fj-JH-pXl"/>
+                            <constraint firstItem="OLV-gf-4v1" firstAttribute="leading" secondItem="z1e-hJ-f4k" secondAttribute="leading" constant="8" id="YI4-2w-EbZ"/>
+                            <constraint firstItem="OLV-gf-4v1" firstAttribute="top" secondItem="z1e-hJ-f4k" secondAttribute="top" constant="8" id="mQq-X6-sAc"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" borderType="none" title="Global search text field" translatesAutoresizingMaskIntoConstraints="NO" id="K18-OE-CYJ">
+                    <rect key="frame" x="17" y="165" width="493" height="78"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="Ota-8I-rMi">
+                        <rect key="frame" x="0.0" y="0.0" width="493" height="63"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2Z-71-zcv">
+                                <rect key="frame" x="0.0" y="39" width="493" height="24"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cG2-hx-fXn" customClass="UTSearchModifierTextField" customModule="UIToolkit">
+                                        <rect key="frame" x="6" y="0.0" width="96" height="16"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="Search modifier" allowsEditingTextAttributes="YES" id="Lgx-og-hDu">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <edgeInsets key="edgeInsets" left="8" right="8" top="8" bottom="0.0"/>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="i2Z-71-zcv" firstAttribute="top" secondItem="Ota-8I-rMi" secondAttribute="top" id="HPv-nB-NJW"/>
+                            <constraint firstItem="i2Z-71-zcv" firstAttribute="leading" secondItem="Ota-8I-rMi" secondAttribute="leading" id="WhD-ID-Wia"/>
+                            <constraint firstAttribute="trailing" secondItem="i2Z-71-zcv" secondAttribute="trailing" id="iyF-9P-Hu2"/>
+                        </constraints>
+                    </view>
+                </box>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A7B-DS-AWP" customClass="UTHintLabel" customModule="UIToolkit">
+                    <rect key="frame" x="273" y="474" width="195" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <box fixedFrame="YES" borderType="none" title="Hyperlink text field" translatesAutoresizingMaskIntoConstraints="NO" id="Yfy-hC-Q10">
+                    <rect key="frame" x="545" y="165" width="332" height="78"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="7a0-q1-svQ">
+                        <rect key="frame" x="0.0" y="0.0" width="332" height="63"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="skE-dj-kn4" customClass="UTHyperlinkTextField" customModule="UIToolkit">
+                                <rect key="frame" x="16" y="39" width="241" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="4Pu-DO-Eda">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </box>
+                <box fixedFrame="YES" borderType="none" title="Character count text field" translatesAutoresizingMaskIntoConstraints="NO" id="FBj-PM-NHi">
+                    <rect key="frame" x="17" y="78" width="365" height="83"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="1bP-mW-bLJ">
+                        <rect key="frame" x="0.0" y="0.0" width="365" height="68"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SLb-b3-ZHP">
+                                <rect key="frame" x="8" y="44" width="349" height="16"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGb-qh-97T" customClass="UTMaxCharacterCountTextField" customModule="UIToolkit">
+                                        <rect key="frame" x="0.0" y="0.0" width="317" height="16"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="Text field with max character" drawsBackground="YES" id="6zO-xc-yG4">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="SLb-b3-ZHP" secondAttribute="trailing" constant="8" id="GBX-Ey-lI0"/>
+                            <constraint firstItem="SLb-b3-ZHP" firstAttribute="top" secondItem="1bP-mW-bLJ" secondAttribute="top" constant="8" id="TLM-nB-nIZ"/>
+                            <constraint firstItem="SLb-b3-ZHP" firstAttribute="leading" secondItem="1bP-mW-bLJ" secondAttribute="leading" constant="8" id="ktt-qM-ivx"/>
+                        </constraints>
+                    </view>
+                </box>
+                <box fixedFrame="YES" title="Https auto fill text field" translatesAutoresizingMaskIntoConstraints="NO" id="by8-KT-Hu8">
+                    <rect key="frame" x="545" y="85" width="360" height="83"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="quo-l7-h5u">
+                        <rect key="frame" x="3" y="3" width="354" height="65"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Nr-bc-rJK">
+                                <rect key="frame" x="8" y="41" width="338" height="16"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tFw-u5-gfQ" customClass="UTHttpsAutoFillTextField" customModule="UIToolkit">
+                                        <rect key="frame" x="-2" y="0.0" width="96" height="16"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" id="LyP-Zw-jNB">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="7Nr-bc-rJK" firstAttribute="top" secondItem="quo-l7-h5u" secondAttribute="top" constant="8" id="F2P-KX-P6d"/>
+                            <constraint firstAttribute="trailing" secondItem="7Nr-bc-rJK" secondAttribute="trailing" constant="8" id="eQP-C7-wV1"/>
+                            <constraint firstItem="7Nr-bc-rJK" firstAttribute="leading" secondItem="quo-l7-h5u" secondAttribute="leading" constant="8" id="lVc-Sq-qV3"/>
+                        </constraints>
+                    </view>
+                </box>
+            </subviews>
+            <point key="canvasLocation" x="17.5" y="356.5"/>
+        </customView>
+    </objects>
+</document>

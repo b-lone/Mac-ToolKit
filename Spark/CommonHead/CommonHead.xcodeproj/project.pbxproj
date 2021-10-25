@@ -1,0 +1,531 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		21F106F2272A52AF00E40AD9 /* CommonHead.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F106F0272A52AF00E40AD9 /* CommonHead.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F10701272A6C8400E40AD9 /* CHSourceType.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10700272A6C8400E40AD9 /* CHSourceType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F1073F272A79AB00E40AD9 /* CHShareTabData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10725272A79A600E40AD9 /* CHShareTabData.swift */; };
+		21F10741272A79AB00E40AD9 /* CHShareViewModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 21F10727272A79A700E40AD9 /* CHShareViewModel.mm */; };
+		21F10742272A79AB00E40AD9 /* CHShareTelemetryManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10728272A79A700E40AD9 /* CHShareTelemetryManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F10743272A79AB00E40AD9 /* CHShareSourcesSelectionWindowInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10729272A79A700E40AD9 /* CHShareSourcesSelectionWindowInfo.swift */; };
+		21F10745272A79AB00E40AD9 /* CHShareNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1072B272A79A700E40AD9 /* CHShareNotification.swift */; };
+		21F10746272A79AB00E40AD9 /* CHShareViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F1072C272A79A800E40AD9 /* CHShareViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F1074B272A79AB00E40AD9 /* CHShareTelemetryManagerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10731272A79A900E40AD9 /* CHShareTelemetryManagerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F1074D272A79AB00E40AD9 /* CHShareViewModelProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10733272A79A900E40AD9 /* CHShareViewModelProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F1074F272A79AB00E40AD9 /* CHShareSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10735272A79A900E40AD9 /* CHShareSource.swift */; };
+		21F10750272A79AB00E40AD9 /* CHShareNotificationType.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10736272A79A900E40AD9 /* CHShareNotificationType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F10751272A79AB00E40AD9 /* CHShareStateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10737272A79AA00E40AD9 /* CHShareStateInfo.swift */; };
+		21F10752272A79AB00E40AD9 /* CHShareType.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10738272A79AA00E40AD9 /* CHShareType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F10753272A79AB00E40AD9 /* CHSharingContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10739272A79AA00E40AD9 /* CHSharingContent.swift */; };
+		21F10754272A79AB00E40AD9 /* CHShareOptimizeType.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F1073A272A79AA00E40AD9 /* CHShareOptimizeType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F10756272A79AB00E40AD9 /* CHShareTelemetryManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 21F1073C272A79AA00E40AD9 /* CHShareTelemetryManager.mm */; };
+		21F10757272A79AB00E40AD9 /* CHShareCallType.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F1073D272A79AA00E40AD9 /* CHShareCallType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F10758272A79AB00E40AD9 /* CHShareConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1073E272A79AB00E40AD9 /* CHShareConfig.swift */; };
+		21F1075D272A7C4200E40AD9 /* CHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1075C272A7C4200E40AD9 /* CHButton.swift */; };
+		21F1075F272A7C7500E40AD9 /* CHControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1075E272A7C7500E40AD9 /* CHControl.swift */; };
+		21F10761272A7C8800E40AD9 /* CHButtonState.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10760272A7C8800E40AD9 /* CHButtonState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F10763272A7CE800E40AD9 /* CHNotificationActionType.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10762272A7CE800E40AD9 /* CHNotificationActionType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F10765272A7D2500E40AD9 /* CHMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10764272A7D2500E40AD9 /* CHMenuItem.swift */; };
+		21F10767272A800D00E40AD9 /* CHRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10766272A800D00E40AD9 /* CHRect.swift */; };
+		21F1076B272A824B00E40AD9 /* CHRemoteShareControlBarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1076A272A824B00E40AD9 /* CHRemoteShareControlBarInfo.swift */; };
+		21F1076D272A826B00E40AD9 /* CHLocalShareControlBarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1076C272A826B00E40AD9 /* CHLocalShareControlBarInfo.swift */; };
+		21F1076F272A827B00E40AD9 /* CHLocalShareControlWindowInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1076E272A827B00E40AD9 /* CHLocalShareControlWindowInfo.swift */; };
+		21F10771272A828B00E40AD9 /* CHLocalShareControlViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10770272A828B00E40AD9 /* CHLocalShareControlViewInfo.swift */; };
+		21F10773272A829A00E40AD9 /* CHLocalShareControlWindowColorMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10772272A829A00E40AD9 /* CHLocalShareControlWindowColorMode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F10775272A82F300E40AD9 /* CHLocalShareControlViewLabelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10774272A82F300E40AD9 /* CHLocalShareControlViewLabelInfo.swift */; };
+		21F10777272A832700E40AD9 /* CHLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10776272A832600E40AD9 /* CHLabel.swift */; };
+		21F10779272A833400E40AD9 /* CHMeetingRecordingState.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10778272A833400E40AD9 /* CHMeetingRecordingState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21F107C2272A972B00E40AD9 /* CHResumeShareControlBarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F107C1272A972B00E40AD9 /* CHResumeShareControlBarInfo.swift */; };
+		21F107C4272A979800E40AD9 /* CHShortcut.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F107C3272A979800E40AD9 /* CHShortcut.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		21F107D4272AA0A900E40AD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F107CF272AA0A900E40AD9 /* UIToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07756FB626951E88000A63C5;
+			remoteInfo = UIToolkit;
+		};
+		21F107D6272AA0A900E40AD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F107CF272AA0A900E40AD9 /* UIToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 077573E12695EC79000A63C5;
+			remoteInfo = UIToolkitTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		21F106ED272A52AF00E40AD9 /* CommonHead.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonHead.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F106F0272A52AF00E40AD9 /* CommonHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHead.h; sourceTree = "<group>"; };
+		21F106F1272A52AF00E40AD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21F10700272A6C8400E40AD9 /* CHSourceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSourceType.h; sourceTree = "<group>"; };
+		21F10725272A79A600E40AD9 /* CHShareTabData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHShareTabData.swift; sourceTree = "<group>"; };
+		21F10727272A79A700E40AD9 /* CHShareViewModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CHShareViewModel.mm; sourceTree = "<group>"; };
+		21F10728272A79A700E40AD9 /* CHShareTelemetryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareTelemetryManager.h; sourceTree = "<group>"; };
+		21F10729272A79A700E40AD9 /* CHShareSourcesSelectionWindowInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHShareSourcesSelectionWindowInfo.swift; sourceTree = "<group>"; };
+		21F1072B272A79A700E40AD9 /* CHShareNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHShareNotification.swift; sourceTree = "<group>"; };
+		21F1072C272A79A800E40AD9 /* CHShareViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareViewModel.h; sourceTree = "<group>"; };
+		21F10731272A79A900E40AD9 /* CHShareTelemetryManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareTelemetryManagerProtocol.h; sourceTree = "<group>"; };
+		21F10733272A79A900E40AD9 /* CHShareViewModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareViewModelProtocol.h; sourceTree = "<group>"; };
+		21F10735272A79A900E40AD9 /* CHShareSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CHShareSource.swift; path = "../../../../spark/common-head/CHShareSource.swift"; sourceTree = "<group>"; };
+		21F10736272A79A900E40AD9 /* CHShareNotificationType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareNotificationType.h; sourceTree = "<group>"; };
+		21F10737272A79AA00E40AD9 /* CHShareStateInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHShareStateInfo.swift; sourceTree = "<group>"; };
+		21F10738272A79AA00E40AD9 /* CHShareType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareType.h; sourceTree = "<group>"; };
+		21F10739272A79AA00E40AD9 /* CHSharingContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHSharingContent.swift; sourceTree = "<group>"; };
+		21F1073A272A79AA00E40AD9 /* CHShareOptimizeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareOptimizeType.h; sourceTree = "<group>"; };
+		21F1073C272A79AA00E40AD9 /* CHShareTelemetryManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CHShareTelemetryManager.mm; sourceTree = "<group>"; };
+		21F1073D272A79AA00E40AD9 /* CHShareCallType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareCallType.h; sourceTree = "<group>"; };
+		21F1073E272A79AB00E40AD9 /* CHShareConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHShareConfig.swift; sourceTree = "<group>"; };
+		21F1075C272A7C4200E40AD9 /* CHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHButton.swift; sourceTree = "<group>"; };
+		21F1075E272A7C7500E40AD9 /* CHControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHControl.swift; sourceTree = "<group>"; };
+		21F10760272A7C8800E40AD9 /* CHButtonState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHButtonState.h; sourceTree = "<group>"; };
+		21F10762272A7CE800E40AD9 /* CHNotificationActionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNotificationActionType.h; sourceTree = "<group>"; };
+		21F10764272A7D2500E40AD9 /* CHMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHMenuItem.swift; sourceTree = "<group>"; };
+		21F10766272A800D00E40AD9 /* CHRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHRect.swift; sourceTree = "<group>"; };
+		21F1076A272A824B00E40AD9 /* CHRemoteShareControlBarInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHRemoteShareControlBarInfo.swift; sourceTree = "<group>"; };
+		21F1076C272A826B00E40AD9 /* CHLocalShareControlBarInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHLocalShareControlBarInfo.swift; sourceTree = "<group>"; };
+		21F1076E272A827B00E40AD9 /* CHLocalShareControlWindowInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHLocalShareControlWindowInfo.swift; sourceTree = "<group>"; };
+		21F10770272A828B00E40AD9 /* CHLocalShareControlViewInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHLocalShareControlViewInfo.swift; sourceTree = "<group>"; };
+		21F10772272A829A00E40AD9 /* CHLocalShareControlWindowColorMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHLocalShareControlWindowColorMode.h; sourceTree = "<group>"; };
+		21F10774272A82F300E40AD9 /* CHLocalShareControlViewLabelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHLocalShareControlViewLabelInfo.swift; sourceTree = "<group>"; };
+		21F10776272A832600E40AD9 /* CHLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHLabel.swift; sourceTree = "<group>"; };
+		21F10778272A833400E40AD9 /* CHMeetingRecordingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMeetingRecordingState.h; sourceTree = "<group>"; };
+		21F107C1272A972B00E40AD9 /* CHResumeShareControlBarInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHResumeShareControlBarInfo.swift; sourceTree = "<group>"; };
+		21F107C3272A979800E40AD9 /* CHShortcut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShortcut.h; sourceTree = "<group>"; };
+		21F107CF272AA0A900E40AD9 /* UIToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UIToolkit.xcodeproj; path = ../UIToolkit/macOS/uitoolkit/UIToolkit.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		21F106EA272A52AF00E40AD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		21F106E3272A52AF00E40AD9 = {
+			isa = PBXGroup;
+			children = (
+				21F107CF272AA0A900E40AD9 /* UIToolkit.xcodeproj */,
+				21F106EF272A52AF00E40AD9 /* CommonHead */,
+				21F106EE272A52AF00E40AD9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		21F106EE272A52AF00E40AD9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21F106ED272A52AF00E40AD9 /* CommonHead.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21F106EF272A52AF00E40AD9 /* CommonHead */ = {
+			isa = PBXGroup;
+			children = (
+				21F1075C272A7C4200E40AD9 /* CHButton.swift */,
+				21F10760272A7C8800E40AD9 /* CHButtonState.h */,
+				21F1075E272A7C7500E40AD9 /* CHControl.swift */,
+				21F10776272A832600E40AD9 /* CHLabel.swift */,
+				21F1076C272A826B00E40AD9 /* CHLocalShareControlBarInfo.swift */,
+				21F10770272A828B00E40AD9 /* CHLocalShareControlViewInfo.swift */,
+				21F10774272A82F300E40AD9 /* CHLocalShareControlViewLabelInfo.swift */,
+				21F10772272A829A00E40AD9 /* CHLocalShareControlWindowColorMode.h */,
+				21F1076E272A827B00E40AD9 /* CHLocalShareControlWindowInfo.swift */,
+				21F10778272A833400E40AD9 /* CHMeetingRecordingState.h */,
+				21F10764272A7D2500E40AD9 /* CHMenuItem.swift */,
+				21F10762272A7CE800E40AD9 /* CHNotificationActionType.h */,
+				21F10766272A800D00E40AD9 /* CHRect.swift */,
+				21F1076A272A824B00E40AD9 /* CHRemoteShareControlBarInfo.swift */,
+				21F107C1272A972B00E40AD9 /* CHResumeShareControlBarInfo.swift */,
+				21F1073D272A79AA00E40AD9 /* CHShareCallType.h */,
+				21F1073E272A79AB00E40AD9 /* CHShareConfig.swift */,
+				21F1072B272A79A700E40AD9 /* CHShareNotification.swift */,
+				21F10736272A79A900E40AD9 /* CHShareNotificationType.h */,
+				21F1073A272A79AA00E40AD9 /* CHShareOptimizeType.h */,
+				21F10735272A79A900E40AD9 /* CHShareSource.swift */,
+				21F10729272A79A700E40AD9 /* CHShareSourcesSelectionWindowInfo.swift */,
+				21F10737272A79AA00E40AD9 /* CHShareStateInfo.swift */,
+				21F10725272A79A600E40AD9 /* CHShareTabData.swift */,
+				21F10728272A79A700E40AD9 /* CHShareTelemetryManager.h */,
+				21F1073C272A79AA00E40AD9 /* CHShareTelemetryManager.mm */,
+				21F10731272A79A900E40AD9 /* CHShareTelemetryManagerProtocol.h */,
+				21F10738272A79AA00E40AD9 /* CHShareType.h */,
+				21F1072C272A79A800E40AD9 /* CHShareViewModel.h */,
+				21F10727272A79A700E40AD9 /* CHShareViewModel.mm */,
+				21F10733272A79A900E40AD9 /* CHShareViewModelProtocol.h */,
+				21F10739272A79AA00E40AD9 /* CHSharingContent.swift */,
+				21F107C3272A979800E40AD9 /* CHShortcut.h */,
+				21F10700272A6C8400E40AD9 /* CHSourceType.h */,
+				21F106F0272A52AF00E40AD9 /* CommonHead.h */,
+				21F106F1272A52AF00E40AD9 /* Info.plist */,
+			);
+			path = CommonHead;
+			sourceTree = "<group>";
+		};
+		21F107D0272AA0A900E40AD9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21F107D5272AA0A900E40AD9 /* UIToolkit.framework */,
+				21F107D7272AA0A900E40AD9 /* UIToolkitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		21F106E8272A52AF00E40AD9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21F10701272A6C8400E40AD9 /* CHSourceType.h in Headers */,
+				21F10752272A79AB00E40AD9 /* CHShareType.h in Headers */,
+				21F10754272A79AB00E40AD9 /* CHShareOptimizeType.h in Headers */,
+				21F1074B272A79AB00E40AD9 /* CHShareTelemetryManagerProtocol.h in Headers */,
+				21F10750272A79AB00E40AD9 /* CHShareNotificationType.h in Headers */,
+				21F10746272A79AB00E40AD9 /* CHShareViewModel.h in Headers */,
+				21F10757272A79AB00E40AD9 /* CHShareCallType.h in Headers */,
+				21F10742272A79AB00E40AD9 /* CHShareTelemetryManager.h in Headers */,
+				21F1074D272A79AB00E40AD9 /* CHShareViewModelProtocol.h in Headers */,
+				21F10761272A7C8800E40AD9 /* CHButtonState.h in Headers */,
+				21F10763272A7CE800E40AD9 /* CHNotificationActionType.h in Headers */,
+				21F10773272A829A00E40AD9 /* CHLocalShareControlWindowColorMode.h in Headers */,
+				21F10779272A833400E40AD9 /* CHMeetingRecordingState.h in Headers */,
+				21F107C4272A979800E40AD9 /* CHShortcut.h in Headers */,
+				21F106F2272A52AF00E40AD9 /* CommonHead.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		21F106EC272A52AF00E40AD9 /* CommonHead */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21F106F5272A52AF00E40AD9 /* Build configuration list for PBXNativeTarget "CommonHead" */;
+			buildPhases = (
+				21F106E8272A52AF00E40AD9 /* Headers */,
+				21F106E9272A52AF00E40AD9 /* Sources */,
+				21F106EA272A52AF00E40AD9 /* Frameworks */,
+				21F106EB272A52AF00E40AD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CommonHead;
+			productName = CommonHead;
+			productReference = 21F106ED272A52AF00E40AD9 /* CommonHead.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		21F106E4272A52AF00E40AD9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					21F106EC272A52AF00E40AD9 = {
+						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
+					};
+				};
+			};
+			buildConfigurationList = 21F106E7272A52AF00E40AD9 /* Build configuration list for PBXProject "CommonHead" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 21F106E3272A52AF00E40AD9;
+			productRefGroup = 21F106EE272A52AF00E40AD9 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 21F107D0272AA0A900E40AD9 /* Products */;
+					ProjectRef = 21F107CF272AA0A900E40AD9 /* UIToolkit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				21F106EC272A52AF00E40AD9 /* CommonHead */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		21F107D5272AA0A900E40AD9 /* UIToolkit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = UIToolkit.framework;
+			remoteRef = 21F107D4272AA0A900E40AD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21F107D7272AA0A900E40AD9 /* UIToolkitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UIToolkitTests.xctest;
+			remoteRef = 21F107D6272AA0A900E40AD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		21F106EB272A52AF00E40AD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		21F106E9272A52AF00E40AD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21F10777272A832700E40AD9 /* CHLabel.swift in Sources */,
+				21F1073F272A79AB00E40AD9 /* CHShareTabData.swift in Sources */,
+				21F10758272A79AB00E40AD9 /* CHShareConfig.swift in Sources */,
+				21F10765272A7D2500E40AD9 /* CHMenuItem.swift in Sources */,
+				21F10771272A828B00E40AD9 /* CHLocalShareControlViewInfo.swift in Sources */,
+				21F1075F272A7C7500E40AD9 /* CHControl.swift in Sources */,
+				21F10767272A800D00E40AD9 /* CHRect.swift in Sources */,
+				21F1074F272A79AB00E40AD9 /* CHShareSource.swift in Sources */,
+				21F10753272A79AB00E40AD9 /* CHSharingContent.swift in Sources */,
+				21F10756272A79AB00E40AD9 /* CHShareTelemetryManager.mm in Sources */,
+				21F1076D272A826B00E40AD9 /* CHLocalShareControlBarInfo.swift in Sources */,
+				21F107C2272A972B00E40AD9 /* CHResumeShareControlBarInfo.swift in Sources */,
+				21F10741272A79AB00E40AD9 /* CHShareViewModel.mm in Sources */,
+				21F10745272A79AB00E40AD9 /* CHShareNotification.swift in Sources */,
+				21F10775272A82F300E40AD9 /* CHLocalShareControlViewLabelInfo.swift in Sources */,
+				21F10751272A79AB00E40AD9 /* CHShareStateInfo.swift in Sources */,
+				21F1076F272A827B00E40AD9 /* CHLocalShareControlWindowInfo.swift in Sources */,
+				21F1075D272A7C4200E40AD9 /* CHButton.swift in Sources */,
+				21F1076B272A824B00E40AD9 /* CHRemoteShareControlBarInfo.swift in Sources */,
+				21F10743272A79AB00E40AD9 /* CHShareSourcesSelectionWindowInfo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		21F106F3272A52AF00E40AD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		21F106F4272A52AF00E40AD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		21F106F6272A52AF00E40AD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CommonHead/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cisco.CommonHead;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		21F106F7272A52AF00E40AD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CommonHead/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cisco.CommonHead;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		21F106E7272A52AF00E40AD9 /* Build configuration list for PBXProject "CommonHead" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21F106F3272A52AF00E40AD9 /* Debug */,
+				21F106F4272A52AF00E40AD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21F106F5272A52AF00E40AD9 /* Build configuration list for PBXNativeTarget "CommonHead" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21F106F6272A52AF00E40AD9 /* Debug */,
+				21F106F7272A52AF00E40AD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 21F106E4272A52AF00E40AD9 /* Project object */;
+}

@@ -1,0 +1,3136 @@
+{
+  "name": "Dark",
+  "parent": "Default",
+  "tokens": {
+    "overlay-primary": {
+      "normal": "gray-100-alpha-90"
+    },
+    "overlay-secondary": {
+      "normal": "gray-100-alpha-40"
+    },
+    "listItem-primary": {
+      "normal": "transparent",
+      "hovered": "gray-90",
+      "pressed": "gray-80",
+      "checked": "gray-80",
+      "focused": "gray-90"
+    },
+    "listItem-secondary": {
+      "normal": "gray-95",
+      "hovered": "gray-90",
+      "pressed": "gray-80"
+    },
+    "listItem-tertiary": {
+      "normal": "gray-90",
+      "hovered": "gray-80",
+      "pressed": "gray-70"
+    },
+    "listItem-quaternary": {
+      "normal": "gray-80",
+      "hovered": "gray-70",
+      "pressed": "gray-60"
+    },
+    "message-listItem": {
+      "normal": "transparent",
+      "hovered": "gray-90",
+      "pressed": "blue-90",
+      "checked": "blue-80"
+    },
+    "alertBackground-default": {
+      "normal": "blue-80"
+    },
+    "alertBackground-error": {
+      "normal": "red-80"
+    },
+    "alertBackground-success": {
+      "normal": "green-80"
+    },
+    "alertBackground-warning": {
+      "normal": "yellow-80"
+    },
+    "alertText-default": {
+      "normal": "blue-40"
+    },
+    "alertText-error": {
+      "normal": "red-40"
+    },
+    "alertText-success": {
+      "normal": "green-40"
+    },
+    "alertText-warning": {
+      "normal": "yellow-40"
+    },
+    "background-primary": {
+      "normal": "gray-100"
+    },
+    "wx-addParticipantsButtonInCall-icon": {
+      "normal": "gray-100"
+    },
+    "background-secondary": {
+      "normal": "gray-95"
+    },
+    "background-tertiary": {
+      "normal": "gray-90"
+    },
+    "background-quaternary": {
+      "normal": "gray-80"
+    },
+    "background-contrary": {
+      "normal": "white"
+    },
+    "popover-background": {
+      "normal": "gray-90"
+    },
+    "button-primary": {
+      "normal": "blue-60",
+      "hovered": "blue-70",
+      "pressed": "blue-80",
+      "checked": "blue-80",
+      "disabled": "gray-90"
+    },
+    "button-primary-outline": {
+      "normal": "blue-60",
+      "hovered": "blue-70",
+      "pressed": "blue-80",
+      "checked": "blue-80",
+      "disabled": "gray-90"
+    },
+    "buttonOutline-primary-background": {
+      "normal": "transparent",
+      "hovered": "blue-70",
+      "pressed": "blue-80",
+      "checked": "blue-80",
+      "disabled": "gray-90"
+    },
+    "buttonOutline-primary": {
+      "normal": "blue-40",
+      "hovered": "blue-30",
+      "pressed": "blue-20",
+      "checked": "blue-20",
+      "disabled": "gray-90"
+    },
+    "buttonOutlineText-primary": {
+      "normal": "blue-40",
+      "hovered": "gray-05",
+      "pressed": "gray-05",
+      "checked": "gray-05",
+      "disabled": "gray-90"
+    },
+    "button-secondary": {
+      "normal": "gray-60",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "checked": "gray-80",
+      "disabled": "gray-90"
+    },
+    "button-secondary-outline": {
+      "normal": "gray-60",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "checked": "gray-80",
+      "disabled": "gray-90"
+    },
+    "buttonOutline-secondary-background": {
+      "normal": "transparent",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "checked": "gray-80",
+      "disabled": "gray-90"
+    },
+    "buttonOutline-secondary": {
+      "normal": "gray-40",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "checked": "gray-80",
+      "disabled": "gray-90"
+    },
+    "buttonOutlineText-secondary": {
+      "normal": "gray-05",
+      "hovered": "gray-05",
+      "pressed": "gray-05",
+      "checked": "gray-05",
+      "disabled": "gray-90"
+    },
+    "button-tertiary": {
+      "normal": "gray-20",
+      "hovered": "gray-30",
+      "pressed": "gray-40",
+      "checked": "gray-40",
+      "disabled": "gray-90"
+    },
+    "button-quaternary": {
+      "normal": "gray-05",
+      "hovered": "gray-10",
+      "pressed": "gray-20",
+      "disabled": "gray-90"
+    },
+    "button-ghost": {
+      "normal": "transparent",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "disabled": "gray-90"
+    },
+    "button-ghost-transparent": {
+      "normal": "transparent",
+      "hovered": "gray-70",
+      "pressed": "gray-80"
+    },
+    "buttonCall-primary": {
+      "normal": "gray-80",
+      "hovered": "gray-90",
+      "pressed": "gray-95",
+      "checked": "gray-95",
+      "disabled": "gray-90"
+    },
+    "buttonCall-secondary": {
+      "normal": "red-60",
+      "hovered": "red-70",
+      "pressed": "red-80",
+      "checked": "red-80",
+      "disabled": "gray-90"
+    },
+    "buttonJoin-primary": {
+      "normal": "green-60",
+      "hovered": "green-70",
+      "pressed": "green-80",
+      "checked": "green-80",
+      "disabled": "gray-90"
+    },
+    "buttonJoin-primary-outline": {
+      "normal": "green-60",
+      "hovered": "green-70",
+      "pressed": "green-80",
+      "checked": "green-80",
+      "disabled": "gray-90"
+    },
+    "buttonJoinBorder-primary": {
+      "normal": "green-60",
+      "hovered": "green-70",
+      "pressed": "green-80",
+      "checked": "green-80",
+      "disabled": "gray-90"
+    },
+    "focus-border": {
+      "normal": "transparent",
+      "focused": "gray-05"
+    },
+    "buttonText-primary": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "buttonText-secondary": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "buttonText-tertiary": {
+      "normal": "gray-100",
+      "disabled": "gray-70"
+    },
+    "button-cancel": {
+      "normal": "red-60",
+      "hovered": "red-70",
+      "pressed": "red-80",
+      "checked": "red-80",
+      "disabled": "gray-90"
+    },
+    "buttonText-cancel": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "buttonOutline-cancel": {
+      "normal": "transparent",
+      "hovered": "red-70",
+      "pressed": "red-60",
+      "checked": "red-60",
+      "disabled": "gray-90"
+    },
+    "buttonOutlineBorder-cancel": {
+      "normal": "red-40",
+      "hovered": "red-70",
+      "pressed": "red-60",
+      "checked": "red-60",
+      "disabled": "gray-90"
+    },
+    "buttonOutlineText-cancel": {
+      "normal": "red-40",
+      "hovered": "gray-05",
+      "pressed": "gray-05",
+      "disabled": "gray-70"
+    },
+    "buttonText-quaternary": {
+      "normal": "gray-100",
+      "disabled": "gray-70"
+    },
+    "buttonText-ghost": {
+      "normal": "gray-05",
+      "checked": "blue-40",
+      "disabled": "gray-70"
+    },
+    "button-outline-join": {
+      "normal": "green-40"
+    },
+    "inputBackground": {
+      "normal": "gray-100",
+      "hovered": "gray-90",
+      "pressed": "gray-80",
+      "focused": "gray-90",
+      "disabled": "gray-90"
+    },
+    "signIn-inputBackground": {
+      "normal": "gray-90",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "focused": "gray-90",
+      "disabled": "gray-10"
+    },
+    "signIn-inputOutline": {
+      "normal": "gray-70",
+      "hovered": "gray-70",
+      "pressed": "gray-70",
+      "focused": "gray-60",
+      "disabled": "gray-10"
+    },
+    "inputBackground-error": {
+      "normal": "red-90"
+    },
+    "inputOutline-error": {
+      "normal": "red-50"
+    },
+    "inputBackground-warning": {
+      "normal": "yellow-90"
+    },
+    "inputOutline-warning": {
+      "normal": "yellow-40"
+    },
+    "inputText-warning": {
+      "normal": "yellow-40"
+    },
+    "background-gradient-start": {
+      "normal": "gray-100"
+    },
+    "background-gradient-end": {
+      "normal": "gray-100"
+    },
+    "content-gradient-start": {
+      "normal": "gray-100"
+    },
+    "content-gradient-end": {
+      "normal": "gray-100"
+    },
+    "inputOutline": {
+      "normal": "gray-70",
+      "hovered": "gray-60",
+      "pressed": "gray-60",
+      "focused": "gray-60",
+      "disabled": "gray-90"
+    },
+    "inputText-primary": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "inputText-secondary": {
+      "normal": "gray-40",
+      "disabled": "gray-70"
+    },
+    "wx-inputText-secondary-inverted": {
+      "normal": "gray-40",
+      "disabled": "gray-70"
+    },
+    "inputText-error": {
+      "normal": "red-40"
+    },
+    "input-focusRing": {
+      "normal": "blue-50"
+    },
+    "modal-decorative-button-primary": {
+      "normal": "gray-05",
+      "hovered": "gray-10",
+      "pressed": "gray-20",
+      "disabled": "gray-70"
+    },
+    "modal-decorative-button-text": {
+      "normal": "blue-40",
+      "hovered": "blue-30",
+      "pressed": "blue-30"
+    },
+    "modal-decorative-button-text-primary": {
+      "normal": "gray-100"
+    },
+    "modal-decorativeTitle-slate": {
+      "normal": "slate-40"
+    },
+    "modal-decorativeTitle-gold": {
+      "normal": "gold-40"
+    },
+    "modal-decorativeTitle-violet": {
+      "normal": "violet-40"
+    },
+    "modal-decorativeTitle-mint": {
+      "normal": "mint-40"
+    },
+    "modal-decorativeTitle-green": {
+      "normal": "green-40"
+    },
+    "modal-decorativeTitle-cobalt": {
+      "normal": "cobalt-40"
+    },
+    "text-highlight": {
+      "normal": "blue-80"
+    },
+    "text-hyperlink": {
+      "normal": "blue-40",
+      "hovered": "blue-20",
+      "pressed": "blue-20",
+      "disabled": "gray-70"
+    },
+    "text-primary": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "text-secondary": {
+      "normal": "gray-40",
+      "disabled": "gray-70"
+    },
+    "legacy-separator-primary": {
+      "normal": "gray-80"
+    },
+    "legacy-separator-secondary": {
+      "normal": "gray-60"
+    },
+    "footer-background": {
+      "normal": "gray-90"
+    },
+    "edit-space-settings-button": {
+      "normal": "transparent",
+      "hovered": "gold-70",
+      "pressed": "gold-80",
+      "disabled": "gray-90"
+    },
+    "edit-space-settings-buttonText": {
+      "normal": "gold-30",
+      "hovered": "gray-05",
+      "pressed": "gray-05",
+      "disabled": "gray-70"
+    },
+    "edit-space-settings-buttonBorder": {
+      "normal": "gold-30",
+      "hovered": "gold-70",
+      "pressed": "gold-80",
+      "disabled": "gray-90"
+    },
+    "scrollbar-backgroundGutter": {
+      "normal": "white-100-alpha-11"
+    },
+    "wx-callWindowContainer-background": {
+      "normal": "gray-100"
+    },
+    "wx-callWindowContent-background": {
+      "normal": "gray-95"
+    },
+    "wx-applicationHeaderUserDeviceButton-text": {
+      "normal": "gray-05"
+    },
+    "wx-audioSelectionItem-background": {
+      "normal": "gray-95",
+      "hovered": "blue-70",
+      "checked": "blue-70"
+    },
+    "wx-audioSelectionItemInternal-text": {
+      "normal": "blue-50"
+    },
+    "wx-audioSelectionItemVariant-text": {
+      "normal": "gray-60"
+    },
+    "wx-audioVideoDeviceWarnIcon-border": {
+      "normal": "yellow-40"
+    },
+    "wx-auxDeviceButton-border": {
+      "normal": "black-100"
+    },
+    "wx-auxDeviceItem-background": {
+      "normal": "gray-100",
+      "hovered": "blue-80"
+    },
+    "wx-auxDeviceItem-border": {
+      "normal": "gray-70"
+    },
+    "wx-auxDeviceItem-text": {
+      "normal": "gray-05",
+      "disabled": "gray-40"
+    },
+    "wx-auxDeviceItemCheckbox-background": {
+      "normal": "white-100"
+    },
+    "wx-auxDeviceItemCheckbox-border": {
+      "normal": "black-100"
+    },
+    "wx-auxDeviceSelectorButton-text": {
+      "normal": "blue-40"
+    },
+    "wx-auxDeviceUnknownItem-text": {
+      "normal": "yellow-40"
+    },
+    "wx-avatarMainAreaInnerRing-background": {
+      "normal": "black-100"
+    },
+    "wx-buttonCall-background": {
+      "normal": "gray-80",
+      "hovered": "gray-90",
+      "pressed": "gray-95",
+      "checked": "gray-95",
+      "disabled": "gray-90"
+    },
+    "wx-callActivityDeviceIcon": {
+      "normal": "gray-05"
+    },
+    "wx-callingInterstitialPage-background": {
+      "normal": "gray-100"
+    },
+    "wx-callMeCheckbox-background": {
+      "normal": "blue-40"
+    },
+    "wx-callSettingButtonStateIcon": {
+      "normal": "green-40"
+    },
+    "wx-contactCardViewButton-background": {
+      "normal": "gray-70",
+      "hovered": "gray-70",
+      "pressed": "gray-60",
+      "disabled": "gray-95"
+    },
+    "wx-contactCardViewButtonIcon": {
+      "normal": "gray-70"
+    },
+    "wx-contactCardViewPhoneNumber": {
+      "normal": "gray-20"
+    },
+    "wx-contentTabViewButton-text": {
+      "normal": "gray-05",
+      "pressed": "gray-05",
+      "disabled": "gray-50",
+      "focused": "gray-05",
+      "checked": "gray-05"
+    },
+    "wx-contentTabViewButtonChecked-text": {
+      "normal": "gray-05",
+      "disabled": "gray-50"
+    },
+    "wx-contentTabViewDropDownButton": {
+      "normal": "gray-100",
+      "hovered": "gray-90",
+      "pressed": "gray-80",
+      "disabled": "gray-80",
+      "focused": "gray-80",
+      "checked": "gray-80"
+    },
+    "wx-contentTabViewFilesButton": {
+      "normal": "transparent",
+      "hovered": "gray-80",
+      "pressed": "yellow-50",
+      "disabled": "transparent",
+      "checked": "yellow-50"
+    },
+    "wx-contentTabViewFilesButtonChecked": {
+      "normal": "yellow-50",
+      "disabled": "transparent"
+    },
+    "wx-contentTabViewLinksButton": {
+      "normal": "transparent",
+      "hovered": "gray-80",
+      "pressed": "violet-50",
+      "disabled": "transparent",
+      "checked": "violet-50"
+    },
+    "wx-contentTabViewLinksButtonChecked": {
+      "normal": "violet-50",
+      "disabled": "transparent"
+    },
+    "wx-contentTabViewRecordingsButton": {
+      "normal": "transparent",
+      "hovered": "gray-80",
+      "pressed": "blue-60",
+      "disabled": "transparent",
+      "checked": "violet-50"
+    },
+    "wx-contentTabViewRecordingsButtonChecked": {
+      "normal": "blue-60",
+      "disabled": "transparent"
+    },
+    "wx-contentTabViewWhiteboardButton": {
+      "normal": "transparent",
+      "hovered": "gray-80",
+      "pressed": "purple-50",
+      "disabled": "transparent",
+      "checked": "purple-50"
+    },
+    "wx-contentTabViewWhiteboardButtonChecked": {
+      "normal": "purple-50",
+      "disabled": "transparent"
+    },
+    "wx-contextMenu-background": {
+      "normal": "gray-10",
+      "hovered": "gray-20"
+    },
+    "wx-contextMenu-text": {
+      "normal": "gray-100"
+    },
+    "wx-popupDropShadow": {
+      "normal": "black-100-alpha-16"
+    },
+    "wx-default-border": {
+      "normal": "gray-80"
+    },
+    "wx-default-text": {
+      "normal": "gray-05"
+    },
+    "wx-default-invertedColor-text": {
+      "normal": "gray-05"
+    },
+    "wx-defaultTextWithPressed-text": {
+      "normal": "gray-05",
+      "hovered": "gray-05",
+      "pressed": "gray-100",
+      "disabled": "gray-100"
+    },
+    "wx-fileBrickletBadge-background": {
+      "normal": "white-100-alpha-60"
+    },
+    "wx-fileBrickletBadge-text": {
+      "normal": "gray-100"
+    },
+    "wx-fileBrickletCloseButton-background": {
+      "normal": "white-100"
+    },
+    "wx-fileBrickletCloseButtonData-background": {
+      "normal": "gray-70",
+      "hovered": "gray-70",
+      "pressed": "gray-60",
+      "disabled": "gray-95"
+    },
+    "wx-fileBrickletStaging-background": {
+      "normal": "gray-90"
+    },
+    "wx-fileBrickletStagingImage-background": {
+      "normal": "gray-70"
+    },
+    "wx-giphy-background": {
+      "normal": "black-100"
+    },
+    "wx-giphyFocusBorder-background": {
+      "normal": "gray-80",
+      "hovered": "blue-30",
+      "focused": "blue-30"
+    },
+    "wx-giphyIntegrationWidgetCancelSearchButton-background": {
+      "normal": "gray-40"
+    },
+    "wx-emojiPickerSearch-background": {
+      "normal": "gray-80",
+      "hovered": "gray-70"
+    },
+    "wx-emojiPickerSearch-border": {
+      "normal": "transparent",
+      "focused": "blue-50"
+    },
+    "wx-emojiPickerEmoji-background": {
+      "normal": "gray-100",
+      "hovered": "blue-80",
+      "focused": "blue-70",
+      "pressed": "blue-70"
+    },
+    "wx-emojiPickerSkin-background": {
+      "normal": "gray-100",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "checked": "white-100"
+    },
+    "wx-emojiPickerCategory-icon": {
+      "normal": "gray-05",
+      "disabled": "gray-80"
+    },
+    "wx-emojiPickerCategory-border-top": {
+      "normal": "gray-80",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "checked": "gray-05",
+      "focused": "gray-05"
+    },
+    "wx-headingColor-background": {
+      "normal": "gray-80"
+    },
+    "wx-headingColor-text": {
+      "normal": "gray-20"
+    },
+    "wx-subheadingInverted-text": {
+      "normal": "gray-40"
+    },
+    "wx-favorite-icon": {
+      "normal": "yellow-60"
+    },
+    "wx-inputActionButton-background": {
+      "normal": "gray-40",
+      "hovered": "blue-50",
+      "pressed": "blue-60",
+      "disabled": "gray-70"
+    },
+    "wx-inputBoxWidgetHasExternalParticipant-background": {
+      "normal": "yellow-95"
+    },
+    "wx-inputBoxWidgetHasExternalParticipant-border": {
+      "normal": "yellow-40"
+    },
+    "wx-classificationInputBox-background": {
+      "normal": "red-95"
+    },
+    "wx-errorMessage-background": {
+      "normal": "red-95"
+    },
+    "wx-classificationInputBox-border": {
+      "normal": "red-40"
+    },
+    "wx-inputBoxWidgetWithoutExternalParticipant-border": {
+      "normal": "blue-40"
+    },
+    "wx-leaveSpaceButton": {
+      "normal": "red-40",
+      "disabled": "gray-60"
+    },
+    "wx-menuItemButton-background": {
+      "normal": "gray-90",
+      "hovered": "blue-80"
+    },
+    "wx-menuItemButton-text": {
+      "normal": "white-100",
+      "disabled": "gray-70"
+    },
+    "wx-markButton-background": {
+      "normal": "gray-40"
+    },
+    "wx-messageHighlights-header-background": {
+      "normal": "blue-95"
+    },
+    "wx-messageHighlights-header-text": {
+      "normal": "blue-40"
+    },
+    "wx-message-highlights-border": {
+      "normal": "gray-20"
+    },
+    "wx-messageHighlights-signalBackground": {
+      "normal": "gray-80",
+      "hovered": "gray-70",
+      "pressed": "gray-70"
+    },
+    "wx-messageInputActionMarkDownButton-background": {
+      "normal": "blue-40",
+      "hovered": "blue-50",
+      "pressed": "blue-60"
+    },
+    "wx-messageInputActionExternalParticipantButton-background": {
+      "normal": "yellow-40",
+      "disabled": "gray-05"
+    },
+    "wx-messageInputActionClassificationLabel-background": {
+      "normal": "red-60"
+    },
+    "wx-messageInputActionClassificationLabel-border": {
+      "normal": "red-60"
+    },
+    "wx-messageInputActionClassificationLabel-text": {
+      "normal": "white-100"
+    },
+    "wx-native-messageText-background": {
+      "normal": "gray-100",
+      "hovered": "blue-80"
+    },
+    "wx-overlay-background": {
+      "normal": "black-100-alpha-75"
+    },
+    "wx-addParticipantsButton-background": {
+      "normal": "gray-60",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "disabled": "gray-10"
+    },
+    "wx-addParticipantsButton-background-outline": {
+      "normal": "gray-60",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "disabled": "gray-10"
+    },
+    "wx-addParticipantsButton-icon": {
+      "normal": "white-100"
+    },
+    "wx-externalParticipants-background": {
+      "normal": "yellow-95"
+    },
+    "wx-externalParticipants-text": {
+      "normal": "yellow-40"
+    },
+    "wx-quoteWidget-background": {
+      "normal": "gray-90"
+    },
+    "wx-quoteWidgetBar-background": {
+      "normal": "gray-40"
+    },
+    "wx-richTextMarkDownButton-background": {
+      "normal": "blue-40",
+      "hovered": "blue-50",
+      "pressed": "blue-60",
+      "disabled": "gray-05"
+    },
+    "wx-popup-widget-border": {
+      "normal": "white-100-alpha-15"
+    },
+    "wx-search-background": {
+      "normal": "gray-60",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "disabled": "gray-10",
+      "focused": "gray-70"
+    },
+    "wx-spaceTabs-background": {
+      "normal": "gray-100",
+      "hovered": "gray-90",
+      "pressed": "gray-80"
+    },
+    "wx-spaceTabs-text": {
+      "normal": "gray-40",
+      "hovered": "gray-05",
+      "pressed": "gray-05",
+      "disabled": "gray-70",
+      "checked": "gray-05"
+    },
+    "wx-spaceTabs-underline": {
+      "normal": "gray-05"
+    },
+    "wx-spaceActionsButton-background": {
+      "normal": "gray-100",
+      "hovered": "blue-80",
+      "disabled": "gray-70"
+    },
+    "wx-spaceActionsButton-text": {
+      "normal": "gray-90",
+      "hovered": "gray-90",
+      "pressed": "blue-60",
+      "disabled": "gray-70"
+    },
+    "wx-spaceActionsButton-icon": {
+      "normal": "white-100",
+      "pressed": "blue-40",
+      "checked": "blue-40",
+      "disabled": "gray-70"
+    },
+    "wx-spinnerWithLabel-background": {
+      "normal": "gray-05"
+    },
+    "wx-spinnerWithLabel-text": {
+      "normal": "black-100"
+    },
+    "wx-subheading-text": {
+      "normal": "gray-40",
+      "disabled": "gray-70"
+    },
+    "wx-textInputBoxCode-background": {
+      "normal": "gray-80"
+    },
+    "wx-textInputBoxLink-text": {
+      "normal": "blue-30"
+    },
+    "wx-textInputBoxMessage-text": {
+      "normal": "gray-40"
+    },
+    "wx-brickletAvatarErrorIcon-background": {
+      "normal": "white-100"
+    },
+    "wx-brickletAvatarErrorIcon-border": {
+      "normal": "red-60"
+    },
+    "wx-brickletAvatarIcon-background": {
+      "normal": "black-100"
+    },
+    "wx-brickletItem-background": {
+      "normal": "gray-95",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "focused": "gray-80"
+    },
+    "wx-brickletItemHeader-text": {
+      "normal": "gray-40",
+      "pressed": "gray-05"
+    },
+    "wx-brickletItemTimer-text": {
+      "normal": "gray-05"
+    },
+    "wx-brickletItemValid-text": {
+      "normal": "gray-40"
+    },
+    "wx-brickletJoinButton-background": {
+      "normal": "green-60",
+      "hovered": "green-70",
+      "pressed": "green-80"
+    },
+    "wx-brickletJoinButtonIMOnly-background": {
+      "normal": "blue-50"
+    },
+    "wx-brickletJoinButtonZSM-background": {
+      "normal": "red-60"
+    },
+    "wx-brickletJoinButtonZSMSharing-background": {
+      "normal": "blue-50"
+    },
+    "wx-brickletJoinCalling-background": {
+      "normal": "green-60"
+    },
+    "wx-brickletJoinedButton-background": {
+      "normal": "green-60"
+    },
+    "wx-brickletJoinedAdminButton-background": {
+      "normal": "gray-60"
+    },
+    "wx-brickletNotificationIcon-background": {
+      "normal": "gray-50"
+    },
+    "wx-filteredListHeader-text": {
+      "normal": "gray-05"
+    },
+    "wx-filteredListBody-text": {
+      "normal": "gray-40"
+    },
+    "wx-mentionsHighlight-text": {
+      "normal": "mint-40"
+    },
+    "wx-incomingMessageToast-replyLabel": {
+      "normal": "blue-40"
+    },
+    "wx-incomingMessageToast-fileLabel": {
+      "normal": "yellow-40"
+    },
+    "mainList-indicator": {
+      "normal": "blue-40"
+    },
+    "wx-MediaOptionTitleFontColor": {
+      "normal": "gray-05"
+    },
+    "wx-PreviewBackgroundButton": {
+      "normal": "gray-95",
+      "hovered": "gray-90",
+      "pressed": "gray-80",
+      "checked": "gray-80",
+      "disabled": "gray-05"
+    },
+    "wx-voicemailPlaySlider-background": {
+      "normal": "gray-60"
+    },
+    "wx-voicemailPlaySliderHandle-background": {
+      "normal": "black-100"
+    },
+    "wx-addNewTeamButton-background": {
+      "normal": "white-100",
+      "hovered": "gray-10",
+      "pressed": "gray-20",
+      "checked": "white-100"
+    },
+    "wx-addNewTeamButton-border": {
+      "normal": "white-100"
+    },
+    "wx-addNewTeamButtonIcon": {
+      "normal": "black-100"
+    },
+    "wx-callPullButton-background": {
+      "normal": "gray-90",
+      "hovered": "gray-70",
+      "pressed": "gray-70",
+      "checked": "gray-90"
+    },
+    "wx-participantsListDelegate-background": {
+      "normal": "gray-100",
+      "hovered": "blue-80",
+      "pressed": "blue-70"
+    },
+    "wx-new-participantsListDelegate-background": {
+      "normal": "transparent",
+      "hovered": "gray-90",
+      "pressed": "gray-80",
+      "focused": "gray-80"
+    },
+    "wx-plusButton-background": {
+      "normal": "gray-80",
+      "hovered": "gray-70",
+      "pressed": "gray-70",
+      "checked": "gray-80"
+    },
+    "wx-plusButtonSecColumn-background": {
+      "normal": "gray-80",
+      "hovered": "gray-70",
+      "pressed": "gray-60",
+      "checked": "gray-80"
+    },
+    "wx-plusButton-border": {
+      "normal": "gray-90"
+    },
+    "wx-plusButtonSecColumn-border": {
+      "normal": "gray-80"
+    },
+    "wx-plusButtonIcon": {
+      "normal": "gray-05"
+    },
+    "wx-plusButtonSecColumnIcon": {
+      "normal": "gray-05"
+    },
+    "wx-plusButtonThirdColumn-background": {
+      "normal": "gray-20",
+      "hovered": "gray-30",
+      "pressed": "gray-40",
+      "checked": "gray-30"
+    },
+    "wx-plusButtonThirdColumnIcon": {
+      "normal": "gray-90"
+    },
+    "wx-progressbar": {
+      "normal": "gray-80",
+      "checked": "blue-50"
+    },
+    "wx-phoneNumberRefreshButton": {
+      "normal": "gray-40",
+      "hovered": "blue-70",
+      "pressed": "blue-80",
+      "disabled": "gray-70"
+    },
+    "wx-conversationActivitiesShareButton": {
+      "normal": "blue-60",
+      "hovered": "blue-70",
+      "pressed": "blue-80"
+    },
+    "wx-conversationActivitiesShareButtonOutline": {
+      "normal": "blue-60",
+      "hovered": "blue-70",
+      "pressed": "blue-80"
+    },
+    "wx-conversationActivitiesCallButton": {
+      "normal": "white-100",
+      "hovered": "green-50",
+      "pressed": "green-60",
+      "disabled": "gray-95"
+    },
+    "wx-conversationsHeader-text": {
+      "normal": "gray-05"
+    },
+    "wx-conversationsSubHeader-text": {
+      "normal": "gray-50"
+    },
+    "wx-inputBoxWidgetMentions-text": {
+      "normal": "blue-30"
+    },
+    "wx-validIcon": {
+      "normal": "blue-30"
+    },
+    "wx-invalidIcon": {
+      "normal": "red-40"
+    },
+    "wx-urgentIcon": {
+      "normal": "red-60"
+    },
+    "wx-errorText": {
+      "normal": "red-50"
+    },
+    "wx-callPickupError-background": {
+      "normal": "red-95"
+    },
+    "wx-callPickupError-text": {
+      "normal": "yellow-40"
+    },
+    "wx-otherPickup-background": {
+      "normal": "gray-100",
+      "hovered": "green-70",
+      "pressed": "green-80",
+      "checked": "green-80",
+      "disabled": "gray-20"
+    },
+    "wx-otherPickup-text": {
+      "normal": "green-40",
+      "hovered": "white-100",
+      "pressed": "white-100",
+      "checked": "white-100"
+    },
+    "wx-callForwardItemBrush-background": {
+      "normal": "gray-95",
+      "hovered": "blue-80"
+    },
+    "wx-callForwardListItemBrush-background": {
+      "normal": "gray-100",
+      "hovered": "gray-95",
+      "pressed": "blue-80"
+    },
+    "wx-callMeConnectionRectPen-background": {
+      "normal": "gray-10"
+    },
+    "wx-callPreferencesButtonIcon": {
+      "normal": "green-60",
+      "hovered": "green-70",
+      "pressed": "green-80",
+      "disabled": "white-100"
+    },
+    "wx-defaultOnSecondColumn-text": {
+      "normal": "gray-05"
+    },
+    "wx-customStatusEmojiButton": {
+      "normal": "gray-40",
+      "focused": "blue-40"
+    },
+    "wx-searchPlaceholder-text": {
+      "normal": "gray-40"
+    },
+    "wx-avatarMenuItemIcon": {
+      "normal": "gray-40",
+      "hovered": "blue-50",
+      "pressed": "blue-60",
+      "checked": "blue-60"
+    },
+    "wx-menuList-background": {
+      "normal": "gray-95",
+      "hovered": "blue-80",
+      "pressed": "blue-60",
+      "focused": "blue-80"
+    },
+    "wx-controlButtonTransitioning-background": {
+      "normal": "gray-70"
+    },
+    "wx-lineEdit-border": {
+      "normal": "gray-80",
+      "focused": "blue-40"
+    },
+    "wx-lineEditError-border": {
+      "normal": "red-60",
+      "focused": "red-60"
+    },
+    "wx-default-checkbox": {
+      "normal": "gray-05",
+      "hovered": "gray-70",
+      "disabled": "gray-95"
+    },
+    "checkbox-indicator": {
+      "normal": "gray-05",
+      "hovered": "gray-70",
+      "disabled": "gray-95"
+    },
+    "wx-fourthColumnInnerRing-background": {
+      "normal": "black-100"
+    },
+    "wx-placeHolder-text": {
+      "normal": "gray-40"
+    },
+    "wx-searchButtonColors-background": {
+      "normal": "gray-80",
+      "hovered": "gray-70",
+      "pressed": "gray-70",
+      "disabled": "gray-90"
+    },
+    "wx-searchInputBoxContainer-icon": {
+      "normal": "white-100"
+    },
+    "wx-searchItemAvatarInnerRing-background": {
+      "normal": "black-100"
+    },
+    "wx-searchItemContactItemHighlighted-text": {
+      "normal": "gray-60"
+    },
+    "wx-searchItemSelectedContactAvatarInnerRing-background": {
+      "normal": "black-100"
+    },
+    "wx-searchItemDelegateEmptySeparatorExist-background": {
+      "normal": "gray-10"
+    },
+    "wx-searchItemJoinButton-background": {
+      "normal": "green-40"
+    },
+    "wx-searchItemMentionItemHighlighted-text": {
+      "normal": "blue-30"
+    },
+    "wx-searchItemNewSpaceItemPenAndBrush": {
+      "normal": "blue-60"
+    },
+    "wx-searchItemModifierTypeFillPath": {
+      "normal": "blue-40"
+    },
+    "wx-searchItemModifierTypeItemPen": {
+      "normal": "blue-30"
+    },
+    "wx-searchItem-text": {
+      "normal": "white-100"
+    },
+    "wx-searchItemDelegatorMoreButton-background": {
+      "normal": "blue-50"
+    },
+    "wx-searchModifierInputPath-background": {
+      "normal": "white-100"
+    },
+    "wx-searchModifierInput-Text": {
+      "normal": "black-100"
+    },
+    "wx-searchPeoplePresence-text": {
+      "normal": "gray-40"
+    },
+    "wx-searchResultListImage-background": {
+      "normal": "gray-20"
+    },
+    "wx-searchResultSeparator-background": {
+      "normal": "gray-100"
+    },
+    "wx-spaceList-text": {
+      "normal": "gray-40",
+      "hovered": "gray-40",
+      "pressed": "white-100",
+      "checked": "white-100"
+    },
+    "wx-spaceListSubHeading-text": {
+      "normal": "gray-40"
+    },
+    "wx-ghDropShadow": {
+      "normal": "black-100-alpha-08"
+    },
+    "appHeader": {
+      "normal": "gray-90"
+    },
+    "appHeader-border": {
+      "normal": "transparent"
+    },
+    "appHeader-buttonStatus": {
+      "normal": "transparent",
+      "hovered": "gray-95",
+      "pressed": "gray-100",
+      "checked": "gray-100"
+    },
+    "appHeader-buttonDevice": {
+      "normal": "transparent",
+      "hovered": "gray-95",
+      "pressed": "gray-100",
+      "checked": "gray-100"
+    },
+    "appHeader-buttonDevice-text-active": {
+      "normal": "blue-40",
+      "hovered": "blue-20",
+      "pressed": "blue-20"
+    },
+    "wx-ghUserDevice-text": {
+      "normal": "gray-05"
+    },
+    "appHeader-text": {
+      "normal": "gray-05"
+    },
+    "wx-ghCancelSearchButton": {
+      "normal": "gray-60",
+      "hovered": "gray-70",
+      "pressed": "gray-80"
+    },
+    "wx-ghCancelSearchButton-text": {
+      "normal": "gray-05"
+    },
+    "wx-searchItemWidget": {
+      "normal": "gray-10"
+    },
+    "wx-searchItemWidget-text": {
+      "normal": "gray-70"
+    },
+    "wx-searchItemWidget-icon": {
+      "normal": "gray-70",
+      "hovered": "gray-80",
+      "pressed": "gray-95"
+    },
+    "wx-cancelSearchButton": {
+      "normal": "gray-70"
+    },
+    "wx-cancelSearchButton-text": {
+      "normal": "gray-05"
+    },
+    "wx-ghSearchInputBoxActive-border": {
+      "normal": "blue-50"
+    },
+    "appHeader-searchBar-outline-active": {
+      "normal": "gray-80"
+    },
+    "appHeader-searchBar": {
+      "normal": "gray-80",
+      "hovered": "gray-95",
+      "pressed": "gray-100"
+    },
+    "appHeader-searchBar-active": {
+      "normal": "gray-80",
+      "hovered": "gray-95",
+      "pressed": "gray-100"
+    },
+    "wx-ghSearchInputBox-text": {
+      "normal": "gray-05"
+    },
+    "wx-ghSearchInputBox-background": {
+      "normal": "transparent"
+    },
+    "wx-ghSearchModifier-background": {
+      "normal": "gray-05"
+    },
+    "wx-ghSearchModifier-text": {
+      "normal": "black-100"
+    },
+    "wx-searchInputBox-border": {
+      "normal": "gray-70"
+    },
+    "wx-searchInputBox-background": {
+      "normal": "gray-70"
+    },
+    "wx-searchInputBox-text": {
+      "normal": "gray-05"
+    },
+    "appHeader-buttonPlus": {
+      "normal": "transparent",
+      "hovered": "gray-70",
+      "pressed": "gray-60"
+    },
+    "appHeader-buttonPlus-icon": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-searchFilter-background": {
+      "normal": "gray-90",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "disabled": "gray-100"
+    },
+    "wx-searchFilter-text": {
+      "normal": "white-100"
+    },
+    "wx-secondColumn-border": {
+      "normal": "gray-100"
+    },
+    "wx-navigationIcon": {
+      "normal": "white-100",
+      "hovered": "white-100",
+      "pressed": "blue-40",
+      "checked": "blue-40"
+    },
+    "wx-updateNavigationIcon": {
+      "normal": "green-40",
+      "hovered": "green-50",
+      "pressed": "green-60",
+      "checked": "green-40"
+    },
+    "wx-uCConnectionIndicatorTab-icon": {
+      "normal": "white-100",
+      "hovered": "white-100",
+      "pressed": "yellow-40",
+      "checked": "yellow-40"
+    },
+    "appNav-icon": {
+      "normal": "white-100",
+      "hovered": "white-100",
+      "pressed": "blue-40",
+      "checked": "blue-40",
+      "disabled": "gray-70"
+    },
+    "wx-ghUpdateNavigationIcon": {
+      "normal": "green-40",
+      "hovered": "green-50",
+      "pressed": "green-60",
+      "checked": "green-40"
+    },
+    "wx-globalHeaderUCConnectionIndicatorTab-icon": {
+      "normal": "white-100",
+      "hovered": "white-100",
+      "pressed": "yellow-40",
+      "checked": "yellow-40"
+    },
+    "appNav-badge": {
+      "normal": "red-60"
+    },
+    "appNav-badge-text": {
+      "normal": "gray-05"
+    },
+    "wx-fallbackNavigationTab-border": {
+      "normal": "blue-50"
+    },
+    "appNav-background": {
+      "normal": "gray-90",
+      "hovered": "gray-95",
+      "pressed": "gray-80",
+      "checked": "gray-80",
+      "disabled": "gray-90"
+    },
+    "wx-navigationTab-background": {
+      "normal": "gray-100",
+      "hovered": "gray-95",
+      "pressed": "gray-100",
+      "checked": "gray-100"
+    },
+    "wx-navigation-background": {
+      "normal": "gray-100"
+    },
+    "wx-tabError-icon": {
+      "normal": "red-40"
+    },
+    "wx-navigationTabFocusRectInverted": {
+      "normal": "gray-100"
+    },
+    "wx-ghNavigationTabFocusRectInverted": {
+      "normal": "red-60"
+    },
+    "wx-productNameTitle-text": {
+      "normal": "gray-05"
+    },
+    "wx-topBarMinimizeMaximizeButton-background": {
+      "normal": "transparent",
+      "hovered": "gray-80",
+      "pressed": "gray-70"
+    },
+    "wx-topBarMinimizeMaximizeButton-text": {
+      "normal": "gray-05"
+    },
+    "wx-topBarCloseButton-background": {
+      "normal": "transparent",
+      "hovered": "red-70",
+      "pressed": "red-80"
+    },
+    "wx-topBarCloseButton-text": {
+      "normal": "gray-05",
+      "hovered": "white",
+      "pressed": "white"
+    },
+    "wx-ghTopBarMinimizeMaximizeButton-text": {
+      "normal": "gray-40"
+    },
+    "wx-ghTopBarCloseButton-background": {
+      "normal": "transparent",
+      "hovered": "red-70",
+      "pressed": "red-80"
+    },
+    "wx-ghTopBarCloseButton-text": {
+      "normal": "gray-05",
+      "hovered": "white",
+      "pressed": "white"
+    },
+    "wx-ghTitle-text": {
+      "normal": "gray-40"
+    },
+    "wx-gh-text": {
+      "normal": "gray-05"
+    },
+    "wx-globalFooterButton-background": {
+      "normal": "transparent",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "checked": "gray-70"
+    },
+    "wx-globalFooterButton-Outline": {
+      "normal": "transparent",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "checked": "gray-70"
+    },
+    "wx-globalFooterButton-Text": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-globalFooterButton-Text-Focus": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-groupStateLinkButton-text": {
+      "normal": "blue-30"
+    },
+    "wx-groupStateLinkButtonSidebar-text": {
+      "normal": "blue-30"
+    },
+    "wx-groupBackedHelpComplete-text": {
+      "normal": "black"
+    },
+    "wx-groupBackedHelpComplete-background": {
+      "normal": "gray-05"
+    },
+    "wx-groupBackedHelpCompleteSidebar-text": {
+      "normal": "black"
+    },
+    "wx-groupBackedHelpCompleteSidebar-background": {
+      "normal": "gray-20"
+    },
+    "wx-multilineBadgeOne-background": {
+      "normal": "mint-30"
+    },
+    "wx-multilineBadgeTwo-background": {
+      "normal": "cobalt-30"
+    },
+    "wx-multilineBadgeThree-background": {
+      "normal": "orange-30"
+    },
+    "wx-multilineBadgeFour-background": {
+      "normal": "purple-30"
+    },
+    "wx-multilineBadgeFive-background": {
+      "normal": "cyan-30"
+    },
+    "wx-multilineBadgeSix-background": {
+      "normal": "gold-30"
+    },
+    "wx-multilineBadgeSeven-background": {
+      "normal": "violet-30"
+    },
+    "wx-multilineBadgeEight-background": {
+      "normal": "olive-30"
+    },
+    "wx-transparent-border": {
+      "normal": "transparent",
+      "hovered": "transparent",
+      "pressed": "transparent",
+      "disabled": "transparent",
+      "focused": "gray-05"
+    },
+    "wx-cancelButton-text": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-cancelButton-background": {
+      "normal": "gray-70",
+      "hovered": "gray-80",
+      "pressed": "gray-95",
+      "disabled": "gray-90"
+    },
+    "wx-cancelButton-background-outline": {
+      "normal": "gray-70",
+      "hovered": "gray-80",
+      "pressed": "gray-95",
+      "disabled": "gray-90"
+    },
+    "wx-recipientButton-background": {
+      "normal": "gray-70",
+      "hovered": "gray-80",
+      "pressed": "gray-95",
+      "disabled": "gray-90"
+    },
+    "wx-deleteButton-background": {
+      "normal": "red-60",
+      "hovered": "red-70",
+      "pressed": "red-80",
+      "disabled": "gray-05"
+    },
+    "wx-comboBox-background": {
+      "normal": "transparent",
+      "hovered": "blue-80",
+      "pressed": "transparent",
+      "disabled": "transparent",
+      "focused": "transparent"
+    },
+    "wx-comboBox-border": {
+      "normal": "gray-70",
+      "hovered": "transparent",
+      "pressed": "gray-70",
+      "disabled": "transparent",
+      "focused": "gray-70"
+    },
+    "wx-teams-combobox-background": {
+      "normal": "gray-100",
+      "hovered": "gray-80",
+      "pressed": "gray-100",
+      "focused": "gray-100",
+      "disabled": "gray-90"
+    },
+    "wx-teams-combobox-border": {
+      "normal": "gray-80",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "focused": "white",
+      "disabled": "gray-90"
+    },
+    "wx-teams-combobox-text": {
+      "normal": "gray-40",
+      "hovered": "gray-40",
+      "pressed": "gray-05",
+      "focused": "gray-05",
+      "disabled": "gray-40"
+    },
+    "wx-teams-combobox-dropdown-arrow": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-videoPreview-border": {
+      "normal": "gray-80"
+    },
+    "wx-videoPreviewTop-border": {
+      "normal": "gray-70"
+    },
+    "wx-videotoolbar-background": {
+      "normal": "gray-100"
+    },
+    "wx-optionsTab-background": {
+      "normal": "gray-05",
+      "hovered": "blue-80",
+      "pressed": "blue-60",
+      "disabled": "gray-05"
+    },
+    "wx-meetingListRow-background": {
+      "normal": "gray-90",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "disabled": "gray-50",
+      "focused": "gray-50"
+    },
+    "wx-dividerLine-background": {
+      "normal": "gray-90"
+    },
+    "wx-authLineEdit-background": {
+      "normal": "gray-05"
+    },
+    "wx-slider-background": {
+      "normal": "gray-30"
+    },
+    "wx-sliderAddPage-background": {
+      "normal": "gray-60"
+    },
+    "wx-sliderSubPage-background": {
+      "normal": "blue-50"
+    },
+    "wx-areYouTheHostIcon": {
+      "normal": "gray-90",
+      "hovered": "gray-80",
+      "pressed": "gray-70"
+    },
+    "wx-closeAssociationCall": {
+      "normal": "white-100",
+      "hovered": "gray-05",
+      "pressed": "gray-10",
+      "disabled": "gray-95"
+    },
+    "wx-actMessage": {
+      "normal": "blue-40",
+      "hovered": "blue-50",
+      "pressed": "blue-60",
+      "disabled": "gray-20"
+    },
+    "wx-actCall": {
+      "normal": "green-40",
+      "hovered": "green-50",
+      "pressed": "green-60",
+      "disabled": "gray-20"
+    },
+    "wx-actMeetingInfo": {
+      "normal": "orange-50",
+      "hovered": "orange-60",
+      "pressed": "orange-70",
+      "disabled": "gray-05"
+    },
+    "wx-actParticipants": {
+      "normal": "mint-50",
+      "hovered": "mint-60",
+      "pressed": "mint-70",
+      "disabled": "gray-05"
+    },
+    "wx-actFiles": {
+      "normal": "yellow-40",
+      "hovered": "yellow-50",
+      "pressed": "yellow-60",
+      "disabled": "gray-05"
+    },
+    "wx-actWhiteBoard": {
+      "normal": "purple-50",
+      "hovered": "purple-60",
+      "pressed": "purple-70",
+      "disabled": "gray-05"
+    },
+    "wx-actScreenShare": {
+      "normal": "blue-50",
+      "hovered": "blue-60",
+      "pressed": "blue-70",
+      "disabled": "blue-10"
+    },
+    "wx-actPeopleInsights": {
+      "normal": "gray-60",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "disabled": "gray-10",
+      "focused": "gray-60"
+    },
+    "wx-actMyThreads": {
+      "normal": "blue-30",
+      "hovered": "blue-40",
+      "pressed": "blue-50",
+      "disabled": "blue-05"
+    },
+    "wx-actLinks": {
+      "normal": "violet-50",
+      "hovered": "violet-60",
+      "pressed": "violet-70",
+      "disabled": "gray-05"
+    },
+    "wx-speakerButton-background": {
+      "normal": "blue-40",
+      "disabled": "gray-30"
+    },
+    "wx-audioOptionsPopupSliderColor-border": {
+      "normal": "gray-30"
+    },
+    "wx-audioOptionsPopupSliderColor-background": {
+      "normal": "gray-60"
+    },
+    "wx-classificationButtonUnselected-text": {
+      "normal": "gray-40"
+    },
+    "wx-createSpaceWidgetInput-border": {
+      "normal": "gray-80",
+      "focused": "blue-40"
+    },
+    "wx-classificationLevelMenuButton-background": {
+      "normal": "gray-100",
+      "hovered": "blue-80",
+      "focused": "blue-70"
+    },
+    "wx-classificationLevelMenuCheckbox": {
+      "normal": "blue-40"
+    },
+    "wx-coachmark-background": {
+      "normal": "yellow-60"
+    },
+    "wx-addLinkDialogInput-border": {
+      "normal": "gray-70",
+      "focused": "blue-40"
+    },
+    "wx-classificationSelection-button": {
+      "normal": "gray-95"
+    },
+    "wx-classificationSelection-button-border": {
+      "normal": "gray-20"
+    },
+    "wx-topBarSearchButton-background": {
+      "normal": "gray-70"
+    },
+    "wx-topBarSearchButton-text": {
+      "normal": "gray-05"
+    },
+    "wx-ghTopBarSearchButton-text": {
+      "normal": "gray-40"
+    },
+    "wx-ghTopBarSearchButtonIcon": {
+      "normal": "gray-05"
+    },
+    "wx-customButton-border": {
+      "normal": "gray-20",
+      "hovered": "gray-50",
+      "pressed": "gray-50",
+      "disabled": "gray-20"
+    },
+    "wx-customButton-background": {
+      "normal": "gray-10"
+    },
+    "wx-customButtonValueIcon": {
+      "normal": "blue-40",
+      "disabled": "gray-50"
+    },
+    "wx-customButtonValue-border": {
+      "normal": "gray-20"
+    },
+    "wx-focusColorOnColumn-background": {
+      "normal": "gray-100"
+    },
+    "wx-customCalendarHeaderText-background": {
+      "normal": "white-100"
+    },
+    "wx-customCalendarHeaderText-foreground": {
+      "normal": "gray-50"
+    },
+    "wx-customListViewHeader-text": {
+      "normal": "gray-100"
+    },
+    "wx-customListViewSubHeader-text": {
+      "normal": "gray-50"
+    },
+    "wx-customListViewIcon": {
+      "normal": "gray-100"
+    },
+    "wx-transparent-background": {
+      "normal": "transparent"
+    },
+    "wx-rectButton-border": {
+      "normal": "gray-80",
+      "hovered": "blue-40",
+      "pressed": "blue-40",
+      "disabled": "gray-80",
+      "focused": "blue-40"
+    },
+    "wx-whiteboardThumbnail-background": {
+      "normal": "white"
+    },
+    "wx-whiteboardThumbnail-text": {
+      "normal": "gray-60"
+    },
+    "wx-whiteboardThumbnailButtonIcon": {
+      "normal": "gray-05"
+    },
+    "wx-whiteboardThumbnailButtonIcon-background": {
+      "normal": "gray-90",
+      "hovered": "gray-95"
+    },
+    "wx-cancelHostTransferButton-background": {
+      "normal": "white-100",
+      "disabled": "gray-30"
+    },
+    "wx-cancelHostTransferButton-text": {
+      "normal": "gray-90"
+    },
+    "wx-cancelHostTransferButton-border": {
+      "normal": "gray-50"
+    },
+    "wx-linkActivityItem-background": {
+      "normal": "gray-100"
+    },
+    "wx-linkActivityFocusRect": {
+      "normal": "blue-40"
+    },
+    "wx-linkActivityNoFavIcon-background": {
+      "normal": "violet-50"
+    },
+    "wx-linkActivityNoFavIcon": {
+      "normal": "white-100"
+    },
+    "wx-linkActivityHoverRect-background": {
+      "normal": "gray-10"
+    },
+    "wx-linkActivityButton-background": {
+      "normal": "gray-90"
+    },
+    "wx-linkActivityButton-text": {
+      "normal": "white-100"
+    },
+    "wx-buttonTab-border": {
+      "normal": "gray-70"
+    },
+    "wx-buttonTab-text": {
+      "normal": "gray-05"
+    },
+    "wx-buttonTab-background": {
+      "normal": "gray-80",
+      "hovered": "gray-90",
+      "pressed": "gray-95",
+      "checked": "gray-95"
+    },
+    "wx-primary-button-contrary-backgroud": {
+      "normal": "gray-100",
+      "hovered": "gray-90",
+      "pressed": "gray-60"
+    },
+    "wx-secondary-button-contrary-backgroud": {
+      "normal": "transparent",
+      "hovered": "gray-30",
+      "pressed": "gray-40"
+    },
+    "wx-meetingsTabButton-text": {
+      "normal": "gray-05"
+    },
+    "wx-meetingsTabButton-background": {
+      "normal": "gray-100",
+      "hovered": "gray-95",
+      "pressed": "gray-80",
+      "checked": "gray-100",
+      "focused": "gray-95",
+      "disabled": "gray-80"
+    },
+    "wx-meetingIcon": {
+      "normal": "gray-40",
+      "disabled": "gray-70"
+    },
+    "wx-healthCheckButton-background": {
+      "normal": "gray-100",
+      "hovered": "blue-70",
+      "pressed": "blue-80"
+    },
+    "wx-healthCheckButton-text": {
+      "normal": "blue-40",
+      "hovered": "gray-05",
+      "pressed": "gray-05"
+    },
+    "wx-threadsItem-background": {
+      "normal": "gray-100",
+      "hovered": "gray-90",
+      "pressed": "gray-80",
+      "disabled": "white-100"
+    },
+    "wx-threadsUnreadItem-text": {
+      "normal": "blue-40",
+      "pressed": "blue-20"
+    },
+    "wx-infoButton-background": {
+      "normal": "gray-60"
+    },
+    "wx-insightsButton-background": {
+      "normal": "gray-60",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "checked": "gray-80",
+      "disabled": "gray-90"
+    },
+    "wx-classificationButtonUnselected-background": {
+      "normal": "transparent"
+    },
+    "wx-underlineButton-background": {
+      "normal": "transparent",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "checked": "gray-70"
+    },
+    "wx-underlineButton-text": {
+      "normal": "gray-40",
+      "hovered": "gray-05",
+      "pressed": "gray-05",
+      "checked": "gray-05",
+      "disabled": "gray-30"
+    },
+    "wx-underlineSearchFilterButton-text": {
+      "normal": "gray-40",
+      "hovered": "gray-05",
+      "pressed": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-searchModifier-background": {
+      "normal": "gray-70",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "disabled": "gray-100"
+    },
+    "wx-notification-background": {
+      "normal": "black-100"
+    },
+    "wx-notification-text": {
+      "normal": "gray-05"
+    },
+    "wx-teamButton-background": {
+      "normal": "gray-90",
+      "hovered": "gray-70",
+      "pressed": "gray-70"
+    },
+    "wx-themeButton-background": {
+      "normal": "gray-100",
+      "hovered": "gray-80",
+      "checked": "gray-80"
+    },
+    "wx-share-selection-window-item-border": {
+      "normal": "transparent",
+      "hovered": "gray-80",
+      "checked": "blue-40",
+      "pressed": "orange-50"
+    },
+    "wx-shareSeparator": {
+      "normal": "gray-80"
+    },
+    "wx-share-selection-window-background": {
+      "normal": "gray-95"
+    },
+    "wx-share-selection-window-popover-border-color": {
+      "normal": "gray-80"
+    },
+    "wx-share-selection-icon-background-color": {
+      "normal": "gray-80"
+    },
+    "wx-share-application-icon-background": {
+      "normal": "gray-90"
+    },
+    "wx-share-application-icon-border": {
+      "normal": "gray-80"
+    },
+    "wx-share-item-hover-background": {
+      "normal": "black-100-alpha-40"
+    },
+    "wx-share-toast-icon-background-color": {
+      "normal": "gray-80"
+    },
+    "wx-tutorialSeparator": {
+      "normal": "gray-10"
+    },
+    "wx-tutorialHeader-text": {
+      "normal": "gray-100"
+    },
+    "wx-tutorialDescription-text": {
+      "normal": "gray-60"
+    },
+    "wx-tutorialSelectorButton": {
+      "normal": "gray-50",
+      "checked": "gray-90"
+    },
+    "wx-previewContentListIcon": {
+      "normal": "gray-60",
+      "checked": "white-100"
+    },
+    "wx-previewContentList-background": {
+      "normal": "blue-40"
+    },
+    "wx-previewVideoRect-background": {
+      "normal": "gray-10"
+    },
+    "wx-secondColumnFlagIcon": {
+      "normal": "mint-20"
+    },
+    "wx-filterControlIcon": {
+      "normal": "gray-05",
+      "hovered": "gray-05",
+      "disabled": "gray-30"
+    },
+    "wx-filterControlBackground": {
+      "normal": "gray-95",
+      "hovered": "gray-80",
+      "disabled": "gray-70"
+    },
+    "wx-ucStatusButton-background": {
+      "normal": "transparent",
+      "hovered": "gray-70",
+      "pressed": "gray-70",
+      "disabled": "transparent"
+    },
+    "wx-customAppButtonIcon": {
+      "normal": "gray-05",
+      "hovered": "gray-20",
+      "pressed": "gray-30"
+    },
+    "wx-customAppButtonIcon-background": {
+      "normal": "gray-100"
+    },
+    "wx-ucStatus-label-text": {
+      "normal": "gray-05"
+    },
+    "wx-popupMenuItem-background": {
+      "normal": "gray-100",
+      "hovered": "blue-80",
+      "pressed": "blue-70",
+      "disabled": "gray-100"
+    },
+    "wx-popupMenuItem-text": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-avatarNameInput-border": {
+      "normal": "gray-100",
+      "hovered": "blue-40",
+      "focused": "blue-40"
+    },
+    "wx-transparent-button": {
+      "normal": "transparent",
+      "hovered": "gray-90",
+      "pressed": "gray-80",
+      "disabled": "transparent",
+      "focused": "gray-95",
+      "checked": "transparent"
+    },
+    "wx-semiTransparentPreview-background": {
+      "normal": "gray-100-alpha-50"
+    },
+    "wx-semiTransparentControl": {
+      "normal": "gray-100-alpha-60",
+      "hovered": "gray-100-alpha-40",
+      "pressed": "black-100-alpha-80",
+      "disabled": "gray-100-alpha-60"
+    },
+    "wx-callStatisticsTitle-background": {
+      "normal": "gray-70"
+    },
+    "wx-callStatisticsTitle-text": {
+      "normal": "white-100"
+    },
+    "wx-callStatisticsRecTran-background": {
+      "normal": "gray-05"
+    },
+    "wx-callStatisticsRecTran-text": {
+      "normal": "gray-90"
+    },
+    "wx-calendarIcon": {
+      "normal": "gray-05"
+    },
+    "wx-copyButton-background": {
+      "normal": "gray-100",
+      "hovered": "gray-80",
+      "pressed": "gray-90",
+      "disabled": "gray-95"
+    },
+    "wx-settingsButton-background": {
+      "normal": "gray-100",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "disabled": "gray-70"
+    },
+    "wx-settingsButtonIcon": {
+      "normal": "gray-50",
+      "disabled": "gray-20"
+    },
+    "wx-copyButtonIcon": {
+      "normal": "gray-05",
+      "disabled": "gray-20"
+    },
+    "wx-videoAdressInputIcon": {
+      "normal": "gray-40",
+      "pressed": "gray-30",
+      "disabled": "gray-10"
+    },
+    "wx-copiedLabel-background": {
+      "normal": "gray-50"
+    },
+    "wx-copiedLabel-text": {
+      "normal": "white"
+    },
+    "wx-copyButtonAfterCopiedIcon": {
+      "normal": "black",
+      "disabled": "gray-20"
+    },
+    "wx-joinMeetingButtonIcon": {
+      "normal": "white",
+      "disabled": "gray-20"
+    },
+    "wx-copyPMRButtonIcon": {
+      "normal": "white"
+    },
+    "wx-stopCallButtonIcon": {
+      "normal": "white",
+      "disabled": "gray-70"
+    },
+    "wx-wbClearAllButton-text": {
+      "normal": "red-40",
+      "hovered": "red-20",
+      "pressed": "red-10",
+      "disabled": "red-20"
+    },
+    "wx-multiAppShareShiftLabel-background": {
+      "normal": "white-100-alpha-11"
+    },
+    "wx-appShareButton-background": {
+      "normal": "white-100-alpha-11",
+      "hovered": "blue-40"
+    },
+    "wx-appShareIcon-background": {
+      "normal": "gray-100"
+    },
+    "wx-appShareIconPlaceholder": {
+      "normal": "blue-30",
+      "hovered": "gray-20",
+      "pressed": "blue-50",
+      "focused": "red-60",
+      "disabled": "white-100"
+    },
+    "wx-callWindowCheckedIcon": {
+      "normal": "blue-100"
+    },
+    "wx-selfMessageCircleIcon": {
+      "normal": "blue-50"
+    },
+    "wx-selfMessageCircle-border": {
+      "normal": "gray-20"
+    },
+    "wx-addButton-background": {
+      "normal": "gray-20",
+      "hovered": "gray-30",
+      "pressed": "gray-40",
+      "disabled": "gray-90"
+    },
+    "wx-addButton-text": {
+      "normal": "gray-100",
+      "disabled": "gray-90"
+    },
+    "wx-addButton-icon": {
+      "normal": "gray-100"
+    },
+    "wx-popover-background": {
+      "normal": "gray-95"
+    },
+    "wx-screenShareButton-border": {
+      "normal": "gray-20",
+      "checked": "red-60"
+    },
+    "wx-screenShareTitle-text": {
+      "normal": "white-100"
+    },
+    "wx-screenShareInfoFrame-background": {
+      "normal": "orange-50",
+      "disabled": "gray-50"
+    },
+    "wx-screenShareRecordingButton-background": {
+      "normal": "orange-50",
+      "checked": "red-60"
+    },
+    "wx-scrollbar-background": {
+      "normal": "transparent",
+      "hovered": "gray-90"
+    },
+    "wx-scrollbarHandle": {
+      "normal": "gray-70",
+      "hovered": "gray-60",
+      "pressed": "gray-50"
+    },
+    "wx-general-list-background": {
+      "normal": "transparent",
+      "hovered": "gray-90",
+      "pressed": "gray-80",
+      "checked": "gray-80"
+    },
+    "wx-general-list-border": {
+      "normal": "transparent",
+      "focused": "gray-05"
+    },
+    "wx-general-list-text": {
+      "normal": "gray-05",
+      "disabled": "gray-40",
+      "checked": "blue-40"
+    },
+    "wx-callStripAudioVideoButton-icon": {
+      "normal": "red-50",
+      "disabled": "gray-40"
+    },
+    "wx-defaultBlur-border": {
+      "normal": "black-100"
+    },
+    "wx-exitHostPINViewButton-text": {
+      "normal": "gray-50"
+    },
+    "wx-inputField-border": {
+      "normal": "blue-40"
+    },
+    "wx-muteAudioButton-background": {
+      "normal": "gray-90",
+      "hovered": "black",
+      "pressed": "black",
+      "disabled": "gray-05"
+    },
+    "wx-filmStripPipWidget-background": {
+      "normal": "gray-90"
+    },
+    "wx-pinChallengeWidgetCloseButton-background": {
+      "normal": "gray-50"
+    },
+    "wx-closeXButtonIcon": {
+      "normal": "white-100",
+      "hovered": "gray-05",
+      "pressed": "gray-10"
+    },
+    "wx-sparkToolbarButton-text": {
+      "normal": "gray-40",
+      "hovered": "white-100",
+      "pressed": "white-100",
+      "checked": "white-100",
+      "disabled": "gray-40"
+    },
+    "wx-defaultSparkToolbar-background": {
+      "normal": "gray-100",
+      "hovered": "blue-50",
+      "pressed": "blue-60",
+      "disabled": "gray-05"
+    },
+    "wx-device-menu-background": {
+      "normal": "gray-95",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "focused": "gray-80"
+    },
+    "wx-interstitial-background": {
+      "normal": "gray-100"
+    },
+    "wx-interstitial-frame-background": {
+      "normal": "white-100-alpha-05"
+    },
+    "wx-interstitial-change-video-button-background": {
+      "normal": "gray-80",
+      "hovered": "gray-90",
+      "pressed": "gray-95",
+      "disabled": "transparent"
+    },
+    "wx-interstitial-change-video-button-border": {
+      "normal": "gray-80",
+      "hovered": "gray-90",
+      "pressed": "gray-95",
+      "disabled": "transparent"
+    },
+    "wx-interstitial-audio-options-button": {
+      "normal": "transparent",
+      "hovered": "blue-80",
+      "pressed": "blue-60"
+    },
+    "wx-interstitial-button-background": {
+      "normal": "transparent",
+      "hovered": "gray-90",
+      "pressed": "gray-80",
+      "disabled": "transparent"
+    },
+    "wx-interstitial-button-border": {
+      "normal": "transparent",
+      "hovered": "gray-90",
+      "pressed": "gray-80",
+      "disabled": "transparent"
+    },
+    "wx-interstitial-frame-video-background": {
+      "normal": "black-100-alpha-70"
+    },
+    "wx-interstitial-frame-video-border": {
+      "normal": "white-100-alpha-16"
+    },
+    "wx-interstitial-disconnect-button-text": {
+      "normal": "red-40",
+      "hovered": "red-70"
+    },
+    "wx-interstitial-disconnect-button-background": {
+      "normal": "transparent",
+      "hovered": "transparent",
+      "pressed": "gray-20",
+      "disabled": "gray-100"
+    },
+    "wx-interstitial-audio-button-background": {
+      "normal": "gray-10",
+      "hovered": "gray-20",
+      "pressed": "gray-30",
+      "disabled": "gray-10"
+    },
+    "wx-interstitial-mute-button-icon": {
+      "normal": "red-50",
+      "disabled": "gray-70"
+    },
+    "wx-interstitial-mute-button-icon-checked": {
+      "normal": "red-50",
+      "disabled": "gray-70"
+    },
+    "wx-interstitial-paired-combobox-text": {
+      "normal": "blue-40"
+    },
+    "wx-interstitial-paired-combobox-background": {
+      "normal": "transparent",
+      "hovered": "gray-10",
+      "pressed": "gray-20",
+      "disabled": "gray-100"
+    },
+    "wx-interstitial-preview-background": {
+      "normal": "black-100-alpha-20"
+    },
+    "wx-interstitial-device-settig-background": {
+      "normal": "black-100-alpha-60"
+    },
+    "wx-interstitial-not-mirrored-background": {
+      "normal": "gray-80",
+      "hovered": "gray-90",
+      "pressed": "gray-95",
+      "disabled": "transparent"
+    },
+    "wx-interstitial-join-button-text": {
+      "normal": "white",
+      "disabled": "gray-40"
+    },
+    "wx-interstitial-mirrored-text-mirror": {
+      "normal": "white-100",
+      "hovered": "gray-05",
+      "pressed": "gray-05",
+      "checked": "white-100",
+      "disabled": "gray-90"
+    },
+    "wx-interstitial-mirrored-text-unmirror": {
+      "normal": "white-100",
+      "hovered": "gray-05",
+      "pressed": "gray-05",
+      "checked": "white-100",
+      "disabled": "gray-90"
+    },
+    "wx-call-control-button-background": {
+      "normal": "gray-70",
+      "hovered": "gray-80",
+      "pressed": "gray-90",
+      "disabled": "gray-95"
+    },
+    "wx-call-control-button-border": {
+      "normal": "gray-70",
+      "hovered": "gray-80",
+      "pressed": "gray-90",
+      "disabled": "gray-95"
+    },
+    "wx-call-control-button-text": {
+      "normal": "gray-70",
+      "hovered": "gray-80",
+      "pressed": "white-100",
+      "focused": "blue-40",
+      "checked": "white-100",
+      "disabled": "gray-95"
+    },
+    "wx-call-control-moreButton-background": {
+      "normal": "gray-70",
+      "hovered": "gray-80",
+      "pressed": "gray-90",
+      "checked": "gray-90",
+      "disabled": "gray-95"
+    },
+    "wx-call-view-timeLabel-background": {
+      "normal": "gray-90"
+    },
+    "wx-titilebar-recordinglabel-background": {
+      "normal": "red-50"
+    },
+    "wx-titilebar-pausedlabel-background": {
+      "normal": "yellow-40"
+    },
+    "wx-titilebar-locklabel-background": {
+      "normal": "gray-50"
+    },
+    "wx-call-control-panelButton-background": {
+      "normal": "gray-80",
+      "hovered": "gray-90",
+      "pressed": "gray-95",
+      "disabled": "gray-95"
+    },
+    "wx-call-control-panelButton-border": {
+      "normal": "gray-80",
+      "hovered": "gray-90",
+      "pressed": "gray-95",
+      "disabled": "gray-95"
+    },
+    "wx-call-control-panelButton-text": {
+      "normal": "gray-05",
+      "checked": "blue-40",
+      "disabled": "gray-70"
+    },
+    "wx-call-control-volume-background": {
+      "normal": "gray-90"
+    },
+    "wx-call-control-popover-border": {
+      "normal": "gray-80"
+    },
+    "wx-call-control-more-menu-background": {
+      "normal": "gray-90",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "disabled": "gray-90"
+    },
+    "wx-call-videoLayoutMenu-layoutButton-text": {
+      "normal": "white",
+      "hovered": "blue-40",
+      "pressed": "blue-50",
+      "disabled": "gray-70"
+    },
+    "wx-call-videoLayoutMenu-layoutButton-background": {
+      "normal": "gray-95",
+      "hovered": "gray-90",
+      "pressed": "gray-80",
+      "disabled": "gray-95"
+    },
+    "wx-call-videoLayoutMenu-separator-background": {
+      "normal": "white-100-alpha-16"
+    },
+    "wx-call-videoLayoutMenu-popover-background": {
+      "normal": "black"
+    },
+    "mainList": {
+      "normal": "gray-100",
+      "hovered": "gray-90",
+      "pressed": "gray-80"
+    },
+    "mainList-item": {
+      "normal": "gray-100",
+      "hovered": "gray-90",
+      "pressed": "gray-80",
+      "checked": "gray-90"
+    },
+    "wx-softLanding-leftSide-background": {
+      "normal": "gray-90"
+    },
+    "wx-call-control-endButton-icon": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-video-layout-controlButton-text": {
+      "normal": "white-100",
+      "hovered": "gray-20",
+      "checked": "blue-40",
+      "disabled": "gray-10"
+    },
+    "wx-video-layout-controlButton-background": {
+      "normal": "gray-80",
+      "hovered": "gray-70",
+      "pressed": "gray-60",
+      "checked": "gray-80",
+      "disabled": "gray-90"
+    },
+    "wx-titilebar-meetingInfo-svg-text": {
+      "normal": "white-100"
+    },
+    "wx-titilebar-meetingInfoButton-background": {
+      "normal": "transparent",
+      "hovered": "gray-90",
+      "pressed": "gray-80"
+    },
+    "wx-meeting-info-background": {
+      "normal": "transparent",
+      "hovered": "gray-90",
+      "pressed": "gray-80"
+    },
+    "wx-nametag-background": {
+      "normal": "black-100-alpha-80"
+    },
+    "wx-nametag-border": {
+      "normal": "white-100-alpha-16"
+    },
+    "wx-nametag-background-hasvideo": {
+      "normal": "black-100-alpha-54"
+    },
+    "wx-nametag-text-hasvideo": {
+      "normal": "white-100-alpha-95"
+    },
+    "wx-focusOutline-border": {
+      "normal": "transparent",
+      "focused": "blue-40"
+    },
+    "wx-focusOutline-splitbutton-border": {
+      "normal": "gray-70",
+      "focused": "blue-40"
+    },
+    "wx-focusOutline-transparent-border": {
+      "normal": "transparent",
+      "focused": "blue-40"
+    },
+    "wx-focusOutline-buttonJoin-border": {
+      "normal": "green-60",
+      "disabled": "gray-90",
+      "focused": "blue-40"
+    },
+    "wx-call-dialog-border": {
+      "normal": "gray-80"
+    },
+    "wx-layout-menu-button-background": {
+      "normal": "gray-70",
+      "hovered": "gray-80",
+      "checked": "gray-90"
+    },
+    "wx-layout-menu-button-border": {
+      "normal": "gray-70",
+      "hovered": "gray-80",
+      "checked": "gray-90"
+    },
+    "wx-layout-button-background": {
+      "normal": "gray-95",
+      "checked": "gray-90",
+      "disabled": "gray-95"
+    },
+    "wx-layout-button-text": {
+      "normal": "white-100-alpha-95",
+      "checked": "rebranding-blue-40",
+      "disabled": "white-100-alpha-40"
+    },
+    "wx-roster-mute-button-background": {
+      "normal": "gray-20",
+      "hovered": "gray-30",
+      "pressed": "gray-40",
+      "disabled": "transparent"
+    },
+    "wx-meeting-list-item-background": {
+      "normal": "gray-90",
+      "hovered": "gray-80",
+      "pressed": "gray-70"
+    },
+    "modal-text-secondary": {
+      "normal": "gray-40"
+    },
+    "wx-call-splitter-background": {
+      "normal": "gray-80"
+    },
+    "wx-lobbyView-background": {
+      "normal": "gray-95"
+    },
+    "wx-lobbyView-text-primary": {
+      "normal": "white-100"
+    },
+    "wx-lobbyView-text-secondary": {
+      "normal": "gray-40"
+    },
+    "wx-meeting-reminder-border": {
+      "normal": "gray-70"
+    },
+    "wx-callMoreEndPopupMenu-item-background": {
+      "normal": "gray-95",
+      "hovered": "gray-80",
+      "pressed": "gray-70",
+      "disabled": "gray-90"
+    },
+    "wx-callHistory-item-missed": {
+      "normal": "red-60"
+    },
+    "wx-callHistory-detail-missed": {
+      "normal": "red-70"
+    },
+    "wx-device-premeeting-volume-control": {
+      "normal": "gray-90"
+    },
+    "wx-device-in-meeting-button": {
+      "normal": "gray-70",
+      "hovered": "gray-70",
+      "pressed": "gray-70",
+      "disabled": "gray-80"
+    },
+    "wx-footer-info-icon": {
+      "normal": "blue-40"
+    },
+    "wx-meetingRSVPStatus-tentativeButton-background": {
+      "normal": "transparent",
+      "hovered": "gray-70",
+      "pressed": "yellow-60",
+      "checked": "yellow-60",
+      "disabled": "gray-90"
+    },
+    "wx-meetingRSVPStatus-acceptButton-background": {
+      "normal": "transparent",
+      "hovered": "gray-70",
+      "pressed": "cyan-70",
+      "checked": "cyan-70",
+      "disabled": "gray-90"
+    },
+    "wx-meetingRSVPStatus-declineButton-background": {
+      "normal": "transparent",
+      "hovered": "gray-70",
+      "pressed": "red-60",
+      "checked": "red-60",
+      "disabled": "gray-90"
+    },
+    "wx-meetingRSVPStatus-button-text": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-meetingRSVPStatus-button-border": {
+      "normal": "gray-50",
+      "hovered": "transparent",
+      "pressed": "transparent",
+      "checked": "transparent",
+      "disabled": "transparent"
+    },
+    "wx-buttonJoinIcon-background": {
+      "normal": "green-60",
+      "disabled": "gray-90"
+    },
+    "wx-buttonJoinIconOBTP-background": {
+      "normal": "gray-60",
+      "disabled": "gray-90"
+    },
+    "wx-scheduleButton-background": {
+      "normal": "blue-60",
+      "hovered": "blue-70",
+      "pressed": "blue-80",
+      "checked": "blue-80",
+      "disabled": "gray-90"
+    },
+    "wx-scheduleButton-icon": {
+      "normal": "blue-60",
+      "disabled": "transparent"
+    },
+    "wx-buttonJoin-background": {
+      "normal": "transparent",
+      "hovered": "gray-90",
+      "pressed": "gray-80"
+    },
+    "wx-footer-warning-icon": {
+      "normal": "yellow-40"
+    },
+    "wx-toggle-gray-color": {
+      "normal": "gray-60",
+      "hovered": "gray-40",
+      "pressed": "gray-30",
+      "disabled": "gray-90"
+    },
+    "wx-textEdit-background": {
+      "normal": "gray-100"
+    },
+    "wx-textEdit-text": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-reaction-list-item-gradient-background-start-color": {
+      "normal": "black-100-alpha-00"
+    },
+    "wx-reaction-list-item-gradient-background-end-color": {
+      "normal": "black-100-alpha-86"
+    },
+    "wx-reaction-list-item-gradient-border-start-color": {
+      "normal": "white-100-alpha-00"
+    },
+    "wx-reaction-list-item-gradient-border-end-color": {
+      "normal": "white-100-alpha-08"
+    },
+    "wx-reaction-expend-button-color": {
+      "normal": "gray-100"
+    },
+    "wx-reaction-expend-button-border-color": {
+      "normal": "gray-60"
+    },
+    "wx-reaction-list-background-color": {
+      "normal": "transparent",
+      "hovered": "black-100-alpha-40"
+    },
+    "wx-reaction-list-background-color-vdi": {
+      "normal": "transparent",
+      "hovered": "black"
+    },
+    "wx-reaction-list-item-background-color": {
+      "normal": "black-100"
+    },
+    "wx-reaction-list-item-border-color": {
+      "normal": "black-100-alpha-08"
+    },
+    "wx-reaction-list-avatar-border-color": {
+      "normal": "black-100-alpha-80"
+    },
+    "wx-reaction-recognizable-indicator-background": {
+      "normal": "gray-80"
+    },
+    "wx-multitask-panel-button-background": {
+      "normal": "black"
+    },
+    "wx-multitask-panel-button-background-outline": {
+      "normal": "gray-80"
+    },
+    "wx-multitask-shadow-window": {
+      "normal": "black"
+    },
+    "wx-multitask-activespeaker-background": {
+      "normal": "gray-97"
+    },
+    "wx-raise-hand-recognizable-indicator-background": {
+      "normal": "gray-80"
+    },
+    "wx-device-newvolumn-control-button-background": {
+      "normal": "gray-90",
+      "hovered": "gray-70",
+      "pressed": "gray-80"
+    },
+    "wx-device-newvolumn-control-button-border": {
+      "normal": "gray-80"
+    },
+    "wx-phonenumber-list-background": {
+      "normal": "gray-95"
+    },
+    "wx-activated-device-status": {
+      "normal": "green-50",
+      "hovered": "green-50",
+      "pressed": "green-50",
+      "disabled": "gray-30"
+    },
+    "wx-uc-account-information-alert-background": {
+      "normal": "yellow-80"
+    },
+    "participant-list-muted-icon-color": {
+      "normal": "red-45"
+    },
+    "participant-list-microphone-on-color": {
+      "normal": "green-25"
+    },
+    "wx-leftpane-shortcut-app-icon-orange": {
+      "normal": "orange-40"
+    },
+    "wx-leftpane-shortcut-app-icon-gold": {
+      "normal": "gold-40"
+    },
+    "wx-leftpane-shortcut-app-icon-olive": {
+      "normal": "olive-40"
+    },
+    "wx-leftpane-shortcut-app-icon-lime": {
+      "normal": "lime-40"
+    },
+    "wx-leftpane-shortcut-app-icon-mint": {
+      "normal": "mint-40"
+    },
+    "wx-leftpane-shortcut-app-icon-cyan": {
+      "normal": "cyan-40"
+    },
+    "wx-leftpane-shortcut-app-icon-cobalt": {
+      "normal": "cobalt-40"
+    },
+    "wx-leftpane-shortcut-app-icon-slate": {
+      "normal": "slate-40"
+    },
+    "wx-leftpane-shortcut-app-icon-violet": {
+      "normal": "violet-40"
+    },
+    "wx-leftpane-shortcut-app-icon-purple": {
+      "normal": "purple-40"
+    },
+    "wx-leftpane-shortcut-app-icon-pink": {
+      "normal": "pink-40"
+    },
+    "wx-slider-full": {
+      "normal": "blue-60"
+    },
+    "wx-slider-empty": {
+      "normal": "gray-70"
+    },
+    "wx-slider-handle": {
+      "normal": "gray-70",
+      "pressed": "gray-80"
+    },
+    "wx-recording-thumbnail-background": {
+      "normal": "gray-70"
+    },
+    "wx-recording-thumbnail-border": {
+      "normal": "gray-70"
+    },
+    "wx-recording-controls-background": {
+      "normal": "gray-95"
+    },
+    "wx-recording-video-background": {
+      "normal": "black"
+    },
+    "wx-topBarMainMinMaxButton-background": {
+      "normal": "transparent",
+      "hovered": "gray-70",
+      "pressed": "gray-60"
+    },
+    "wx-unread-pill-button-checked-color": {
+      "normal": "gray-70"
+    },
+    "wx-listItemText-primary": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-listItemText-secondary": {
+      "normal": "gray-40",
+      "disabled": "gray-70"
+    },
+    "wx-space-header-button-text": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-appextension-listItem-border": {
+      "normal": "white-100-alpha-40",
+      "focused": "blue-60"
+    },
+    "wx-appextension-clear-icon": {
+      "normal": "gray-20"
+    },
+    "wx-sendMessage-icon": {
+      "normal": "blue-60",
+      "hovered": "blue-70",
+      "pressed": "blue-80",
+      "checked": "blue-80",
+      "disabled": "gray-90"
+    },
+    "wx-inverted-button-text": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-meetingsInnerButton-color": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-subheader-text": {
+      "normal": "gray-40"
+    },
+    "wx-closeCreateSpaceButon": {
+      "normal": "white-100",
+      "hovered": "gray-05",
+      "pressed": "gray-10",
+      "disabled": "gray-95"
+    },
+    "wx-appextension-default-website-icon": {
+      "normal": "white-100"
+    },
+    "wx-tabSelectorView-text": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-teamNameLabel-text": {
+      "normal": "gray-05"
+    },
+    "wx-appextension-info-dialog-added-by": {
+      "normal": "blue-40"
+    },
+    "wx-recordingContainer-border": {
+      "normal": "gray-05"
+    },
+    "wx-addNewTeam-background": {
+      "normal": "gray-70",
+      "hovered": "gray-80",
+      "pressed": "gray-90",
+      "disabled": "white-100"
+    },
+    "wx-addNewTeam-text": {
+      "normal": "gray-05"
+    },
+    "wx-unreadMessageIndicator": {
+      "normal": "blue-50"
+    },
+    "wx-alertText-error-meeting-conflict": {
+      "normal": "red-40"
+    },
+    "wx-text-primary-meeting-info": {
+      "normal": "gray-05",
+      "disabled": "gray-70"
+    },
+    "wx-checkMark": {
+      "normal": "blue-40",
+      "hovered": "blue-20",
+      "pressed": "blue-20",
+      "disabled": "gray-70"
+    },
+    "wx-deviceConnection-border": {
+      "normal": "gray-80"
+    },
+    "wx-device-volume-control-border": {
+      "normal": "gray-90"
+    },
+    "wx-device-disconnect-button": {
+      "normal": "red-40",
+      "hovered": "red-70",
+      "pressed": "red-80",
+      "checked": "red-80",
+      "disabled": "gray-90"
+    },
+    "ut-legacy-settings-icon": {
+      "normal": "gray-05",
+      "hovered": "blue-70",
+      "pressed": "blue-80",
+      "checked": "blue-60",
+      "disabled": "gray-70"
+    },
+    "ut-legacy-favorite-icon": {
+      "normal": "gray-05",
+      "hovered": "yellow-60",
+      "pressed": "yellow-70",
+      "checked": "yellow-50",
+      "disabled": "gray-70"
+    },
+    "ut-legacy-expressiveMessage-icon": {
+      "normal": "gray-40",
+      "hovered": "blue-50",
+      "pressed": "blue-60",
+      "checked": "blue-60",
+      "disabled": "gray-70"
+    },
+    "button-secondary-background": {
+      "normal": "transparent",
+      "hovered": "gray-70",
+      "pressed": "gray-80",
+      "disabled": "gray-90"
+    },
+    "button-secondary-border": {
+      "normal": "white-100-alpha-30",
+      "hovered": "white-100-alpha-30",
+      "pressed": "white-100-alpha-30",
+      "disabled": "white-100-alpha-20"
+    },
+    "button-secondary-text": {
+      "normal": "white-100-alpha-95",
+      "hovered": "white-100-alpha-95",
+      "pressed": "white-100-alpha-95",
+      "disabled": "white-100-alpha-40"
+    },
+    "button-ghost-background": {
+      "normal": "transparent",
+      "hovered": "white-100-alpha-07",
+      "pressed": "white-100-alpha-20",
+      "disabled": "white-100-alpha-20"
+    },
+    "button-ghost-border": {
+      "normal": "transparent"
+    },
+    "modal-primary-background": {
+      "normal": "gray-100"
+    },
+    "modal-primary-border": {
+      "normal": "white-100-alpha-20"
+    },
+    "modal-secondary-background": {
+      "normal": "gray-97"
+    },
+    "modal-secondary-border": {
+      "normal": "white-100-alpha-20"
+    },
+    "separator-secondary": {
+      "normal": "white-100-alpha-20"
+    },
+    "listitem-background": {
+      "normal": "transparent",
+      "hovered": "white-100-alpha-05",
+      "pressed": "white-100-alpha-11",
+      "disabled": "transparent"
+    },
+    "listitem-tick": {
+      "normal": "rebranding-blue-40",
+      "hovered": "rebranding-blue-40",
+      "pressed": "rebranding-blue-40",
+      "disabled": "white-100-alpha-40"
+    },
+    "checkbox-checked-border": {
+      "normal": "rebranding-blue-40"
+    },
+    "sharewindow-preview-active": {
+      "normal": "orange-60"
+    },
+    "sharewindow-preview-inactive": {
+      "normal": "gray-60"
+    },
+    "sharewindow-border-selected": {
+      "normal": "rebranding-green-50"
+    },
+    "sharewindow-border-active": {
+      "normal": "orange-50"
+    },
+    "sharewindow-border-inactive": {
+      "normal": "gray-50"
+    },
+    "wx-remote-share-background": {
+      "normal": "gray-90"
+    },
+    "tab-active-background": {
+      "normal": "white-100-alpha-20",
+      "hovered": "white-100-alpha-30",
+      "pressed": "white-100-alpha-20"
+    },
+    "tab-active-text": {
+      "normal": "white-100-alpha-95",
+      "hovered": "white-100-alpha-95",
+      "pressed": "white-100-alpha-95"
+    },
+    "tab-inactive-background": {
+      "normal": "white-100-alpha-00",
+      "hovered": "white-100-alpha-07",
+      "pressed": "white-100-alpha-20"
+    },
+    "tab-inactive-text": {
+      "normal": "white-100-alpha-70",
+      "hovered": "white-100-alpha-95",
+      "pressed": "white-100-alpha-95",
+      "disabled": "white-100-alpha-40"
+    },
+    "listitem-textprimary": {
+      "normal": "white-100-alpha-95",
+      "hovered": "white-100-alpha-95",
+      "pressed": "white-100-alpha-95",
+      "disabled": "white-100-alpha-40"
+    },
+    "listitem-textsecondary": {
+      "normal": "white-100-alpha-70",
+      "hovered": "white-100-alpha-70",
+      "pressed": "white-100-alpha-70",
+      "disabled": "white-100-alpha-40"
+    },
+    "button-secondary-active-background": {
+      "normal": "white-100-alpha-20",
+      "hovered": "white-100-alpha-30",
+      "pressed": "white-100-alpha-40",
+      "disabled": "white-100-alpha-20"
+    },
+    "button-secondary-active-text": {
+      "normal": "white-100-alpha-95",
+      "hovered": "white-100-alpha-95",
+      "pressed": "white-100-alpha-95",
+      "disabled": "white-100-alpha-40"
+    },
+    "button-secondary-active-border": {
+      "normal": "transparent"
+    },
+    "button-inverted-background": {
+      "normal": "gray-105",
+      "hovered": "gray-110",
+      "pressed": "gray-80",
+      "disabled": "gray-105"
+    },
+    "button-inverted-text": {
+      "normal": "white-100-alpha-95",
+      "hovered": "white-100-alpha-95",
+      "pressed": "white-100-alpha-95",
+      "disabled": "white-100-alpha-40"
+    },
+    "button-inverted-border": {
+      "normal": "white-100-alpha-20",
+      "hovered": "white-100-alpha-20",
+      "pressed": "white-100-alpha-20",
+      "disabled": "white-100-alpha-20"
+    },
+    "banner-warning-background": {
+      "normal": "rebranding-yellow-90"
+    },
+    "banner-warning-text": {
+      "normal": "rebranding-yellow-40"
+    },
+    "label-warning-text": {
+      "normal": "rebranding-yellow-40"
+    },
+    "wx-sharewindow-dragger": {
+      "normal": "white-100-alpha-30"
+    },
+    "sharewindow-control-text-primary": {
+      "normal": "white-100-alpha-95",
+      "hovered": "white-100-alpha-95",
+      "pressed": "white-100-alpha-95",
+      "disabled": "white-100-alpha-40"
+    },
+    "sharewindow-control-button-primary-background": {
+      "normal": "white-100-alpha-95",
+      "hovered": "white-100-alpha-80",
+      "pressed": "white-100-alpha-70",
+      "disabled": "white-100-alpha-70"
+    },
+    "sharewindow-control-button-primary-text": {
+      "normal": "black",
+      "hovered": "black",
+      "pressed": "black",
+      "disabled": "black-100-alpha-40"
+    },
+    "sharewindow-control-button-secondary-background": {
+      "normal": "transparent",
+      "hovered": "white-100-alpha-07",
+      "pressed": "white-100-alpha-20",
+      "disabled": "white-100-alpha-20"
+    },
+    "sharewindow-control-button-secondary-border": {
+      "normal": "white-100-alpha-30"
+    },
+    "sharewindow-control-button-secondary-text": {
+      "normal": "white-100-alpha-95",
+      "hovered": "white-100-alpha-95",
+      "pressed": "white-100-alpha-95",
+      "disabled": "white-100-alpha-40"
+    },
+    "sharewindow-control-button-active-background": {
+      "normal": "white-100-alpha-20",
+      "hovered": "white-100-alpha-30",
+      "pressed": "white-100-alpha-40",
+      "disabled": "white-100-alpha-40"
+    },
+    "sharewindow-control-button-active-border": {
+      "normal": "white-100-alpha-30"
+    },
+    "sharewindow-control-button-active-text": {
+      "normal": "white-100-alpha-95",
+      "hovered": "white-100-alpha-95",
+      "pressed": "white-100-alpha-95",
+      "disabled": "white-100-alpha-40"
+    },
+    "theme-gradient-secondary-0-background": {
+      "normal": "gray-100"
+    },
+    "theme-gradient-secondary-1-background": {
+      "normal": "gray-100"
+    },
+    "wx-currentCallingStatus-background": {
+      "normal": "white-100-alpha-95"
+    },
+    "listitem-textprimary-normal": {
+      "normal": "white-100-alpha-95"
+    },
+    "alertbadge-announcement-background": {
+      "normal": "rebranding-blue-60",
+      "hovered": "rebranding-blue-60",
+      "pressed": "rebranding-blue-65"
+    },
+    "alertbadge-announcement-text": {
+      "normal": "blue-100",
+      "hovered": "rebranding-blue-20",
+      "pressed": "rebranding-blue-20"
+    },
+    "listitem-textmissed": {
+      "normal": "rebranding-red-40"
+    },
+    "wx-checked-qradiobutton-border": {
+      "normal": "blue-50"
+    },
+    "wx-unchecked-qradiobutton-border": {
+      "normal": "gray-80"
+    },
+    "wx-checked-qradiobutton-backgroud": {
+      "normal": "white"
+    },
+    "sharewindow-viewwindow-active": {
+      "normal": "orange-60"
+    },
+    "sharewindow-viewwindow-hovered": {
+      "normal": "white-100-alpha-20"
+    },
+    "sharewindow-viewwindow-selected": {
+      "normal": "rebranding-blue-40"
+    }
+  }
+}
