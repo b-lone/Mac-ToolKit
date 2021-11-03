@@ -20,6 +20,7 @@ protocol ShareContextProtocol: AnyObject {
     var lastStartShareInfo: StartShareInfo? { get }
     func isSharing(source: ShareSource) -> Bool
     func isEqual(to theOther: ShareContextProtocol?) -> Bool
+    var isSharingBlankContent:Bool { get }
 }
 
 class StartShareInfo: NSObject {
@@ -111,5 +112,13 @@ class ShareContext: NSObject, ShareContextProtocol {
             && windowNumberList == theOther.windowNumberList
             && sharingWindowNumberList == theOther.sharingWindowNumberList
             && screenToDraw == theOther.screenToDraw
+    }
+    
+    var isSharingBlankContent: Bool {
+        if shareSourceType == .window || shareSourceType == .application {
+            return sharingWindowNumberList.isEmpty
+        } else {
+            return false
+        }
     }
 }

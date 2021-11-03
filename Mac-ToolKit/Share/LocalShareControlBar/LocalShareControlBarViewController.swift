@@ -20,19 +20,11 @@ class LocalShareControlBarViewController: NSViewController, LocalShareControlBar
     weak var animator: WindowAnimator?
     
     @IBOutlet var contentView: RoundSameSideCornerView!
+    fileprivate lazy var controlButtonsViewController: LocalShareControlButtonsViewController = makeControlButtonsViewController()
+    
     private weak var shareComponent: ShareManagerComponentProtocol?
     fileprivate var shareFactory: ShareFactoryProtocol
-    private var isSharePaused = false
-    private var isContentBlank: Bool {
-        if let shareContext = shareComponent?.shareContext {
-            if shareContext.shareSourceType == .window || shareContext.shareSourceType == .application {
-                return shareContext.sharingWindowNumberList.isEmpty
-            } else {
-                return false
-            }
-        }
-        return true
-    }
+    fileprivate var isSharePaused = false
     fileprivate var edge = Edge.top
     
     init(shareFactory: ShareFactoryProtocol, nibName: NSNib.Name?) {
@@ -61,12 +53,24 @@ class LocalShareControlBarViewController: NSViewController, LocalShareControlBar
         self.shareComponent = shareComponent
         shareComponent.registerListener(self)
         
+        controlButtonsViewController.setup(shareComponent: shareComponent)
         updateBackgroundColor()
     }
     
-    private func updateBackgroundColor() {
-        SPARK_LOG_DEBUG("isSharePaused: \(isSharePaused), isContentBlank: \(isContentBlank)")
-        contentView.backgroundColor = (!isSharePaused && !isContentBlank) ? getUIToolkitColor(token: .sharewindowBorderActive).normal : getUIToolkitColor(token: .sharewindowBorderInactive).normal
+    fileprivate func makeControlButtonsViewController() -> LocalShareControlButtonsViewController {
+        return LocalShareControlButtonsViewController()
+    }
+    
+    fileprivate func getIsSharingBlankContent() -> Bool {
+        if let shareContext = shareComponent?.shareContext {
+            return shareContext.isSharingBlankContent
+        }
+        return false
+    }
+    
+    fileprivate func updateBackgroundColor() {
+        SPARK_LOG_DEBUG("isSharePaused: \(isSharePaused), isSharingBlankContent: \(getIsSharingBlankContent())")
+        contentView.backgroundColor = (!isSharePaused && !getIsSharingBlankContent()) ? getUIToolkitColor(token: .sharewindowBorderActive).normal : getUIToolkitColor(token: .sharewindowBorderInactive).normal
     }
     
     func shareManagerComponent(_ shareManagerComponent: ShareManagerComponentProtocol, onLocalShareControlBarInfoChanged info: CHLocalShareControlBarInfo) {
@@ -116,8 +120,6 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
     @IBOutlet var previewContainerViewBottomConstraint: NSLayoutConstraint!
     private lazy var previewContainerViewTopConstraint: NSLayoutConstraint = previewContainerView.topAnchor.constraint(equalTo: expandContainerView.bottomAnchor)
     
-    private lazy var controlButtonsViewController: ILocalShareControlButtonsHorizontalViewController = shareFactory.makeLocalShareControlButtonsHorizontalViewController()
-    
     private var expandState = ExpandState.expended {
         didSet {
             onExpandStateUpdate()
@@ -146,6 +148,8 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         mouseTrackView.mouseTrackDelegate = self
         mouseTrackView.trackingAreaOptions = [.activeAlways, .mouseEnteredAndExited, .inVisibleRect]
         
+        controlButtonsContainerView.wantsLayer = true
+        
         previewContainerView.wantsLayer = true
         previewContainerView.layer?.backgroundColor = NSColor.blue.cgColor
         
@@ -171,6 +175,15 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
             previewContainerViewTopConstraint.isActive = true
         }
         updateExpandButtonIcon()
+    }
+    
+    override func makeControlButtonsViewController() -> LocalShareControlButtonsViewController {
+        shareFactory.makeLocalShareControlButtonsHorizontalViewController()
+    }
+    
+    override func updateBackgroundColor() {
+        super.updateBackgroundColor()
+        controlButtonsContainerView.layer?.backgroundColor = (!isSharePaused && !getIsSharingBlankContent()) ? getUIToolkitColor(token: .sharewindowBorderActive).normal.cgColor : getUIToolkitColor(token: .sharewindowBorderInactive).normal.cgColor
     }
     
     private func updateExpandButtonIcon() {
@@ -248,8 +261,6 @@ typealias ILocalShareControlVerticalBarViewController = WindowAnimationCollabora
 
 
 class LocalShareControlVerticalBarViewController: LocalShareControlBarViewController {
-    private lazy var controlButtonsViewController: ILocalShareControlButtonsVerticalViewContrller = shareFactory.makeLocalShareControlButtonsVerticalViewContrller()
-    
     init(shareFactory: ShareFactoryProtocol) {
         super.init(shareFactory: shareFactory, nibName: "LocalShareControlVerticalBarViewController")
         let _ = view
@@ -263,6 +274,10 @@ class LocalShareControlVerticalBarViewController: LocalShareControlBarViewContro
         super.viewDidLoad()
         
         contentView.addSubviewAndFill(subview: controlButtonsViewController.view)
+    }
+    
+    override func makeControlButtonsViewController() -> LocalShareControlButtonsViewController {
+        shareFactory.makeLocalShareControlButtonsVerticalViewContrller()
     }
 }
 

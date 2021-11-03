@@ -7,7 +7,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="LocalShareControlButtonsHorizontalViewController" customModule="Mac_ToolKit" customModuleProvider="target">
             <connections>
+                <outlet property="annotateButton" destination="6Oi-pw-gZj" id="LBD-H8-Db4"/>
                 <outlet property="dragLabel" destination="6rM-8p-30N" id="1Di-iY-VGg"/>
+                <outlet property="pauseButton" destination="XHy-58-hdf" id="ZwG-Tc-meK"/>
+                <outlet property="rdcButton" destination="RgB-Vd-Cpm" id="fJB-ex-8ps"/>
+                <outlet property="stopButton" destination="Z9g-ky-fMP" id="oDn-LV-28A"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -24,10 +28,80 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="750" verticalHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDk-7V-JyQ">
+                    <rect key="frame" x="258" y="111" width="216" height="50"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Oi-pw-gZj" customClass="UTRoundButton" customModule="UIToolkit">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="2kP-hp-FO5">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onAnnotateButton:" target="-2" id="v9Q-Ft-5av"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RgB-Vd-Cpm" customClass="UTRoundButton" customModule="UIToolkit">
+                            <rect key="frame" x="58" y="0.0" width="50" height="50"/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="kjc-Jz-slg">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onRdcButton:" target="-2" id="2An-Ln-5Ne"/>
+                            </connections>
+                        </button>
+                        <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CT6-ZE-P8l">
+                            <rect key="frame" x="116" y="0.0" width="100" height="50"/>
+                            <subviews>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XHy-58-hdf" customClass="UTRoundedCornerButton" customModule="UIToolkit">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="tfL-6x-VDB">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="onPauseButton:" target="-2" id="FtD-AS-tkU"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z9g-ky-fMP" customClass="UTRoundedCornerButton" customModule="UIToolkit">
+                                    <rect key="frame" x="50" y="0.0" width="50" height="50"/>
+                                    <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="eV8-OB-Wqf">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="onStopButton:" target="-2" id="4ut-0t-ehT"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
             </subviews>
             <constraints>
                 <constraint firstItem="6rM-8p-30N" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Hcy-YJ-Kea"/>
+                <constraint firstItem="iDk-7V-JyQ" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="Pc3-Jj-o4X"/>
                 <constraint firstItem="6rM-8p-30N" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="fSM-Gz-vEe"/>
+                <constraint firstAttribute="trailing" secondItem="iDk-7V-JyQ" secondAttribute="trailing" constant="6" id="jc2-pJ-d0V"/>
             </constraints>
             <point key="canvasLocation" x="1" y="154"/>
         </customView>

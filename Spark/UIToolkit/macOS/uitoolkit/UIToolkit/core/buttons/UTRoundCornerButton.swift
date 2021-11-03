@@ -10,7 +10,7 @@ import Cocoa
 public class UTRoundedCornerButton: UTPillButton {
     override func initialise(){
         super.initialise()
-        elementSize.minIntrinsicWidth = 30
+        elementSize.minIntrinsicWidth = 28
     }
 
     public var roundSetting: RoundedCornerStyle = .lhs {
@@ -35,37 +35,15 @@ public class UTRoundedCornerButton: UTPillButton {
         path.stroke()
     }
     
-    override var trailingPadding: CGFloat { trailingLeadingPadding }
-    
-    override var leadingPadding: CGFloat { trailingLeadingPadding }
-    
-    private var trailingLeadingPadding:CGFloat {
-        switch roundSetting {
-        case .pill, .lhs:
-            switch buttonHeight {
-            case .extralarge:
-                assert(false, "extralarge not supported for UTPillButton")
-                return 16
-            case .large: return 16
-            case .medium: return 12
-            case .small: return 10
-            case .extrasmall: return 10
-            default:
-                assert(false)
-                return 40
-            }
-        case .rhs, .none, .top, .bottom:
-            switch buttonHeight {
-            case .extralarge:
-                assert(false, "extralarge not supported for UTPillButton")
-                return 7
-            case .large, .medium, .small, .extrasmall: return 7
-            default:
-                assert(false)
-                return 7
-            }
+    open var horizontalPadding: CGFloat = 12
+    open var elementPadding: CGFloat = 8 {
+        didSet {
+            elementSize.elementPadding = elementPadding
         }
     }
+    
+    override var trailingPadding: CGFloat { horizontalPadding }
+    override var leadingPadding: CGFloat { horizontalPadding }
     
     override func updateBorderWidth() {
         layer?.borderWidth = 0
