@@ -44,23 +44,6 @@
 		21F107C4272A979800E40AD9 /* CHShortcut.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F107C3272A979800E40AD9 /* CHShortcut.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		21F107D4272AA0A900E40AD9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21F107CF272AA0A900E40AD9 /* UIToolkit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07756FB626951E88000A63C5;
-			remoteInfo = UIToolkit;
-		};
-		21F107D6272AA0A900E40AD9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21F107CF272AA0A900E40AD9 /* UIToolkit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 077573E12695EC79000A63C5;
-			remoteInfo = UIToolkitTests;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		21F106ED272A52AF00E40AD9 /* CommonHead.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonHead.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F106F0272A52AF00E40AD9 /* CommonHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHead.h; sourceTree = "<group>"; };
@@ -99,7 +82,6 @@
 		21F10778272A833400E40AD9 /* CHMeetingRecordingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMeetingRecordingState.h; sourceTree = "<group>"; };
 		21F107C1272A972B00E40AD9 /* CHResumeShareControlBarInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHResumeShareControlBarInfo.swift; sourceTree = "<group>"; };
 		21F107C3272A979800E40AD9 /* CHShortcut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShortcut.h; sourceTree = "<group>"; };
-		21F107CF272AA0A900E40AD9 /* UIToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UIToolkit.xcodeproj; path = ../UIToolkit/macOS/uitoolkit/UIToolkit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +98,6 @@
 		21F106E3272A52AF00E40AD9 = {
 			isa = PBXGroup;
 			children = (
-				21F107CF272AA0A900E40AD9 /* UIToolkit.xcodeproj */,
 				21F106EF272A52AF00E40AD9 /* CommonHead */,
 				21F106EE272A52AF00E40AD9 /* Products */,
 			);
@@ -171,15 +152,6 @@
 				21F106F1272A52AF00E40AD9 /* Info.plist */,
 			);
 			path = CommonHead;
-			sourceTree = "<group>";
-		};
-		21F107D0272AA0A900E40AD9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21F107D5272AA0A900E40AD9 /* UIToolkit.framework */,
-				21F107D7272AA0A900E40AD9 /* UIToolkitTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,35 +225,12 @@
 			mainGroup = 21F106E3272A52AF00E40AD9;
 			productRefGroup = 21F106EE272A52AF00E40AD9 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 21F107D0272AA0A900E40AD9 /* Products */;
-					ProjectRef = 21F107CF272AA0A900E40AD9 /* UIToolkit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				21F106EC272A52AF00E40AD9 /* CommonHead */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		21F107D5272AA0A900E40AD9 /* UIToolkit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = UIToolkit.framework;
-			remoteRef = 21F107D4272AA0A900E40AD9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21F107D7272AA0A900E40AD9 /* UIToolkitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = UIToolkitTests.xctest;
-			remoteRef = 21F107D6272AA0A900E40AD9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		21F106EB272A52AF00E40AD9 /* Resources */ = {
