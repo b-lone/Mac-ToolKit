@@ -160,18 +160,18 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         super.updateEdge(edge: edge)
         
         if edge == .top {
-            controlButtonsContainerViewTopConstraint.isActive = true
             controlButtonsContainerViewBottomConstraint.isActive = false
-            expandContainerViewBottomConstraint.isActive = true
             expandContainerViewTopConstraint.isActive = false
-            previewContainerViewBottomConstraint.isActive = true
             previewContainerViewTopConstraint.isActive = false
+            controlButtonsContainerViewTopConstraint.isActive = true
+            expandContainerViewBottomConstraint.isActive = true
+            previewContainerViewBottomConstraint.isActive = true
         } else if edge == .bottom {
             controlButtonsContainerViewTopConstraint.isActive = false
-            controlButtonsContainerViewBottomConstraint.isActive = true
             expandContainerViewBottomConstraint.isActive = false
-            expandContainerViewTopConstraint.isActive = true
             previewContainerViewBottomConstraint.isActive = false
+            controlButtonsContainerViewBottomConstraint.isActive = true
+            expandContainerViewTopConstraint.isActive = true
             previewContainerViewTopConstraint.isActive = true
         }
         updateExpandButtonIcon()
