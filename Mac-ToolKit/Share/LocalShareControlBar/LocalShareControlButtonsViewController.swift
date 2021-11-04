@@ -10,10 +10,25 @@ import Cocoa
 import UIToolkit
 import CommonHead
 
-protocol LocalShareControlButtonsViewControllerProtocol {
+protocol LocalShareControlButtonsViewControllerProtocol: ShareManagerComponentSetup, ShareManagerComponentListener, EdgeCollaborator {
 }
 
-class LocalShareControlButtonsViewController: NSViewController, LocalShareControlButtonsViewControllerProtocol, ShareManagerComponentSetup, ShareManagerComponentListener {
+fileprivate extension Edge {
+    var tooltipPreferredEdge: NSRectEdge {
+        switch self {
+        case .top:
+            return .minY
+        case .bottom:
+            return .maxY
+        case .left:
+            return .maxX
+        case .right:
+            return .minX
+        }
+    }
+}
+
+class LocalShareControlButtonsViewController: NSViewController, LocalShareControlButtonsViewControllerProtocol {
     @IBOutlet weak var dragLabel: NSTextField!
     @IBOutlet weak var annotateButton: UTRoundButton!
     @IBOutlet weak var rdcButton: UTRoundButton!
@@ -27,6 +42,8 @@ class LocalShareControlButtonsViewController: NSViewController, LocalShareContro
         }
     }
     
+    fileprivate var edge = Edge.top
+    
     deinit {
         shareComponent?.unregisterListener(self)
     }
@@ -36,23 +53,38 @@ class LocalShareControlButtonsViewController: NSViewController, LocalShareContro
         
         setupDragLabel()
         
-        annotateButton.style = .shareWindowSecondary
-        annotateButton.buttonHeight = .extrasmall
-        annotateButton.fontIcon = MomentumRebrandIconType.annotateBold
-        let tooltipDetails = UTRichTooltipDetails(tooltip: NSAttributedString(string: LocalizationStrings.annotate), size: .medium, preferredEdge: .minY)
-        annotateButton.addUTToolTip(toolTip: .rich(tooltipDetails))
-        
-        rdcButton.style = .shareWindowSecondary
-        rdcButton.buttonHeight = .extrasmall
-        rdcButton.fontIcon = MomentumRebrandIconType.remoteDesktopControlBold
+        setupShareControlButton(button: annotateButton, type: .annotate)
+        setupShareControlButton(button: rdcButton, type: .remoteControlStart)
         
         setupPauseButton()
         setupStopButton()
     }
     
+    fileprivate func setupShareControlButton(button: UTButton, type: ShareControlButtonType) {
+        button.style = type.style
+        button.buttonHeight = type.buttonHeight
+        button.fontIcon = type.fontIcon
+        button.addUTToolTip(toolTip: type.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
+        button.setAccessibilityTitle(type.accessibilityLabel)
+        button.setAccessibilityValue(type.accessibilityValue)
+    }
+    
     func setup(shareComponent: ShareManagerComponentProtocol) {
         self.shareComponent = shareComponent
         shareComponent.registerListener(self)
+    }
+    
+    func updateEdge(edge: Edge) {
+        self.edge = edge
+        
+        updateButtonTooltip()
+    }
+    
+    fileprivate func updateButtonTooltip() {
+        annotateButton?.addUTToolTip(toolTip: ShareControlButtonType.annotate.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
+        rdcButton?.addUTToolTip(toolTip: ShareControlButtonType.remoteControlStart.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
+        pauseButton?.addUTToolTip(toolTip: ShareControlButtonType.pause.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
+        stopButton?.addUTToolTip(toolTip: ShareControlButtonType.stop.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
     }
     
     fileprivate func setupDragLabel() {
@@ -61,9 +93,7 @@ class LocalShareControlButtonsViewController: NSViewController, LocalShareContro
     }
     
     fileprivate func setupPauseButton() {
-        pauseButton.style = .shareWindowSecondary
-        pauseButton.buttonHeight = .small
-        updatePauseButtonIcon()
+        setupShareControlButton(button: pauseButton, type: .pause)
     }
     
     private func updatePauseButtonIcon() {
@@ -71,9 +101,7 @@ class LocalShareControlButtonsViewController: NSViewController, LocalShareContro
     }
     
     fileprivate func setupStopButton() {
-        stopButton.style = .shareWindowSecondary
-        stopButton.buttonHeight = .small
-        stopButton.fontIcon = MomentumRebrandIconType.stopBold
+        setupShareControlButton(button: stopButton, type: .stop)
     }
     
     @IBAction func onShowShareContentWindow(_ sender: Any) {
@@ -99,6 +127,100 @@ class LocalShareControlButtonsViewController: NSViewController, LocalShareContro
     
     func shareManagerComponent(_ shareManagerComponent: ShareManagerComponentProtocol, onLocalShareControlBarInfoChanged info: CHLocalShareControlBarInfo) {
         isSharePaused = info.isSharePaused
+    }
+    
+    fileprivate enum ShareControlButtonType {
+        case switchShare
+        case annotate
+        case remoteControlStart
+        case remoteControlStop
+        case pause
+        case resume
+        case stop
+        
+        var style: UTButton.Style { .shareWindowSecondary }
+        
+        var buttonHeight: ButtonHeight {
+            switch self {
+            case .switchShare, .annotate, .remoteControlStart, .remoteControlStop:
+                return .extrasmall
+            case .pause, .resume, .stop:
+                return .small
+            }
+        }
+        
+        var fontIcon: MomentumRebrandIconType {
+            switch self {
+            case .switchShare:
+                return .shareScreenBold
+            case .annotate:
+                return .annotateBold
+            case .remoteControlStart:
+                return .remoteDesktopControlBold
+            case .remoteControlStop:
+                return .endRemoteDesktopControlBold
+            case .pause:
+                return .pauseBold
+            case .resume:
+                return .playBold
+            case .stop:
+                return .stopBold
+            }
+        }
+        
+        private var tooltip: String {
+            switch self {
+            case .switchShare:
+                return LocalizationStrings.share
+            case .annotate:
+                return LocalizationStrings.annotate
+            case .remoteControlStart:
+                return LocalizationStrings.remoteControlGiveRemoteControl
+            case .remoteControlStop:
+                return LocalizationStrings.remoteControlHotKeyToolTip
+            case .pause:
+                return LocalizationStrings.pauseSharing
+            case .resume:
+                return LocalizationStrings.resumeSharing
+            case .stop:
+                return LocalizationStrings.stopSharing
+            }
+        }
+        
+        func getUTToolTip(preferredEdge: NSRectEdge, tooltip: String? = nil) -> UTTooltipType {
+            let tooltipDetails = UTRichTooltipDetails(tooltip: NSAttributedString(string: tooltip ?? self.tooltip), size: .medium, preferredEdge: preferredEdge)
+            return .rich(tooltipDetails)
+        }
+        
+        var accessibilityLabel: String {
+            switch self {
+            case .switchShare:
+                return LocalizationStrings.share
+            case .annotate:
+                return LocalizationStrings.annotate
+            case .remoteControlStart:
+                return LocalizationStrings.remoteControlACC
+            case .remoteControlStop:
+                return LocalizationStrings.remoteControlACC
+            case .pause:
+                return LocalizationStrings.pauseSharing
+            case .resume:
+                return LocalizationStrings.resumeSharing
+            case .stop:
+                return LocalizationStrings.stopSharing
+            }
+        }
+        
+        var accessibilityValue: String? {
+            switch self {
+            case .remoteControlStart:
+                return LocalizationStrings.notStart
+            case .remoteControlStop:
+                return LocalizationStrings.start
+            default:
+                return nil
+            }
+        }
     }
 }
 
@@ -151,9 +273,12 @@ class LocalShareControlButtonsVerticalViewContrller: LocalShareControlButtonsVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switchShareButton.style = .shareWindowSecondary
-        switchShareButton.buttonHeight = .extrasmall
-        switchShareButton.fontIcon = MomentumRebrandIconType.shareScreenBold
+        setupShareControlButton(button: switchShareButton, type: .switchShare)
+    }
+    
+    override func updateButtonTooltip() {
+        super.updateButtonTooltip()
+        switchShareButton?.addUTToolTip(toolTip: ShareControlButtonType.switchShare.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
     }
     
     override func setupDragLabel() {

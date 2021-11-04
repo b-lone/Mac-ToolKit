@@ -11,12 +11,11 @@ import UIToolkit
 import CommonHead
 
 //MARK: Base
-protocol LocalShareControlBarViewControllerProtocol: AnyObject {
-    func setEdge(edge: Edge)
+protocol LocalShareControlBarViewControllerProtocol: EdgeCollaborator, ShareManagerComponentSetup, ShareManagerComponentListener {
     var animator: WindowAnimator? { get set }
 }
 
-class LocalShareControlBarViewController: NSViewController, LocalShareControlBarViewControllerProtocol, ShareManagerComponentSetup, ShareManagerComponentListener {
+class LocalShareControlBarViewController: NSViewController, LocalShareControlBarViewControllerProtocol {
     weak var animator: WindowAnimator?
     
     @IBOutlet var contentView: RoundSameSideCornerView!
@@ -44,9 +43,10 @@ class LocalShareControlBarViewController: NSViewController, LocalShareControlBar
         contentView.cornerRadius = 8.0
     }
     
-    func setEdge(edge: Edge) {
+    func updateEdge(edge: Edge) {
         self.edge = edge
         contentView.cornerDirection = edge.cornerDirection
+        controlButtonsViewController.updateEdge(edge: edge)
     }
     
     func setup(shareComponent: ShareManagerComponentProtocol) {
@@ -138,7 +138,7 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setEdge(edge: .top)
+        updateEdge(edge: .top)
         
         expandButton.buttonColor = getUIToolkitColor(token: .sharewindowControlButtonSecondaryBackground).normal
         expandButton.buttonHoverColor = getUIToolkitColor(token: .sharewindowControlButtonSecondaryBackground).hover
@@ -156,8 +156,8 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         controlButtonsContainerView.addSubviewAndFill(subview: controlButtonsViewController.view)
     }
     
-    override func setEdge(edge: Edge) {
-        super.setEdge(edge: edge)
+    override func updateEdge(edge: Edge) {
+        super.updateEdge(edge: edge)
         
         if edge == .top {
             controlButtonsContainerViewTopConstraint.isActive = true

@@ -20,6 +20,10 @@ protocol WindowAnimator: AnyObject {
     func startAnimationForSizeChanged()
 }
 
+protocol EdgeCollaborator: AnyObject {
+    func updateEdge(edge: Edge)
+}
+
 typealias ILocalShareControlBarWindowController = LocalShareControlBarWindowControllerProtocol & ShareManagerComponentSetup & BaseWindowController
 
 protocol LocalShareControlBarWindowControllerProtocol: AnyObject {
@@ -120,7 +124,7 @@ class LocalShareControlBarWindowController: BaseWindowController {
             contenView.addSubviewAndFill(subview: verticalViewController.view)
             currentViewController = verticalViewController
         }
-        currentViewController?.setEdge(edge: edge)
+        currentViewController?.updateEdge(edge: edge)
     }
     
     private func getScreenFrame() -> NSRect {
@@ -234,8 +238,8 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
         }
         Geometry.move(&windowFrame, into: screenFrame)
         
-        horizontalViewController.setEdge(edge: position.edge)
-        verticalViewController.setEdge(edge: position.edge)
+        horizontalViewController.updateEdge(edge: position.edge)
+        verticalViewController.updateEdge(edge: position.edge)
         window.setFrame(windowFrame, display: true, animate: animate)
     }
     
