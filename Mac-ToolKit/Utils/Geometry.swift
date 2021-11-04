@@ -20,63 +20,38 @@ enum Orientation : Int {
     case vertical = 1
 }
 
-class Geometry {
-    @discardableResult static func expand(_ rect: inout CGRect, width deviation: CGFloat) -> CGRect {
-        rect.origin.x -= deviation
-        rect.origin.y -= deviation
-        rect.size.width += deviation * 2
-        rect.size.height += deviation * 2
+extension NSRect {
+    func expand(width deviation: CGFloat) -> CGRect {
+        return NSMakeRect(origin.x - deviation, origin.y - deviation, width + deviation * 2, height + deviation * 2)
+    }
+    
+    func expand(dx: CGFloat = 0, dy: CGFloat = 0) -> CGRect {
+        return NSMakeRect(origin.x - dx, origin.y - dy, width + dx * 2, height + dy * 2)
+    }
+    
+    func cut(with insets: NSEdgeInsets) -> CGRect {
+        return NSMakeRect(origin.x + insets.left, origin.y + insets.bottom, width - insets.left - insets.right, height - insets.bottom - insets.top)
+    }
+    
+    func move(into outer: CGRect) -> CGRect {
+        var rect = self
+        rect.origin.x = max(rect.minX, outer.minX)
+        rect.origin.y = max(rect.minY, outer.minY)
+        rect.origin.x = min(rect.maxX - width, outer.maxX - width)
+        rect.origin.y = min(rect.maxY - height, outer.maxY - height)
         return rect
     }
     
-    @discardableResult static func expand(_ rect: inout CGRect, dx: CGFloat = 0, dy: CGFloat = 0) -> CGRect {
-        rect.origin.x -= dx
-        rect.origin.y -= dy
-        rect.size.width += dx * 2
-        rect.size.height += dy * 2
-        return rect
-    }
-    
-    @discardableResult static func cut(_ rect: inout CGRect, with insets: NSEdgeInsets) -> CGRect {
-        rect.origin.x += insets.left
-        rect.origin.y += insets.bottom
-        rect.size.width -= insets.left + insets.right
-        rect.size.height -= insets.bottom + insets.top
-        return rect
-    }
-    
-    @discardableResult static func move(_ rect: inout CGRect, into outer: CGRect) -> CGRect {
-        if rect.minX < outer.minX {
-            rect.origin.x = outer.minX
-        }
-        if rect.minY < outer.minY {
-            rect.origin.y = outer.minY
-        }
-        if rect.maxX > outer.maxX {
-            rect.origin.x = outer.maxX - rect.width
-        }
-        if rect.maxY > outer.maxY {
-            rect.origin.y = outer.maxY - rect.height
-        }
-        return rect
-    }
-    
-    @discardableResult static func move(_ point: inout NSPoint, into outer: CGRect) -> NSPoint {
-        point.x = min(point.x, outer.maxX)
-        point.x = max(point.x, outer.minX)
-        point.y = min(point.y, outer.maxY)
-        point.y = max(point.y, outer.minY)
-        return point
-    }
-    
-    @discardableResult static func resizeAndKeepCenter(_ rect: inout CGRect, newSize: CGSize) -> CGRect {
+    func resizeAndKeepCenter(newSize: CGSize) -> CGRect {
+        var rect = self
         rect.origin.x = rect.minX - (newSize.width - rect.width) / 2
         rect.origin.y = rect.minY - (newSize.height - rect.height) / 2
         rect.size = newSize
         return rect
     }
     
-    @discardableResult static func resizeAndKeepSnap(_ rect: inout CGRect, newSize: CGSize, edge: Edge, outer: CGRect) -> CGRect {
+    func resizeAndKeepSnap(newSize: CGSize, edge: Edge, outer: CGRect) -> CGRect {
+        var rect = self
         switch edge {
         case .top:
             rect.origin.x = rect.minX - (newSize.width - rect.width) / 2
@@ -96,18 +71,14 @@ class Geometry {
         return rect
     }
     
-    @discardableResult static func convertCoordinateOrigin(_ point: inout NSPoint, to newCoordinateOrigin: NSPoint) -> NSPoint {
-        point.x -= newCoordinateOrigin.x
-        point.y -= newCoordinateOrigin.y
-        return point
-    }
-    
-    @discardableResult static func convertCoordinateOrigin(_ rect: inout NSRect, to newCoordinateOrigin: NSPoint) -> CGRect {
-        convertCoordinateOrigin(&rect.origin, to: newCoordinateOrigin)
+    func convertCoordinateOrigin(to newCoordinateOrigin: NSPoint) -> CGRect {
+        var rect = self
+        rect.origin = rect.origin.convertCoordinateOrigin(to: newCoordinateOrigin)
         return rect
     }
     
-    @discardableResult static func snap(_ rect: inout NSRect, to theEdge: Edge, of outer: NSRect) -> CGRect {
+    func snap(to theEdge: Edge, of outer: NSRect) -> CGRect {
+        var rect = self
         switch theEdge {
         case .top:
             rect.origin.y = outer.maxY - rect.height
@@ -120,22 +91,37 @@ class Geometry {
         }
         return rect
     }
+}
+
+extension NSPoint {
+    func move(into outer: CGRect) -> NSPoint {
+        var point = self
+        point.x = min(point.x, outer.maxX)
+        point.x = max(point.x, outer.minX)
+        point.y = min(point.y, outer.maxY)
+        point.y = max(point.y, outer.minY)
+        return point
+    }
     
-    static func getSnapEdge(point: NSPoint, of outer: NSRect) -> Edge {
+    func convertCoordinateOrigin(to newCoordinateOrigin: NSPoint) -> NSPoint {
+        return NSMakePoint(x - newCoordinateOrigin.x, y - newCoordinateOrigin.y)
+    }
+    
+    func getSnapEdge(of outer: NSRect) -> Edge {
         var edge = Edge.top
-        var minInset = outer.height - point.y
+        var minInset = outer.height - y
         
-        if point.x < minInset {
+        if x < minInset {
             edge = .left
-            minInset = point.x
+            minInset = x
         }
         
-        if point.y < minInset {
+        if y < minInset {
             edge = .bottom
-            minInset = point.y
+            minInset = y
         }
         
-        if (outer.width - point.x) < minInset {
+        if (outer.width - x) < minInset {
             edge = .right
         }
         

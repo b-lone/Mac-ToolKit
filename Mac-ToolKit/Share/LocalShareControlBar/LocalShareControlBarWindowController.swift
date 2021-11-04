@@ -183,8 +183,8 @@ extension LocalShareControlBarWindowController: WindowAnimator {
         let screenFrame = getScreenFrame()
         var windowFrame = window.frame
         let position = getPosition(screen: sharedScreenUuid)
-        Geometry.resizeAndKeepSnap(&windowFrame, newSize: newSize, edge: position.edge, outer: screenFrame)
-        Geometry.move(&windowFrame, into: screenFrame)
+        windowFrame = windowFrame.resizeAndKeepSnap(newSize: newSize, edge: position.edge, outer: screenFrame)
+        windowFrame = windowFrame.move(into: screenFrame)
         currentViewController?.windowWillStartAnimation()
         window.setFrame(windowFrame, display: true, animate: true)
         currentViewController?.windowDidStopAnimation()
@@ -206,9 +206,8 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
         guard isMouseDown, let window = window else { return }
         let screenFrame = getScreenFrame()
         var windowFrame = window.frame
-        var mouseLocation = NSEvent.mouseLocation
-        Geometry.convertCoordinateOrigin(&mouseLocation, to: screenFrame.origin)
-        let edge = Geometry.getSnapEdge(point: mouseLocation, of: screenFrame)
+        let mouseLocation = NSEvent.mouseLocation.convertCoordinateOrigin(to: screenFrame.origin)
+        let edge = mouseLocation.getSnapEdge(of: screenFrame)
         if edgeInDrag != edge {
             switchContentView(edge: edge)
             edgeInDrag = edge
@@ -217,7 +216,7 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
             windowFrame.origin = NSMakePoint(NSEvent.mouseLocation.x - mouseDownLocation.x, NSEvent.mouseLocation.y - mouseDownLocation.y)
         }
         
-        Geometry.move(&windowFrame, into: screenFrame)
+        windowFrame = windowFrame.move(into: screenFrame)
         
         window.setFrame(windowFrame, display: true, animate: false)
     }
@@ -227,9 +226,7 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
         let position = getPosition(screen: sharedScreenUuid)
         
         let screenFrame = getScreenFrame()
-        var windowFrame = window.frame
-        
-        Geometry.snap(&windowFrame, to: position.edge, of: screenFrame)
+        var windowFrame = window.frame.snap(to: position.edge, of: screenFrame)
         
         switch position.edge {
         case .top, .bottom:
@@ -237,7 +234,7 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
         case .left, .right:
             windowFrame.origin.y = screenFrame.minY + screenFrame.height * position.deviation - windowFrame.height / 2
         }
-        Geometry.move(&windowFrame, into: screenFrame)
+        windowFrame = windowFrame.move(into: screenFrame)
         
         horizontalViewController.updateEdge(edge: position.edge)
         verticalViewController.updateEdge(edge: position.edge)
@@ -248,9 +245,8 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
         guard let window = window, sharedScreenUuid == window.screen?.uuid() else { return }
         let screenFrame = getScreenFrame()
         
-        var mouseRelativeLocation = mouseUpLocation
-        Geometry.convertCoordinateOrigin(&mouseRelativeLocation, to: screenFrame.origin)
-        let edge = Geometry.getSnapEdge(point: mouseRelativeLocation, of: screenFrame)
+        let mouseRelativeLocation = mouseUpLocation.convertCoordinateOrigin(to: screenFrame.origin)
+        let edge = mouseRelativeLocation.getSnapEdge(of: screenFrame)
         
         let windowFrame =  window.frame
         var deviation: CGFloat = 0
