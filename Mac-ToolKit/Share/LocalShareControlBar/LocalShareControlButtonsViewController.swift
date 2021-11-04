@@ -257,9 +257,9 @@ class LocalShareControlButtonsHorizontalViewController: LocalShareControlButtons
 }
 
 //MARK: Vertical
-typealias ILocalShareControlButtonsVerticalViewContrller = LocalShareControlButtonsViewController
+typealias ILocalShareControlButtonsVerticalViewController = LocalShareControlButtonsViewController
 
-class LocalShareControlButtonsVerticalViewContrller: LocalShareControlButtonsViewController {
+class LocalShareControlButtonsVerticalViewController: LocalShareControlButtonsViewController {
     @IBOutlet weak var switchShareButton: UTRoundButton!
     
     init() {

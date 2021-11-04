@@ -15,7 +15,7 @@ protocol ShareViewFactory {
     func makeLocalShareControlHorizontalBarViewController() -> ILocalShareControlHorizontalBarViewController
     func makeLocalShareControlVerticalBarViewController() -> ILocalShareControlVerticalBarViewController
     func makeLocalShareControlButtonsHorizontalViewController() -> ILocalShareControlButtonsHorizontalViewController
-    func makeLocalShareControlButtonsVerticalViewContrller() -> ILocalShareControlButtonsVerticalViewContrller
+    func makeLocalShareControlButtonsVerticalViewController() -> ILocalShareControlButtonsVerticalViewController
 }
 
 protocol ShareWindowFactory {
@@ -49,8 +49,8 @@ extension ShareFactory: ShareViewFactory {
     func makeLocalShareControlButtonsHorizontalViewController() -> ILocalShareControlButtonsHorizontalViewController {
         LocalShareControlButtonsHorizontalViewController()
     }
-    func makeLocalShareControlButtonsVerticalViewContrller() -> ILocalShareControlButtonsVerticalViewContrller {
-        LocalShareControlButtonsVerticalViewContrller()
+    func makeLocalShareControlButtonsVerticalViewController() -> ILocalShareControlButtonsVerticalViewController {
+        LocalShareControlButtonsVerticalViewController()
     }
 }
 

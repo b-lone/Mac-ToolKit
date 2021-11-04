@@ -16,7 +16,7 @@ protocol LocalShareControlBarManagerProtocol: AnyObject {
 
 class LocalShareControlBarManager: NSObject {
     private weak var shareComponent: ShareManagerComponentProtocol?
-    private var shareFactory: ShareFactoryProtocol
+    private let shareFactory: ShareFactoryProtocol
     
     private lazy var shareControlBar = shareFactory.makeLocalShareControlBarWindowController()
     

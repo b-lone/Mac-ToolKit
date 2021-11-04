@@ -141,12 +141,13 @@ class LocalShareControlBarWindowController: BaseWindowController {
     }
     
     private func getPosition(screen: ScreenId) -> Position {
-        var position = positionMap[screen]
-        if position == nil {
-            position = (edge: .top, deviation: 0.5)
-            positionMap[screen] = position
+        var result: Position = (edge: Edge.top, deviation: 0.5)
+        if let position = positionMap[screen] {
+            result = position
+        } else {
+            positionMap[screen] = result
         }
-        return position!
+        return result
     }
 }
 

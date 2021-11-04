@@ -277,7 +277,7 @@ class LocalShareControlVerticalBarViewController: LocalShareControlBarViewContro
     }
     
     override func makeControlButtonsViewController() -> LocalShareControlButtonsViewController {
-        shareFactory.makeLocalShareControlButtonsVerticalViewContrller()
+        shareFactory.makeLocalShareControlButtonsVerticalViewController()
     }
 }
 
