@@ -20,6 +20,17 @@ class TestShare: NSObject {
     
     var currentScreen: ScreenId = ""
     
+    var barInfo: CHLocalShareControlBarInfo = {
+        let labelInfo = CHLocalShareControlViewLabelInfo(modifiedString: "You're sharing ", detailsString: "Screen 1Screen 1Screen 1Screen 1Screen 1Screen 1Screen 1Screen 1", tooltips: "You're sharing Screen 1")
+        let label = CHLabel(text: "", isHidden: true, isEnabled: false, tooltip: "")
+        let button = CHButton(buttonState: .none, text: "", isHidden: true, isEnabled: false, tooltip: "")
+        let viewInfo = CHLocalShareControlViewInfo(labelInfo: labelInfo, recordingState: CHMeetingRecordingState.recordingPaused, recordingSvgLabel: label, meetingLockedLabel: label, shareTitleButton: button, rdcButton: button, annotateButton: button, pauseButton: button, stopButton: button, showPreviewView: true)
+        let windowInfo = CHLocalShareControlWindowInfo(shouldShowWindow: true, shouldShowScreenBorder: true, colorMode: .orange)
+        let barInfo = CHLocalShareControlBarInfo(windowInfo: windowInfo, viewInfo: viewInfo, isSharePaused: false, isImOnlyShareForAccept: false)
+        AppContext.shared.commonHeadFrameworkAdapter.shareVM.localShareControlBarInfo = barInfo
+        return barInfo
+    }()
+    
     override init() {
         super.init()
     }
@@ -43,7 +54,7 @@ extension TestShare: TestCasesManager {
             TestAction(title: "Show"),
             TestAction(title: "Hide"),
             TestAction(title: "Change Screen"),
-            TestAction(title: "Active"),
+            TestAction(title: "Label"),
         ]
         testCaseList.append(testCase)
         
@@ -56,6 +67,7 @@ extension TestShare: TestCasesManager {
             if actionName == "Start" {
                 shareIosScreenManager.start()
                 shareIosScreenManager.isSharingIosScreen = true
+                testLabel()
             } else if actionName == "Stop" {
                 shareIosScreenManager.isSharingIosScreen = false
                 shareIosScreenManager.stop()
@@ -69,8 +81,8 @@ extension TestShare: TestCasesManager {
                 localShareControlBarManager.hideShareControlBar()
             } else if actionName == "Change Screen" {
                 testChangeScreen()
-            } else if actionName == "Active" {
-                testActive()
+            } else if actionName == "Label" {
+                testLabel()
             }
         }
     }
@@ -92,7 +104,7 @@ extension TestShare: TestCasesManager {
         currentScreen = screenId ?? ""
     }
     
-    private func testActive() {
-        
+    private func testLabel() {
+        (shareManager.getComponent(callId: "1")! as! ShareManagerComponent).shareViewModel(CHShareViewModel(), onLocalShareControlBarInfoChanged: barInfo)
     }
 }

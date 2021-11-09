@@ -10,7 +10,7 @@ import Cocoa
 import CommonHead
 
 func getShareComponent(appContext: AppContext, callId: String, createIfNotExist: Bool = false) -> ShareManagerComponentProtocol? {
-    return nil
+    appContext.callControlerManager?.shareManager.getComponent(callId: callId, createIfNotExist: createIfNotExist)
 }
 
 protocol ShareManagerProtocol: AnyObject {

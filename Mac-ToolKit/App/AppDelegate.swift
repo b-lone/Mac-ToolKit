@@ -12,7 +12,7 @@ import UIToolkit
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     var mainWindowController: NSWindowController? = nil
-    let test = FullScreenDetector()
+//    let test = FullScreenDetector()
    
     func applicationWillFinishLaunching(_ notification: Notification) {
         UIToolkit.shared.registerThemeManager(themeManager: SemanticThemeManager.shared)
@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
+//        _  = CGDisplayCreateImage(CGMainDisplayID(), rect: CGRect(x: 0, y: 0, width: 1, height: 1))
 //        test.showWindow(self)
 //        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(onTimer), userInfo: nil, repeats: true)
         

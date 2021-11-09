@@ -8,44 +8,45 @@
 
 import Cocoa
 
-protocol LocalShareControlBarManagerProtocol: AnyObject {
-    func setup(shareComponent: ShareManagerComponentProtocol)
+protocol LocalShareControlBarManagerProtocol: ShareManagerComponentSetup {
     func showShareControlBar()
     func hideShareControlBar()
 }
 
-class LocalShareControlBarManager: NSObject {
+class LocalShareControlBarManager: NSObject & LocalShareControlBarManagerProtocol {
     private weak var shareComponent: ShareManagerComponentProtocol?
     private let shareFactory: ShareFactoryProtocol
     
-    private lazy var shareControlBar = shareFactory.makeLocalShareControlBarWindowController()
+    private var shareControlBar: ILocalShareControlBarWindowController?
     
     init(shareFactory: ShareFactoryProtocol) {
         self.shareFactory = shareFactory
         super.init()
     }
     
-    deinit {
-        shareComponent?.unregisterListener(self)
-    }
-}
-
-extension LocalShareControlBarManager: LocalShareControlBarManagerProtocol {
-    func setup(shareComponent: ShareManagerComponentProtocol) {
-        self.shareComponent?.unregisterListener(self)
-        self.shareComponent = shareComponent
-        shareComponent.registerListener(self)
-        self.shareControlBar.setup(shareComponent: shareComponent)
+    private func makeShareControlBar() -> ILocalShareControlBarWindowController {
+        let windowController = shareFactory.makeLocalShareControlBarWindowController()
+        if let shareComponent = shareComponent {
+            windowController.setup(shareComponent: shareComponent)
+        }
+        return windowController
     }
     
+    //MARK: ShareManagerComponentSetup
+    func setup(shareComponent: ShareManagerComponentProtocol) {
+        self.shareComponent = shareComponent
+        shareControlBar?.setup(shareComponent: shareComponent)
+    }
+    
+    //MARK: LocalShareControlBarManagerProtocol
     func showShareControlBar() {
-        shareControlBar.showWindow(self)
+        if shareControlBar == nil {
+            shareControlBar = makeShareControlBar()
+        }
+        shareControlBar?.showWindow(self)
     }
     
     func hideShareControlBar() {
-        shareControlBar.close()
+        shareControlBar?.close()
     }
-}
-
-extension LocalShareControlBarManager: ShareManagerComponentListener {
 }

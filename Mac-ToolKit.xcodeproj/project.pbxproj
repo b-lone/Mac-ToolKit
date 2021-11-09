@@ -90,6 +90,9 @@
 		21AD515A269C8FCD006DF32F /* ObjCExceptionCatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AD5158269C8FCD006DF32F /* ObjCExceptionCatcher.m */; };
 		21B479D826A0F1DB003A91FB /* BonjourClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B479D626A0F1DB003A91FB /* BonjourClient.swift */; };
 		21B479DB26A0F582003A91FB /* TestBonjour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B479DA26A0F582003A91FB /* TestBonjour.swift */; };
+		21CCC08C273A565D00FD4D04 /* ClickableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CCC088273A565D00FD4D04 /* ClickableTextField.swift */; };
+		21CCC08E273A569F00FD4D04 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CCC08D273A569F00FD4D04 /* PopoverView.swift */; };
+		21CCC090273A56E700FD4D04 /* NSPopover+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CCC08F273A56E700FD4D04 /* NSPopover+Extensions.swift */; };
 		21D54B49272696BA009CDBC1 /* Timer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B48272696BA009CDBC1 /* Timer+Extensions.swift */; };
 		21D54B4B27269723009CDBC1 /* QuartzWindowServicesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B4A27269723009CDBC1 /* QuartzWindowServicesAdapter.swift */; };
 		21D54B4F272697B3009CDBC1 /* WillBeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B4E272697B3009CDBC1 /* WillBeSet.swift */; };
@@ -294,6 +297,9 @@
 		21AD5159269C8FCD006DF32F /* ObjCExceptionCatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCExceptionCatcher.h; sourceTree = "<group>"; };
 		21B479D626A0F1DB003A91FB /* BonjourClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourClient.swift; sourceTree = "<group>"; };
 		21B479DA26A0F582003A91FB /* TestBonjour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBonjour.swift; sourceTree = "<group>"; };
+		21CCC088273A565D00FD4D04 /* ClickableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickableTextField.swift; sourceTree = "<group>"; };
+		21CCC08D273A569F00FD4D04 /* PopoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
+		21CCC08F273A56E700FD4D04 /* NSPopover+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPopover+Extensions.swift"; sourceTree = "<group>"; };
 		21D54B48272696BA009CDBC1 /* Timer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timer+Extensions.swift"; sourceTree = "<group>"; };
 		21D54B4A27269723009CDBC1 /* QuartzWindowServicesAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzWindowServicesAdapter.swift; sourceTree = "<group>"; };
 		21D54B4E272697B3009CDBC1 /* WillBeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WillBeSet.swift; sourceTree = "<group>"; };
@@ -606,15 +612,19 @@
 		21ABE98F2696DE3C0063C07A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2184EC1E272BCE3E00A38EC0 /* LegacyMomentumIconType.swift */,
+				21CCC088273A565D00FD4D04 /* ClickableTextField.swift */,
 				21F107B9272A934900E40AD9 /* CSIRotatingImageView.swift */,
 				211C78892680742E003D9EB4 /* FontelloButton.swift */,
 				211C789E2681E1B4003D9EB4 /* FontelloLabelWithText.swift */,
+				2184EC20272BEB7600A38EC0 /* Geometry.swift */,
+				2184EC1E272BCE3E00A38EC0 /* LegacyMomentumIconType.swift */,
 				21F107B4272A922C00E40AD9 /* LoadingImageView.swift */,
 				213E13A22637AAEA00DFECFF /* MouseTrackView.swift */,
+				21CCC08F273A56E700FD4D04 /* NSPopover+Extensions.swift */,
 				21AD5155269C8F37006DF32F /* NSView+Extensions.swift */,
 				21AD5159269C8FCD006DF32F /* ObjCExceptionCatcher.h */,
 				21AD5158269C8FCD006DF32F /* ObjCExceptionCatcher.m */,
+				21CCC08D273A569F00FD4D04 /* PopoverView.swift */,
 				217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */,
 				215F52DE2705659800F4ADD0 /* ScreenChangeHelper.swift */,
 				21F107BD272A945700E40AD9 /* SemanticInputTextField.swift */,
@@ -623,7 +633,6 @@
 				21F107BB272A943000E40AD9 /* SparkTextField.swift */,
 				215F52E02705699A00F4ADD0 /* Subject.swift */,
 				21D54B4E272697B3009CDBC1 /* WillBeSet.swift */,
-				2184EC20272BEB7600A38EC0 /* Geometry.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -962,10 +971,12 @@
 				21AD514C269B3FC8006DF32F /* CommonTestWindowController.swift in Sources */,
 				210C5E7F26CC9EE900F69BFF /* Bundle+Extensions.swift in Sources */,
 				21F1079E272A8BAC00E40AD9 /* ThemeManager.swift in Sources */,
+				21CCC08E273A569F00FD4D04 /* PopoverView.swift in Sources */,
 				21094124266083B20040AC73 /* MagicDrawingBoardManager.swift in Sources */,
 				215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */,
 				21AD514F269B3FFE006DF32F /* TestCoreAnimation.swift in Sources */,
 				211DF005271EA42100CD4BBA /* FullScreenDetector.swift in Sources */,
+				21CCC08C273A565D00FD4D04 /* ClickableTextField.swift in Sources */,
 				21B479D826A0F1DB003A91FB /* BonjourClient.swift in Sources */,
 				210C5E8E26CCAF9E00F69BFF /* RootLogger.cpp in Sources */,
 				21F106BE272A4B2700E40AD9 /* LocalShareControlBarViewController.swift in Sources */,
@@ -1014,6 +1025,7 @@
 				21B479DB26A0F582003A91FB /* TestBonjour.swift in Sources */,
 				217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */,
 				21F107C0272A95CC00E40AD9 /* GlobalShortcutHandlerHelper.swift in Sources */,
+				21CCC090273A56E700FD4D04 /* NSPopover+Extensions.swift in Sources */,
 				21F107BC272A943000E40AD9 /* SparkTextField.swift in Sources */,
 				21D54B4B27269723009CDBC1 /* QuartzWindowServicesAdapter.swift in Sources */,
 				21F107A7272A8EF800E40AD9 /* NotificationEventNames.m in Sources */,

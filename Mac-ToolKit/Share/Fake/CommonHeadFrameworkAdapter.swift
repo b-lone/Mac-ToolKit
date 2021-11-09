@@ -22,6 +22,11 @@ class FakeShareVM: CHShareViewModel {
     override func getSharingContent() -> CHSharingContent? {
         sharingContent
     }
+    
+    var localShareControlBarInfo: CHLocalShareControlBarInfo?
+    override func getLocalShareControlBarInfo() -> CHLocalShareControlBarInfo? {
+        return localShareControlBarInfo
+    }
 }
 
 class CommonHeadFrameworkAdapter: NSObject {

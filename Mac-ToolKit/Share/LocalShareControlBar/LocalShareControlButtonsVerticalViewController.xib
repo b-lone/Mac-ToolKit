@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="LocalShareControlButtonsVerticalViewController" customModule="Mac_ToolKit" customModuleProvider="target">
             <connections>
                 <outlet property="annotateButton" destination="eyJ-fb-NS2" id="Mfi-wY-TiX"/>
+                <outlet property="contentStackView" destination="hGz-v4-RPU" id="tDe-Oa-Ma1"/>
                 <outlet property="dragLabel" destination="FjP-Z6-0Hn" id="SCn-3o-hHW"/>
                 <outlet property="pauseButton" destination="bzY-nR-nkA" id="NnI-0b-DXu"/>
                 <outlet property="rdcButton" destination="zgb-7n-Ubu" id="ml2-et-YcH"/>
@@ -113,7 +114,7 @@
                 </stackView>
             </subviews>
             <constraints>
-                <constraint firstItem="hGz-v4-RPU" firstAttribute="top" secondItem="u3t-QS-WVw" secondAttribute="top" constant="9" id="68d-jn-pAe"/>
+                <constraint firstItem="hGz-v4-RPU" firstAttribute="top" secondItem="u3t-QS-WVw" secondAttribute="top" constant="8" id="68d-jn-pAe"/>
                 <constraint firstAttribute="trailing" secondItem="hGz-v4-RPU" secondAttribute="trailing" id="Hgm-fA-yuU"/>
                 <constraint firstItem="hGz-v4-RPU" firstAttribute="leading" secondItem="u3t-QS-WVw" secondAttribute="leading" id="oWq-oF-Cer"/>
                 <constraint firstAttribute="bottom" secondItem="hGz-v4-RPU" secondAttribute="bottom" constant="8" id="vpA-34-AVp"/>

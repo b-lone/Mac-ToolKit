@@ -8,9 +8,13 @@
         <customObject id="-2" userLabel="File's Owner" customClass="LocalShareControlButtonsHorizontalViewController" customModule="Mac_ToolKit" customModuleProvider="target">
             <connections>
                 <outlet property="annotateButton" destination="6Oi-pw-gZj" id="LBD-H8-Db4"/>
+                <outlet property="contentStackView" destination="iDk-7V-JyQ" id="eGq-Lu-aMe"/>
                 <outlet property="dragLabel" destination="6rM-8p-30N" id="1Di-iY-VGg"/>
+                <outlet property="labelStackView" destination="UfK-rO-g45" id="BEO-xb-YUv"/>
+                <outlet property="leftLabel" destination="zXE-sN-PuL" id="xfY-tY-a8e"/>
                 <outlet property="pauseButton" destination="XHy-58-hdf" id="ZwG-Tc-meK"/>
                 <outlet property="rdcButton" destination="RgB-Vd-Cpm" id="fJB-ex-8ps"/>
+                <outlet property="rightLabel" destination="4D8-Ml-YHC" id="yJp-Sw-8lE"/>
                 <outlet property="stopButton" destination="Z9g-ky-fMP" id="oDn-LV-28A"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -18,62 +22,38 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6rM-8p-30N">
-                    <rect key="frame" x="-2" y="128" width="4" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" id="UVC-h7-XJm">
-                        <font key="font" usesAppearanceFont="YES"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="750" verticalHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDk-7V-JyQ">
-                    <rect key="frame" x="258" y="111" width="216" height="50"/>
+                    <rect key="frame" x="0.0" y="-28" width="600" height="96"/>
                     <subviews>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Oi-pw-gZj" customClass="UTRoundButton" customModule="UIToolkit">
-                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                            <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="2kP-hp-FO5">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="onAnnotateButton:" target="-2" id="v9Q-Ft-5av"/>
-                            </connections>
-                        </button>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RgB-Vd-Cpm" customClass="UTRoundButton" customModule="UIToolkit">
-                            <rect key="frame" x="58" y="0.0" width="50" height="50"/>
-                            <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="kjc-Jz-slg">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="onRdcButton:" target="-2" id="2An-Ln-5Ne"/>
-                            </connections>
-                        </button>
-                        <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CT6-ZE-P8l">
-                            <rect key="frame" x="116" y="0.0" width="100" height="50"/>
+                        <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6rM-8p-30N">
+                            <rect key="frame" x="-2" y="40" width="54" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" id="UVC-h7-XJm">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UfK-rO-g45">
+                            <rect key="frame" x="58" y="40" width="114" height="16"/>
                             <subviews>
-                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XHy-58-hdf" customClass="UTRoundedCornerButton" customModule="UIToolkit">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="tfL-6x-VDB">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zXE-sN-PuL">
+                                    <rect key="frame" x="-2" y="0.0" width="54" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" id="VBT-t4-RYy">
                                         <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="onPauseButton:" target="-2" id="FtD-AS-tkU"/>
-                                    </connections>
-                                </button>
-                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z9g-ky-fMP" customClass="UTRoundedCornerButton" customModule="UIToolkit">
-                                    <rect key="frame" x="50" y="0.0" width="50" height="50"/>
-                                    <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="eV8-OB-Wqf">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="4D8-Ml-YHC" customClass="CustomToolTipsClickableTextField" customModule="Mac_ToolKit" customModuleProvider="target">
+                                    <rect key="frame" x="48" y="0.0" width="68" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" id="Y9a-dt-opK">
                                         <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="onStopButton:" target="-2" id="4ut-0t-ehT"/>
-                                    </connections>
-                                </button>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                             </subviews>
                             <visibilityPriorities>
                                 <integer value="1000"/>
@@ -84,8 +64,88 @@
                                 <real value="3.4028234663852886e+38"/>
                             </customSpacing>
                         </stackView>
+                        <customView horizontalHuggingPriority="500" horizontalCompressionResistancePriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="Hbt-Lp-ONc" userLabel="PlaceHolder">
+                            <rect key="frame" x="180" y="0.0" width="0.0" height="96"/>
+                        </customView>
+                        <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJe-0b-mKB">
+                            <rect key="frame" x="188" y="23" width="404" height="50"/>
+                            <subviews>
+                                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Oi-pw-gZj" customClass="UTRoundButton" customModule="UIToolkit">
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+                                    <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="2kP-hp-FO5">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="onAnnotateButton:" target="-2" id="v9Q-Ft-5av"/>
+                                    </connections>
+                                </button>
+                                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RgB-Vd-Cpm" customClass="UTRoundButton" customModule="UIToolkit">
+                                    <rect key="frame" x="252" y="0.0" width="50" height="50"/>
+                                    <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="kjc-Jz-slg">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="onRdcButton:" target="-2" id="2An-Ln-5Ne"/>
+                                    </connections>
+                                </button>
+                                <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="750" verticalHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CT6-ZE-P8l">
+                                    <rect key="frame" x="304" y="0.0" width="100" height="50"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XHy-58-hdf" customClass="UTRoundedCornerButton" customModule="UIToolkit">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="tfL-6x-VDB">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onPauseButton:" target="-2" id="FtD-AS-tkU"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z9g-ky-fMP" customClass="UTRoundedCornerButton" customModule="UIToolkit">
+                                            <rect key="frame" x="50" y="0.0" width="50" height="50"/>
+                                            <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="eV8-OB-Wqf">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onStopButton:" target="-2" id="4ut-0t-ehT"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="zV0-fM-a0m" userLabel="PlaceHolder">
+                            <rect key="frame" x="600" y="48" width="0.0" height="1"/>
+                            <constraints>
+                                <constraint firstAttribute="width" id="DgT-qd-u6g"/>
+                                <constraint firstAttribute="height" constant="1" id="zDs-Gq-70j"/>
+                            </constraints>
+                        </customView>
                     </subviews>
                     <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
                         <integer value="1000"/>
                         <integer value="1000"/>
                         <integer value="1000"/>
@@ -94,16 +154,18 @@
                         <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
                     </customSpacing>
                 </stackView>
             </subviews>
             <constraints>
-                <constraint firstItem="6rM-8p-30N" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Hcy-YJ-Kea"/>
                 <constraint firstItem="iDk-7V-JyQ" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="Pc3-Jj-o4X"/>
-                <constraint firstItem="6rM-8p-30N" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="fSM-Gz-vEe"/>
-                <constraint firstAttribute="trailing" secondItem="iDk-7V-JyQ" secondAttribute="trailing" constant="6" id="jc2-pJ-d0V"/>
+                <constraint firstItem="iDk-7V-JyQ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="cIw-bG-dZq"/>
+                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="eBw-OR-fQT"/>
+                <constraint firstAttribute="trailing" secondItem="iDk-7V-JyQ" secondAttribute="trailing" id="jc2-pJ-d0V"/>
             </constraints>
-            <point key="canvasLocation" x="1" y="154"/>
+            <point key="canvasLocation" x="-49" y="42"/>
         </customView>
     </objects>
 </document>

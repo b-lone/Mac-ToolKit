@@ -12,10 +12,8 @@ typealias ShareFactoryProtocol = ShareViewFactory & ShareWindowFactory & ShareMa
 
 protocol ShareViewFactory {
 //    func makeShareSelectionFteViewController() -> IShareSelectionFteViewController
-    func makeLocalShareControlHorizontalBarViewController() -> ILocalShareControlHorizontalBarViewController
-    func makeLocalShareControlVerticalBarViewController() -> ILocalShareControlVerticalBarViewController
-    func makeLocalShareControlButtonsHorizontalViewController() -> ILocalShareControlButtonsHorizontalViewController
-    func makeLocalShareControlButtonsVerticalViewController() -> ILocalShareControlButtonsVerticalViewController
+    func makeLocalShareControlBarViewController(orientation: Orientation) -> ILocalShareControlBarViewController
+    func makeLocalShareControlButtonsViewController(orientation: Orientation) -> ILocalShareControlButtonsViewController
 }
 
 protocol ShareWindowFactory {
@@ -40,17 +38,22 @@ extension ShareFactory: ShareViewFactory {
 //        ShareSelectionFteViewController(appContext: appContext)
 //    }
     
-    func makeLocalShareControlHorizontalBarViewController() -> ILocalShareControlHorizontalBarViewController {
-        LocalShareControlHorizontalBarViewController(shareFactory: appContext.shareFactory)
+    func makeLocalShareControlBarViewController(orientation: Orientation) -> ILocalShareControlBarViewController {
+        switch orientation {
+        case .horizontal:
+            return LocalShareControlHorizontalBarViewController(shareFactory: appContext.shareFactory)
+        case .vertical:
+            return LocalShareControlVerticalBarViewController(shareFactory: appContext.shareFactory)
+        }
     }
-    func makeLocalShareControlVerticalBarViewController() -> ILocalShareControlVerticalBarViewController {
-        LocalShareControlVerticalBarViewController(shareFactory: appContext.shareFactory)
-    }
-    func makeLocalShareControlButtonsHorizontalViewController() -> ILocalShareControlButtonsHorizontalViewController {
-        LocalShareControlButtonsHorizontalViewController()
-    }
-    func makeLocalShareControlButtonsVerticalViewController() -> ILocalShareControlButtonsVerticalViewController {
-        LocalShareControlButtonsVerticalViewController()
+    
+    func makeLocalShareControlButtonsViewController(orientation: Orientation) -> ILocalShareControlButtonsViewController {
+        switch orientation {
+        case .horizontal:
+            return LocalShareControlButtonsHorizontalViewController()
+        case .vertical:
+            return LocalShareControlButtonsVerticalViewController()
+        }
     }
 }
 
@@ -68,7 +71,7 @@ extension ShareFactory: ShareWindowFactory {
     }
     
     func makeLocalShareControlBarWindowController() -> ILocalShareControlBarWindowController {
-        LocalShareControlBarWindowController(appContext: appContext)
+        LocalShareControlBarWindowController(shareFactory: appContext.shareFactory, screenAdapter: appContext.screenAdapter)
     }
 }
 

@@ -11,15 +11,21 @@ import UIToolkit
 import CommonHead
 
 //MARK: Base
-protocol LocalShareControlBarViewControllerProtocol: EdgeCollaborator, ShareManagerComponentSetup, ShareManagerComponentListener {
+typealias ILocalShareControlBarViewController = LocalShareControlBarViewControllerProtocol & NSViewController
+
+protocol LocalShareControlBarViewControllerProtocol: EdgeCollaborator, ShareManagerComponentSetup, ShareManagerComponentListener, WindowAnimationCollaborator, WindowDragCollaborator {
     var animator: WindowAnimator? { get set }
 }
 
-class LocalShareControlBarViewController: NSViewController, LocalShareControlBarViewControllerProtocol {
-    weak var animator: WindowAnimator?
+class LocalShareControlBarViewController: ILocalShareControlBarViewController {
+    weak var animator: WindowAnimator? {
+        didSet {
+            controlButtonsViewController.animator = animator
+        }
+    }
     
     @IBOutlet var contentView: RoundSameSideCornerView!
-    fileprivate lazy var controlButtonsViewController: LocalShareControlButtonsViewController = makeControlButtonsViewController()
+    fileprivate lazy var controlButtonsViewController: ILocalShareControlButtonsViewController = makeControlButtonsViewController()
     
     private weak var shareComponent: ShareManagerComponentProtocol?
     fileprivate var shareFactory: ShareFactoryProtocol
@@ -28,7 +34,7 @@ class LocalShareControlBarViewController: NSViewController, LocalShareControlBar
     
     init(shareFactory: ShareFactoryProtocol, nibName: NSNib.Name?) {
         self.shareFactory = shareFactory
-        super.init(nibName: nibName, bundle: nil)
+        super.init(nibName: nibName, bundle: Bundle.getSparkBundle())
     }
     
     required init?(coder: NSCoder) {
@@ -40,25 +46,12 @@ class LocalShareControlBarViewController: NSViewController, LocalShareControlBar
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         contentView.cornerRadius = 8.0
     }
     
-    func updateEdge(edge: Edge) {
-        self.edge = edge
-        contentView.cornerDirection = edge.cornerDirection
-        controlButtonsViewController.updateEdge(edge: edge)
-    }
-    
-    func setup(shareComponent: ShareManagerComponentProtocol) {
-        self.shareComponent = shareComponent
-        shareComponent.registerListener(self)
-        
-        controlButtonsViewController.setup(shareComponent: shareComponent)
-        updateBackgroundColor()
-    }
-    
-    fileprivate func makeControlButtonsViewController() -> LocalShareControlButtonsViewController {
-        return LocalShareControlButtonsViewController()
+    fileprivate func makeControlButtonsViewController() -> ILocalShareControlButtonsViewController {
+        return shareFactory.makeLocalShareControlButtonsViewController(orientation: .horizontal)
     }
     
     fileprivate func getIsSharingBlankContent() -> Bool {
@@ -73,6 +66,45 @@ class LocalShareControlBarViewController: NSViewController, LocalShareControlBar
         contentView.backgroundColor = (!isSharePaused && !getIsSharingBlankContent()) ? getUIToolkitColor(token: .sharewindowBorderActive).normal : getUIToolkitColor(token: .sharewindowBorderInactive).normal
     }
     
+    //MARK: EdgeCollaborator
+    func updateEdge(edge: Edge) {
+        self.edge = edge
+        contentView.cornerDirection = edge.cornerDirection
+        controlButtonsViewController.updateEdge(edge: edge)
+    }
+    
+    //MARK: ShareManagerComponentSetup
+    func setup(shareComponent: ShareManagerComponentProtocol) {
+        self.shareComponent = shareComponent
+        shareComponent.registerListener(self)
+        updateBackgroundColor()
+        
+        controlButtonsViewController.setup(shareComponent: shareComponent)
+    }
+    
+    //MARK: WindowAnimationCollaborator
+    func getFittingSize() -> NSSize {
+        return .zero
+    }
+    
+    func windowWillStartAnimation() {
+        controlButtonsViewController.windowWillStartAnimation()
+    }
+    
+    func windowDidStopAnimation() {
+        controlButtonsViewController.windowDidStopAnimation()
+    }
+    
+    //MARK: WindowDragCollaborator
+    func windowWillStartDrag() {
+        controlButtonsViewController.windowWillStartDrag()
+    }
+    
+    func windowDidStopDrag() {
+        controlButtonsViewController.windowDidStopDrag()
+    }
+    
+    //MARK: ShareManagerComponentListener
     func shareManagerComponent(_ shareManagerComponent: ShareManagerComponentProtocol, onLocalShareControlBarInfoChanged info: CHLocalShareControlBarInfo) {
         isSharePaused = info.isSharePaused
         updateBackgroundColor()
@@ -84,8 +116,6 @@ class LocalShareControlBarViewController: NSViewController, LocalShareControlBar
 }
 
 //MARK: Horizontal Bar
-typealias ILocalShareControlHorizontalBarViewController = WindowAnimationCollaborator & LocalShareControlBarViewController
-
 class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewController {
     private enum ExpandState {
         case collapsed
@@ -126,6 +156,7 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         }
     }
     private var isExpanded: Bool { expandState == .expended }
+    private var ignoreMouseEnterAndExit = false
     
     init(shareFactory: ShareFactoryProtocol) {
         super.init(shareFactory: shareFactory, nibName: "LocalShareControlHorizontalBarViewController")
@@ -156,31 +187,6 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         controlButtonsContainerView.addSubviewAndFill(subview: controlButtonsViewController.view)
     }
     
-    override func updateEdge(edge: Edge) {
-        super.updateEdge(edge: edge)
-        
-        if edge == .top {
-            controlButtonsContainerViewBottomConstraint.isActive = false
-            expandContainerViewTopConstraint.isActive = false
-            previewContainerViewTopConstraint.isActive = false
-            controlButtonsContainerViewTopConstraint.isActive = true
-            expandContainerViewBottomConstraint.isActive = true
-            previewContainerViewBottomConstraint.isActive = true
-        } else if edge == .bottom {
-            controlButtonsContainerViewTopConstraint.isActive = false
-            expandContainerViewBottomConstraint.isActive = false
-            previewContainerViewBottomConstraint.isActive = false
-            controlButtonsContainerViewBottomConstraint.isActive = true
-            expandContainerViewTopConstraint.isActive = true
-            previewContainerViewTopConstraint.isActive = true
-        }
-        updateExpandButtonIcon()
-    }
-    
-    override func makeControlButtonsViewController() -> LocalShareControlButtonsViewController {
-        shareFactory.makeLocalShareControlButtonsHorizontalViewController()
-    }
-    
     override func updateBackgroundColor() {
         super.updateBackgroundColor()
         controlButtonsContainerView.layer?.backgroundColor = (!isSharePaused && !getIsSharingBlankContent()) ? getUIToolkitColor(token: .sharewindowBorderActive).normal.cgColor : getUIToolkitColor(token: .sharewindowBorderInactive).normal.cgColor
@@ -207,40 +213,49 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         animator?.startAnimationForSizeChanged()
     }
     
-    private func getControlBarFittingSize() -> NSSize {
-        NSMakeSize(500 , expandState.height)
-    }
-    
     @IBAction func onExpandButton(_ sender: Any) {
         expandState = isExpanded ? .collapsed : .expended
     }
-}
-
-extension LocalShareControlHorizontalBarViewController: MouseTrackViewDelegate {
-    func mouseTrackViewMouseEntered(with event: NSEvent) {
-        guard animator?.canAnimation == true else { return }
-        if expandState == .collapsed {
-            expandState = .hover
+    
+    //MARK: EdgeCollaborator
+    override func updateEdge(edge: Edge) {
+        super.updateEdge(edge: edge)
+        
+        if edge == .top {
+            controlButtonsContainerViewBottomConstraint.isActive = false
+            expandContainerViewTopConstraint.isActive = false
+            previewContainerViewTopConstraint.isActive = false
+            controlButtonsContainerViewTopConstraint.isActive = true
+            expandContainerViewBottomConstraint.isActive = true
+            previewContainerViewBottomConstraint.isActive = true
+        } else if edge == .bottom {
+            controlButtonsContainerViewTopConstraint.isActive = false
+            expandContainerViewBottomConstraint.isActive = false
+            previewContainerViewBottomConstraint.isActive = false
+            controlButtonsContainerViewBottomConstraint.isActive = true
+            expandContainerViewTopConstraint.isActive = true
+            previewContainerViewTopConstraint.isActive = true
         }
+        updateExpandButtonIcon()
     }
     
-    func mouseTrackViewMouseExited(with event: NSEvent) {
-        guard animator?.canAnimation == true else { return }
-        if expandState == .hover {
-            expandState = .collapsed
-        }
+    //MARK: WindowAnimationCollaborator
+    override func getFittingSize() -> NSSize {
+        isExpanded ? NSMakeSize(408, expandState.height) : NSMakeSize(controlButtonsViewController.getFittingSize().width, expandState.height)
     }
-}
-
-extension LocalShareControlHorizontalBarViewController: WindowAnimationCollaborator {
-    func windowWillStartAnimation() {
+    
+    override func windowWillStartAnimation() {
+        super.windowWillStartAnimation()
+        
         previewContainerView.isHidden = false
         expandContainerView.isHidden = false
         contentViewHeightConstaint.isActive = false
         contentViewWidthConstaint.isActive = false
     }
     
-    func windowDidStopAnimation() {
+    override func windowDidStopAnimation() {
+        super.windowDidStopAnimation()
+        
         contentViewHeightConstaint.constant = expandState.height
         contentViewHeightConstaint.isActive = true
         contentViewWidthConstaint.isActive = isExpanded
@@ -251,15 +266,35 @@ extension LocalShareControlHorizontalBarViewController: WindowAnimationCollabora
         expandContainerView.isHidden = expandState == .collapsed
     }
     
-    func getFittingSize() -> NSSize {
-        isExpanded ? NSMakeSize(408, expandState.height) : getControlBarFittingSize()
+    //MARK: WindowDragCollaborator
+    override func windowWillStartDrag() {
+        super.windowWillStartDrag()
+        ignoreMouseEnterAndExit = true
+    }
+    
+    override func windowDidStopDrag() {
+        super.windowDidStopDrag()
+        ignoreMouseEnterAndExit = false
+    }
+}
+
+extension LocalShareControlHorizontalBarViewController: MouseTrackViewDelegate {
+    func mouseTrackViewMouseEntered(with event: NSEvent) {
+        guard !ignoreMouseEnterAndExit else { return }
+        if expandState == .collapsed {
+            expandState = .hover
+        }
+    }
+    
+    func mouseTrackViewMouseExited(with event: NSEvent) {
+        guard !ignoreMouseEnterAndExit else { return }
+        if expandState == .hover {
+            expandState = .collapsed
+        }
     }
 }
 
 //MARK: Vertical Bar
-typealias ILocalShareControlVerticalBarViewController = WindowAnimationCollaborator & LocalShareControlBarViewController
-
-
 class LocalShareControlVerticalBarViewController: LocalShareControlBarViewController {
     init(shareFactory: ShareFactoryProtocol) {
         super.init(shareFactory: shareFactory, nibName: "LocalShareControlVerticalBarViewController")
@@ -276,20 +311,13 @@ class LocalShareControlVerticalBarViewController: LocalShareControlBarViewContro
         contentView.addSubviewAndFill(subview: controlButtonsViewController.view)
     }
     
-    override func makeControlButtonsViewController() -> LocalShareControlButtonsViewController {
-        shareFactory.makeLocalShareControlButtonsVerticalViewController()
-    }
-}
-
-extension LocalShareControlVerticalBarViewController: WindowAnimationCollaborator {
-    func windowWillStartAnimation() {
+    override func makeControlButtonsViewController() -> ILocalShareControlButtonsViewController {
+        shareFactory.makeLocalShareControlButtonsViewController(orientation: .vertical)
     }
     
-    func windowDidStopAnimation() {
-    }
-    
-    func getFittingSize() -> NSSize {
-        return NSMakeSize(40, 174)
+    //MARK: WindowAnimationCollaborator
+    override func getFittingSize() -> NSSize {
+        return controlButtonsViewController.getFittingSize()
     }
 }
 

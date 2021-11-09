@@ -30,26 +30,26 @@ protocol ShareManagerComponentProtocol: AnyObject {
     func unregisterListener(_ listener: ShareManagerComponentListener & NSObject)
     var delegate: ShareManagerComponentDelegate? { get set }
     var callId: String { get }
-
+    
     var shareContext: ShareContextProtocol { get }
     var shareIosScreenManager: ShareIosScreenManagerProtocol { get }
-
+    
     func startShare(shareSourceList: [CHShareSource], shareType: CHShareType)
     func stopShare()
     func resumeShare()
     func pauseShare(doPause: Bool)
     func endShareOnlyCallIfNotStart()
     func excludeWindowFromShare()
-
+    
     func getShareSourcesSelectionWindowInfo() -> CHShareSourcesSelectionWindowInfo?
     func setOptimizeForShare(type: CHShareOptimizeType)
     func setEnableShareAudio(isEnabled: Bool)
     func installAudioSharePlugin()
     func checkAudioSharePluginStatus()
-
+    
     func getLocalShareControlBarInfo() -> CHLocalShareControlBarInfo?
     func getLocalShareControlWindowLabelTooltip() -> String
-
+    
     func getRemoteShareControlBarInfo() -> CHRemoteShareControlBarInfo?
 }
 
@@ -71,6 +71,7 @@ class ShareManagerComponent: NSObject {
     private lazy var shareResumeBar: ShareResumeWindowControllerProtocol = ShareResumeWindowController(appContext: appContext)
     private var localShareControlBarManager: LocalShareControlBarManagerProtocol
     var shareIosScreenManager: ShareIosScreenManagerProtocol
+    private var sharingPowerPointWindowInfoList: MagicWindowInfoList?
     
     private var isSharing = false {
         didSet {
@@ -369,6 +370,32 @@ class ShareManagerComponent: NSObject {
             stopShare()
         }
     }
+    
+    private func getPowerPointWindowInfoList() -> MagicWindowInfoList {
+        let windowInfoList = drawingBoardManager.getWindowInfoList(exclude: true, onScreenOnly: false)
+        return windowInfoList.filter { $0.pName == "Microsoft PowerPoint" }
+    }
+
+    private func addPowerPointPresenterWindow() {
+        guard sharingPowerPointWindowInfoList?.isEmpty == false else { return }
+        let powerPointWindowInfoList = getPowerPointWindowInfoList()
+        let relatedPowerPointWindowInfoList = powerPointWindowInfoList.filter{ windowInfo in
+            sharingPowerPointWindowInfoList?.contains(where: { sharingWindowInfo in
+                windowInfo.name.contains(sharingWindowInfo.name) && (sharingPowerPointWindowInfoList?.contains(where: { $0.windowNumber == windowInfo.windowNumber }) == false)
+            }) == true
+        }
+        
+        guard var shareSourceList = shareContext.lastStartShareInfo?.shareSourceList, !relatedPowerPointWindowInfoList.isEmpty else  { return }
+        relatedPowerPointWindowInfoList.forEach {
+            SPARK_LOG_DEBUG("ppt window to be added:\($0.fullName)")
+        }
+        
+        shareSourceList += relatedPowerPointWindowInfoList.map{
+            return CHShareSource.make(windowInfo: $0 )
+        }
+        shareSourceList = shareSourceList.filter { isWindowValid(windowNumber: $0.windowHandle.uint32Value, onScreenOnly: false) }
+        startShare(shareSourceList: shareSourceList, shareType: .window)
+    }
 }
 
 extension ShareManagerComponent: ShareManagerComponentProtocol {
@@ -391,6 +418,18 @@ extension ShareManagerComponent: ShareManagerComponentProtocol {
         if shareType == .iosViaCable {
             shareIosScreenManager.start()
         }
+        if shareType == .window {
+            let powerPointWindowInfoList = getPowerPointWindowInfoList()
+            sharingPowerPointWindowInfoList = powerPointWindowInfoList.filter{ windowInfo in
+                shareSourceList.contains{ $0.windowHandle.uint32Value == windowInfo.windowNumber }
+            }
+            sharingPowerPointWindowInfoList?.forEach {
+                SPARK_LOG_DEBUG("sharing ppt window: \($0.fullName)")
+            }
+        } else {
+            sharingPowerPointWindowInfoList = nil
+        }
+        
         shareViewModel.startShare(sourceList: shareSourceList, shareType: shareType)
         excludeWindowFromShare()
     }
@@ -407,6 +446,18 @@ extension ShareManagerComponent: ShareManagerComponentProtocol {
     
     func resumeShare() {
         SPARK_LOG_DEBUG("\(callId)")
+        if shareContext.lastStartShareInfo?.shareType == .window {
+            var isSourceValid = false
+            shareContext.lastStartShareInfo?.shareSourceList.forEach {
+                if isWindowValid(windowNumber: $0.windowHandle.uint32Value, onScreenOnly: false) {
+                    isSourceValid = true
+                }
+            }
+            if !isSourceValid {
+                return
+            }
+            
+        }
         shareViewModel.resumeShare()
         if shareContext.lastStartShareInfo?.shareType == .iosViaCable {
             shareIosScreenManager.start()
@@ -539,6 +590,7 @@ extension ShareManagerComponent: CHShareViewModelDelegate {
         updateShareBorder()
         updateKeyScreen()
         stopShareWhenAllWindowClose()
+        addPowerPointPresenterWindow()
         for weakListener in listenerList {
             if let listener = weakListener.value as? ShareManagerComponentListener {
                 listener.shareManagerComponent(self, onSharingContentChanged: sharingContent)
