@@ -11,9 +11,10 @@ import Foundation
 typealias ShareFactoryProtocol = ShareViewFactory & ShareWindowFactory & ShareManagerFactory
 
 protocol ShareViewFactory {
-//    func makeShareSelectionFteViewController() -> IShareSelectionFteViewController
+    func makeShareSelectionFteViewController() -> IShareSelectionFteViewController
     func makeLocalShareControlBarViewController(orientation: Orientation) -> ILocalShareControlBarViewController
     func makeLocalShareControlButtonsViewController(orientation: Orientation) -> ILocalShareControlButtonsViewController
+    func makeLocalShareVideoViewController(callId: String) -> ILocalShareVideoViewController
 }
 
 protocol ShareWindowFactory {
@@ -28,15 +29,14 @@ protocol ShareManagerFactory {
     func makeLocalShareControlBarManager() -> LocalShareControlBarManagerProtocol
 }
 
-class ShareFactory: NSObject {
+class ShareFactory: NSObject, ShareFactoryProtocol {
     let weakAppContext =  WeakWillBeSet<AppContext>()
     private var appContext: AppContext { weakAppContext.value }
-}
-
-extension ShareFactory: ShareViewFactory {
-//    func makeShareSelectionFteViewController()  -> IShareSelectionFteViewController {
-//        ShareSelectionFteViewController(appContext: appContext)
-//    }
+    
+    //MARK: ShareViewFactory
+    func makeShareSelectionFteViewController()  -> IShareSelectionFteViewController {
+        ShareSelectionFteViewController(appContext: appContext)
+    }
     
     func makeLocalShareControlBarViewController(orientation: Orientation) -> ILocalShareControlBarViewController {
         switch orientation {
@@ -55,9 +55,12 @@ extension ShareFactory: ShareViewFactory {
             return LocalShareControlButtonsVerticalViewController()
         }
     }
-}
-
-extension ShareFactory: ShareWindowFactory {
+    
+    func makeLocalShareVideoViewController(callId: String) -> ILocalShareVideoViewController {
+        LocalShareVideoViewController(appContext: appContext, callId: callId)
+    }
+    
+    //MARK: ShareWindowFactory
     func makeMagicDrawingBoardWindowController(screen: SparkScreen, level: MagicDrawingBoardWindowController.Level) -> IMagicDrawingBoardWindowController {
         MagicDrawingBoardWindowController(screen: screen, level: level)
     }
@@ -73,9 +76,8 @@ extension ShareFactory: ShareWindowFactory {
     func makeLocalShareControlBarWindowController() -> ILocalShareControlBarWindowController {
         LocalShareControlBarWindowController(shareFactory: appContext.shareFactory, screenAdapter: appContext.screenAdapter)
     }
-}
-
-extension ShareFactory: ShareManagerFactory {
+    
+    //MARK: ShareManagerFactory
     func makeTimer() -> SparkTimerProtocol {
         SparkTimer()
     }

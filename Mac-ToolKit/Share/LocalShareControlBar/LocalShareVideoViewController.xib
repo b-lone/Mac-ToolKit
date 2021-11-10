@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="LocalShareVideoViewController" customModule="Mac_ToolKit" customModuleProvider="target">
+            <connections>
+                <outlet property="localShareVideoView" destination="7S4-Q2-HNb" id="0AG-BO-EYP"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="408" height="229"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="7S4-Q2-HNb" customClass="SparkVideoLayer" customModule="Mac_ToolKit">
+                    <rect key="frame" x="4" y="4" width="400" height="225"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="7S4-Q2-HNb" secondAttribute="height" multiplier="16:9" id="AAz-hY-Rbi"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="7S4-Q2-HNb" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Pu3-vh-Szb"/>
+                <constraint firstAttribute="bottom" secondItem="7S4-Q2-HNb" secondAttribute="bottom" constant="4" id="bGG-p4-9rt"/>
+                <constraint firstItem="7S4-Q2-HNb" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="4" id="hQI-gl-8A2"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="140.5"/>
+        </customView>
+    </objects>
+</document>

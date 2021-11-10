@@ -16,8 +16,8 @@
                 <outlet property="expandContainerView" destination="e2h-Qu-LtN" id="OmW-wb-Lj0"/>
                 <outlet property="expandContainerViewBottomConstraint" destination="7hx-CC-KVl" id="S1p-Fa-Clb"/>
                 <outlet property="mouseTrackView" destination="Q7w-xS-dh1" id="aqA-xL-zSX"/>
-                <outlet property="previewContainerView" destination="PBm-la-mTH" id="i5W-e4-Haa"/>
-                <outlet property="previewContainerViewBottomConstraint" destination="THG-dS-mYx" id="rud-1u-ndC"/>
+                <outlet property="videoViewContainerView" destination="PBm-la-mTH" id="i5W-e4-Haa"/>
+                <outlet property="videoViewContainerViewBottomConstraint" destination="THG-dS-mYx" id="rud-1u-ndC"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -27,9 +27,9 @@
             <rect key="frame" x="0.0" y="0.0" width="408" height="284"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="PBm-la-mTH">
-                    <rect key="frame" x="0.0" y="16" width="408" height="228"/>
+                    <rect key="frame" x="0.0" y="16" width="408" height="229"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="228" id="qcN-ei-HN1"/>
+                        <constraint firstAttribute="height" constant="229" id="qcN-ei-HN1"/>
                     </constraints>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="e2h-Qu-LtN">

@@ -21,7 +21,7 @@ class TestShare: NSObject {
     var currentScreen: ScreenId = ""
     
     var barInfo: CHLocalShareControlBarInfo = {
-        let labelInfo = CHLocalShareControlViewLabelInfo(modifiedString: "You're sharing ", detailsString: "Screen 1Screen 1Screen 1Screen 1Screen 1Screen 1Screen 1Screen 1", tooltips: "You're sharing Screen 1")
+        let labelInfo = CHLocalShareControlViewLabelInfo(modifiedString: "You're sharing ", detailsString: "Screen", tooltips: "You're sharing Screen")
         let label = CHLabel(text: "", isHidden: true, isEnabled: false, tooltip: "")
         let button = CHButton(buttonState: .none, text: "", isHidden: true, isEnabled: false, tooltip: "")
         let viewInfo = CHLocalShareControlViewInfo(labelInfo: labelInfo, recordingState: CHMeetingRecordingState.recordingPaused, recordingSvgLabel: label, meetingLockedLabel: label, shareTitleButton: button, rdcButton: button, annotateButton: button, pauseButton: button, stopButton: button, showPreviewView: true)

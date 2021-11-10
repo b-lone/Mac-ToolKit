@@ -129,16 +129,17 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
             case .hover:
                 return 56
             case .expended:
-                return 284
+                return 285
             }
         }
     }
     
     @IBOutlet weak var controlButtonsContainerView: NSView!
-    @IBOutlet weak var previewContainerView: NSView!
+    @IBOutlet weak var videoViewContainerView: NSView!
     @IBOutlet weak var expandContainerView: NSView!
     @IBOutlet weak var expandButton: SparkButton!
     @IBOutlet weak var mouseTrackView: MouseTrackView!
+    private var videoViewController: ILocalShareVideoViewController?
     
     @IBOutlet var contentViewHeightConstaint: NSLayoutConstraint!
     @IBOutlet var contentViewWidthConstaint: NSLayoutConstraint!
@@ -147,8 +148,8 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
     private lazy var controlButtonsContainerViewBottomConstraint: NSLayoutConstraint = controlButtonsContainerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
     @IBOutlet var expandContainerViewBottomConstraint: NSLayoutConstraint!
     private lazy var expandContainerViewTopConstraint: NSLayoutConstraint = expandContainerView.topAnchor.constraint(equalTo: contentView.topAnchor)
-    @IBOutlet var previewContainerViewBottomConstraint: NSLayoutConstraint!
-    private lazy var previewContainerViewTopConstraint: NSLayoutConstraint = previewContainerView.topAnchor.constraint(equalTo: expandContainerView.bottomAnchor)
+    @IBOutlet var videoViewContainerViewBottomConstraint: NSLayoutConstraint!
+    private lazy var videoViewContainerViewTopConstraint: NSLayoutConstraint = videoViewContainerView.topAnchor.constraint(equalTo: expandContainerView.bottomAnchor)
     
     private var expandState = ExpandState.expended {
         didSet {
@@ -180,10 +181,6 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         mouseTrackView.trackingAreaOptions = [.activeAlways, .mouseEnteredAndExited, .inVisibleRect]
         
         controlButtonsContainerView.wantsLayer = true
-        
-        previewContainerView.wantsLayer = true
-        previewContainerView.layer?.backgroundColor = NSColor.blue.cgColor
-        
         controlButtonsContainerView.addSubviewAndFill(subview: controlButtonsViewController.view)
     }
     
@@ -217,6 +214,14 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         expandState = isExpanded ? .collapsed : .expended
     }
     
+    //MARK: ShareManagerComponentSetup
+    override func setup(shareComponent: ShareManagerComponentProtocol) {
+        super.setup(shareComponent: shareComponent)
+        let viewController = shareFactory.makeLocalShareVideoViewController(callId: shareComponent.callId)
+        videoViewController = viewController
+        videoViewContainerView.addSubviewAndFill(subview: viewController.view)
+    }
+    
     //MARK: EdgeCollaborator
     override func updateEdge(edge: Edge) {
         super.updateEdge(edge: edge)
@@ -224,17 +229,17 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         if edge == .top {
             controlButtonsContainerViewBottomConstraint.isActive = false
             expandContainerViewTopConstraint.isActive = false
-            previewContainerViewTopConstraint.isActive = false
+            videoViewContainerViewTopConstraint.isActive = false
             controlButtonsContainerViewTopConstraint.isActive = true
             expandContainerViewBottomConstraint.isActive = true
-            previewContainerViewBottomConstraint.isActive = true
+            videoViewContainerViewBottomConstraint.isActive = true
         } else if edge == .bottom {
             controlButtonsContainerViewTopConstraint.isActive = false
             expandContainerViewBottomConstraint.isActive = false
-            previewContainerViewBottomConstraint.isActive = false
+            videoViewContainerViewBottomConstraint.isActive = false
             controlButtonsContainerViewBottomConstraint.isActive = true
             expandContainerViewTopConstraint.isActive = true
-            previewContainerViewTopConstraint.isActive = true
+            videoViewContainerViewTopConstraint.isActive = true
         }
         updateExpandButtonIcon()
     }
@@ -247,7 +252,7 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
     override func windowWillStartAnimation() {
         super.windowWillStartAnimation()
         
-        previewContainerView.isHidden = false
+        videoViewContainerView.isHidden = false
         expandContainerView.isHidden = false
         contentViewHeightConstaint.isActive = false
         contentViewWidthConstaint.isActive = false
@@ -262,7 +267,7 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         
         updateExpandButtonIcon()
         
-        previewContainerView.isHidden = expandState != .expended
+        videoViewContainerView.isHidden = expandState != .expended
         expandContainerView.isHidden = expandState == .collapsed
     }
     
