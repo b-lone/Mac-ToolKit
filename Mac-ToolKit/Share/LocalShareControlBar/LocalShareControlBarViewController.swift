@@ -15,6 +15,7 @@ typealias ILocalShareControlBarViewController = LocalShareControlBarViewControll
 
 protocol LocalShareControlBarViewControllerProtocol: EdgeCollaborator, ShareManagerComponentSetup, ShareManagerComponentListener, WindowAnimationCollaborator, WindowDragCollaborator {
     var animator: WindowAnimator? { get set }
+    func delayedCollapse()
 }
 
 class LocalShareControlBarViewController: ILocalShareControlBarViewController {
@@ -49,6 +50,8 @@ class LocalShareControlBarViewController: ILocalShareControlBarViewController {
         super.viewDidLoad()
         contentView.cornerRadius = 8.0
     }
+    
+    func delayedCollapse() {}
     
     fileprivate func makeControlButtonsViewController() -> ILocalShareControlButtonsViewController {
         return shareFactory.makeLocalShareControlButtonsViewController(orientation: .horizontal)
@@ -159,6 +162,8 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
     private var isExpanded: Bool { expandState == .expended }
     private var ignoreMouseEnterAndExit = false
     
+    private var collapseTimer: Timer?
+    
     init(shareFactory: ShareFactoryProtocol) {
         super.init(shareFactory: shareFactory, nibName: "LocalShareControlHorizontalBarViewController")
         let _ = view
@@ -166,6 +171,10 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        invalidateCollapseTimer()
     }
     
     override func viewDidLoad() {
@@ -182,6 +191,27 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         
         controlButtonsContainerView.wantsLayer = true
         controlButtonsContainerView.addSubviewAndFill(subview: controlButtonsViewController.view)
+    }
+    
+    override func delayedCollapse() {
+        invalidateCollapseTimer()
+        
+        collapseTimer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false) {[weak self] _ in
+            DispatchQueue.main.async {
+                if let strongSelf = self {
+                    SPARK_LOG_TRACE("collapse timer fired")
+                    strongSelf.expandState = .collapsed
+                    strongSelf.collapseTimer = nil
+                }
+            }
+        }
+    }
+    
+    private func invalidateCollapseTimer() {
+        if let collapseTimer = collapseTimer {
+            collapseTimer.invalidate()
+            self.collapseTimer = nil
+        }
     }
     
     override func updateBackgroundColor() {
@@ -207,6 +237,7 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
     }
     
     private func onExpandStateUpdate() {
+        invalidateCollapseTimer()
         animator?.startAnimationForSizeChanged()
     }
     
@@ -251,6 +282,7 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
     
     override func windowWillStartAnimation() {
         super.windowWillStartAnimation()
+        invalidateCollapseTimer()
         
         videoViewContainerView.isHidden = false
         expandContainerView.isHidden = false
@@ -274,6 +306,8 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
     //MARK: WindowDragCollaborator
     override func windowWillStartDrag() {
         super.windowWillStartDrag()
+        invalidateCollapseTimer()
+        
         ignoreMouseEnterAndExit = true
     }
     
