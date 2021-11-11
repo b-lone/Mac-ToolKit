@@ -11,6 +11,8 @@ import CommonHead
 class CallControllerManager: NSObject {
     private var appContext: AppContext!
     var shareManager: ShareManagerProtocol
+    var shareWindowController: MyWindowController?
+    
 
     // MARK: Lifecycle
     init(appContext: AppContext) {
@@ -20,6 +22,18 @@ class CallControllerManager: NSObject {
     }
 
     deinit {
+    }
+    
+    func runShareWindowModal(callId: String){
+        NSApp.activate(ignoringOtherApps: true)
+        if let shareWindowController = shareWindowController {
+            shareWindowController.window?.makeKeyAndOrderFront(self)
+            return
+        }
+        shareWindowController = MyWindowController()
+        NSApp.runModal(for: (shareWindowController?.window)!)
+        shareWindowController?.window?.close()
+        shareWindowController = nil
     }
 }
 

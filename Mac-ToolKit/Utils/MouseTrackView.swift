@@ -31,6 +31,7 @@ class MouseTrackView: NSView {
             updateTrackingAreas()
         }
     }
+    var shouldAcceptsFirstMouse: Bool = false
     
     private var trackingArea: NSTrackingArea?
     
@@ -50,6 +51,10 @@ class MouseTrackView: NSView {
         }
     }
     
+    override func acceptsFirstMouse(for event: NSEvent?) -> Bool {
+        return shouldAcceptsFirstMouse
+    }
+
     override func mouseEntered(with event: NSEvent) {
         mouseTrackDelegate?.mouseTrackViewMouseEntered(with: event)
     }

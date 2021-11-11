@@ -9,7 +9,17 @@
 import Cocoa
 
 class MyWindowController: NSWindowController {
-
+    override var windowNibName: NSNib.Name? { "MyWindowController" }
+    
+    init() {
+        super.init(window: nil)
+        _ = window
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func windowDidLoad() {
         super.windowDidLoad()
     }
@@ -19,5 +29,6 @@ class MyWindowController: NSWindowController {
 extension MyWindowController: NSWindowDelegate {
     func windowWillClose(_ notification: Notification) {
         print(#function)
+        NSApp.stopModal()
     }
 }

@@ -61,6 +61,7 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
     private var isMouseDown = false
     private var mouseDownLocation: CGPoint = . zero
     private var edgeInDrag: Edge?
+    private var windowWillStartDragFlag = false
     
     private weak var shareComponent: ShareManagerComponentProtocol?
     private var sharedScreenUuid: ScreenId { shareComponent?.shareContext.screenToDraw.uuid() ?? "" }
@@ -78,7 +79,7 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
         self.screenAdapter = screenAdapter
         super.init(window: nil)
         
-        let _ = window
+        _ = window
     }
     
     required init?(coder: NSCoder) {
@@ -97,13 +98,14 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
         window?.backgroundColor = .clear
         window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         window?.hasShadow = false
-        window?.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.floatingWindow)) + 2)
+        window?.level = .floating + 2
         if let panel = window as? NSPanel {
             panel.worksWhenModal = true
             panel.isFloatingPanel = true
         }
         
         mouseTrackView.mouseTrackDelegate = self
+        mouseTrackView.shouldAcceptsFirstMouse = true
     }
     
     override func showWindow(_ sender: Any?) {
@@ -208,21 +210,27 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
     func mouseTrackViewMouseDown(with event: NSEvent) {
         mouseDownLocation = event.locationInWindow
         isMouseDown = true
-        
-        horizontalViewController?.windowWillStartDrag()
-        verticalViewController?.windowWillStartDrag()
     }
     
     func mouseTrackViewMouseUp(with event: NSEvent) {
         isMouseDown = false
         updatePosition(mouseUpLocation: NSEvent.mouseLocation)
         
-        horizontalViewController?.windowDidStopDrag()
-        verticalViewController?.windowDidStopDrag()
+        if windowWillStartDragFlag {
+            horizontalViewController?.windowDidStopDrag()
+            verticalViewController?.windowDidStopDrag()
+            windowWillStartDragFlag = false
+        }
     }
     
     func mouseTrackViewMouseDragged(with event: NSEvent) {
         guard isMouseDown, let window = window else { return }
+        
+        if !windowWillStartDragFlag {
+            horizontalViewController?.windowWillStartDrag()
+            verticalViewController?.windowWillStartDrag()
+            windowWillStartDragFlag = true
+        }
 
         let screenFrame = getScreenFrame()
         var windowFrame = window.frame

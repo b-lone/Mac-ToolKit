@@ -78,6 +78,7 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         button.addUTToolTip(toolTip: type.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
         button.setAccessibilityTitle(type.accessibilityLabel)
         button.setAccessibilityValue(type.accessibilityValue)
+        button.shouldExcludeTooltipsInShare = true
     }
     
     fileprivate func updateButtonTooltip() {
@@ -112,6 +113,8 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     }
     
     @IBAction func onShowShareContentWindow(_ sender: Any) {
+        SPARK_LOG_DEBUG("")
+        shareComponent?.showShareContentWindow()
     }
     
     @IBAction func onAnnotateButton(_ sender: Any) {
@@ -150,19 +153,19 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         return .zero
     }
     
-    func windowWillStartAnimation() {
-    }
+    func windowWillStartAnimation() {}
     
-    func windowDidStopAnimation() {
-    }
+    func windowDidStopAnimation() {}
     
     //MARK: WindowDragCollaborator
     func windowWillStartDrag() {
         blockShowTooltips = true
+        SPARK_LOG_DEBUG("")
     }
     
     func windowDidStopDrag() {
         blockShowTooltips = false
+        SPARK_LOG_DEBUG("")
     }
     
     //MARK: ShareManagerComponentListener
@@ -184,6 +187,14 @@ class LocalShareControlButtonsHorizontalViewController: LocalShareControlButtons
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        rightLabel.clickableTextFieldDelegate = self
+        rightLabel.shouldExcludeTooltipsInShare = true
+        rightLabel.cursorType = .pointingHand
+        rightLabel.tooltipDelegate = self
+    }
+    
     override func setupDragLabel() {
         super.setupDragLabel()
         dragLabel.stringValue = MomentumRebrandIconType.formatControlPanelDraggerBold.ligature
@@ -201,16 +212,6 @@ class LocalShareControlButtonsHorizontalViewController: LocalShareControlButtons
         stopButton.elementPadding = 4
         stopButton.roundSetting = .rhs
         stopButton.title = LocalizationStrings.stop
-    }
-    
-    override func updateButtonTooltip() {
-        super.updateButtonTooltip()
-        
-        if blockShowTooltips {
-            rightLabel?.customTooltip = ""
-        } else {
-            rightLabel?.customTooltip = shareComponent?.getLocalShareControlBarInfo()?.viewInfo.labelInfo.tooltips ?? ""
-        }
     }
     
     private func updateShareLabel(info: CHLocalShareControlViewLabelInfo) {
@@ -234,7 +235,6 @@ class LocalShareControlButtonsHorizontalViewController: LocalShareControlButtons
             rightAttributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, rightAttributedString.length - 2))
             
             rightLabel?.attributedStringValue = rightAttributedString
-            rightLabel?.customTooltip = info.tooltips
         } else {
             rightLabel?.attributedStringValue = NSAttributedString()
         }
@@ -271,6 +271,21 @@ class LocalShareControlButtonsHorizontalViewController: LocalShareControlButtons
     override func shareManagerComponent(_ shareManagerComponent: ShareManagerComponentProtocol, onLocalShareControlBarInfoChanged info: CHLocalShareControlBarInfo) {
         super.shareManagerComponent(shareManagerComponent, onLocalShareControlBarInfoChanged: info)
         updateShareLabel(info: info.viewInfo.labelInfo)
+    }
+}
+
+extension LocalShareControlButtonsHorizontalViewController: ClickableTextFieldDelegate, CustomToolTipsClickableTextFieldDelegate {
+    func mouseDown() {
+        onShowShareContentWindow(self)
+    }
+    
+    func getTooltip() -> String {
+        guard !blockShowTooltips else { return "" }
+        if shareComponent?.shareContext.shareSourceType == .window {
+            return shareComponent?.getLocalShareControlWindowLabelTooltip() ?? ""
+        } else {
+            return shareComponent?.getLocalShareControlBarInfo()?.viewInfo.labelInfo.tooltips ?? ""
+        }
     }
 }
 

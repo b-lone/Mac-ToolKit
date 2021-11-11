@@ -34,6 +34,7 @@ protocol ShareManagerComponentProtocol: AnyObject {
     var shareContext: ShareContextProtocol { get }
     var shareIosScreenManager: ShareIosScreenManagerProtocol { get }
     
+    func showShareContentWindow()
     func startShare(shareSourceList: [CHShareSource], shareType: CHShareType)
     func stopShare()
     func resumeShare()
@@ -409,6 +410,11 @@ extension ShareManagerComponent: ShareManagerComponentProtocol {
     func unregisterListener(_ listener: ShareManagerComponentListener & NSObject) {
         SPARK_LOG_DEBUG("\(callId) listener:\(listener.className)")
         listenerList.removeAll { $0.value === listener || $0.value == nil }
+    }
+    
+    func showShareContentWindow() {
+        SPARK_LOG_DEBUG("\(callId)")
+        appContext.callControlerManager?.runShareWindowModal(callId: callId)
     }
     
     func startShare(shareSourceList: [CHShareSource], shareType: CHShareType) {
