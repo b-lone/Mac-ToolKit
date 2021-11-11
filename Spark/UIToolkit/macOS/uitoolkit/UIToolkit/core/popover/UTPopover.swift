@@ -90,7 +90,13 @@ public class UTPopover: NSPopover, ThemeableProtocol {
         self.animates = animates
         self.delegate = delegate
         if shouldShow{
-            self.show(relativeTo: bounds, of: sender, preferredEdge: preferredEdge)
+            
+            if sender.window != nil {
+                self.show(relativeTo: bounds, of: sender, preferredEdge: preferredEdge)
+            }
+            else{
+                assert(false, "UTPopover window sender has no window. Unable to open")
+            }
         }
     }
     

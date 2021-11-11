@@ -277,7 +277,9 @@ extension UTPopoverListTableVC : NSMenuDelegate {
 //MARK: - UTTableViewDelegate Extension
 extension UTPopoverListTableVC: UTTableViewDelegate {
     public func firstResponderStatusChanged(sender: UTTableView, isFirstResponder: Bool) {
-        
+        if isFirstResponder && sender.selectedRow == -1 {
+            tableView.selectFirstRow()
+        }
     }
     
     public func invokeActionForSelectedRow(sender: UTTableView) {

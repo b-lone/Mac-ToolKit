@@ -10,7 +10,7 @@ import Cocoa
 @IBDesignable
 public class UTScrollView: NSScrollView, ThemeableProtocol {
     
-    public var legacyStyle:UTLegacyScrollerStyle = .defaultBackground{
+    public var legacyStyle:UTLegacyScrollerStyle = .customBackground{
         didSet{
             if let vscroller = self.verticalScroller as? UTScroller{
                 vscroller.legacyScrollerStyle = legacyStyle
@@ -79,6 +79,10 @@ public class UTScrollView: NSScrollView, ThemeableProtocol {
     
     //MARK: - ThemeableProtocol
     public func setThemeColors() {
+        if let window = self.window {
+            self.appearance = window.appearance
+        }
+        
         if let vscroller = self.verticalScroller as? ThemeableProtocol{
             vscroller.setThemeColors()
         }

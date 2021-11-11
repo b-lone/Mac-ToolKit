@@ -42,7 +42,6 @@ public class UTPillButton : UTButton {
         }
     }
     
-    
     private var trailingLeadingPadding:CGFloat {
         get {
             switch super.buttonHeight {
@@ -76,6 +75,62 @@ public class UTPillButton : UTButton {
         }
     }
     
+}
+
+public class UTOverlayButton : UTButton {
+    override func initialise() {        
+        super.buttonType = .round
+        super.buttonHeight = .extrasmall
+        super.startAtLeadingPadding = true
+        super.initialise()
+        super.style = .overlay
+    }
+    
+    override func toCGFloat(height: ButtonHeight) -> CGFloat {
+        return 20
+    }
+    
+    override internal func updateIconSize() {
+        super.fontIconSize = getIconSize()
+    }
+    
+    public override func setThemeColors() {
+        super.setThemeColors()
+    }
+    
+    override func positionTitleAndImage() {
+        super.positionTitleAndImage()
+    }
+    
+    private func getIconSize() -> CGFloat {
+        return 12
+    }
+    
+    override var trailingPadding:CGFloat {
+        get {
+            switch self.fontIcon {
+            case .arrowRightFilled:
+                return 3
+            case .arrowLeftFilled:
+                return 5
+            default:
+                return super.trailingPadding
+            }
+        }
+    }
+
+    override var leadingPadding:CGFloat {
+        get {
+            switch self.fontIcon {
+            case .arrowRightFilled:
+                return 5
+            case .arrowLeftFilled:
+                return 3
+            default:
+                return super.leadingPadding
+            }
+        }
+    }
 }
 
 public class UTRoundButton : UTButton {
@@ -119,6 +174,15 @@ public class UTRoundButton : UTButton {
 }
 
 public class UTHyperlinkButton : UTButton {
+    
+    override var leadingPadding: CGFloat {
+        return 2
+    }
+    
+    override var trailingPadding: CGFloat {
+        return 2
+    }
+    
     override func initialise(){
         super.style = .hyperlink
         super.buttonType = .square                
@@ -134,20 +198,13 @@ public class UTHyperlinkButton : UTButton {
     override internal var attributes:[NSAttributedString.Key:Any]{
         let theFont = labelFont.font()
         let underlineStyle = isEnabled ? NSUnderlineStyle.single.rawValue : 0
+        let para = NSMutableParagraphStyle()
+        para.lineBreakMode = .byTruncatingMiddle
         
         return [NSAttributedString.Key.font : theFont,
                 NSAttributedString.Key.foregroundColor : textColor,
-                NSAttributedString.Key.underlineStyle: underlineStyle]
-    }
-    
-    public override var intrinsicContentSize: NSSize{
-    
-        switch buttonType {
-        case .square:
-            return NSMakeSize(calulateWidthFromElements(), self.heightFloat)
-        default:
-            return super.intrinsicContentSize
-        }
+                NSAttributedString.Key.underlineStyle: underlineStyle,
+                NSAttributedString.Key.paragraphStyle: para]
     }
         
     public override func resetCursorRects() {
@@ -159,6 +216,7 @@ public class UTHyperlinkButton : UTButton {
         didSet {
             addUIElement(element: .Label(title))
             setupTextAndFonts()
+            invalidateIntrinsicContentSize()
             self.toolTip = title
         }
     }
@@ -175,5 +233,40 @@ public class UTHyperlinkButton : UTButton {
         case .unknown:
             assert(false, "no size known font size")
         }
+    }   
+}
+
+public class UTRoundBadgeButton : UTRoundButton {
+    
+    private var badge: UTBadge!
+    public var unreadCount: Int = 0 {
+        didSet {
+            updateBadge()
+        }
+    }
+
+    override func initialise() {
+        badge = UTBadge()
+        badge.showTooltip = false
+        addSubview(badge)
+        addConstraints([NSLayoutConstraint.createTopSpaceToViewConstraint(firstItem: badge, secondItem: self, constant: -8),
+                        NSLayoutConstraint.createTrailingSpaceToViewConstraint(firstItem: badge, secondItem: self, constant: 5)])
+        badge.translatesAutoresizingMaskIntoConstraints = false
+        updateBadge()
+        
+        super.style = .primary
+        super.buttonType = .round
+        super.initialise()
+        layer?.masksToBounds = false
+    }
+    
+    public override func setThemeColors() {
+        super.setThemeColors()
+        badge.setThemeColors()
+    }
+    
+    private func updateBadge() {
+        badge.count = unreadCount
+        badge.isHidden = unreadCount == 0
     }
 }

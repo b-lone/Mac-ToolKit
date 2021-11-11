@@ -23,7 +23,7 @@ class UTPopoverView: NSView, ThemeableProtocol {
                 //TODO
                 return UIToolkit.shared.isUsingLegacyTokens ? "background-primary" : "popover-primary-background"
             case .teaching:
-                return UIToolkit.shared.isUsingLegacyTokens ? "teaching-background" : UTColorTokens.coachmarkteachingBackground.rawValue
+                return UIToolkit.shared.isUsingLegacyTokens ? "wx-searchFilter-text" : UTColorTokens.coachmarkteachingBackground.rawValue
             }
         }
     }

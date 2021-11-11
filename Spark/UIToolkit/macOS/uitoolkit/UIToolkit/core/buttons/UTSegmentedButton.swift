@@ -42,6 +42,24 @@ public class UTSegmentedButton: UTHoverableView {
     
     public weak var delegate: UTSegmentedButtonDelegate?
     
+    public var isEnabled: Bool {
+        get {
+            buttons.reduce(false) { $0 || $1.isEnabled }
+        }
+        set {
+            for button in buttons {
+                button.isEnabled = newValue
+            }
+        }
+    }
+    
+    public func isEnabled(at index: Int) -> Bool {
+        guard buttons.hasIndex(index) else {
+            return false
+        }
+        return buttons[index].isEnabled
+    }
+    
     public var orientation: NSUserInterfaceLayoutOrientation = .horizontal {
         didSet {
             updateData()

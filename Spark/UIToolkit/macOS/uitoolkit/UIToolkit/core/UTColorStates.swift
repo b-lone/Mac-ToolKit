@@ -23,7 +23,7 @@ import Cocoa
         self.normal = normal
         self.hover = hover ?? normal
         self.pressed = pressed ?? normal
-        self.on = on ?? normal
+        self.on = on ?? (pressed ?? normal)
         self.focused = focused ?? normal
         self.disabled = disabled ?? normal
     }

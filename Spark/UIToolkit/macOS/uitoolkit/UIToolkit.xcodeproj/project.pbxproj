@@ -130,6 +130,7 @@
 		07F367E026FA4D5000AAECC3 /* UTAvatarOverflowBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F367DF26FA4D5000AAECC3 /* UTAvatarOverflowBadge.swift */; };
 		21BD405626CE00570020878E /* UTRoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BD405526CE00570020878E /* UTRoundCornerButton.swift */; };
 		4BE18C882722B2D6002C4236 /* UTSegmentedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE18C872722B2D6002C4236 /* UTSegmentedButton.swift */; };
+		420451C32732E76D00579FE4 /* UTIconDualWithTitleButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420451C22732E76D00579FE4 /* UTIconDualWithTitleButtonTests.swift */; };
 		6C8C922126F8FA9A006852A9 /* istyping.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6C8C922026F8FA9A006852A9 /* istyping.gif */; };
 		750CB52E269F21AE002F8DAF /* TestThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750CB52D269F21AE002F8DAF /* TestThemeManager.swift */; };
 		750CB533269F2359002F8DAF /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750CB531269F2359002F8DAF /* TestViewController.swift */; };
@@ -290,6 +291,7 @@
 		07F367DF26FA4D5000AAECC3 /* UTAvatarOverflowBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UTAvatarOverflowBadge.swift; path = ../../../../UIToolkit/UIToolkit/core/avatar/UTAvatarOverflowBadge.swift; sourceTree = "<group>"; };
 		21BD405526CE00570020878E /* UTRoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTRoundCornerButton.swift; sourceTree = "<group>"; };
 		4BE18C872722B2D6002C4236 /* UTSegmentedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTSegmentedButton.swift; sourceTree = "<group>"; };
+		420451C22732E76D00579FE4 /* UTIconDualWithTitleButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTIconDualWithTitleButtonTests.swift; sourceTree = "<group>"; };
 		6C8C922026F8FA9A006852A9 /* istyping.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = istyping.gif; sourceTree = "<group>"; };
 		750CB52D269F21AE002F8DAF /* TestThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestThemeManager.swift; sourceTree = "<group>"; };
 		750CB531269F2359002F8DAF /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -650,6 +652,7 @@
 				750CB52D269F21AE002F8DAF /* TestThemeManager.swift */,
 				7562415D26E0D4B100606946 /* UTNavigationTabButtonTests.swift */,
 				7562416B26E0FDCB00606946 /* Assets.xcassets */,
+				420451C22732E76D00579FE4 /* UTIconDualWithTitleButtonTests.swift */,
 			);
 			path = UIToolkitTests;
 			sourceTree = "<group>";
@@ -815,7 +818,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					07756FB526951E88000A63C5 = {
 						CreatedOnToolsVersion = 12.4;
@@ -1033,6 +1036,7 @@
 				750CB533269F2359002F8DAF /* TestViewController.swift in Sources */,
 				07B4084E26DE68DB00DB9713 /* UTIconTest.swift in Sources */,
 				077573E42695EC79000A63C5 /* UIToolkitTests.swift in Sources */,
+				420451C32732E76D00579FE4 /* UTIconDualWithTitleButtonTests.swift in Sources */,
 				077573EF2695ECC3000A63C5 /* UTTabViewTest.swift in Sources */,
 				077575AA269606F1000A63C5 /* Bundle+Extensions.swift in Sources */,
 				750CB52E269F21AE002F8DAF /* TestThemeManager.swift in Sources */,
@@ -1054,7 +1058,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1119,7 +1122,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

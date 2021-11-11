@@ -36,7 +36,7 @@ public class UTTabItem : NSObject {
         self.init(showUnreadPill:showUnreadPill,lhsIcon: lhsIcon, lhsIconColorToken: nil, image:nil, label:label, accessibilityLabel:accessibilityLabel, tooltip: "", enableArrow: enableArrow)
     }
     
-    public convenience init(showUnreadPill: Bool  = false, label:String, lhsIcon: MomentumRebrandIconType, lhsIconColorToken: String = "", accessibilityLabel:String, tooltip: String, enableArrow: Bool = false) {
+    public convenience init(showUnreadPill: Bool  = false, label:String, lhsIcon: MomentumRebrandIconType, lhsIconColorToken: String? = nil, accessibilityLabel: String, tooltip: String, enableArrow: Bool = false) {
         self.init(showUnreadPill:showUnreadPill,lhsIcon: lhsIcon, lhsIconColorToken: lhsIconColorToken, image:nil, label:label, accessibilityLabel:accessibilityLabel, tooltip: tooltip, enableArrow: enableArrow)
     }
     
@@ -50,6 +50,10 @@ public class UTTabItem : NSObject {
     
     public convenience init(showUnreadPill: Bool = false,label:String, showAlert: Bool, image:NSImage, accessibilityLabel:String, enableArrow: Bool) {
         self.init(showUnreadPill:showUnreadPill, lhsIcon: nil, lhsIconColorToken: nil, image:image, label:label, accessibilityLabel:accessibilityLabel, tooltip: "", enableArrow: enableArrow)
+    }
+    
+    public convenience init(showUnreadPill: Bool = false, label:String, showAlert: Bool, image:NSImage, accessibilityLabel:String, tooltip: String, enableArrow: Bool) {
+        self.init(showUnreadPill:showUnreadPill, lhsIcon: nil, lhsIconColorToken: nil, image:image, label:label, accessibilityLabel:accessibilityLabel, tooltip: tooltip, enableArrow: enableArrow)
     }
 
        

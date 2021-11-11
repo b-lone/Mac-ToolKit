@@ -67,6 +67,12 @@ public enum UTFontType : CaseIterable {
         return UTCoreFont.getFont(size: self.size, weight: self.weight)
     }
     
+    ///Returns a font where the space between all digits is the same.
+    ///This is needed for things like the call duration button to prevent jumping as the timer is updated
+    public func monospacedDigitFont() -> NSFont {
+        return UTCoreFont.getMonoSpacedDigitFont(size: self.size, weight: self.weight)
+    }
+    
     public var tokenName: String {
         
         switch self {

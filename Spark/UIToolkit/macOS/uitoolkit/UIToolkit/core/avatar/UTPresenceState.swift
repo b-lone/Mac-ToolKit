@@ -18,5 +18,6 @@ public enum UTPresenceState {
     case screenShare    
     case mobile
     case device
+    case callHold
     case none
 }

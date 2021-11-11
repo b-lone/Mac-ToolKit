@@ -81,8 +81,8 @@ public class AvatarImageViewDataSource : AvatarImageViewDataSourceProtocol {
         self.init(presenceState:presenceState, size:size, avatarType: .image, avatarId: "", name:"", avatar:avatar, bgColor:nil)
     }
     
-    public class func initLockAvatar(size:UTAvatarView.Size) -> AvatarImageViewDataSourceProtocol{
-        return AvatarImageViewDataSource(presenceState: .none, size: size, avatarType: .lockedIconWithBackground, avatarId: "", name: "", avatar: nil, bgColor: nil)
+    public class func initLockAvatar(size:UTAvatarView.Size, bgColor:NSColor? = nil) -> AvatarImageViewDataSourceProtocol{
+        return AvatarImageViewDataSource(presenceState: .none, size: size, avatarType: .lockedIconWithBackground, avatarId: "", name: "", avatar: nil, bgColor: bgColor)
     }
     
     public class func initSelfMessage(size:UTAvatarView.Size) -> AvatarImageViewDataSourceProtocol{

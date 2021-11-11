@@ -34,6 +34,7 @@ public enum UTIconLabelStyle {
     case buttonPrimaryText
     
     case globalPlusMenuOptionDisabled
+    case externalUser
         
     var textToken:String{
         switch self{
@@ -84,6 +85,8 @@ public enum UTIconLabelStyle {
         case .globalPlusMenuOptionDisabled:
             return "inputText-secondary"
         
+        case .externalUser:
+            return UIToolkit.shared.isUsingLegacyTokens ? "label-warning-text" : UTColorTokens.labelWarningText.rawValue
         }
     }
     

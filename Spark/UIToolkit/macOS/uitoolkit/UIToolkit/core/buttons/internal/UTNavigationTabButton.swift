@@ -9,20 +9,51 @@ import Cocoa
 
 public class UTNavigationTabButton : UTTabButton {
     
-    public var showBadge: Bool = true
+    public var supportsBadge: Bool = false
     public var iconColorToken: String = ""
     public var coBrandingIconColorStates: UTColorStates!
     public var coBrandingIconBackgroundColorStates: UTColorStates!
     public var coBrandingIconBackgroundOnColorStates: UTColorStates!
     public var canNavigateWithArrowKeys: Bool = true
+    private static let maxTrailingPadding: CGFloat = 54.0
     private var badge:UTBadge!
     
-    public var unreadCount:Int = 0{
+    private var badgeConstraints: [NSLayoutConstraint] = []
+    private var initialIntrinsicWidth:CGFloat = 0.0
+    
+    public var unreadCount:Int = 0 {
         didSet {
             updateBadge()
         }
     }
     
+    public var isExpanded: Bool = false {
+        didSet {
+            if isExpanded {
+                setBadgeConstraintsForWideTab()
+            }
+            else {
+                setBadgeConstraintsForNarrowTab()
+            }
+            self.endAtTrailingPadding = isExpanded
+        }
+    }
+    
+    private func setBadgeConstraintsForNarrowTab() {
+        self.removeConstraints(badgeConstraints)
+        badgeConstraints = [NSLayoutConstraint.createTopSpaceToViewConstraint(firstItem: badge, secondItem: self, constant: 6),
+                               NSLayoutConstraint.createTrailingSpaceToViewConstraint(firstItem: badge, secondItem: self, constant: 0)]
+        self.addConstraints(badgeConstraints)
+    }
+    
+    private func setBadgeConstraintsForWideTab() {
+        self.removeConstraints(badgeConstraints)
+        badgeConstraints = [NSLayoutConstraint.createCenterYViewConstraint(firstItem: badge, secondItem: self),
+                               NSLayoutConstraint.createTrailingSpaceToViewConstraint(firstItem: badge, secondItem: self, constant: -12)]
+        self.addConstraints(badgeConstraints)
+       
+    }
+       
     override func initialise() {
         preventFirstResponder = true
         
@@ -30,16 +61,50 @@ public class UTNavigationTabButton : UTTabButton {
         badge = UTBadge()
         badge.showTooltip = false
         self.addSubview(badge)
-        self.addConstraints( [NSLayoutConstraint.createTopSpaceToViewConstraint(firstItem: badge, secondItem: self, constant: 6),
-                              NSLayoutConstraint.createTrailingSpaceToViewConstraint(firstItem: badge, secondItem: self, constant: 0)])
-        
+        setBadgeConstraintsForNarrowTab()
         badge.translatesAutoresizingMaskIntoConstraints = false
         updateBadge()
         super.initialise()
         super.style = .tabs
-        
-        super.buttonType = .round
+        super.startAtLeadingPadding = true
+        super.buttonType = .rounded
         super.fontIconSize = 24
+        super.titleTruncationMode = .end
+    }
+    
+    public var adjustedWitdh: CGFloat {
+        get{
+            if initialIntrinsicWidth == 0.0 {
+                initialIntrinsicWidth = intrinsicContentSize.width
+            }
+            
+            return initialIntrinsicWidth
+        }
+    }
+    override var trailingPadding:CGFloat {
+        if !supportsBadge {
+            return leadingPadding
+        }
+        
+        if initialIntrinsicWidth == 0.0 {
+            return  UTNavigationTabButton.maxTrailingPadding
+        }
+        
+        if badge.isHidden {
+            return leadingPadding
+        }
+        
+        return 2 * leadingPadding + badge.intrinsicContentSize.width
+    }
+    
+    override var leadingPadding:CGFloat {
+        return 12.0
+    }
+    
+    public override var fontIcon: MomentumRebrandIconType! {
+        didSet {
+            super.fontIcon = fontIcon
+        }
     }
     
     override func toCGFloat(height: ButtonHeight) -> CGFloat {
@@ -66,7 +131,7 @@ public class UTNavigationTabButton : UTTabButton {
         return super.backgroundColors
     }
     
-    override var textColors: UTColorStates {
+    override var textColors:UTColorStates {
         if let coBrandingIconColorStates = coBrandingIconColorStates {
             return coBrandingIconColorStates
         }
@@ -79,14 +144,28 @@ public class UTNavigationTabButton : UTTabButton {
     
     private func updateBadge() {
         badge.count = unreadCount
-        badge.isHidden = unreadCount == 0 || !showBadge
+        badge.isHidden = unreadCount == 0 || !supportsBadge
+        
+        if badge.isHidden {
+            self.cell?.setAccessibilityChildren(nil)
+        }
+        else{
+            self.cell?.setAccessibilityChildren([badge!])
+        }
     }
+    
+    public func updateTitle(_ title: String) {
+        super.title = title
+      }
     
     public override func setThemeColors() {
         super.setThemeColors()
         badge.setThemeColors()
     }
     
+    public override func updateCorners() {
+           layer?.cornerRadius = self.heightFloat/2
+    }
 
     public override var acceptsFirstResponder: Bool {
         return true

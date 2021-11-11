@@ -79,5 +79,22 @@ public class UTBadge: UTTextWithBackground {
     override internal var backgroundColor:CCColor {
         return UIToolkit.shared.getThemeManager().getColors(tokenName: backgroundColorToken).normal
     }
+    
+    //MARK: - Accessibility
+    public override func isAccessibilityElement() -> Bool {
+        return true
+    }
+    
+    public override func accessibilityRole() -> NSAccessibility.Role? {
+        return .valueIndicator
+    }
+    
+    public override func accessibilityTitle() -> String? {
+        return stringValue
+    }
+    
+    public override func accessibilityValue() -> Any? {
+        return count
+    }
 }
 

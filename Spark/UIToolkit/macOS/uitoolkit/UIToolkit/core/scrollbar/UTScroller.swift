@@ -38,6 +38,10 @@ class UTScroller: NSScroller, ThemeableProtocol {
         return UIToolkit.shared.getThemeManager().getColors(tokenName: "scrollbar-backgroundGutter").normal
     }
     
+    private var knobColorStates:UTColorStates{
+        return UIToolkit.shared.getThemeManager().getColors(token: .scrollbarThumbBackground)
+    }
+    
     //MARK: - ThemeableProtocol
     
     func setThemeColors() {
@@ -60,7 +64,7 @@ class UTScroller: NSScroller, ThemeableProtocol {
     
     override func drawKnobSlot(in slotRect: NSRect, highlight flag: Bool) {
         
-        if legacyScrollerStyle == .defaultBackground{
+        if legacyScrollerStyle == .defaultBackground {
             super.drawKnobSlot(in: slotRect, highlight: flag)
         }
         else if legacyScrollerStyle == .customBackground{
@@ -69,6 +73,35 @@ class UTScroller: NSScroller, ThemeableProtocol {
             let path = NSBezierPath(roundedRect: slotRect, xRadius: 8, yRadius: 8)
             path.fill()
         }
+    }
+    
+    override func drawKnob() {
+        
+        if self.scrollerStyle == .overlay || legacyScrollerStyle != .customBackground {
+            super.drawKnob()
+        }
+        else {
+            
+            let rect = self.rect(for: .knob)
+            let knobSlotRect = self.rect(for: .knobSlot)
+            
+            let width:CGFloat = 8
+            let radius:CGFloat = 4
+            let adjustedX = rect.origin.x + ((knobSlotRect.width - width) / 2)
+            let adjustedRect = NSMakeRect(adjustedX, rect.origin.y, width, rect.height)
+            
+            if self.isMouseInView {
+                knobColorStates.pressed.setFill()
+                let path = NSBezierPath(roundedRect: adjustedRect, xRadius: radius, yRadius: radius)
+                path.fill()
+            }
+            else {
+                knobColorStates.normal.setFill()
+                let path = NSBezierPath(roundedRect: adjustedRect, xRadius: radius, yRadius: radius)
+                path.fill()
+            }
+        }
+    
     }
     
 }

@@ -27,9 +27,11 @@ open class UTButton: UTBaseButton {
         case teachingPrimary
         case teachingSecondary
         case teachingHyperlink
-        
         case shareWindowPrimary
         case shareWindowSecondary
+        case overlay
+        case singleEqual
+        case statedLayout
         
         func getBackgroundTokenName(on: Bool) -> String {
             switch self {
@@ -66,15 +68,29 @@ open class UTButton: UTBaseButton {
             case .layout:
                 return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.buttonLayoutBackground.rawValue
             case .teachingPrimary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "teaching-button-primary" : UTColorTokens.coachmarkteachingButtonPrimaryBackground.rawValue
+                return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.coachmarkteachingButtonPrimaryBackground.rawValue
             case .teachingSecondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "teaching-button-secondary" : UTColorTokens.coachmarkteachingButtonSecondaryBackground.rawValue
+                return UIToolkit.shared.isUsingLegacyTokens ? "button-ghost" : UTColorTokens.coachmarkteachingButtonSecondaryBackground.rawValue
             case .teachingHyperlink:
                 return ""
             case .shareWindowPrimary:
                 return UIToolkit.shared.isUsingLegacyTokens ? "button-primary" : UTColorTokens.sharewindowControlButtonPrimaryBackground.rawValue
             case .shareWindowSecondary:
                 return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.sharewindowControlButtonSecondaryBackground.rawValue
+            case .overlay:
+                return UIToolkit.shared.isUsingLegacyTokens ? "button-inverted-background" : UTColorTokens.buttonOverlayBackground.rawValue
+            case .singleEqual:
+                if on == true {
+                    return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary-active-background" : UTColorTokens.buttonSecondaryActiveBackground.rawValue
+                } else {
+                    return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.buttonLayoutBackground.rawValue
+                }
+            case .statedLayout:
+                if on == true {
+                    return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary-active-background" : UTColorTokens.buttonSecondaryActiveBackground.rawValue
+                } else {
+                    return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.buttonLayoutBackground.rawValue
+                }
             }
         }
         
@@ -113,15 +129,25 @@ open class UTButton: UTBaseButton {
             case .layout:
                 return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-secondary" : UTColorTokens.buttonLayoutText.rawValue
             case .teachingPrimary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-secondary" : UTColorTokens.coachmarkteachingButtonPrimaryText.rawValue
+                return UIToolkit.shared.isUsingLegacyTokens ? "wx-layout-button-text" : UTColorTokens.coachmarkteachingButtonPrimaryText.rawValue
             case .teachingSecondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "teaching-text-inverted" : UTColorTokens.coachmarkteachingButtonSecondaryText.rawValue
+                return UIToolkit.shared.isUsingLegacyTokens ? "wx-spinnerWithLabel-text" : UTColorTokens.coachmarkteachingButtonSecondaryText.rawValue
             case .teachingHyperlink:
-                return UIToolkit.shared.isUsingLegacyTokens ? "teaching-text-accent" : UTColorTokens.coachmarkteachingButtonHyperlinkText.rawValue
+                return UIToolkit.shared.isUsingLegacyTokens ? "text-hyperlink" : UTColorTokens.coachmarkteachingButtonHyperlinkText.rawValue
             case .shareWindowPrimary:
                 return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-primary" : UTColorTokens.sharewindowControlButtonPrimaryText.rawValue
             case .shareWindowSecondary:
                 return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-secondary" : UTColorTokens.sharewindowControlButtonSecondaryText.rawValue
+            case .overlay:               
+                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-primary" : UTColorTokens.buttonOverlayText.rawValue
+            case .singleEqual:
+                if on == true {
+                    return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-secondary" : UTColorTokens.buttonLayoutText.rawValue
+                } else {
+                    return UIToolkit.shared.isUsingLegacyTokens ? "text-secondary" : UTColorTokens.labelSecondaryText.rawValue
+                }
+            case .statedLayout:
+                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-secondary" : UTColorTokens.buttonLayoutText.rawValue
             }
         }
         
@@ -156,15 +182,21 @@ open class UTButton: UTBaseButton {
             case .layout:
                 return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.buttonLayoutBorder.rawValue
             case .teachingPrimary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : ""
+                return ""
             case .teachingSecondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "teaching-outline-button" : UTColorTokens.coachmarkteachingButtonPrimaryBorder.rawValue
+                return UIToolkit.shared.isUsingLegacyTokens ? "wx-semiTransparentControl" : UTColorTokens.coachmarkteachingButtonPrimaryBorder.rawValue
             case .teachingHyperlink:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : ""
+                return ""
             case .shareWindowPrimary:
                 return UIToolkit.shared.isUsingLegacyTokens ? "" : ""
             case .shareWindowSecondary:
                 return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.sharewindowControlButtonSecondaryBorder.rawValue
+            case .overlay:
+                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.buttonOverlayBorder.rawValue
+            case .singleEqual:
+                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.buttonLayoutBorder.rawValue
+            case .statedLayout:
+                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.buttonLayoutBorder.rawValue
             }
         }
     }
@@ -172,8 +204,15 @@ open class UTButton: UTBaseButton {
     public var style: Style = .unknown{
         didSet{
             //TODO, revist UTHyperlinkButton and the public hyperlink style .
-            if style == .hyperlink &&  self is UTHyperlinkButton == false {
-                assert(false, "hyperlink types can only be used with UTHyperlinkButton ")
+            if style == .hyperlink {
+                useAttributedStringForLabel = true
+
+                if self is UTHyperlinkButton == false {
+                    assert(false, "hyperlink types can only be used with UTHyperlinkButton ")
+                }
+            }
+            else {
+                useAttributedStringForLabel = false
             }
             setThemeColors()
         }

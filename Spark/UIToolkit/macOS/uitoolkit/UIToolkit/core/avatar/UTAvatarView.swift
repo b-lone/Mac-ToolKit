@@ -244,8 +244,7 @@ public class UTAvatarView: UTHoverableView {
     
     private func setTyping(isTyping: Bool){
         
-        guard let dataSource = self.dataSource,  dataSource.size == .extraSmall else {
-            NSLog("Set typing is not supported for avatar size")
+        guard let dataSource = self.dataSource,  dataSource.size == .extraSmall else {            
             return
         }
         

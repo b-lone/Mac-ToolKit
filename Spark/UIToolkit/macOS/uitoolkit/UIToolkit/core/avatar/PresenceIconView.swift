@@ -48,6 +48,7 @@ class PresenceIconView: NSView, CALayerDelegate, ThemeableProtocol {
               .quiet,
               .pto,
               .recents,
+              .callHold,
               .none:
             return false
              
@@ -162,8 +163,9 @@ class PresenceIconView: NSView, CALayerDelegate, ThemeableProtocol {
             case .quiet: return .quietHoursPresenceFilled
             case .recents: return .recentsPresenceSmallFilled
             case .screenShare: return .shareScreenSmallFilled
-            case .mobile: return .phoneFilled
-            case .device: return .genericDeviceVideoFilled
+            case .mobile: return .phoneSmallFilled
+            case .device: return .genericDeviceVideoSmallFilled
+            case .callHold: return .pauseFilled
         }
     }
         
@@ -181,6 +183,7 @@ class PresenceIconView: NSView, CALayerDelegate, ThemeableProtocol {
         case .screenShare: return UIToolkit.shared.getThemeManager().getColors(tokenName: UTColorTokens.avatarPresenceIconPresenting.rawValue).normal
         case .mobile: return UIToolkit.shared.getThemeManager().getColors(tokenName: UTColorTokens.avatarPresenceIconAway.rawValue).normal
         case .device: return UIToolkit.shared.getThemeManager().getColors(tokenName: UTColorTokens.avatarPresenceIconAway.rawValue).normal
+        case .callHold: return UIToolkit.shared.getThemeManager().getColors(tokenName: UTColorTokens.avatarPresenceIconAway.rawValue).normal
             
         }
     }

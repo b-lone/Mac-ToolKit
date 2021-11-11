@@ -28,6 +28,13 @@ public class UTDualButton: UTHoverableView {
             rhsButton.style = style
         }
     }
+    
+    public var shouldExcludeTooltipsInShare = false {
+        didSet {
+            lhsButton.shouldExcludeTooltipsInShare = shouldExcludeTooltipsInShare
+            rhsButton.shouldExcludeTooltipsInShare = shouldExcludeTooltipsInShare
+        }
+    }
 
     private var containerStackView:NSStackView!
     private var lhsButton:UTSplitButton!
@@ -104,10 +111,12 @@ public class UTDualButton: UTHoverableView {
     
     public func toggleLHSState(_ state: NSControl.StateValue) {
         lhsButton.state = state
+        setThemeColors()
     }
     
     public func toggleRHSState(_ state: NSControl.StateValue) {
         rhsButton.state = state
+        setThemeColors()
     }
     
     public override func setThemeColors() {

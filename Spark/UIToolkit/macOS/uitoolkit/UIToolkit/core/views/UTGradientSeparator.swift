@@ -32,6 +32,12 @@ public class UTGradientSeparator : UTView {
              setThemeColors()
         }
     }
+    
+    public var colorLocations: [NSNumber]? {
+        didSet {
+            setThemeColors()
+        }
+    }
 
     private var gradient: CAGradientLayer!
     private var startPoint: CGPoint {
@@ -91,6 +97,9 @@ public class UTGradientSeparator : UTView {
         gradient.startPoint = startPoint
         gradient.endPoint = endPoint
         gradient.colors = [NSColor.clear.cgColor, edgeColour, middleColour, middleColour, edgeColour, NSColor.clear.cgColor]
+        if let locations = colorLocations {
+            gradient.locations = locations
+        }
         self.layer?.addSublayer(gradient)
     }
 }

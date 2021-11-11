@@ -123,6 +123,27 @@ class UTTabViewTest: XCTestCase, UTTabViewDelegate {
         XCTAssertTrue(result2 == false)
     }
     
+    func testRemoveAll() throws {
+        let vc = TestViewController(nibName: "TestViewController", bundle: Bundle.getUIToolKitTestBundle())
+        let tabView = UTTabView()
+        XCTAssertEqual(tabView.count, 0)
+        
+        let tabItem1 = UTTabItem(label: "item1", accessibilityLabel: "item1")
+        tabItem1.viewController = vc
+        tabView.addTab(tab: tabItem1)
+        XCTAssertEqual(tabView.count, 1)
+        
+        let tabItem2 = UTTabItem(label: "item2", accessibilityLabel: "item2")
+        tabItem2.viewController = vc
+        tabView.addTab(tab: tabItem2)
+        XCTAssertEqual(tabView.count, 2)
+        
+        XCTAssertTrue(tabView.isEmpty() == false)
+        tabView.removeAllTab()
+        XCTAssertTrue(tabView.isEmpty() == true)
+        
+    }
+    
     
     func testItemSelected() throws {
         

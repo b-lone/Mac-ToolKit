@@ -49,4 +49,8 @@ class UTCoreFont {
     static func getFont(size:Size, weight:Weight) -> NSFont {
         return NSFont.systemFont(ofSize: size.rawValue * UIToolkit.shared.fontManager.scaleFactor, weight: weight.nsFontWeight())
     }
+    
+    static func getMonoSpacedDigitFont(size:Size, weight:Weight) -> NSFont {
+        return NSFont.monospacedDigitSystemFont(ofSize: size.rawValue * UIToolkit.shared.fontManager.scaleFactor, weight: weight.nsFontWeight())
+    }
 }

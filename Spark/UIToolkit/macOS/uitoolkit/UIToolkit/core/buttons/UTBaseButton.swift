@@ -25,6 +25,8 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
     
     var startAtLeadingPadding = false
     
+    var endAtTrailingPadding: Bool = false
+    
     struct ElementSize {
          var imageWidth:CGFloat = 14
          var elementPadding:CGFloat = 8
@@ -45,8 +47,6 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
             setupTextAndFonts()
         }
     }
-    
-
 
     var trailingPadding:CGFloat {
         return 10
@@ -57,6 +57,8 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
     }
            
     public var representedObject: Any?
+    
+    public var titleTruncationMode: CATextLayerTruncationMode = .middle
     
     public var buttonHeight: ButtonHeight = .medium {
         didSet{
@@ -107,9 +109,15 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
         }
     }
     public var shouldExcludeTooltipsInShare: Bool = false
-    public var shouldHigherCustomTooltipsWindowLevel: Bool = false
+    
+    ///This will use the same font as default but will have equal spacing for digits
+    public var useMonospacedDigitFont = false
     
     internal var labelFont: UTFontType = .labelCompact
+    
+    private var titleFont : NSFont {
+        return useMonospacedDigitFont ? labelFont.monospacedDigitFont() : labelFont.font()
+    }
     
     //MARK: internal api
     internal var buttonType: UTType = .pill
@@ -141,6 +149,8 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
     private var tooltipType: UTTooltipType = .plain("")
     private var arrowShouldChangeIndependently: Bool = false
     private var independentArrowState: Bool = false
+    
+    internal var useAttributedStringForLabel = false
     
     private var trackingArea: NSTrackingArea?
     
@@ -332,7 +342,7 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
     }
 
     internal var attributes:[NSAttributedString.Key:Any]{
-        let theFont = labelFont.font()
+        let theFont = titleFont
         
         return [NSAttributedString.Key.font : theFont,
                 NSAttributedString.Key.foregroundColor : textColor]
@@ -462,13 +472,20 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
                     }
                 case .Label(let label):
                     if let titleLayer =  elementPair.1 as? CATextLayer {
-                        let titleFont = labelFont.font()
+                        //Attributed strings are needed for underlines in hyperlinks but CATextLayers
+                        //do not handle turncation properly when set on an NSAttributedString
                         
-                        titleLayer.font = titleFont
-                        titleLayer.fontSize = titleFont.pointSize
-                        titleLayer.truncationMode = .middle
-                        titleLayer.foregroundColor = textColor.cgColor
-                        titleLayer.string = label
+                        if useAttributedStringForLabel {
+                            titleLayer.string = NSAttributedString(string: label, attributes: attributes)
+                        }
+                        else {
+                            titleLayer.font = titleFont
+                            titleLayer.fontSize = titleFont.pointSize
+                            titleLayer.truncationMode = titleTruncationMode
+                            titleLayer.foregroundColor = textColor.cgColor
+                            titleLayer.string = label
+                        }
+                        
                     }
                 case .UnreadPill, .Image(_), .Badge(_) : break
             }
@@ -698,12 +715,7 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
             let toolTipVC = RichToolTipViewController(tooltip:details.attTooltipString, size:details.size)
             popover = UTPopover(contentViewController: toolTipVC, sender: self, bounds: self.bounds,  preferredEdge: details.preferredEdge, behavior: .semitransient, style: .toolTip)
             if let window = popover?.contentViewController?.view.window {
-                if shouldExcludeTooltipsInShare {
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: "OnShareShouldExcludeWindow"), object: self, userInfo: ["windowNumber": window.windowNumber])
-                }
-                if shouldHigherCustomTooltipsWindowLevel {
-                    window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.popUpMenuWindow)) + 2)
-                }
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "OnShareShouldExcludeWindow"), object: self, userInfo: ["windowNumber": window.windowNumber, "onlyExcludeFromShareSourceList": !shouldExcludeTooltipsInShare])
             }
         }
     }

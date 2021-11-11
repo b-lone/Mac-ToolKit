@@ -285,15 +285,21 @@ public class UTTabView: UTView {
         
     }
     
+    public func isEmpty() -> Bool {
+        return tabButtonStackView.views.count == 0 && tabComponentsMap.isEmpty
+    }
+    
     public var count:Int {
         return tabButtonStackView.views.count
     }
     
     public func removeAllTab() {
        let tabs = tabButtonStackView.views
+        
         for tab in tabs {
             tabButtonStackView.removeView(tab)
         }
+        tabComponentsMap.removeAll()
     }
     
     internal func getButton(tab:UTTabItem) -> UTTabButton? {
@@ -315,9 +321,7 @@ public class UTTabView: UTView {
         
         if let lhsIcon = tab.lhsElement {
             button.addUIElement(element: .FontIcon(lhsIcon))
-            if let lhsIconColorToken = tab.lhsIconColorToken {
-                button.iconTokenName = lhsIconColorToken
-            }
+            button.iconTokenName = tab.lhsIconColorToken
         }
         
         if tab.badgeCount > 0  {
