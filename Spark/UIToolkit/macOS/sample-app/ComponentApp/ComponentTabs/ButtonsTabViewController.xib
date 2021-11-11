@@ -15,6 +15,7 @@
                 <outlet property="dualButtonControlMedium" destination="eeh-OU-eNp" id="RoT-2Y-Uco"/>
                 <outlet property="dualButtonControlSmall" destination="Yqm-c6-AeP" id="uJL-Ta-HJf"/>
                 <outlet property="dualIconButton" destination="cHa-bF-IU0" id="jqP-14-uiw"/>
+                <outlet property="dualIconWithLabelButton" destination="s5o-xM-0ok" id="Vry-mH-i2t"/>
                 <outlet property="extraLargeRoundButton" destination="Kyj-1m-9NS" id="jfc-Qh-zI3"/>
                 <outlet property="extraSmallPIllButton" destination="N8V-O1-kjs" id="f00-hK-StR"/>
                 <outlet property="extraSmallRoundButton" destination="7xJ-jD-sOs" id="hE5-rW-jOV"/>
@@ -23,6 +24,7 @@
                 <outlet property="globalHeaderBackgroundView" destination="b6g-DQ-pap" id="9mS-Rc-cAi"/>
                 <outlet property="globalHeaderStackView" destination="llb-OC-qoq" id="TVl-oP-dty"/>
                 <outlet property="iconButtonStackView" destination="09d-HM-CC5" id="DVR-WK-lVA"/>
+                <outlet property="largeDualIconWithLabelButton" destination="3tg-z6-XZx" id="coU-ru-Jbk"/>
                 <outlet property="largeIconDualButton" destination="RxU-bK-3zz" id="LO1-t2-0w7"/>
                 <outlet property="largePillButton" destination="51w-5j-Kgr" id="uOl-d7-IH8"/>
                 <outlet property="largePillWithIconButton" destination="5na-RR-lt2" id="JIB-70-PE9"/>
@@ -439,28 +441,27 @@
                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hZ7-Sa-dHw" userLabel="buttonStylesStackView">
                     <rect key="frame" x="10" y="282" width="900" height="51"/>
                 </stackView>
-                <customView placeholderIntrinsicWidth="64" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="RxU-bK-3zz" customClass="UTIconDualButton" customModule="UIToolkit">
+                <customView placeholderIntrinsicWidth="64" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="RxU-bK-3zz" userLabel="Icon Dual Button Medium" customClass="UTIconDualButton" customModule="UIToolkit">
                     <rect key="frame" x="226" y="200" width="64" height="32"/>
                 </customView>
-                <customView placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cHa-bF-IU0" customClass="UTIconDualButton" customModule="UIToolkit">
+                <customView placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cHa-bF-IU0" userLabel="Icon Dual Button Small" customClass="UTIconDualButton" customModule="UIToolkit">
                     <rect key="frame" x="298" y="204" width="60" height="28"/>
                 </customView>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eWJ-yf-zI4" customClass="UTDownArrowRoundedCornerButton" customModule="UIToolkit">
-                    <rect key="frame" x="381" y="201" width="75" height="32"/>
-                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lNn-b9-65B">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
+                <customView placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s5o-xM-0ok" userLabel="Icon Dual Button With Label" customClass="UTIconDualWithTitleButton" customModule="UIToolkit">
+                    <rect key="frame" x="366" y="204" width="60" height="28"/>
+                </customView>
+                <customView placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3tg-z6-XZx" userLabel="Icon Dual Button With Label Medium" customClass="UTIconDualWithTitleButton" customModule="UIToolkit">
+                    <rect key="frame" x="434" y="204" width="60" height="28"/>
+                </customView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KV2-kW-G0N" customClass="UTRoundedCornerButton" customModule="UIToolkit">
-                    <rect key="frame" x="442" y="201" width="75" height="32"/>
+                    <rect key="frame" x="578" y="201" width="75" height="32"/>
                     <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="67R-C0-De3">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UcF-iw-XYV" customClass="UTNavigationTabButton" customModule="UIToolkit">
-                    <rect key="frame" x="546" y="201" width="75" height="32"/>
+                    <rect key="frame" x="682" y="201" width="75" height="32"/>
                     <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cXi-dY-lGA">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -511,6 +512,13 @@
                         <constraint firstItem="llb-OC-qoq" firstAttribute="top" secondItem="b6g-DQ-pap" secondAttribute="top" id="Zcg-Wy-l0N"/>
                     </constraints>
                 </customView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eWJ-yf-zI4" customClass="UTDownArrowRoundedCornerButton" customModule="UIToolkit">
+                    <rect key="frame" x="517" y="201" width="75" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lNn-b9-65B">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="2MV-tI-q7x" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="2fK-4d-H5r"/>
@@ -519,21 +527,24 @@
                 <constraint firstItem="UcF-iw-XYV" firstAttribute="top" secondItem="06Z-S7-8XN" secondAttribute="bottom" constant="33" id="89t-K1-PT1"/>
                 <constraint firstItem="Yqm-c6-AeP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="8xl-St-PMP"/>
                 <constraint firstItem="09d-HM-CC5" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="AYL-Gg-3Kv"/>
+                <constraint firstItem="s5o-xM-0ok" firstAttribute="leading" secondItem="cHa-bF-IU0" secondAttribute="trailing" constant="8" symbolic="YES" id="El2-9o-7AF"/>
                 <constraint firstItem="06Z-S7-8XN" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="GGw-ER-6xZ"/>
                 <constraint firstItem="qex-zX-YvQ" firstAttribute="top" secondItem="b6g-DQ-pap" secondAttribute="bottom" constant="8" symbolic="YES" id="GJc-HY-IlK"/>
+                <constraint firstItem="3tg-z6-XZx" firstAttribute="leading" secondItem="s5o-xM-0ok" secondAttribute="trailing" constant="8" symbolic="YES" id="HL5-vn-XEq"/>
                 <constraint firstAttribute="trailing" secondItem="2MV-tI-q7x" secondAttribute="trailing" id="HNk-BH-6z5"/>
                 <constraint firstItem="RxU-bK-3zz" firstAttribute="top" secondItem="06Z-S7-8XN" secondAttribute="bottom" constant="29" id="K6U-AV-JTb"/>
+                <constraint firstItem="s5o-xM-0ok" firstAttribute="top" secondItem="06Z-S7-8XN" secondAttribute="bottom" constant="29" id="KtH-ly-2et"/>
                 <constraint firstItem="eeh-OU-eNp" firstAttribute="leading" secondItem="Yqm-c6-AeP" secondAttribute="trailing" constant="8" symbolic="YES" id="Rxd-OY-gR7"/>
+                <constraint firstItem="3tg-z6-XZx" firstAttribute="top" secondItem="s5o-xM-0ok" secondAttribute="top" id="S1l-oZ-cYg"/>
                 <constraint firstItem="hZ7-Sa-dHw" firstAttribute="top" secondItem="2MV-tI-q7x" secondAttribute="bottom" constant="20" id="S5s-nF-ZQw"/>
                 <constraint firstItem="KV2-kW-G0N" firstAttribute="leading" secondItem="eWJ-yf-zI4" secondAttribute="trailing" id="SIV-Iu-lKi"/>
                 <constraint firstItem="mrO-5Q-77w" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="XWm-Ey-NSb"/>
-                <constraint firstItem="cHa-bF-IU0" firstAttribute="leading" secondItem="RxU-bK-3zz" secondAttribute="trailing" constant="8" symbolic="YES" id="Yyd-mn-5cp"/>
                 <constraint firstItem="06Z-S7-8XN" firstAttribute="top" secondItem="2MV-tI-q7x" secondAttribute="bottom" constant="91" id="ah9-JQ-ahS"/>
                 <constraint firstItem="qex-zX-YvQ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="6" id="bYL-mK-KGE"/>
+                <constraint firstItem="s5o-xM-0ok" firstAttribute="centerY" secondItem="eWJ-yf-zI4" secondAttribute="centerY" id="bqI-kJ-3kH"/>
                 <constraint firstItem="hZ7-Sa-dHw" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="dOt-T7-MHV"/>
                 <constraint firstAttribute="trailing" secondItem="hZ7-Sa-dHw" secondAttribute="trailing" constant="10" id="etv-kH-Lfb"/>
                 <constraint firstItem="b6g-DQ-pap" firstAttribute="top" secondItem="09d-HM-CC5" secondAttribute="bottom" constant="16" id="kIw-mk-tng"/>
-                <constraint firstItem="eWJ-yf-zI4" firstAttribute="leading" secondItem="cHa-bF-IU0" secondAttribute="trailing" constant="30" id="l0e-7F-GtD"/>
                 <constraint firstItem="2MV-tI-q7x" firstAttribute="top" secondItem="mrO-5Q-77w" secondAttribute="bottom" constant="27" id="nrE-Jn-ikg"/>
                 <constraint firstItem="KV2-kW-G0N" firstAttribute="centerY" secondItem="eWJ-yf-zI4" secondAttribute="centerY" id="nx2-M4-y1i"/>
                 <constraint firstItem="UcF-iw-XYV" firstAttribute="leading" secondItem="KV2-kW-G0N" secondAttribute="trailing" constant="43" id="phJ-nL-hjC"/>
@@ -542,9 +553,11 @@
                 <constraint firstItem="mrO-5Q-77w" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="rlh-Tq-o08"/>
                 <constraint firstItem="cHa-bF-IU0" firstAttribute="top" secondItem="06Z-S7-8XN" secondAttribute="bottom" constant="29" id="t9y-Pb-vC0"/>
                 <constraint firstItem="b6g-DQ-pap" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="tP6-1N-QNl"/>
+                <constraint firstItem="cHa-bF-IU0" firstAttribute="leading" secondItem="RxU-bK-3zz" secondAttribute="trailing" constant="8" symbolic="YES" id="uDB-Ab-Uib"/>
                 <constraint firstItem="RxU-bK-3zz" firstAttribute="leading" secondItem="eeh-OU-eNp" secondAttribute="trailing" constant="8" symbolic="YES" id="udL-IZ-drY"/>
                 <constraint firstItem="eeh-OU-eNp" firstAttribute="top" secondItem="06Z-S7-8XN" secondAttribute="bottom" constant="29" id="vuy-br-e0E"/>
                 <constraint firstItem="Yqm-c6-AeP" firstAttribute="top" secondItem="06Z-S7-8XN" secondAttribute="bottom" constant="29" id="z2b-wh-mzd"/>
+                <constraint firstItem="eWJ-yf-zI4" firstAttribute="leading" secondItem="3tg-z6-XZx" secondAttribute="trailing" constant="30" id="zOB-ez-EQp"/>
             </constraints>
             <point key="canvasLocation" x="-334" y="181.5"/>
         </customView>

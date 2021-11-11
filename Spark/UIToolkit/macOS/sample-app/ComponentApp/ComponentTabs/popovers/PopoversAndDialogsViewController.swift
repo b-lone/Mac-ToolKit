@@ -13,6 +13,7 @@ class PopoversAndDialogsViewController: UTBaseViewController {
     @IBOutlet var showPopoverButton1: UTRoundButton!
     @IBOutlet var showPopoverButton2: UTRoundButton!
     @IBOutlet var showPopoverButton3: UTRoundButton!
+    @IBOutlet var showPopoverButton4: UTRoundButton!
     
     @IBOutlet var createToastButton: UTPillButton!
     @IBOutlet var createMeetingReminderButton: UTPillButton!
@@ -32,6 +33,9 @@ class PopoversAndDialogsViewController: UTBaseViewController {
         showPopoverButton3.fontIcon     = .filterRegular
         showPopoverButton3.buttonHeight = .extrasmall
         
+        showPopoverButton4.fontIcon     = .announcementBold
+        showPopoverButton4.buttonHeight = .extrasmall
+        
         createToastButton.title           = LocalizationStrings.createToast
         createMeetingReminderButton.title = LocalizationStrings.createMeetingReminderToast
         createMeetingInfoToast.title      = LocalizationStrings.createMeetingInfoToast
@@ -47,6 +51,7 @@ class PopoversAndDialogsViewController: UTBaseViewController {
         showPopoverButton1.setThemeColors()
         showPopoverButton2.setThemeColors()
         showPopoverButton3.setThemeColors()
+        showPopoverButton4.setThemeColors()
         createToastButton.setThemeColors()
         createMeetingReminderButton.setThemeColors()
         createMeetingInfoToast.setThemeColors()
@@ -73,6 +78,14 @@ class PopoversAndDialogsViewController: UTBaseViewController {
                                      sender: showPopoverButton3,
                                      bounds: showPopoverButton3.bounds,
                                      behavior: .semitransient)
+    }
+    
+    @IBAction func showPopoverButton4Action(_ sender: Any) {
+        _ = UTPopover(contentViewController: TestTeachingVC(),
+                                     sender: showPopoverButton4,
+                                     bounds: showPopoverButton4.bounds,
+                                     behavior: .semitransient,
+                                     forTeaching: true)
     }
     
     @IBAction func createToastAction(_ sender: Any) {

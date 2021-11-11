@@ -16,6 +16,7 @@
                 <outlet property="showPopoverButton1" destination="WA9-rS-ltx" id="0Xt-re-OVd"/>
                 <outlet property="showPopoverButton2" destination="7f8-wk-OiW" id="Hyn-zb-psM"/>
                 <outlet property="showPopoverButton3" destination="SkB-49-WLL" id="NYQ-Al-Uro"/>
+                <outlet property="showPopoverButton4" destination="k3q-5e-d6R" id="zrK-mD-f11"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -33,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F76-S1-YhQ">
-                                <rect key="frame" x="8" y="68" width="199" height="20"/>
+                                <rect key="frame" x="8" y="68" width="268" height="20"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WA9-rS-ltx" customClass="UTRoundButton" customModule="UIToolkit">
                                         <rect key="frame" x="-7" y="-7" width="75" height="32"/>
@@ -65,13 +66,25 @@
                                             <action selector="showPopoverButton3Action:" target="-2" id="cdc-wE-61t"/>
                                         </connections>
                                     </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="k3q-5e-d6R" customClass="UTRoundButton" customModule="UIToolkit">
+                                        <rect key="frame" x="200" y="-7" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WHp-P2-bL4">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="showPopoverButton4Action:" target="-2" id="kFa-Z4-eEb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>

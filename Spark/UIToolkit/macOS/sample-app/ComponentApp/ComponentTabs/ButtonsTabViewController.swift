@@ -44,6 +44,8 @@ class ButtonsTabViewController: UTBaseViewController {
     
     @IBOutlet weak var dualIconButton: UTIconDualButton!
     @IBOutlet weak var largeIconDualButton: UTIconDualButton!
+    @IBOutlet weak var dualIconWithLabelButton: UTIconDualWithTitleButton!
+    @IBOutlet weak var largeDualIconWithLabelButton: UTIconDualWithTitleButton!
     
     @IBOutlet weak var lhsRoundedCornerButton: UTRoundedCornerButton!
     @IBOutlet weak var rhsRoundedCornerButton: UTRoundedCornerButton!
@@ -75,6 +77,8 @@ class ButtonsTabViewController: UTBaseViewController {
     
     lazy var roundedCornerButtons:[(UTRoundedCornerButton,ButtonHeight )] = [(largeRoundedCornerButton, ButtonHeight.large), (mediumRoundedCornerButton, ButtonHeight.medium), (smallRoundedCornerButton, ButtonHeight.small), (extraSmallRoundedCornerButton, ButtonHeight.extrasmall) ]
 
+    lazy var dualIconWithLabelButtons:[(UTIconDualWithTitleButton,UTIconDualWithTitleButton.Size)] = [(dualIconWithLabelButton, UTIconDualWithTitleButton.Size.small) ,(largeDualIconWithLabelButton, UTIconDualWithTitleButton.Size.medium)]
+    
     lazy var allButtons = pillsWithIconButtons + roundIconButtons + roundDownArrowButtons +  pillsButtons + roundedCornerButtons as [Any]
     
     let styles:[(UTButton.Style, String)] = [(.primary,"primary"), (.secondary, "secondary"), (.ghost, "ghost"), (.ghostCancel, "ghostCancel"), (.ghostMessage, "gostMessage"), (.join ,"join"), (.outlineJoin, "outlineJoin") , (.cancel, "cancel"), (.outlineCancel,"outlineCancel"), (.message, "message"), (.hyperlink, "hyperlink")]
@@ -215,6 +219,14 @@ class ButtonsTabViewController: UTBaseViewController {
             button.addUTToolTip(toolTip: .rich(details))
             button.style = .secondary
         }
+  
+        for (button, size) in dualIconWithLabelButtons {
+            button.size = size
+            button.addLHSDetails(accessibilityLabel: "back", icon: .arrowLeftBold)
+            button.addRHSDetails(accessibilityLabel: "forward", icon: .arrowRightBold)
+            button.addMiddleDetails(accessibilityLabel: getTitle(), title: getTitle())
+            button.toolTip = "UTIconDualWithTitleButton"
+        }
     }
     
     func updateButtonStyles() {
@@ -292,6 +304,10 @@ class ButtonsTabViewController: UTBaseViewController {
         
         dualIconButton.setThemeColors()
         largeIconDualButton.setThemeColors()
+        
+        for (button, _) in dualIconWithLabelButtons {
+            button.setThemeColors()
+        }
         
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(tokenName: "background-primary").normal.cgColor

@@ -96,6 +96,8 @@
 		07B4087626E0C82000DB9713 /* momentumIndigoLight.json in Resources */ = {isa = PBXBuildFile; fileRef = 07B4087226E0C82000DB9713 /* momentumIndigoLight.json */; };
 		07B4087726E0C82000DB9713 /* momentumRoseLight.json in Resources */ = {isa = PBXBuildFile; fileRef = 07B4087326E0C82000DB9713 /* momentumRoseLight.json */; };
 		07CE6F5126A1BB2C00B80DFC /* momentum-ui-icons-rebrand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07CE6F5026A1BB2C00B80DFC /* momentum-ui-icons-rebrand.ttf */; };
+		5DB2A68B271971B0009D87FA /* TestTeachingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB2A68A271971B0009D87FA /* TestTeachingVC.xib */; };
+		5DB2A68F27197373009D87FA /* TestTeachingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB2A68E27197373009D87FA /* TestTeachingVC.swift */; };
 		750CB506269ED0BD002F8DAF /* UIToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750CB4FC269ED09F002F8DAF /* UIToolkit.framework */; };
 		750CB507269ED0BD002F8DAF /* UIToolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 750CB4FC269ED09F002F8DAF /* UIToolkit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		750CB51E269ED7C8002F8DAF /* jadeLight.json in Resources */ = {isa = PBXBuildFile; fileRef = 750CB512269ED7C8002F8DAF /* jadeLight.json */; };
@@ -247,6 +249,8 @@
 		07B4087226E0C82000DB9713 /* momentumIndigoLight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = momentumIndigoLight.json; path = "../../../../common-head/visuals/config/themes/momentum/momentumIndigoLight.json"; sourceTree = "<group>"; };
 		07B4087326E0C82000DB9713 /* momentumRoseLight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = momentumRoseLight.json; path = "../../../../common-head/visuals/config/themes/momentum/momentumRoseLight.json"; sourceTree = "<group>"; };
 		07CE6F5026A1BB2C00B80DFC /* momentum-ui-icons-rebrand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "momentum-ui-icons-rebrand.ttf"; path = "../../../../common-head/Resources/fonts/momentum-ui-icons-rebrand.ttf"; sourceTree = "<group>"; };
+		5DB2A68A271971B0009D87FA /* TestTeachingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTeachingVC.xib; sourceTree = "<group>"; };
+		5DB2A68E27197373009D87FA /* TestTeachingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTeachingVC.swift; sourceTree = "<group>"; };
 		750CB4F5269ED09F002F8DAF /* UIToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UIToolkit.xcodeproj; path = ../uitoolkit/UIToolkit.xcodeproj; sourceTree = "<group>"; };
 		750CB512269ED7C8002F8DAF /* jadeLight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = jadeLight.json; path = "../../../../common-head/visuals/config/themes/jadeLight.json"; sourceTree = "<group>"; };
 		750CB513269ED7C8002F8DAF /* bronzeLight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = bronzeLight.json; path = "../../../../common-head/visuals/config/themes/bronzeLight.json"; sourceTree = "<group>"; };
@@ -503,6 +507,8 @@
 				0775709926952120000A63C5 /* PopoversAndDialogsViewController.xib */,
 				070C5FAE26B05B8C006C3ADA /* TestContactCardVC.swift */,
 				070C5FAF26B05B8C006C3ADA /* TestContactCardVC.xib */,
+				5DB2A68A271971B0009D87FA /* TestTeachingVC.xib */,
+				5DB2A68E27197373009D87FA /* TestTeachingVC.swift */,
 			);
 			path = popovers;
 			sourceTree = "<group>";
@@ -632,6 +638,7 @@
 				750CB527269ED7C8002F8DAF /* dark.json in Resources */,
 				077570EE26952125000A63C5 /* CallHistoryTableVC.xib in Resources */,
 				750CB523269ED7C8002F8DAF /* emeraldDark.json in Resources */,
+				5DB2A68B271971B0009D87FA /* TestTeachingVC.xib in Resources */,
 				07B4087726E0C82000DB9713 /* momentumRoseLight.json in Resources */,
 				077570F526952125000A63C5 /* TableFromComponentsVC.xib in Resources */,
 				0775711E26952125000A63C5 /* StandardTableVC.xib in Resources */,
@@ -735,6 +742,7 @@
 				077570F726952125000A63C5 /* MessageTabViewController.swift in Sources */,
 				0794B22D271473D700D4A781 /* TeamsViewController.swift in Sources */,
 				07757679269617F4000A63C5 /* TestPopoverList.swift in Sources */,
+				5DB2A68F27197373009D87FA /* TestTeachingVC.swift in Sources */,
 				0775711126952125000A63C5 /* TestCallHistoryTableData.swift in Sources */,
 				0775710326952125000A63C5 /* CallHistoryItemSummaryVC.swift in Sources */,
 				0775712126952125000A63C5 /* StandardTableVC.swift in Sources */,

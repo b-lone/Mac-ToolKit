@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TestTeachingVC" customModule="ComponentApp" customModuleProvider="target">
+            <connections>
+                <outlet property="brandingLabel" destination="2hM-pR-Gzp" id="gn4-lE-qPa"/>
+                <outlet property="hyperlinkButton" destination="epW-ea-fT6" id="141-oh-Jct"/>
+                <outlet property="primaryButton" destination="ywW-eP-tR3" id="bxg-7c-8mr"/>
+                <outlet property="secondaryButton" destination="H8J-6d-Sox" id="BUr-10-vAG"/>
+                <outlet property="view" destination="c22-O7-iKe" id="JNt-Jq-hJj"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="332" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKH-Mg-ITi">
+                    <rect key="frame" x="8" y="8" width="316" height="44"/>
+                    <subviews>
+                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2hM-pR-Gzp">
+                            <rect key="frame" x="-2" y="28" width="92" height="16"/>
+                            <textFieldCell key="cell" selectable="YES" alignment="left" title="Multiline Label" id="mhb-FE-2pI">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UNQ-9j-gOp">
+                            <rect key="frame" x="0.0" y="0.0" width="316" height="20"/>
+                            <subviews>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ywW-eP-tR3" customClass="UTPillButton" customModule="UIToolkit">
+                                    <rect key="frame" x="-7" y="-7" width="114" height="32"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="0Ig-c7-MQi"/>
+                                    </constraints>
+                                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5yv-hV-xLA">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H8J-6d-Sox" customClass="UTPillButton" customModule="UIToolkit">
+                                    <rect key="frame" x="101" y="-7" width="114" height="32"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="QfP-u0-N3P"/>
+                                    </constraints>
+                                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nU1-On-6SP">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="epW-ea-fT6" customClass="UTHyperlinkButton" customModule="UIToolkit">
+                                    <rect key="frame" x="209" y="-7" width="114" height="32"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="0iM-20-EEr"/>
+                                    </constraints>
+                                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mnf-tY-cRR">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="XKH-Mg-ITi" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="8" id="RvE-p7-i4O"/>
+                <constraint firstAttribute="trailing" secondItem="XKH-Mg-ITi" secondAttribute="trailing" constant="8" id="ZGh-9a-2Mu"/>
+                <constraint firstAttribute="bottom" secondItem="XKH-Mg-ITi" secondAttribute="bottom" constant="8" id="ZtC-Ui-2vf"/>
+                <constraint firstItem="XKH-Mg-ITi" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="8" id="f3Z-3a-HHW"/>
+            </constraints>
+            <point key="canvasLocation" x="-11" y="284.5"/>
+        </customView>
+    </objects>
+</document>

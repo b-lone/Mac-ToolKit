@@ -12,6 +12,7 @@
                 <outlet property="arrowOnButton" destination="4lJ-Hb-6JA" id="Nkw-Ln-eD3"/>
                 <outlet property="disableButton" destination="kZJ-fi-y1s" id="O5b-q1-PdK"/>
                 <outlet property="enableButton" destination="NCM-YG-sc7" id="vb4-6A-pT4"/>
+                <outlet property="removeAllTabs" destination="1l9-Cv-2ac" id="em4-jd-VJe"/>
                 <outlet property="removeButton" destination="DL3-jh-lhc" id="4Tc-DG-NOK"/>
                 <outlet property="renameButton" destination="kmE-Jd-Oza" id="XlG-9n-agY"/>
                 <outlet property="setSelectedButton" destination="uwK-MF-0J9" id="D1l-MW-rVN"/>
@@ -165,6 +166,19 @@
                     <view key="contentView" id="V7H-Kh-MH2">
                         <rect key="frame" x="3" y="3" width="626" height="163"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1l9-Cv-2ac">
+                                <rect key="frame" x="1" y="-1" width="137" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="remove all tabs" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gxl-yn-d3q">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="removeAllTabs:" target="-2" id="cUP-Gh-1cd"/>
+                                </connections>
+                            </button>
+                        </subviews>
                     </view>
                 </box>
             </subviews>

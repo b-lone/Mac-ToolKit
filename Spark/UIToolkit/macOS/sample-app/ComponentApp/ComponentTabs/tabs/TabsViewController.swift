@@ -26,10 +26,9 @@ class TabsViewController: UTBaseViewController {
     @IBOutlet weak var arrowOnButton: NSButton!
     @IBOutlet weak var arrowOffButton: NSButton!
     
-    var tabItem1: UTTabItem!
-    var tabItem2: UTTabItem!
-    var tabItem3: UTTabItem!
-    var tabItem4:  UTTabItem!
+    @IBOutlet weak var removeAllTabs: NSButton!
+
+    weak var testTabClicked:UTTabItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,17 +53,19 @@ class TabsViewController: UTBaseViewController {
             return 
         }
              
-        tabItem1 =  UTTabItem(label: "hello", lhsIcon: .videoRegular,  accessibilityLabel: "hello", enableArrow: true)
+        
+        
+        let tabItem1 =  UTTabItem(label: "hello", lhsIcon: .videoRegular,  accessibilityLabel: "hello", enableArrow: true)
         tabItem1.viewController = vc1
-    
-        tabItem2 =  UTTabItem(showUnreadPill: true,  label: "this is a test", showAlert: false, image: image, accessibilityLabel: "hello", enableArrow: false)
+        testTabClicked = tabItem1
+        let   tabItem2 =  UTTabItem(showUnreadPill: true,  label: "this is a test", showAlert: false, image: image, accessibilityLabel: "hello", enableArrow: false)
         tabItem2.viewController = vc2
         
         //label:String, accessibilityLabel:String, enableArrrow: Bool = false,
-        tabItem3 = UTTabItem(badgeCount: 23, label: "this is a test", accessibilityLabel: "test", enableArrow: true)
+        var tabItem3 = UTTabItem(badgeCount: 23, label: "this is a test", accessibilityLabel: "test", enableArrow: true)
         tabItem3.viewController = vc3
         
-        tabItem4 = UTTabItem(label: "Check for calls here", accessibilityLabel: "Call Tab")
+        let tabItem4 = UTTabItem(label: "Check for calls here", accessibilityLabel: "Call Tab")
         tabItem4.viewController = vc3
         
 
@@ -167,14 +168,25 @@ class TabsViewController: UTBaseViewController {
             }
         }
     }
+    
+    
+    
+    @IBAction func removeAllTabs(_ sender: Any) {
+        
+        tabView.removeAllTab()
+    }
+    
+    
 }
+
+
 
 extension TabsViewController : UTTabViewDelegate {
     
     func tabView(_ tabView: UTTabView, didSelect tabButton: UTTabButton) {
         print("didSelect tabButton: UTTabButton")
         
-        if tabButton.tabItem == tabItem3 {            
+        if tabButton.tabItem == testTabClicked  {
             _ = UTPopover(contentViewController: BadgesViewController(),
                                          sender: tabButton,
                                          bounds: tabButton.bounds,
