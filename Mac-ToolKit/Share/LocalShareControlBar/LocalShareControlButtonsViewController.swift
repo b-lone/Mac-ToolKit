@@ -44,7 +44,7 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     fileprivate weak var shareComponent: ShareManagerComponentProtocol?
     private var isSharePaused = false {
         didSet {
-            updatePauseButtonIcon()
+            updatePauseButton()
         }
     }
     
@@ -82,6 +82,7 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     }
     
     fileprivate func updateButtonTooltip() {
+        SPARK_LOG_DEBUG("")
         if blockShowTooltips {
             annotateButton?.addUTToolTip(toolTip: .plain(""))
             rdcButton?.addUTToolTip(toolTip: .plain(""))
@@ -90,7 +91,8 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         } else {
             annotateButton?.addUTToolTip(toolTip: ShareControlButtonType.annotate.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
             rdcButton?.addUTToolTip(toolTip: ShareControlButtonType.remoteControlStart.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
-            pauseButton?.addUTToolTip(toolTip: ShareControlButtonType.pause.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
+            let pauseButtonType = isSharePaused ? ShareControlButtonType.resume : ShareControlButtonType.pause
+            pauseButton?.addUTToolTip(toolTip: pauseButtonType.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
             stopButton?.addUTToolTip(toolTip: ShareControlButtonType.stop.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
         }
     }
@@ -101,11 +103,11 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     }
     
     fileprivate func setupPauseButton() {
-        setupShareControlButton(button: pauseButton, type: .pause)
+        updatePauseButton()
     }
     
-    private func updatePauseButtonIcon() {
-        pauseButton.fontIcon = isSharePaused ? MomentumRebrandIconType.playBold : MomentumRebrandIconType.pauseBold
+    private func updatePauseButton() {
+        setupShareControlButton(button: pauseButton, type: isSharePaused ? .resume : .pause)
     }
     
     fileprivate func setupStopButton() {
@@ -128,6 +130,7 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     @IBAction func onPauseButton(_ sender: Any) {
         SPARK_LOG_DEBUG("")
         shareComponent?.pauseShare(doPause: pauseButton.fontIcon == MomentumRebrandIconType.pauseBold)
+        isSharePaused = !isSharePaused
     }
     
     @IBAction func onStopButton(_ sender: Any) {
@@ -160,12 +163,10 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     //MARK: WindowDragCollaborator
     func windowWillStartDrag() {
         blockShowTooltips = true
-        SPARK_LOG_DEBUG("")
     }
     
     func windowDidStopDrag() {
         blockShowTooltips = false
-        SPARK_LOG_DEBUG("")
     }
     
     //MARK: ShareManagerComponentListener
