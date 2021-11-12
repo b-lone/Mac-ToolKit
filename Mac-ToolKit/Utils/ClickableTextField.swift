@@ -163,11 +163,12 @@ class CustomToolTipsClickableTextField: ClickableTextField {
     
     func showTooltip() {
         hideTooltip()
-        guard !customTooltip.isEmpty else { return }
         var tooltip = customTooltip
         if let delegate = tooltipDelegate {
             tooltip = delegate.getTooltip()
         }
+        guard !tooltip.isEmpty else { return }
+        
         customTooltipsController = CustomToolTipsClickableTextFieldTooltip()
         customTooltipsController?.tooltip = tooltip
 

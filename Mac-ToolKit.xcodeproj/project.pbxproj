@@ -26,6 +26,7 @@
 		211C789F2681E1B4003D9EB4 /* FontelloLabelWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C789E2681E1B4003D9EB4 /* FontelloLabelWithText.swift */; };
 		211DF005271EA42100CD4BBA /* FullScreenDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211DF003271EA42100CD4BBA /* FullScreenDetector.swift */; };
 		211DF006271EA42100CD4BBA /* FullScreenDetector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211DF004271EA42100CD4BBA /* FullScreenDetector.xib */; };
+		213BFFDE273E753F00A214E8 /* NotificationCenter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213BFFDD273E753F00A214E8 /* NotificationCenter+Extensions.swift */; };
 		213E13A32637AAEA00DFECFF /* MouseTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213E13A22637AAEA00DFECFF /* MouseTrackView.swift */; };
 		215F52DF2705659800F4ADD0 /* ScreenChangeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F52DE2705659800F4ADD0 /* ScreenChangeHelper.swift */; };
 		215F52E12705699A00F4ADD0 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F52E02705699A00F4ADD0 /* Subject.swift */; };
@@ -231,6 +232,7 @@
 		211DF003271EA42100CD4BBA /* FullScreenDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenDetector.swift; sourceTree = "<group>"; };
 		211DF004271EA42100CD4BBA /* FullScreenDetector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullScreenDetector.xib; sourceTree = "<group>"; };
 		2132C21A264E29E60032C2FB /* Mac-Toolkit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mac-Toolkit-Bridging-Header.h"; sourceTree = "<group>"; };
+		213BFFDD273E753F00A214E8 /* NotificationCenter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extensions.swift"; sourceTree = "<group>"; };
 		213E13A22637AAEA00DFECFF /* MouseTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseTrackView.swift; sourceTree = "<group>"; };
 		215F52DE2705659800F4ADD0 /* ScreenChangeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenChangeHelper.swift; sourceTree = "<group>"; };
 		215F52E02705699A00F4ADD0 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				21D54B48272696BA009CDBC1 /* Timer+Extensions.swift */,
 				210C5E8026CC9F8800F69BFF /* URL+Extensions.swift */,
 				21F107CD272A9E5400E40AD9 /* CALayer+Extensions.swift */,
+				213BFFDD273E753F00A214E8 /* NotificationCenter+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -999,6 +1002,7 @@
 				21F1079E272A8BAC00E40AD9 /* ThemeManager.swift in Sources */,
 				21CCC08E273A569F00FD4D04 /* PopoverView.swift in Sources */,
 				21094124266083B20040AC73 /* MagicDrawingBoardManager.swift in Sources */,
+				213BFFDE273E753F00A214E8 /* NotificationCenter+Extensions.swift in Sources */,
 				215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */,
 				21AD514F269B3FFE006DF32F /* TestCoreAnimation.swift in Sources */,
 				211DF005271EA42100CD4BBA /* FullScreenDetector.swift in Sources */,

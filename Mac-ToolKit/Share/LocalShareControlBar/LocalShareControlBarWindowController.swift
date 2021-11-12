@@ -111,9 +111,7 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
     override func showWindow(_ sender: Any?) {
         updateFrame(animate: false)
         super.showWindow(self)
-        
-        currentViewController?.delayedCollapse()
-        
+
         SPARK_LOG_DEBUG("")
     }
     

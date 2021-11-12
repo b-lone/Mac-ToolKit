@@ -496,6 +496,11 @@
 //  }
 }
 
+- (void)endShareOnlyCall
+{
+    
+}
+
 - (void)endShareOnlyCallIfNotStart
 {
 //  @autoreleasepool {

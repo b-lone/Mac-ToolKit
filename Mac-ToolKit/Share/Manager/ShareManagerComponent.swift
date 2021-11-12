@@ -38,6 +38,7 @@ protocol ShareManagerComponentProtocol: AnyObject {
     func startShare(shareSourceList: [CHShareSource], shareType: CHShareType)
     func stopShare()
     func resumeShare()
+    func annotate()
     func pauseShare(doPause: Bool)
     func endShareOnlyCallIfNotStart()
     func excludeWindowFromShare()
@@ -436,6 +437,10 @@ extension ShareManagerComponent: ShareManagerComponentProtocol {
             sharingPowerPointWindowInfoList = nil
         }
         
+        if !isSharing {
+            localShareControlBarManager.reset()
+        }
+        
         shareViewModel.startShare(sourceList: shareSourceList, shareType: shareType)
         excludeWindowFromShare()
     }
@@ -443,6 +448,7 @@ extension ShareManagerComponent: ShareManagerComponentProtocol {
     func stopShare() {
         SPARK_LOG_DEBUG("\(callId)")
         shareViewModel.stopShare()
+        shareViewModel.endShareOnlyCall()
     }
     
     func endShareOnlyCallIfNotStart() {
@@ -468,6 +474,12 @@ extension ShareManagerComponent: ShareManagerComponentProtocol {
         if shareContext.lastStartShareInfo?.shareType == .iosViaCable {
             shareIosScreenManager.start()
         }
+    }
+    
+    func annotate() {
+        SPARK_LOG_DEBUG("\(callId)")
+        shareViewModel.stopShare()
+        NotificationCenter.default.postNotificationNameOnMainThread(OnAnnotateDesktopShare, object: nil, userInfo: [CallIdKey: callId])
     }
     
     func pauseShare(doPause: Bool) {

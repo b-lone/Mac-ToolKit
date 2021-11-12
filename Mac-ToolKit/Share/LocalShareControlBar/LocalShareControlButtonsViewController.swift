@@ -65,6 +65,7 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         setupDragLabel()
         
         setupShareControlButton(button: annotateButton, type: .annotate)
+        updateAnnotateButton()
         setupShareControlButton(button: rdcButton, type: .remoteControlStart)
         
         setupPauseButton()
@@ -82,7 +83,6 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     }
     
     fileprivate func updateButtonTooltip() {
-        SPARK_LOG_DEBUG("")
         if blockShowTooltips {
             annotateButton?.addUTToolTip(toolTip: .plain(""))
             rdcButton?.addUTToolTip(toolTip: .plain(""))
@@ -102,12 +102,21 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         dragLabel.textColor = getUIToolkitColor(token: .sharewindowControlTextPrimary).normal
     }
     
+    private func updateAnnotateButton() {
+        guard let info = shareComponent?.getLocalShareControlBarInfo()?.viewInfo.annotateButton else { return }
+        annotateButton.isHidden = info.isHidden
+    }
+    
     fileprivate func setupPauseButton() {
         updatePauseButton()
     }
     
     private func updatePauseButton() {
         setupShareControlButton(button: pauseButton, type: isSharePaused ? .resume : .pause)
+        if let info = shareComponent?.getLocalShareControlBarInfo()?.viewInfo.pauseButton {
+            pauseButton.isHidden = info.isHidden
+            setupStopButton()
+        }
     }
     
     fileprivate func setupStopButton() {
@@ -121,6 +130,7 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     
     @IBAction func onAnnotateButton(_ sender: Any) {
         SPARK_LOG_DEBUG("")
+        shareComponent?.annotate()
     }
     
     @IBAction func onRdcButton(_ sender: Any) {
@@ -130,7 +140,6 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     @IBAction func onPauseButton(_ sender: Any) {
         SPARK_LOG_DEBUG("")
         shareComponent?.pauseShare(doPause: pauseButton.fontIcon == MomentumRebrandIconType.pauseBold)
-        isSharePaused = !isSharePaused
     }
     
     @IBAction func onStopButton(_ sender: Any) {
@@ -142,6 +151,9 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     func setup(shareComponent: ShareManagerComponentProtocol) {
         self.shareComponent = shareComponent
         shareComponent.registerListener(self)
+        
+        updateAnnotateButton()
+        updatePauseButton()
     }
     
     //MARK: EdgeCollaborator
@@ -172,6 +184,7 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     //MARK: ShareManagerComponentListener
     func shareManagerComponent(_ shareManagerComponent: ShareManagerComponentProtocol, onLocalShareControlBarInfoChanged info: CHLocalShareControlBarInfo) {
         isSharePaused = info.isSharePaused
+        updateAnnotateButton()
     }
 }
 
@@ -211,7 +224,7 @@ class LocalShareControlButtonsHorizontalViewController: LocalShareControlButtons
         super.setupStopButton()
         stopButton.horizontalPadding = 10
         stopButton.elementPadding = 4
-        stopButton.roundSetting = .rhs
+        stopButton.roundSetting =  pauseButton.isHidden ? .pill : .rhs
         stopButton.title = LocalizationStrings.stop
     }
     
@@ -335,7 +348,7 @@ class LocalShareControlButtonsVerticalViewController: LocalShareControlButtonsVi
     override func setupStopButton() {
         super.setupStopButton()
         stopButton.horizontalPadding = 5
-        stopButton.roundSetting = .bottom
+        stopButton.roundSetting = pauseButton.isHidden ? .pill : .bottom
     }
 }
 

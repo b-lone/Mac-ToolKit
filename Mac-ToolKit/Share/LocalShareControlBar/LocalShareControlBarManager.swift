@@ -11,6 +11,7 @@ import Cocoa
 protocol LocalShareControlBarManagerProtocol: ShareManagerComponentSetup {
     func showShareControlBar()
     func hideShareControlBar()
+    func reset()
 }
 
 class LocalShareControlBarManager: NSObject & LocalShareControlBarManagerProtocol {
@@ -48,5 +49,9 @@ class LocalShareControlBarManager: NSObject & LocalShareControlBarManagerProtoco
     
     func hideShareControlBar() {
         shareControlBar?.close()
+    }
+    
+    func reset() {
+        shareControlBar = nil
     }
 }

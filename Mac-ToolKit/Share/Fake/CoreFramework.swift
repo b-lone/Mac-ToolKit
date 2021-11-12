@@ -13,8 +13,19 @@ class SparkFeatureFlagsProxy: NSObject {
     }
 }
 
+class TelephonyServiceProxy: NSObject {
+    func updateViewHandle(forCallId: String, layer: SparkVideoLayer, byTrackType: Int) {
+        SPARK_LOG_DEBUG("")
+    }
+    
+    func removeViewHandle(forCallId: String, layer: SparkVideoLayer, byTrackType: Int) {
+        SPARK_LOG_DEBUG("")
+    }
+}
+
 class CoreFrameworkProxy: NSObject {
     var sparkFeatureFlagsProxy = SparkFeatureFlagsProxy()
+    var telephonyServiceProxy = TelephonyServiceProxy()
     
     func getConfigValue(_ key: String) -> String? {
         return "true"

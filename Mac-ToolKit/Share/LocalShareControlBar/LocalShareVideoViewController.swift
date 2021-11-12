@@ -43,9 +43,9 @@ class LocalShareVideoViewController: ILocalShareVideoViewController {
     //MARK: VideoViewControllerProtocol
     func updateVideoViewHandler(callId: String, register: Bool) {
         if register {
-//            appContext.coreFramework.telephonyServiceProxy.updateViewHandle(forCallId: callId, layer: selfShareVideoView, byTrackType: TrackVMType.localShare.rawValue)
+            appContext.coreFramework.telephonyServiceProxy.updateViewHandle(forCallId: callId, layer: localShareVideoView, byTrackType: TrackVMType.localShare.rawValue)
         } else {
-//            appContext.coreFramework.telephonyServiceProxy.removeViewHandle(forCallId: callId, layer: selfShareVideoView, byTrackType: TrackVMType.localShare.rawValue)
+            appContext.coreFramework.telephonyServiceProxy.removeViewHandle(forCallId: callId, layer: localShareVideoView, byTrackType: TrackVMType.localShare.rawValue)
         }
     }
 }
