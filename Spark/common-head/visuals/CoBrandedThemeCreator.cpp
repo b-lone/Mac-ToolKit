@@ -9,22 +9,13 @@ std::shared_ptr<SemanticVisuals::CoBrandedTheme> SemanticVisuals::CoBrandedTheme
             { "appHeader", Token::AppHeader, &ColorSet::normal },
             { "appHeader", Token::GlobalHeaderContainerBackground, &ColorSet::normal },
                         
-            { "appHeader-text", Token::AppHeaderText, &ColorSet::normal },
-            { "appHeader-text", Token::SearchText, &ColorSet::normal },
-            { "appHeader-text", Token::GlobalHeaderButtonStatusText, &ColorSet::normal },
-            { "appHeader-text", Token::GlobalHeaderButtonDeviceTextInactive, &ColorSet::normal },
-            { "appHeader-text", Token::GlobalHeaderTextfieldPlaceholderTextText, &ColorSet::normal },
-            { "appHeader-text", Token::GlobalHeaderTextfieldText, &ColorSet::normal },
-            { "appHeader-text", Token::GlobalHeaderSearchCancelButtonBorder, &ColorSet::normal },
-            { "appHeader-text", Token::GlobalHeaderSearchCancelButtonText, &ColorSet::normal },
-                        
             { "appHeader-buttonDevice", Token::AppHeaderButtonDevice, &ColorSet::normal },
             { "appHeader-buttonDevice", Token::GlobalHeaderButtonDeviceBackground, &ColorSet::normal },
             { "appHeader-buttonDevice-hover", Token::AppHeaderButtonDevice, &ColorSet::hovered },
             { "appHeader-buttonDevice-hover", Token::GlobalHeaderButtonDeviceBackground, &ColorSet::hovered },
             { "appHeader-buttonDevice-pressed", Token::AppHeaderButtonDevice, &ColorSet::pressed },
             { "appHeader-buttonDevice-pressed", Token::GlobalHeaderButtonDeviceBackground, &ColorSet::pressed },
-
+            { "appHeader-buttonDevice-text", Token::GlobalHeaderButtonDeviceTextInactive, &ColorSet::normal },
             { "appHeader-buttonDevice-text-active", Token::AppHeaderButtonDeviceTextActive, &ColorSet::normal },
             { "appHeader-buttonDevice-text-active", Token::GlobalHeaderButtonDeviceTextActive, &ColorSet::normal },
 
@@ -43,14 +34,20 @@ std::shared_ptr<SemanticVisuals::CoBrandedTheme> SemanticVisuals::CoBrandedTheme
             { "appHeader-buttonStatus-hover", Token::GlobalHeaderButtonStatusBackground, &ColorSet::hovered },
             { "appHeader-buttonStatus-pressed", Token::AppHeaderButtonStatus, &ColorSet::pressed },
             { "appHeader-buttonStatus-pressed", Token::GlobalHeaderButtonStatusBackground, &ColorSet::pressed },
-
+            { "appHeader-buttonStatus-text", Token::GlobalHeaderButtonStatusText, &ColorSet::normal },
+            
             { "appHeader-searchBar", Token::AppHeaderSearchBar, &ColorSet::normal },
             { "appHeader-searchBar", Token::GlobalHeaderTextfieldBackground, &ColorSet::normal },
             { "appHeader-searchBar-hover", Token::AppHeaderSearchBar, &ColorSet::hovered },
             { "appHeader-searchBar-hover", Token::GlobalHeaderTextfieldBackground, &ColorSet::hovered },
             { "appHeader-searchBar-pressed", Token::AppHeaderSearchBar, &ColorSet::pressed },
             { "appHeader-searchBar-pressed", Token::GlobalHeaderTextfieldBackground, &ColorSet::pressed },
-
+            { "appHeader-searchBar-text", Token::SearchText, &ColorSet::normal },
+            { "appHeader-searchBar-text", Token::GlobalHeaderTextfieldPlaceholderTextText, &ColorSet::normal },
+            { "appHeader-searchBar-text", Token::GlobalHeaderTextfieldText, &ColorSet::normal },
+            { "appHeader-searchBar-text", Token::GlobalHeaderSearchCancelButtonBorder, &ColorSet::normal },
+            { "appHeader-searchBar-text", Token::GlobalHeaderSearchCancelButtonText, &ColorSet::normal },
+            
             { "appNav-badge", Token::AppNavBadge, &ColorSet::normal },
             { "appNav-badge", Token::BadgeBackground, &ColorSet::normal },
             { "appNav-badge-text",  Token::AppNavBadgeText, &ColorSet::normal },
@@ -73,7 +70,9 @@ std::shared_ptr<SemanticVisuals::CoBrandedTheme> SemanticVisuals::CoBrandedTheme
             { "text-hyperlink-hover", Token::TextHyperlink, &ColorSet::hovered },
             { "text-hyperlink-hover", Token::ButtonMessageGhostText, &ColorSet::hovered },
             { "text-hyperlink-hover", Token::ButtonHyperlinkText, &ColorSet::hovered },
-
+            { "text-hyperlink-pressed", Token::ButtonMessageGhostText, &ColorSet::pressed },
+            { "text-hyperlink-pressed", Token::ButtonHyperlinkText, &ColorSet::pressed },
+            
             { "mainList-indicator", Token::MainListIndicator, &ColorSet::normal },
             { "mainList-indicator", Token::BadgeNotificationIndicator, &ColorSet::normal },
         });

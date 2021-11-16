@@ -37,17 +37,20 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     @IBOutlet weak var contentStackView: NSStackView!
     @IBOutlet weak var dragLabel: NSTextField!
     @IBOutlet weak var annotateButton: UTRoundButton!
-    @IBOutlet weak var rdcButton: UTRoundButton!
+    @IBOutlet weak var remoteControlButton: UTRoundButton!
     @IBOutlet weak var pauseButton: UTRoundedCornerButton!
     @IBOutlet weak var stopButton: UTRoundedCornerButton!
     
     fileprivate weak var shareComponent: ShareManagerComponentProtocol?
     private var isSharePaused = false {
         didSet {
-            updatePauseButton()
+            onIsSharePausedChanged()
         }
     }
-    
+    private var pauseButtonType: ShareControlButtonType { isSharePaused ? .resume : .pause }
+    private var shareFactory: ShareFactoryProtocol
+    private var remoteControlManager: RDCControleeHelperProtocol?
+
     fileprivate var edge = Edge.top
     fileprivate var blockShowTooltips = false {
         didSet {
@@ -55,8 +58,18 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         }
     }
     
+    init(shareFactory: ShareFactoryProtocol, nibName: String?) {
+        self.shareFactory = shareFactory
+        super.init(nibName: nibName, bundle: Bundle.getSparkBundle())
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     deinit {
         shareComponent?.unregisterListener(self)
+        remoteControlManager?.unregisterListener(self)
     }
     
     override func viewDidLoad() {
@@ -66,17 +79,18 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         
         setupShareControlButton(button: annotateButton, type: .annotate)
         updateAnnotateButton()
-        setupShareControlButton(button: rdcButton, type: .remoteControlStart)
+        setupShareControlButton(button: remoteControlButton, type: .remoteControlStart)
+        updateRemoteControlButton()
         
         setupPauseButton()
         setupStopButton()
+        updateButtonTooltip()
     }
     
     fileprivate func setupShareControlButton(button: UTButton, type: ShareControlButtonType) {
         button.style = type.style
         button.buttonHeight = type.buttonHeight
         button.fontIcon = type.fontIcon
-        button.addUTToolTip(toolTip: type.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
         button.setAccessibilityTitle(type.accessibilityLabel)
         button.setAccessibilityValue(type.accessibilityValue)
         button.shouldExcludeTooltipsInShare = true
@@ -85,16 +99,14 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     fileprivate func updateButtonTooltip() {
         if blockShowTooltips {
             annotateButton?.addUTToolTip(toolTip: .plain(""))
-            rdcButton?.addUTToolTip(toolTip: .plain(""))
             pauseButton?.addUTToolTip(toolTip: .plain(""))
             stopButton?.addUTToolTip(toolTip: .plain(""))
         } else {
             annotateButton?.addUTToolTip(toolTip: ShareControlButtonType.annotate.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
-            rdcButton?.addUTToolTip(toolTip: ShareControlButtonType.remoteControlStart.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
-            let pauseButtonType = isSharePaused ? ShareControlButtonType.resume : ShareControlButtonType.pause
             pauseButton?.addUTToolTip(toolTip: pauseButtonType.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
             stopButton?.addUTToolTip(toolTip: ShareControlButtonType.stop.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
         }
+        updateRemoteControlButtonTooltip()
     }
     
     fileprivate func setupDragLabel() {
@@ -107,13 +119,40 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         annotateButton.isHidden = info.isHidden
     }
     
+    private func updateRemoteControlButton() {
+        if let info = remoteControlManager?.remoteControlButtonInfo {
+            updateRemoteControlButton(info: info)
+        } else {
+            updateRemoteControlButton(info: (type: .remoteControlStart, buttonInfo: ButtonInfo()))
+        }
+    }
+    
+    private func updateRemoteControlButtonTooltip() {
+        if blockShowTooltips {
+            remoteControlButton?.addUTToolTip(toolTip: .plain(""))
+        } else {
+            if remoteControlManager?.isSessionEstablished == true {
+                remoteControlButton?.addUTToolTip(toolTip: ShareControlButtonType.remoteControlStop.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
+            } else {
+                SPARK_LOG_DEBUG("\(isSharePaused)")
+                if isSharePaused {
+                    remoteControlButton?.addUTToolTip(toolTip: ShareControlButtonType.remoteControlStart.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge, tooltip: LocalizationStrings.remoteControlDisableWhenSharePaused))
+                } else {
+                    remoteControlButton?.addUTToolTip(toolTip: ShareControlButtonType.remoteControlStart.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
+                }
+            }
+        }
+    }
+    
     fileprivate func setupPauseButton() {
         updatePauseButton()
     }
     
     private func updatePauseButton() {
-        setupShareControlButton(button: pauseButton, type: isSharePaused ? .resume : .pause)
+        setupShareControlButton(button: pauseButton, type: pauseButtonType)
+        SPARK_LOG_DEBUG("")
         if let info = shareComponent?.getLocalShareControlBarInfo()?.viewInfo.pauseButton {
+            SPARK_LOG_DEBUG("")
             pauseButton.isHidden = info.isHidden
             setupStopButton()
         }
@@ -123,6 +162,12 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         setupShareControlButton(button: stopButton, type: .stop)
     }
     
+    private func onIsSharePausedChanged() {
+        SPARK_LOG_DEBUG("\(isSharePaused)")
+        updatePauseButton()
+        updateRemoteControlButton()
+    }
+    
     @IBAction func onShowShareContentWindow(_ sender: Any) {
         SPARK_LOG_DEBUG("")
         shareComponent?.showShareContentWindow()
@@ -130,11 +175,14 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     
     @IBAction func onAnnotateButton(_ sender: Any) {
         SPARK_LOG_DEBUG("")
+        guard remoteControlManager?.canStartAnnotateWhenRDCisSessionEstablished() == true else { return SPARK_LOG_DEBUG("canStartAnnotateWhenRDCisSessionEstablished == false") }
+        
         shareComponent?.annotate()
     }
     
-    @IBAction func onRdcButton(_ sender: Any) {
+    @IBAction func onRemoteControlButton(_ sender: Any) {
         SPARK_LOG_DEBUG("")
+        remoteControlManager?.showGiveControlPopover(sender: remoteControlButton, preferredEdge: edge.tooltipPreferredEdge)
     }
     
     @IBAction func onPauseButton(_ sender: Any) {
@@ -145,6 +193,8 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     @IBAction func onStopButton(_ sender: Any) {
         SPARK_LOG_DEBUG("")
         shareComponent?.stopShare()
+        remoteControlManager?.closeGiveRemoteControlPopOver()
+        remoteControlManager?.closeRemoteControlHintWindowController()
     }
     
     //MARK: ShareManagerComponentSetup
@@ -154,6 +204,9 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         
         updateAnnotateButton()
         updatePauseButton()
+        remoteControlManager = shareComponent.remoteControlManager
+        remoteControlManager?.registerListener(self)
+        updateRemoteControlButton()
     }
     
     //MARK: EdgeCollaborator
@@ -188,13 +241,28 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     }
 }
 
+extension LocalShareControlButtonsViewController: RemoteControleeManagerDelegate {
+    func updateRemoteControlButton(info: RemoteControlButtonInfo) {
+        SPARK_LOG_DEBUG("")
+        setupShareControlButton(button: remoteControlButton, type: info.type)
+        remoteControlButton.isHidden = info.buttonInfo.isHidden
+        remoteControlButton.isEnabled = info.buttonInfo.isEnabled && !isSharePaused
+        remoteControlButton.state = info.buttonInfo.buttonState == .on ? .on : .off
+        updateRemoteControlButtonTooltip()
+    }
+    
+    func ignoresMouseEventsInSomeWindows(isIgnores: Bool) {
+        view.window?.ignoresMouseEvents =  isIgnores
+    }
+}
+
 //MARK: Horizontal
 class LocalShareControlButtonsHorizontalViewController: LocalShareControlButtonsViewController {
     @IBOutlet weak var leftLabel: NSTextField!
     @IBOutlet weak var rightLabel: CustomToolTipsClickableTextField!
     
-    init() {
-        super.init(nibName: "LocalShareControlButtonsHorizontalViewController", bundle: Bundle.getSparkBundle())
+    init(shareFactory: ShareFactoryProtocol) {
+        super.init(shareFactory: shareFactory, nibName: "LocalShareControlButtonsHorizontalViewController")
     }
     
     required init?(coder: NSCoder) {
@@ -307,8 +375,8 @@ extension LocalShareControlButtonsHorizontalViewController: ClickableTextFieldDe
 class LocalShareControlButtonsVerticalViewController: LocalShareControlButtonsViewController {
     @IBOutlet weak var switchShareButton: UTRoundButton!
     
-    init() {
-        super.init(nibName: "LocalShareControlButtonsVerticalViewController", bundle: Bundle.getSparkBundle())
+    init(shareFactory: ShareFactoryProtocol) {
+        super.init(shareFactory: shareFactory, nibName: "LocalShareControlButtonsVerticalViewController")
     }
     
     required init?(coder: NSCoder) {
@@ -352,7 +420,7 @@ class LocalShareControlButtonsVerticalViewController: LocalShareControlButtonsVi
     }
 }
 
-fileprivate enum ShareControlButtonType {
+enum ShareControlButtonType {
     case switchShare
     case annotate
     case remoteControlStart
@@ -421,9 +489,7 @@ fileprivate enum ShareControlButtonType {
             return LocalizationStrings.share
         case .annotate:
             return LocalizationStrings.annotate
-        case .remoteControlStart:
-            return LocalizationStrings.remoteControlACC
-        case .remoteControlStop:
+        case .remoteControlStart, .remoteControlStop:
             return LocalizationStrings.remoteControlACC
         case .pause:
             return LocalizationStrings.pauseSharing

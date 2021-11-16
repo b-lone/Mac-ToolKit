@@ -8,6 +8,7 @@
 #include "Parsers.h"
 #include "InheritedTheme.h"
 #include "spark-client-framework/Utilities/SparkAlgorithms.h"
+#include "spark-client-framework/Utilities/StringUtils.h"
 #include "spark-client-framework/SparkLogger.h"
 #include "common-head/Utils/SemanticUtils.h"
 #include "common-head/Utils/ConfigUtils.h"
@@ -70,8 +71,8 @@ namespace SemanticVisuals
 
     std::string ThemeManager::getActiveMomentumThemeName(const std::string& themeName)
     {
-        const auto momentumTheme = "Momentum" + themeName;
-        return spark::contains(mJsonFactories, momentumTheme) ? momentumTheme : themeName;
+        const auto momentumTheme = !StringUtils::startsWith(themeName, "Momentum") ? "Momentum" + themeName : themeName; 
+        return spark::contains(mJsonFactories, momentumTheme) ? momentumTheme : "MomentumDark";
     }
 
     void ThemeManager::processBrandingColors(const std::map<std::string, std::string>& customColors)

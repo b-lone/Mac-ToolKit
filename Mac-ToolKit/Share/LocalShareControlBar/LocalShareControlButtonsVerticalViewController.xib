@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +12,7 @@
                 <outlet property="contentStackView" destination="hGz-v4-RPU" id="tDe-Oa-Ma1"/>
                 <outlet property="dragLabel" destination="FjP-Z6-0Hn" id="SCn-3o-hHW"/>
                 <outlet property="pauseButton" destination="bzY-nR-nkA" id="NnI-0b-DXu"/>
-                <outlet property="rdcButton" destination="zgb-7n-Ubu" id="ml2-et-YcH"/>
+                <outlet property="remoteControlButton" destination="zgb-7n-Ubu" id="bP0-M3-swN"/>
                 <outlet property="stopButton" destination="euH-Pi-Jhn" id="tIs-LX-Mky"/>
                 <outlet property="switchShareButton" destination="9aZ-bn-55j" id="ug4-va-BAH"/>
                 <outlet property="view" destination="u3t-QS-WVw" id="Crx-vH-eV1"/>
@@ -60,7 +61,7 @@
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
-                                <action selector="onRdcButton:" target="-2" id="mhI-L9-gvm"/>
+                                <action selector="onRemoteControlButton:" target="-2" id="f5b-4f-1Nd"/>
                             </connections>
                         </button>
                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DqN-yz-r41">

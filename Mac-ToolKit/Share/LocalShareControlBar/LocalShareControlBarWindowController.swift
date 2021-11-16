@@ -62,11 +62,14 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
     private var mouseDownLocation: CGPoint = . zero
     private var edgeInDrag: Edge?
     private var windowWillStartDragFlag = false
+    private var isInFullScreenSpaceWithoutCameraHousing = false
     
     private weak var shareComponent: ShareManagerComponentProtocol?
     private var sharedScreenUuid: ScreenId { shareComponent?.shareContext.screenToDraw.uuid() ?? "" }
+    private var isImOnlyShareForAccept = true
     private let screenAdapter: SparkScreenAdapterProtocol
     private let shareFactory: ShareFactoryProtocol
+    private let fullScreenDetector: FullScreenDetectorProtocol
     
     private var horizontalViewController: ILocalShareControlBarViewController?
     private var verticalViewController: ILocalShareControlBarViewController?
@@ -77,6 +80,7 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
     init(shareFactory: ShareFactoryProtocol, screenAdapter: SparkScreenAdapterProtocol) {
         self.shareFactory = shareFactory
         self.screenAdapter = screenAdapter
+        self.fullScreenDetector = shareFactory.makeFullScreenDetector()
         super.init(window: nil)
         
         _ = window
@@ -89,6 +93,7 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
     deinit {
         SPARK_LOG_DEBUG("")
         shareComponent?.unregisterListener(self)
+        fullScreenDetector.unregisterListener(self)
     }
     
     override func windowDidLoad() {
@@ -106,6 +111,9 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
         
         mouseTrackView.mouseTrackDelegate = self
         mouseTrackView.shouldAcceptsFirstMouse = true
+        
+        fullScreenDetector.registerListener(self)
+        isInFullScreenSpaceWithoutCameraHousing = fullScreenDetector.isFullScreen()
     }
     
     override func showWindow(_ sender: Any?) {
@@ -148,7 +156,11 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
     }
     
     private func getScreenFrame() -> NSRect {
-        screenAdapter.screen(uuid: sharedScreenUuid).visibleFrame
+        if isInFullScreenSpaceWithoutCameraHousing {
+            return screenAdapter.screen(uuid: sharedScreenUuid).frame
+        } else {
+            return screenAdapter.screen(uuid: sharedScreenUuid).visibleFrame
+        }
     }
     
     private func getOrientation(edge: Edge) -> Orientation {
@@ -176,11 +188,16 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
         updateFrame(animate: false)
     }
     
+    func shareManagerComponent(_ shareManagerComponent: ShareManagerComponentProtocol, onLocalShareControlBarInfoChanged info: CHLocalShareControlBarInfo) {
+        isImOnlyShareForAccept = info.isImOnlyShareForAccept
+    }
+    
     //MARK: ShareManagerComponentSetup
     func setup(shareComponent: ShareManagerComponentProtocol) {
         self.shareComponent = shareComponent
         
         shareComponent.registerListener(self)
+        isImOnlyShareForAccept = shareComponent.getLocalShareControlBarInfo()?.isImOnlyShareForAccept ?? true
         
         horizontalViewController?.setup(shareComponent: shareComponent)
         verticalViewController?.setup(shareComponent: shareComponent)
@@ -192,7 +209,7 @@ extension LocalShareControlBarWindowController: WindowAnimator {
     func startAnimationForSizeChanged() {
         guard let window = window, let currentViewController = currentViewController else { return }
         let newSize = currentViewController.getFittingSize()
-        SPARK_LOG_DEBUG("\(newSize)")
+//        SPARK_LOG_DEBUG("\(newSize)")
         let screenFrame = getScreenFrame()
         var windowFrame = window.frame
         let position = getPosition(screen: sharedScreenUuid)
@@ -232,12 +249,13 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
 
         let screenFrame = getScreenFrame()
         var windowFrame = window.frame
-        windowFrame.origin = NSMakePoint(NSEvent.mouseLocation.x - mouseDownLocation.x, NSEvent.mouseLocation.y - mouseDownLocation.y)
+        let originY = isImOnlyShareForAccept ? window.frame.minY : NSEvent.mouseLocation.y - mouseDownLocation.y
+        windowFrame.origin = NSMakePoint(NSEvent.mouseLocation.x - mouseDownLocation.x, originY)
         windowFrame = windowFrame.move(into: screenFrame)
         window.setFrame(windowFrame, display: false, animate: false)
         
         let mouseLocation = NSEvent.mouseLocation.convertCoordinateOrigin(to: screenFrame.origin)
-        let edge = mouseLocation.getSnapEdge(of: screenFrame)
+        let edge = isImOnlyShareForAccept ? .top : mouseLocation.getSnapEdge(of: screenFrame)
         if edgeInDrag != edge {
             switchContentView(edge: edge)
             edgeInDrag = edge
@@ -249,6 +267,7 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
         let position = getPosition(screen: sharedScreenUuid)
         
         let screenFrame = getScreenFrame()
+        SPARK_LOG_DEBUG("\(screenFrame)")
         var windowFrame = window.frame.snap(to: position.edge, of: screenFrame)
         
         switch position.edge {
@@ -268,7 +287,7 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
         let screenFrame = getScreenFrame()
         
         let mouseRelativeLocation = mouseUpLocation.convertCoordinateOrigin(to: screenFrame.origin)
-        let edge = mouseRelativeLocation.getSnapEdge(of: screenFrame)
+        let edge = isImOnlyShareForAccept ? .top : mouseRelativeLocation.getSnapEdge(of: screenFrame)
         
         let windowFrame =  window.frame
         var deviation: CGFloat = 0
@@ -281,5 +300,23 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
         }
         positionMap[sharedScreenUuid] = (edge: edge, deviation: deviation)
         updateFrame(animate: true)
+    }
+}
+
+extension LocalShareControlBarWindowController: FullScreenDetectorListener {
+    func fullScreenDetectorFullScreenStateChanged(_ isFullScreen: Bool) {
+        if #available(macOS 12.0, *) {
+            if screenAdapter.screen(uuid: sharedScreenUuid).safeAreaInsets.top > 0 {
+                SPARK_LOG_DEBUG("device has camera housing")
+                isInFullScreenSpaceWithoutCameraHousing = false
+            } else {
+                isInFullScreenSpaceWithoutCameraHousing = isFullScreen
+            }
+        } else {
+            isInFullScreenSpaceWithoutCameraHousing = isFullScreen
+        }
+      
+        SPARK_LOG_DEBUG("\(isInFullScreenSpaceWithoutCameraHousing) ")
+        updateFrame(animate: false)
     }
 }

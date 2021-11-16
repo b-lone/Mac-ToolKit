@@ -669,8 +669,8 @@
     },
     "wx-inputActionButton-background": {
       "normal": "gray-40",
-      "hovered": "blue-50",
-      "pressed": "blue-60",
+      "hovered": "gray-30",
+      "pressed": "gray-20",
       "disabled": "gray-70"
     },
     "wx-inputBoxWidgetHasExternalParticipant-background": {
@@ -1829,7 +1829,7 @@
     },
     "wx-meetingIcon": {
       "normal": "gray-40",
-      "disabled": "gray-70"
+      "disabled": "gray-40"
     },
     "wx-healthCheckButton-background": {
       "normal": "gray-100",
@@ -2359,6 +2359,15 @@
     },
     "wx-titilebar-locklabel-background": {
       "normal": "gray-50"
+    },
+    "wx-titilebar-mediaqualitygoodlabel-background": {
+      "normal": "green-50"
+    },
+    "wx-titilebar-mediaqualityunstablelabel-background": {
+      "normal": "red-50"
+    },
+    "wx-titilebar-mediaqualitypoorlabel-background": {
+      "normal": "yellow-50"
     },
     "wx-call-control-panelButton-background": {
       "normal": "gray-80",

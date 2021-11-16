@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +14,7 @@
                 <outlet property="labelStackView" destination="UfK-rO-g45" id="BEO-xb-YUv"/>
                 <outlet property="leftLabel" destination="zXE-sN-PuL" id="xfY-tY-a8e"/>
                 <outlet property="pauseButton" destination="XHy-58-hdf" id="ZwG-Tc-meK"/>
-                <outlet property="rdcButton" destination="RgB-Vd-Cpm" id="fJB-ex-8ps"/>
+                <outlet property="remoteControlButton" destination="RgB-Vd-Cpm" id="w1p-Pb-7yh"/>
                 <outlet property="rightLabel" destination="4D8-Ml-YHC" id="yJp-Sw-8lE"/>
                 <outlet property="stopButton" destination="Z9g-ky-fMP" id="oDn-LV-28A"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -87,7 +88,7 @@
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                     <connections>
-                                        <action selector="onRdcButton:" target="-2" id="2An-Ln-5Ne"/>
+                                        <action selector="onRemoteControlButton:" target="-2" id="sxy-O0-7ZZ"/>
                                     </connections>
                                 </button>
                                 <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="750" verticalHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CT6-ZE-P8l">

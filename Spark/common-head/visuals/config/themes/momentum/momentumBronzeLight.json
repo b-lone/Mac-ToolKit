@@ -460,6 +460,58 @@
         "a": 0.2
       }
     },
+    "button-secondary-active-background": {
+      "normal": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.2
+      },
+      "hovered": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.3
+      },
+      "pressed": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.4
+      },
+      "disabled": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.2
+      }
+    },
+    "button-secondary-active-text": {
+      "normal": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.95
+      },
+      "hovered": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.95
+      },
+      "pressed": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.95
+      },
+      "disabled": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.4
+      }
+    },
     "button-cancel-ghost-background": {
       "normal": {
         "r": 0,
@@ -1278,6 +1330,66 @@
         "a": 0.2
       }
     },
+    "button-overlay-background": {
+      "normal": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 1
+      },
+      "hovered": {
+        "r": 237,
+        "g": 237,
+        "b": 237,
+        "a": 1
+      },
+      "pressed": {
+        "r": 222,
+        "g": 222,
+        "b": 222,
+        "a": 1
+      }
+    },
+    "button-overlay-text": {
+      "normal": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.95
+      },
+      "hovered": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.95
+      },
+      "pressed": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.95
+      }
+    },
+    "button-overlay-border": {
+      "normal": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.3
+      },
+      "hovered": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.3
+      },
+      "pressed": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.3
+      }
+    },
     "button-group-separator-background": {
       "normal": {
         "r": 0,
@@ -1304,6 +1416,12 @@
         "g": 0,
         "b": 0,
         "a": 0.2
+      },
+      "checked": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.2
       }
     },
     "button-ghost-text": {
@@ -1320,6 +1438,12 @@
         "a": 0.95
       },
       "pressed": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.95
+      },
+      "checked": {
         "r": 0,
         "g": 0,
         "b": 0,
@@ -1460,33 +1584,33 @@
     },
     "coachmarkteaching-button-hyperlink-text": {
       "normal": {
-        "r": 3,
-        "g": 83,
-        "b": 168,
+        "r": 100,
+        "g": 180,
+        "b": 250,
         "a": 1
       },
       "hovered": {
-        "r": 10,
-        "g": 39,
-        "b": 74,
+        "r": 191,
+        "g": 227,
+        "b": 255,
         "a": 1
       },
       "pressed": {
-        "r": 10,
-        "g": 39,
-        "b": 74,
+        "r": 191,
+        "g": 227,
+        "b": 255,
         "a": 1
       },
       "focused": {
-        "r": 3,
-        "g": 83,
-        "b": 168,
+        "r": 100,
+        "g": 180,
+        "b": 250,
         "a": 1
       },
       "disabled": {
-        "r": 0,
-        "g": 0,
-        "b": 0,
+        "r": 255,
+        "g": 255,
+        "b": 255,
         "a": 0.4
       }
     },
@@ -1694,6 +1818,12 @@
         "g": 94,
         "b": 70,
         "a": 1
+      },
+      "hovered": {
+        "r": 14,
+        "g": 43,
+        "b": 32,
+        "a": 1
       }
     },
     "label-warning-text": {
@@ -1710,6 +1840,12 @@
         "g": 10,
         "b": 21,
         "a": 1
+      },
+      "hovered": {
+        "r": 79,
+        "g": 14,
+        "b": 16,
+        "a": 1
       }
     },
     "listitem-background": {
@@ -1720,6 +1856,12 @@
         "a": 0
       },
       "hovered": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.04
+      },
+      "focused": {
         "r": 0,
         "g": 0,
         "b": 0,
@@ -3707,25 +3849,25 @@
         "r": 0,
         "g": 0,
         "b": 0,
-        "a": 0.95
+        "a": 0.3
       },
       "hovered": {
         "r": 0,
         "g": 0,
         "b": 0,
-        "a": 0.95
+        "a": 0.3
       },
       "pressed": {
         "r": 0,
         "g": 0,
         "b": 0,
-        "a": 0.95
+        "a": 0.3
       },
       "disabled": {
         "r": 0,
         "g": 0,
         "b": 0,
-        "a": 0.95
+        "a": 0.3
       }
     },
     "globalHeader-searchCancelButton-text": {
@@ -3751,7 +3893,7 @@
         "r": 0,
         "g": 0,
         "b": 0,
-        "a": 0.95
+        "a": 0.4
       }
     },
     "theme-gradient-primary-0-background": {

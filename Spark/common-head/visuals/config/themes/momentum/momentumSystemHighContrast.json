@@ -155,6 +155,18 @@
       "pressed": "ButtonTextColor",
       "disabled": "GrayTextColor"
     },
+    "button-secondary-active-background": {
+      "normal": "HighlightColor",
+      "hovered": "HighlightColor",
+      "pressed": "ButtonFaceColor",
+      "disabled": "HighlightColor"
+    },
+    "button-secondary-active-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "disabled": "GrayTextColor"
+    },
     "button-cancel-ghost-background": {
       "normal": "ButtonFaceColor",
       "hovered": "HighlightColor",
@@ -308,14 +320,14 @@
     },
     "button-dialpad-text-number": {
       "normal": "ButtonTextColor",
-      "hovered": "ButtonTextColor",
-      "pressed": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
       "disabled": "GrayTextColor"
     },
     "button-dialpad-text-characters": {
       "normal": "WindowTextColor",
-      "hovered": "WindowTextColor",
-      "pressed": "WindowTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
       "disabled": "GrayTextColor"
     },
     "button-dialpad-border": {
@@ -358,21 +370,41 @@
       "normal": "ButtonTextColor",
       "disabled": "GrayTextColor"
     },
+    "button-overlay-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "pressed": "HighlightColor"
+    },
+    "button-overlay-text": {
+      "normal": "ButtonTextColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor"
+    },
+    "button-overlay-border": {
+      "normal": "ButtonTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor"
+    },
     "button-group-separator-background": {
       "normal": "ButtonTextColor"
     },
     "button-ghost-background": {
       "normal": "ButtonFaceColor",
       "hovered": "HighlightColor",
-      "pressed": "HighlightColor"
+      "pressed": "HighlightColor",
+      "checked": "HighlightColor",
+      "focused": "HighlightColor"
     },
     "button-ghost-text": {
       "normal": "ButtonTextColor",
       "hovered": "HighlightTextColor",
-      "pressed": "HighlightTextColor"
+      "pressed": "HighlightTextColor",
+      "checked": "HighlightTextColor",
+      "disabled": "GrayTextColor"
     },
     "button-ghost-border": {
       "normal": "ButtonFaceColor"
+
     },
     "coachmarkteaching-background": {
       "normal": "PlaceholderColor"
@@ -481,13 +513,14 @@
       "normal": "ButtonFaceColor",
       "hovered": "HighlightColor",
       "pressed": "HighlightColor",
-      "disabled": "ButtonFaceColor"
+      "disabled": "ButtonFaceColor",
+      "focused": "HotlightColor"
     },
     "listitem-textprimary": {
       "normal": "ButtonTextColor",
       "hovered": "HighlightTextColor",
       "pressed": "HighlightTextColor",
-      "disabled": "GrayTextColor"
+      "disabled": "ButtonTextColor"
     },
     "listitem-textsecondary": {
       "normal": "WindowTextColor",
@@ -496,7 +529,10 @@
       "disabled": "GrayTextColor"
     },
     "listitem-textmissed": {
-      "normal": "ButtonTextColor"
+      "normal": "HotlightColor",
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
     },
     "listitem-tick": {
       "normal": "HighlightColor",
@@ -935,7 +971,7 @@
       "normal": "ButtonFaceColor"
     },
     "globalHeader-modifierChip-background": {
-      "normal": "ButtonFaceColor"
+      "normal": "HighlightColor"
     },
     "globalHeader-modifierChip-text": {
       "normal": "HighlightTextColor"
@@ -981,9 +1017,9 @@
     },
     "globalHeader-searchCancelButton-text": {
       "normal": "ButtonTextColor",
-      "hovered": "ButtonTextColor",
-      "pressed": "ButtonTextColor",
-      "disabled": "ButtonTextColor"
+      "hovered": "HighlightTextColor",
+      "pressed": "HighlightTextColor",
+      "disabled": "GrayTextColor"
     },
     "theme-gradient-primary-0-background": {
       "normal": "PlaceholderColor"
@@ -1179,19 +1215,19 @@
       "disabled": "ButtonFaceColor"
     },
     "scrollbar-thumb-background": {
-      "normal": "HighlightColor",
+      "normal": "ButtonTextColor",
       "hovered": "HighlightColor",
       "pressed": "HighlightColor",
       "disabled": "ButtonFaceColor"
     },
     "scrollbar-arrow-button-text": {
-      "normal": "ButtonTextColor",
+      "normal": "HighlightColor",
       "hovered": "HighlightColor",
       "pressed": "HighlightColor",
       "disabled": "GrayTextColor"
     },
     "scrollbar-arrow-button-background": {
-      "normal": "ButtonFaceColor",
+      "normal": "ButtonTextColor",
       "hovered": "HighlightColor",
       "disabled": "ButtonFaceColor"
     },

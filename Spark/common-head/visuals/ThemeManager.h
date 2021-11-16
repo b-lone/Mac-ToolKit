@@ -35,6 +35,7 @@ namespace SemanticVisuals
         bool isHighContrast() override;
         bool isMomentumThemeEnabled() override;
         void setIsMomentumThemesEnabled(bool isEnabled) override;
+        std::string getActiveMomentumThemeName(const std::string& themeName) override;
 
     protected:
         std::shared_ptr<Colors> mColors;
@@ -47,7 +48,6 @@ namespace SemanticVisuals
         void loadTheme(const std::string& themeName);
         IThemePtr createTheme(const std::string& name);
         IThemePtr getParent(const std::string& parentName);
-        std::string getActiveMomentumThemeName(const std::string& themeName);
         std::shared_ptr<CoBrandedTheme> mActiveTheme;
     };
 }

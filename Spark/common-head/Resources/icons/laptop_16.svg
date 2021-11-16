@@ -1,5 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
-<svg xmlns="http://www.w3.org/2000/svg" id="laptop_16">
-<path unicode="&#xea61;" transform="scale(1,-1)" id="laptop_16" data-tags="laptop_16" d="M896 128h-768c-35.264 0-64 28.736-64 64h896c0-35.264-28.736-64-64-64v0zM128 704c0 35.264 28.736 64 64 64h640c35.264 0 64-28.736 64-64v-448h-768v448zM992 256h-32v448c0 70.72-57.28 128-128 128h-640c-70.72 0-128-57.28-128-128v-448h-32c-17.664 0-32-14.336-32-32v-32c0-70.72 57.28-128 128-128h768c70.72 0 128 57.28 128 128v32c0 17.664-14.336 32-32 32v0z" />
-</svg>

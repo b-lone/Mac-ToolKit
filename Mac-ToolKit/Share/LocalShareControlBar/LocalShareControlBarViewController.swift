@@ -117,7 +117,7 @@ class LocalShareControlBarViewController: ILocalShareControlBarViewController {
 
 //MARK: Horizontal Bar
 class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewController {
-    private enum ExpandState {
+    private enum ExpandState: Int {
         case collapsed
         case hover
         case expended
@@ -212,6 +212,7 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
     
     private func onIsImOnlyShareForAcceptChanged() {
         guard collapseTimerOnceFlag, !isImOnlyShareForAccept else { return }
+        collapseTimerOnceFlag = false
         expandState = .expended
         delayedCollapse()
     }
@@ -249,10 +250,15 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
     
     private func onExpandStateUpdate() {
         invalidateCollapseTimer()
-        animator?.startAnimationForSizeChanged()
+        if self.view.window == nil {
+            windowDidStopAnimation()
+        } else {
+            animator?.startAnimationForSizeChanged()
+        }
     }
     
     @IBAction func onExpandButton(_ sender: Any) {
+        guard !ignoreMouseEnterAndExit else { return }
         expandState = isExpanded ? .collapsed : .expended
     }
     
@@ -263,7 +269,7 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         videoViewController = viewController
         videoViewContainerView.addSubviewAndFill(subview: viewController.view)
         
-        onIsImOnlyShareForAcceptChanged()
+        isImOnlyShareForAccept = shareComponent.getLocalShareControlBarInfo()?.isImOnlyShareForAccept ?? true
     }
     
     //MARK: EdgeCollaborator
@@ -325,6 +331,9 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
     
     override func windowDidStopDrag() {
         super.windowDidStopDrag()
+        if expandState == .hover {
+            expandState = .collapsed
+        }
         windowIsDragging = false
     }
     

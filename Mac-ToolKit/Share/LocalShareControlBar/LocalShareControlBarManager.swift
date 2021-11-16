@@ -45,6 +45,9 @@ class LocalShareControlBarManager: NSObject & LocalShareControlBarManagerProtoco
             shareControlBar = makeShareControlBar()
         }
         shareControlBar?.showWindow(self)
+        if let windowNumber = shareControlBar?.window?.windowNumber {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: OnShareShouldExcludeWindow), object: self, userInfo: ["windowNumber": windowNumber])
+        }
     }
     
     func hideShareControlBar() {

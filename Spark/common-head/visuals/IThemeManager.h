@@ -34,6 +34,7 @@ namespace SemanticVisuals
         virtual bool isThemeSelectable() const = 0;
         virtual bool isMomentumThemeEnabled() = 0;
         virtual void setIsMomentumThemesEnabled(bool isEnabled) = 0;
+        virtual std::string getActiveMomentumThemeName(const std::string& themeName) = 0;
 
         virtual bool isDark() = 0;
         virtual bool isHighContrast() = 0;

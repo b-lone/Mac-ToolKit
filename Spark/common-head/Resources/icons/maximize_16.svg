@@ -1,5 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
-<svg xmlns="http://www.w3.org/2000/svg" id="maximize_16">
-<path unicode="&#xe9a5;" transform="scale(1,-1)" id="maximize_16" data-tags="maximize_16" d="M416 64h-288v288c0 17.664-14.336 32-32 32s-32-14.336-32-32v-320c0-17.664 14.336-32 32-32h320c17.664 0 32 14.336 32 32s-14.336 32-32 32zM928 896h-320c-17.664 0-32-14.336-32-32s14.336-32 32-32h288v-288c0-17.664 14.336-32 32-32s32 14.336 32 32v320c0 17.664-14.336 32-32 32z" />
-</svg>

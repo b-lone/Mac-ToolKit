@@ -480,9 +480,9 @@
     },
     "wx-teams-combobox-text": {
       "normal": "ButtonTextColor",
-      "hovered": "HighlightTextColor",
-      "pressed": "HighlightTextColor",
-      "focused": "HighlightTextColor",
+      "hovered": "ButtonTextColor",
+      "pressed": "ButtonTextColor",
+      "focused": "ButtonTextColor",
       "disabled": "GrayTextColor"
     },
     "wx-callForwardItemBrush-background": {
@@ -1106,13 +1106,24 @@
       "focused": "HotlightColor",
       "pressed": "HotlightColor"
     },
+    "wx-audioSelectionItemVariant-text" : {
+      "normal": "WindowTextColor"
+    },
     "wx-default-invertedColor-text": {
+      "normal": "WindowColor"
+    },
+    "wx-audioSelectionItemInternal-text": {
       "normal": "WindowColor"
     },
     "wx-infoButton-background": {
       "normal": "ButtonFaceColor",
       "hovered": "HighlightColor",
       "pressed": "HighlightColor"
+    },
+    "wx-audioSelectionItem-background": {
+      "normal": "ButtonFaceColor",
+      "hovered": "HighlightColor",
+      "checked":  "HighlightColor"
     },
     "wx-inputActionButton-background": {
       "normal": "ButtonTextColor",
@@ -1249,6 +1260,15 @@
       "pressed": "HotlightColor"
     },
     "wx-markButton-background": {
+      "normal": "WindowTextColor"
+    },
+    "wx-messageHighlights-header-background": {
+      "normal": "WindowColor"
+    },
+    "wx-messageHighlights-header-text": {
+      "normal": "WindowTextColor"
+    },
+    "wx-spaceActionsButton-icon": {
       "normal": "WindowTextColor"
     },
     "wx-headingColor-background": {
@@ -1667,20 +1687,20 @@
     "separator-secondary": {
       "normal": "ButtonTextColor"
     },
-    "modal-primary-background":{
+    "modal-primary-background": {
       "normal": "WindowColor"
     },
     "modal-primary-border": {
       "normal": "ButtonTextColor"
     },
-    "listitem-textprimary":{
+    "listitem-textprimary": {
       "normal": "WindowTextColor",
       "focused": "HighlightTextColor",
       "hovered": "HighlightTextColor",
       "pressed": "HighlightTextColor",
       "disabled": "GrayTextColor"
     },
-    "listitem-textsecondary":{
+    "listitem-textsecondary": {
       "normal": "WindowTextColor",
       "disabled": "GrayTextColor"
     },
