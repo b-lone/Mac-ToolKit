@@ -103,7 +103,6 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
         window?.backgroundColor = .clear
         window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         window?.hasShadow = false
-        window?.level = .floating + 2
         if let panel = window as? NSPanel {
             panel.worksWhenModal = true
             panel.isFloatingPanel = true
@@ -114,6 +113,7 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
         
         fullScreenDetector.registerListener(self)
         isInFullScreenSpaceWithoutCameraHousing = fullScreenDetector.isFullScreen()
+        updateWindowLevel()
     }
     
     override func showWindow(_ sender: Any?) {
@@ -126,6 +126,10 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
     override func close() {
         super.close()
         SPARK_LOG_DEBUG("")
+    }
+    
+    private func updateWindowLevel() {
+        window?.level = isInFullScreenSpaceWithoutCameraHousing ? .popUpMenu + 1 : .floating + 2
     }
     
     private func makeLocalShareControlBarViewController(orientation: Orientation) -> ILocalShareControlBarViewController {
@@ -209,7 +213,7 @@ extension LocalShareControlBarWindowController: WindowAnimator {
     func startAnimationForSizeChanged() {
         guard let window = window, let currentViewController = currentViewController else { return }
         let newSize = currentViewController.getFittingSize()
-//        SPARK_LOG_DEBUG("\(newSize)")
+        SPARK_LOG_DEBUG("\(newSize)")
         let screenFrame = getScreenFrame()
         var windowFrame = window.frame
         let position = getPosition(screen: sharedScreenUuid)
@@ -267,7 +271,6 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
         let position = getPosition(screen: sharedScreenUuid)
         
         let screenFrame = getScreenFrame()
-        SPARK_LOG_DEBUG("\(screenFrame)")
         var windowFrame = window.frame.snap(to: position.edge, of: screenFrame)
         
         switch position.edge {
@@ -317,6 +320,7 @@ extension LocalShareControlBarWindowController: FullScreenDetectorListener {
         }
       
         SPARK_LOG_DEBUG("\(isInFullScreenSpaceWithoutCameraHousing) ")
+        updateWindowLevel()
         updateFrame(animate: false)
     }
 }
