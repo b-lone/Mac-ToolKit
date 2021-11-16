@@ -33,6 +33,7 @@ protocol ShareManagerComponentProtocol: AnyObject {
     
     var shareContext: ShareContextProtocol { get }
     var shareIosScreenManager: ShareIosScreenManagerProtocol { get }
+    var remoteControlManager: RDCControleeHelperProtocol { get }
     
     func showShareContentWindow()
     func startShare(shareSourceList: [CHShareSource], shareType: CHShareType)
@@ -74,6 +75,7 @@ class ShareManagerComponent: NSObject {
     private var localShareControlBarManager: LocalShareControlBarManagerProtocol
     var shareIosScreenManager: ShareIosScreenManagerProtocol
     private var sharingPowerPointWindowInfoList: MagicWindowInfoList?
+    private(set) lazy var remoteControlManager: RDCControleeHelperProtocol = shareFactory.makeRemoteControleeManager(callId: callId)
     
     private var isSharing = false {
         didSet {
@@ -242,6 +244,7 @@ class ShareManagerComponent: NSObject {
         updateShareBorder()
         updateShareIosScreenManager()
         activeSharedWindow()
+        updateRemoteControlManager()
         updateLocalShareControlBar()
         
         if isSharing {
@@ -272,6 +275,14 @@ class ShareManagerComponent: NSObject {
             localShareControlBarManager.showShareControlBar()
         } else {
             localShareControlBarManager.hideShareControlBar()
+        }
+    }
+    
+    private func updateRemoteControlManager() {
+        if isSharing {
+            remoteControlManager.registerCallViewModelDelegate()
+        } else {
+            remoteControlManager.unRegisterCallViewModelDelegate()
         }
     }
     
@@ -310,6 +321,7 @@ class ShareManagerComponent: NSObject {
         removeShareBorder()
         shareIosScreenManager.stop()
         mShareContext.update(shareSourceType: .unknown)
+        appContext.callControlerManager?.closeShareWindow(callId: callId)
     }
     
     @objc private func onCallDisconnected(notification: NSNotification) {

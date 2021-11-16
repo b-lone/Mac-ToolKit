@@ -27,6 +27,8 @@ protocol ShareWindowFactory {
 protocol ShareManagerFactory {
     func makeTimer() -> SparkTimerProtocol
     func makeLocalShareControlBarManager() -> LocalShareControlBarManagerProtocol
+    func makeRemoteControleeManager(callId: String) -> RDCControleeHelperProtocol
+    func makeFullScreenDetector() -> FullScreenDetectorProtocol
 }
 
 class ShareFactory: NSObject, ShareFactoryProtocol {
@@ -41,18 +43,18 @@ class ShareFactory: NSObject, ShareFactoryProtocol {
     func makeLocalShareControlBarViewController(orientation: Orientation) -> ILocalShareControlBarViewController {
         switch orientation {
         case .horizontal:
-            return LocalShareControlHorizontalBarViewController(shareFactory: appContext.shareFactory)
+            return LocalShareControlHorizontalBarViewController(shareFactory: self)
         case .vertical:
-            return LocalShareControlVerticalBarViewController(shareFactory: appContext.shareFactory)
+            return LocalShareControlVerticalBarViewController(shareFactory: self)
         }
     }
     
     func makeLocalShareControlButtonsViewController(orientation: Orientation) -> ILocalShareControlButtonsViewController {
         switch orientation {
         case .horizontal:
-            return LocalShareControlButtonsHorizontalViewController()
+            return LocalShareControlButtonsHorizontalViewController(shareFactory: self)
         case .vertical:
-            return LocalShareControlButtonsVerticalViewController()
+            return LocalShareControlButtonsVerticalViewController(shareFactory: self)
         }
     }
     
@@ -74,7 +76,7 @@ class ShareFactory: NSObject, ShareFactoryProtocol {
     }
     
     func makeLocalShareControlBarWindowController() -> ILocalShareControlBarWindowController {
-        LocalShareControlBarWindowController(shareFactory: appContext.shareFactory, screenAdapter: appContext.screenAdapter)
+        LocalShareControlBarWindowController(shareFactory: self, screenAdapter: appContext.screenAdapter)
     }
     
     //MARK: ShareManagerFactory
@@ -84,5 +86,13 @@ class ShareFactory: NSObject, ShareFactoryProtocol {
     
     func makeLocalShareControlBarManager() -> LocalShareControlBarManagerProtocol {
         LocalShareControlBarManager(shareFactory: self)
+    }
+    
+    func makeRemoteControleeManager(callId: String) -> RDCControleeHelperProtocol {
+        RDCControleeHelper(appContext: appContext, callId: callId)
+    }
+    
+    func makeFullScreenDetector() -> FullScreenDetectorProtocol {
+        FullScreenDetector()
     }
 }

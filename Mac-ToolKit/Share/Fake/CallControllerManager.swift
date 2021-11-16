@@ -24,7 +24,7 @@ class CallControllerManager: NSObject {
     deinit {
     }
     
-    func runShareWindowModal(callId: String){
+    func runShareWindowModal(callId: String) {
         NSApp.activate(ignoringOtherApps: true)
         if let shareWindowController = shareWindowController {
             shareWindowController.window?.makeKeyAndOrderFront(self)
@@ -34,6 +34,10 @@ class CallControllerManager: NSObject {
         NSApp.runModal(for: (shareWindowController?.window)!)
         shareWindowController?.window?.close()
         shareWindowController = nil
+    }
+    
+    func closeShareWindow(callId: String) {
+        
     }
 }
 

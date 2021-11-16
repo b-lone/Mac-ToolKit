@@ -13,6 +13,7 @@ protocol SparkScreen: AnyObject {
     func frameInfo() -> String
     var frame: NSRect { get }
     var visibleFrame: NSRect { get }
+    @available(macOS 12.0, *) var safeAreaInsets: NSEdgeInsets { get }
 }
 
 extension NSScreen: SparkScreen {
