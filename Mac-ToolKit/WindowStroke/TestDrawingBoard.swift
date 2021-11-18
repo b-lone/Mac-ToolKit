@@ -17,6 +17,7 @@ class TestDrawingBoard: NSObject {
     let caseNameApplicationBorder = "application border"
     let caseNameScreenBorder = "screen border"
     let caseNameScreenLabel = "screen label"
+    let caseNameFullScreenDetector = "full screen detector"
     
     private var windowInfoList = [MagicWindowInfo]()
     private var shareFactory = ShareFactory()
@@ -33,7 +34,7 @@ class TestDrawingBoard: NSObject {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-
+    
     //MARK: Case - cover state
     private var testCoverStateDrawingId = MagicDrawing.inValidDrawingId
     func testCoverState(start: Bool = true) {
@@ -60,7 +61,6 @@ class TestDrawingBoard: NSObject {
         testDrawApplicationBorderDrawingId = MagicDrawing.inValidDrawingId
         if start {
             let list = getWindowInfoList(pName: "Terminal")
-//            let list = getWindowInfoList(pName: "Any")
             if !list.isEmpty {
                 testDrawApplicationBorderDrawingId = drawingBoard.addDrawing(drawing: MagicDrawing.applicationBorderDrawing(applicationList: [list[0].pid]))
             } else {
@@ -89,12 +89,33 @@ class TestDrawingBoard: NSObject {
         }
     }
     
+    //MARK: full screen detector
+    private var timer: Timer?
+    private var detector = FullScreenDetector()
+    func testFullScreenDetector(start: Bool = true) {
+        if start {
+            timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { [weak self] _ in
+                if let self = self {
+                    SPARK_LOG_DEBUG("\(self.detector.isFullScreen())")
+                }
+            }
+        } else {
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
     //MARK: private function
     private func getWindowInfoList(pName: String) -> [MagicWindowInfo] {
         windowInfoList = drawingBoard.getWindowInfoList(exclude: true, onScreenOnly: true)
         return windowInfoList.filter {
             $0.pName.contains(pName)
         }
+    }
+    
+    private func getPowerPointWindowInfoList() -> MagicWindowInfoList {
+        let windowInfoList = drawingBoard.getWindowInfoList(exclude: true, onScreenOnly: false)
+        return windowInfoList.filter { $0.pName == "Keynote" }
     }
 }
 
@@ -113,6 +134,9 @@ extension TestDrawingBoard: TestCasesManager {
         testCaseList.append(testCase)
         
         testCase = TestCase(name: caseNameScreenLabel)
+        testCaseList.append(testCase)
+        
+        testCase = TestCase(name: caseNameFullScreenDetector)
         testCaseList.append(testCase)
         
         return testCaseList
@@ -142,6 +166,12 @@ extension TestDrawingBoard: TestCasesManager {
                 testDrawScreenLabel()
             } else if actionName == TestAction.stopAction {
                 testDrawScreenLabel(start: false)
+            }
+        } else if caseName == caseNameFullScreenDetector {
+            if actionName == TestAction.startAction {
+                testFullScreenDetector()
+            } else if actionName == TestAction.stopAction {
+                testFullScreenDetector(start: false)
             }
         }
     }
