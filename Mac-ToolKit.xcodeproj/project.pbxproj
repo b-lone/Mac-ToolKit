@@ -501,6 +501,7 @@
 		215F8ACD25B098EA000F4D45 = {
 			isa = PBXGroup;
 			children = (
+				21EF4DA42769F0D000553D13 /* New Group */,
 				21F106F8272A52AF00E40AD9 /* CommonHead.xcodeproj */,
 				21F106CE272A510400E40AD9 /* Frameworks */,
 				21A38408264E179E00F12D78 /* Hotkey */,
@@ -573,7 +574,7 @@
 				21546FE62769C708004A9C72 /* Tokens.h */,
 				2184EBCA272BBE4C00A38EC0 /* json */,
 			);
-			path = UIToolkit;
+			name = "UIToolkit";
 			sourceTree = "<group>";
 		};
 		2184EBCA272BBE4C00A38EC0 /* json */ = {
