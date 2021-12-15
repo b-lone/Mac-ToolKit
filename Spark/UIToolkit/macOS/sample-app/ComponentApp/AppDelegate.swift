@@ -38,6 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         mainWindow.showWindow(nil)
+        UIToolkit.shared.themeableProtocolManager.notifyListenersOnThemeUpdated()
     }
 
 

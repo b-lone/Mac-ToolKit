@@ -150,6 +150,7 @@
 		75DF87CD26EA3708007035ED /* UTBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DF87CC26EA3708007035ED /* UTBackgroundView.swift */; };
 		75FA17EB26AAAE20000D8DEA /* UTSplitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA17EA26AAAE20000D8DEA /* UTSplitButton.swift */; };
 		83C68F78271585340068C755 /* UTGradientSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C68F77271585340068C755 /* UTGradientSeparator.swift */; };
+		D01A91582757825300E977CA /* UTPasswordTextFieldWithHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A91572757825300E977CA /* UTPasswordTextFieldWithHint.swift */; };
 		F28EA10726FA0BF6007861D0 /* UTCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28EA10526FA0BF6007861D0 /* UTCard.swift */; };
 		F28EA10826FA0BF6007861D0 /* UTMeetingMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28EA10626FA0BF6007861D0 /* UTMeetingMarker.swift */; };
 /* End PBXBuildFile section */
@@ -311,6 +312,7 @@
 		75DF87CC26EA3708007035ED /* UTBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTBackgroundView.swift; sourceTree = "<group>"; };
 		75FA17EA26AAAE20000D8DEA /* UTSplitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTSplitButton.swift; sourceTree = "<group>"; };
 		83C68F77271585340068C755 /* UTGradientSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTGradientSeparator.swift; sourceTree = "<group>"; };
+		D01A91572757825300E977CA /* UTPasswordTextFieldWithHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTPasswordTextFieldWithHint.swift; sourceTree = "<group>"; };
 		F28EA10526FA0BF6007861D0 /* UTCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTCard.swift; sourceTree = "<group>"; };
 		F28EA10626FA0BF6007861D0 /* UTMeetingMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTMeetingMarker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -496,6 +498,7 @@
 				07F3642C26E9409D00AAECC3 /* UTModifierTextAttachment.swift */,
 				0794AF69270B4B1600D4A781 /* UTMaxCharacterCountTextField.swift */,
 				0794B03B270C984A00D4A781 /* UTHttpsAutoFillTextField.swift */,
+				D01A91572757825300E977CA /* UTPasswordTextFieldWithHint.swift */,
 			);
 			path = textfields;
 			sourceTree = "<group>";
@@ -945,6 +948,7 @@
 				07B4069426D4E46E00DB9713 /* UTIconLabelStyle.swift in Sources */,
 				07F3643926EA694A00AAECC3 /* UTGlobalHeaderButton.swift in Sources */,
 				0775706D26951F24000A63C5 /* UTAvatarView.swift in Sources */,
+				D01A91582757825300E977CA /* UTPasswordTextFieldWithHint.swift in Sources */,
 				0775706026951F24000A63C5 /* NSFont+Extensions.swift in Sources */,
 				F28EA10726FA0BF6007861D0 /* UTCard.swift in Sources */,
 				0775706626951F24000A63C5 /* Size.swift in Sources */,

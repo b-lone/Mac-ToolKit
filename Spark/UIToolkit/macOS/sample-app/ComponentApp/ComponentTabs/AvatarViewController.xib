@@ -155,9 +155,8 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lKk-XM-GSv">
-                                <rect key="frame" x="184" y="222" width="76" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lKk-XM-GSv">
+                                <rect key="frame" x="230" y="222" width="76" height="18"/>
                                 <buttonCell key="cell" type="check" title="isTyping" bezelStyle="regularSquare" imagePosition="left" inset="2" id="bax-AC-kNC">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -171,6 +170,8 @@
                             <constraint firstItem="VIh-9I-ucR" firstAttribute="top" secondItem="u16-H3-ZVK" secondAttribute="top" constant="20" symbolic="YES" id="0iZ-Oo-vXV"/>
                             <constraint firstItem="VIh-9I-ucR" firstAttribute="leading" secondItem="u16-H3-ZVK" secondAttribute="leading" constant="20" symbolic="YES" id="GNf-E3-ar5"/>
                             <constraint firstAttribute="bottom" secondItem="VIh-9I-ucR" secondAttribute="bottom" constant="22" id="RZm-yR-B9x"/>
+                            <constraint firstItem="lKk-XM-GSv" firstAttribute="top" secondItem="u16-H3-ZVK" secondAttribute="top" constant="20" symbolic="YES" id="ZgH-An-sDm"/>
+                            <constraint firstAttribute="trailing" secondItem="lKk-XM-GSv" secondAttribute="trailing" constant="20" symbolic="YES" id="fjP-0c-TW6"/>
                         </constraints>
                     </view>
                     <constraints>
