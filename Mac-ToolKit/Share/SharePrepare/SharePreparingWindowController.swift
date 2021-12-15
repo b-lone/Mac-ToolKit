@@ -31,9 +31,9 @@ class SharePreparingWindowController: NSWindowController {
         contentView.wantsLayer = true
         contentView.layer?.cornerRadius = 4
         contentView.layer?.borderWidth = 1
-        contentView.layer?.backgroundColor = SemanticThemeManager.getColors(for: .wxPopupLabelBackground).normal.cgColor
-        contentView.layer?.borderColor = SemanticThemeManager.getColors(for: .wxPopupLabelBorder).normal.cgColor
-        label.textColor = SemanticThemeManager.getColors(for: .wxBalloonText).normal
+        contentView.layer?.backgroundColor = SemanticThemeManager.getLegacyColors(for: .wxPopupLabelBackground).normal.cgColor
+        contentView.layer?.borderColor = SemanticThemeManager.getLegacyColors(for: .wxPopupLabelBorder).normal.cgColor
+        label.textColor = SemanticThemeManager.getLegacyColors(for: .wxBalloonText).normal
         spinner.loadImageIfNeeded(onLightBackground: false, spinnerSize: .small)
     }
     

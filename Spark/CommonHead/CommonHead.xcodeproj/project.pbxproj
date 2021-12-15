@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21546FF92769D34C004A9C72 /* CHDragPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 21546FF82769D34C004A9C72 /* CHDragPosition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21F106F2272A52AF00E40AD9 /* CommonHead.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F106F0272A52AF00E40AD9 /* CommonHead.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21F10701272A6C8400E40AD9 /* CHSourceType.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10700272A6C8400E40AD9 /* CHSourceType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21F1073F272A79AB00E40AD9 /* CHShareTabData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10725272A79A600E40AD9 /* CHShareTabData.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21546FF82769D34C004A9C72 /* CHDragPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDragPosition.h; sourceTree = "<group>"; };
 		21F106ED272A52AF00E40AD9 /* CommonHead.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonHead.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F106F0272A52AF00E40AD9 /* CommonHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHead.h; sourceTree = "<group>"; };
 		21F106F1272A52AF00E40AD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				21F1075C272A7C4200E40AD9 /* CHButton.swift */,
 				21F10760272A7C8800E40AD9 /* CHButtonState.h */,
 				21F1075E272A7C7500E40AD9 /* CHControl.swift */,
+				21546FF82769D34C004A9C72 /* CHDragPosition.h */,
 				21F10776272A832600E40AD9 /* CHLabel.swift */,
 				21F1076C272A826B00E40AD9 /* CHLocalShareControlBarInfo.swift */,
 				21F10770272A828B00E40AD9 /* CHLocalShareControlViewInfo.swift */,
@@ -165,6 +168,7 @@
 				21F10752272A79AB00E40AD9 /* CHShareType.h in Headers */,
 				21F10754272A79AB00E40AD9 /* CHShareOptimizeType.h in Headers */,
 				21F1074B272A79AB00E40AD9 /* CHShareTelemetryManagerProtocol.h in Headers */,
+				21546FF92769D34C004A9C72 /* CHDragPosition.h in Headers */,
 				21F10750272A79AB00E40AD9 /* CHShareNotificationType.h in Headers */,
 				21F10746272A79AB00E40AD9 /* CHShareViewModel.h in Headers */,
 				21F10757272A79AB00E40AD9 /* CHShareCallType.h in Headers */,

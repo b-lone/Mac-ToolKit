@@ -26,7 +26,7 @@ class ShareIosScreenPromptWindowController: BaseWindowController {
     @IBOutlet weak var step1LabelView: NSView!
     @IBOutlet weak var step1NumLabel: UTLabel!
     @IBOutlet weak var step1ImageView: NSImageView!
-    @IBOutlet weak var step1Label: UTLabel!
+    @IBOutlet weak var step1Label: NSTextField!
     
     @IBOutlet weak var step2ContainerView: NSView!
     @IBOutlet weak var step2LabelView: NSView!
@@ -74,10 +74,6 @@ class ShareIosScreenPromptWindowController: BaseWindowController {
         step1NumLabel.fontType = .subheaderPrimary
         step1NumLabel.style = .primary
         
-        step1Label.stringValue = LocalizationStrings.connectYourIphoneOrIpad
-        step1Label.fontType = .bodyPrimary
-        step1Label.style = .primary
-        
         step2ContainerView.wantsLayer = true
         step2ContainerView.layer?.cornerRadius = 12
         
@@ -106,22 +102,21 @@ class ShareIosScreenPromptWindowController: BaseWindowController {
         step1LabelView.layer?.backgroundColor = ThemeManager.isDarkTheme() ? CCColor.white.withAlpha(0.2).cgColor : CCColor.black.withAlpha(0.2).cgColor
         step1NumLabel.setThemeColors()
         step1ImageView.image = ThemeManager.isDarkTheme() ? Bundle.getImageInSparkBundle(imageName: "share-ios-computer-phone-dark") : Bundle.getImageInSparkBundle(imageName: "share-ios-computer-phone-light")
-        step1Label.setThemeColors()
+        updateStepLabel(lable: step1Label, textWithPara: LocalizationStrings.connectYourIphoneOrIpad, boldText: LocalizationStrings.cable)
         
         step2ContainerView.layer?.backgroundColor = ThemeManager.isDarkTheme() ? CCColor.white.withAlpha(0.07).cgColor : CCColor.black.withAlpha(0.07).cgColor
         step2LabelView.layer?.backgroundColor = ThemeManager.isDarkTheme() ? CCColor.white.withAlpha(0.2).cgColor : CCColor.black.withAlpha(0.2).cgColor
         step2NumLabel.setThemeColors()
         step2ImageView.image = ThemeManager.isDarkTheme() ? Bundle.getImageInSparkBundle(imageName: "share-ios-tap-on-phone-dark") : Bundle.getImageInSparkBundle(imageName: "share-ios-tap-on-phone-light")
-        updateStep2Label()
+        updateStepLabel(lable: step2Label, textWithPara: LocalizationStrings.trustThisComputer, boldText: LocalizationStrings.trust)
     }
     
-    private func updateStep2Label() {
-        let boldText = LocalizationStrings.trust
-        let string = String.localizedStringWithFormat(LocalizationStrings.trustThisComputer, boldText)
+    private func updateStepLabel(lable: NSTextField, textWithPara: String, boldText: String) {
+        let string = String.localizedStringWithFormat(textWithPara, boldText)
         let range = (string as NSString).range(of: boldText)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = NSTextAlignment.center
-        let foregroundColor = UIToolkit.shared.getThemeManager().getColors(tokenName: UIToolkit.shared.isUsingLegacyTokens ? "text-primary" : "label-primary-text").normal
+        let foregroundColor = UIToolkit.shared.getThemeManager().getColors(tokenName: "label-primary-text").normal
         let attributedString = NSMutableAttributedString(string: string, attributes:
                                                             [
                                                                 .font : NSFont.systemFont(ofSize: 16),
@@ -129,7 +124,7 @@ class ShareIosScreenPromptWindowController: BaseWindowController {
                                                                 .foregroundColor: foregroundColor
                                                             ])
         attributedString.addAttribute(.font, value: NSFont.boldSystemFont(ofSize: 16), range: range)
-        step2Label.attributedStringValue = attributedString
+        lable.attributedStringValue = attributedString
     }
     
     private func updateWindowFrame() {

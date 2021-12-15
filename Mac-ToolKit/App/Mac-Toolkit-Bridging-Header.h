@@ -14,7 +14,6 @@
 #import "ObjCExceptionCatcher.h"
 #import "MobileDeviceAdapter.h"
 #import "NotificationEventNames.h"
-#import "CHSemanticToken.h"
 #import "NSScreen+Additions.h"
 
 #endif /* Test_Mac_Bridging_Header_h */

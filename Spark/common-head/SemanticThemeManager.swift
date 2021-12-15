@@ -15,6 +15,7 @@ class SemanticThemeManager : IThemeManagerAdapter{
     private(set) var themeMapCollection:[String:ThemeTokens] = [:]
     private(set) var currentTheme: ThemeTokens!
     private(set) var colorMap: [String:RGBA]!
+//    private let proxy: SemanticThemeManagerProxy = SemanticThemeManagerProxy()
     
     // MARK: - Private variables
     
@@ -22,11 +23,18 @@ class SemanticThemeManager : IThemeManagerAdapter{
         self.colorMap = getColorMap()
         self.themeMapCollection = getThemeColors()
         self.currentTheme = themeMapCollection["MomentumDefault"]
-        UIToolkit.shared.isUsingLegacyTokens = false
     }
     
     static func getColors(for token: CHSemanticToken) -> UTColorStates {
         return shared.getColorStates(token: token)
+    }
+    
+    static func getLegacyColors(for token: CHSemanticToken) -> UTColorStates {
+        return shared.getLegacyColors(token: token)
+    }
+    
+    private func getLegacyColors(token:CHSemanticToken) -> UTColorStates{
+        return getColorStates(token: token)
     }
     
     private func getColorStates(token:CHSemanticToken) -> UTColorStates{
@@ -42,13 +50,6 @@ class SemanticThemeManager : IThemeManagerAdapter{
     }
     
     func setTheme(themeName: String) {
-        if themeName.lowercased().contains("momentum") {
-            UIToolkit.shared.isUsingLegacyTokens = false
-        }
-        else {
-            UIToolkit.shared.isUsingLegacyTokens = true
-        }
-        
         self.currentTheme = themeMapCollection[themeName]
     }
     

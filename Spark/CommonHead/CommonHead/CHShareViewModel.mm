@@ -510,6 +510,28 @@
 //  }
 }
 
+- (CHShareCallType)getShareCallType
+{
+  @autoreleasepool {
+     
+      return CHShareCallTypeImOnlyShare;
+//    auto shareCallTypeCpp = mViewModelCpp->getShareCallType();
+//    return CHShareCallTypeFromCPP(shareCallTypeCpp);
+
+  }
+}
+
+- (bool)isImmersiveShare
+{
+  @autoreleasepool {
+     
+      return true;
+//    auto isImmersiveShareCpp = mViewModelCpp->isImmersiveShare();
+//    return isImmersiveShareCpp;
+
+  }
+}
+
 - (CHLocalShareControlBarInfo * _Nullable)getLocalShareControlBarInfo
 {
     return nil;

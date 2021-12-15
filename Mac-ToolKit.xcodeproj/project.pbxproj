@@ -29,6 +29,18 @@
 		213BFFDE273E753F00A214E8 /* NotificationCenter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213BFFDD273E753F00A214E8 /* NotificationCenter+Extensions.swift */; };
 		213BFFE92743B44200A214E8 /* RDCControleeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213BFFE82743B44200A214E8 /* RDCControleeHelper.swift */; };
 		213E13A32637AAEA00DFECFF /* MouseTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213E13A22637AAEA00DFECFF /* MouseTrackView.swift */; };
+		21546FDC2769C1DE004A9C72 /* ThemesJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21546FD62769C1DE004A9C72 /* ThemesJson.swift */; };
+		21546FDD2769C1DE004A9C72 /* SemanticThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21546FDA2769C1DE004A9C72 /* SemanticThemeManager.swift */; };
+		21546FDE2769C1DE004A9C72 /* ColorsJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21546FDB2769C1DE004A9C72 /* ColorsJson.swift */; };
+		21546FE52769C536004A9C72 /* CHSemanticToken.mm in Sources */ = {isa = PBXBuildFile; fileRef = 21546FE42769C536004A9C72 /* CHSemanticToken.mm */; };
+		21546FED2769C8F4004A9C72 /* ImmersiveShareLocalVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21546FE82769C8F4004A9C72 /* ImmersiveShareLocalVideoViewController.xib */; };
+		21546FEE2769C8F4004A9C72 /* ImmersiveShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21546FE92769C8F4004A9C72 /* ImmersiveShareManager.swift */; };
+		21546FEF2769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21546FEA2769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.swift */; };
+		21546FF02769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21546FEB2769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.xib */; };
+		21546FF12769C8F4004A9C72 /* ImmersiveShareLocalVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21546FEC2769C8F4004A9C72 /* ImmersiveShareLocalVideoViewController.swift */; };
+		21546FF32769C923004A9C72 /* CursorIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21546FF22769C923004A9C72 /* CursorIconView.swift */; };
+		21546FF52769D220004A9C72 /* MainMenuHandlerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21546FF42769D220004A9C72 /* MainMenuHandlerHelper.swift */; };
+		21546FF72769D26B004A9C72 /* NSControl+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21546FF62769D26B004A9C72 /* NSControl+Extensions.swift */; };
 		215F52DF2705659800F4ADD0 /* ScreenChangeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F52DE2705659800F4ADD0 /* ScreenChangeHelper.swift */; };
 		215F52E12705699A00F4ADD0 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F52E02705699A00F4ADD0 /* Subject.swift */; };
 		215F52E72705870600F4ADD0 /* TestScreenChangeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F52E62705870600F4ADD0 /* TestScreenChangeHelper.swift */; };
@@ -234,6 +246,22 @@
 		213BFFE82743B44200A214E8 /* RDCControleeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDCControleeHelper.swift; sourceTree = "<group>"; };
 		213BFFED2743B80E00A214E8 /* NSScreen+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSScreen+Additions.h"; sourceTree = "<group>"; };
 		213E13A22637AAEA00DFECFF /* MouseTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseTrackView.swift; sourceTree = "<group>"; };
+		21546FD62769C1DE004A9C72 /* ThemesJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemesJson.swift; path = "Spark/common-head/ThemesJson.swift"; sourceTree = SOURCE_ROOT; };
+		21546FDA2769C1DE004A9C72 /* SemanticThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SemanticThemeManager.swift; path = "Spark/common-head/SemanticThemeManager.swift"; sourceTree = SOURCE_ROOT; };
+		21546FDB2769C1DE004A9C72 /* ColorsJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorsJson.swift; path = "Spark/common-head/ColorsJson.swift"; sourceTree = SOURCE_ROOT; };
+		21546FDF2769C289004A9C72 /* SemanticThemeManagerProxy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SemanticThemeManagerProxy.mm; path = "Spark/common-head/SemanticThemeManagerProxy.mm"; sourceTree = SOURCE_ROOT; };
+		21546FE02769C289004A9C72 /* SemanticThemeManagerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SemanticThemeManagerProxy.h; path = "Spark/common-head/SemanticThemeManagerProxy.h"; sourceTree = SOURCE_ROOT; };
+		21546FE32769C536004A9C72 /* CHSemanticToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHSemanticToken.h; path = "Spark/common-head/visuals/autogen/apple/CHSemanticToken.h"; sourceTree = SOURCE_ROOT; };
+		21546FE42769C536004A9C72 /* CHSemanticToken.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CHSemanticToken.mm; path = "Spark/common-head/visuals/autogen/apple/CHSemanticToken.mm"; sourceTree = SOURCE_ROOT; };
+		21546FE62769C708004A9C72 /* Tokens.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Tokens.h; path = "Spark/common-head/visuals/autogen/Tokens.h"; sourceTree = SOURCE_ROOT; };
+		21546FE82769C8F4004A9C72 /* ImmersiveShareLocalVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImmersiveShareLocalVideoViewController.xib; sourceTree = "<group>"; };
+		21546FE92769C8F4004A9C72 /* ImmersiveShareManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmersiveShareManager.swift; sourceTree = "<group>"; };
+		21546FEA2769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmersiveShareFlaotingVideoWindowController.swift; sourceTree = "<group>"; };
+		21546FEB2769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImmersiveShareFlaotingVideoWindowController.xib; sourceTree = "<group>"; };
+		21546FEC2769C8F4004A9C72 /* ImmersiveShareLocalVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmersiveShareLocalVideoViewController.swift; sourceTree = "<group>"; };
+		21546FF22769C923004A9C72 /* CursorIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CursorIconView.swift; sourceTree = "<group>"; };
+		21546FF42769D220004A9C72 /* MainMenuHandlerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuHandlerHelper.swift; sourceTree = "<group>"; };
+		21546FF62769D26B004A9C72 /* NSControl+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSControl+Extensions.swift"; sourceTree = "<group>"; };
 		215F52DE2705659800F4ADD0 /* ScreenChangeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenChangeHelper.swift; sourceTree = "<group>"; };
 		215F52E02705699A00F4ADD0 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		215F52E62705870600F4ADD0 /* TestScreenChangeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScreenChangeHelper.swift; sourceTree = "<group>"; };
@@ -354,7 +382,6 @@
 		21F107AF272A905600E40AD9 /* ShareResumeWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareResumeWindowController.xib; sourceTree = "<group>"; };
 		21F107B2272A919B00E40AD9 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		21F107B4272A922C00E40AD9 /* LoadingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingImageView.swift; sourceTree = "<group>"; };
-		21F107B8272A92DE00E40AD9 /* CHSemanticToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSemanticToken.h; sourceTree = "<group>"; };
 		21F107B9272A934900E40AD9 /* CSIRotatingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSIRotatingImageView.swift; sourceTree = "<group>"; };
 		21F107BB272A943000E40AD9 /* SparkTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkTextField.swift; sourceTree = "<group>"; };
 		21F107BD272A945700E40AD9 /* SemanticInputTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanticInputTextField.swift; sourceTree = "<group>"; };
@@ -397,8 +424,11 @@
 			isa = PBXGroup;
 			children = (
 				210C5E7E26CC9EE900F69BFF /* Bundle+Extensions.swift */,
+				21F107CD272A9E5400E40AD9 /* CALayer+Extensions.swift */,
+				213BFFDD273E753F00A214E8 /* NotificationCenter+Extensions.swift */,
 				21F1079B272A8A7100E40AD9 /* NSAppearance+Extensions.swift */,
 				21F1079F272A8C8E00E40AD9 /* NSColor+Extensions.swift */,
+				21546FF62769D26B004A9C72 /* NSControl+Extensions.swift */,
 				21FBB2D726D766D400717FDC /* NSImage+Extensions.swift */,
 				21F107A1272A8D7F00E40AD9 /* NSRect+Extensions.swift */,
 				21FBB2D926D7682800717FDC /* NSScreen+Extensions.swift */,
@@ -407,8 +437,6 @@
 				21F107B2272A919B00E40AD9 /* String+Extensions.swift */,
 				21D54B48272696BA009CDBC1 /* Timer+Extensions.swift */,
 				210C5E8026CC9F8800F69BFF /* URL+Extensions.swift */,
-				21F107CD272A9E5400E40AD9 /* CALayer+Extensions.swift */,
-				213BFFDD273E753F00A214E8 /* NotificationCenter+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -431,6 +459,18 @@
 			children = (
 			);
 			path = Spark;
+			sourceTree = "<group>";
+		};
+		21546FE72769C895004A9C72 /* ImmersiveShare */ = {
+			isa = PBXGroup;
+			children = (
+				21546FEA2769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.swift */,
+				21546FEB2769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.xib */,
+				21546FEC2769C8F4004A9C72 /* ImmersiveShareLocalVideoViewController.swift */,
+				21546FE82769C8F4004A9C72 /* ImmersiveShareLocalVideoViewController.xib */,
+				21546FE92769C8F4004A9C72 /* ImmersiveShareManager.swift */,
+			);
+			path = ImmersiveShare;
 			sourceTree = "<group>";
 		};
 		215F52E427057E1100F4ADD0 /* Test */ = {
@@ -523,6 +563,14 @@
 		2184EBC2272BA27100A38EC0 /* UIToolkit */ = {
 			isa = PBXGroup;
 			children = (
+				21546FDB2769C1DE004A9C72 /* ColorsJson.swift */,
+				21546FE02769C289004A9C72 /* SemanticThemeManagerProxy.h */,
+				21546FDF2769C289004A9C72 /* SemanticThemeManagerProxy.mm */,
+				21546FDA2769C1DE004A9C72 /* SemanticThemeManager.swift */,
+				21546FD62769C1DE004A9C72 /* ThemesJson.swift */,
+				21546FE32769C536004A9C72 /* CHSemanticToken.h */,
+				21546FE42769C536004A9C72 /* CHSemanticToken.mm */,
+				21546FE62769C708004A9C72 /* Tokens.h */,
 				2184EBCA272BBE4C00A38EC0 /* json */,
 			);
 			path = UIToolkit;
@@ -643,6 +691,7 @@
 				2184EC20272BEB7600A38EC0 /* Geometry.swift */,
 				2184EC1E272BCE3E00A38EC0 /* LegacyMomentumIconType.swift */,
 				21F107B4272A922C00E40AD9 /* LoadingImageView.swift */,
+				21546FF42769D220004A9C72 /* MainMenuHandlerHelper.swift */,
 				213E13A22637AAEA00DFECFF /* MouseTrackView.swift */,
 				21CCC08F273A56E700FD4D04 /* NSPopover+Extensions.swift */,
 				213BFFED2743B80E00A214E8 /* NSScreen+Additions.h */,
@@ -696,6 +745,7 @@
 				21F10798272A880F00E40AD9 /* Fake */,
 				211DF003271EA42100CD4BBA /* FullScreenDetector.swift */,
 				211DF004271EA42100CD4BBA /* FullScreenDetector.xib */,
+				21546FE72769C895004A9C72 /* ImmersiveShare */,
 				21F106B6272A4AED00E40AD9 /* LocalShareControlBar */,
 				21F106D2272A51C000E40AD9 /* Manager */,
 				21F1077A272A83B600E40AD9 /* ShareIosScreen */,
@@ -728,6 +778,7 @@
 		21F106B6272A4AED00E40AD9 /* LocalShareControlBar */ = {
 			isa = PBXGroup;
 			children = (
+				21546FF22769C923004A9C72 /* CursorIconView.swift */,
 				21F106BB272A4B2700E40AD9 /* LocalShareControlBarManager.swift */,
 				21F106B9272A4B2700E40AD9 /* LocalShareControlBarViewController.swift */,
 				21F106BA272A4B2700E40AD9 /* LocalShareControlBarWindowController.swift */,
@@ -802,7 +853,6 @@
 		21F10798272A880F00E40AD9 /* Fake */ = {
 			isa = PBXGroup;
 			children = (
-				21F107B8272A92DE00E40AD9 /* CHSemanticToken.h */,
 				21F10796272A854300E40AD9 /* LocalizationStrings.swift */,
 				21F10799272A889200E40AD9 /* CallControllerManager.swift */,
 				21F1079D272A8BAC00E40AD9 /* ThemeManager.swift */,
@@ -957,10 +1007,12 @@
 				21F10786272A841300E40AD9 /* share-ios-computer-phone-dark.png in Resources */,
 				21F10790272A842B00E40AD9 /* ShareIosScreenPromptWindowController.xib in Resources */,
 				211DF006271EA42100CD4BBA /* FullScreenDetector.xib in Resources */,
+				21546FED2769C8F4004A9C72 /* ImmersiveShareLocalVideoViewController.xib in Resources */,
 				21ABE9952696F8330063C07A /* MyWindowController.xib in Resources */,
 				215F8ADE25B098EC000F4D45 /* Assets.xcassets in Resources */,
 				2184EBFE272BBEBF00A38EC0 /* momentumBronzeDark.json in Resources */,
 				2184EBFC272BBEBF00A38EC0 /* momentumRoseLight.json in Resources */,
+				21546FF02769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.xib in Resources */,
 				21F107AC272A902000E40AD9 /* SharePreparingWindowController.xib in Resources */,
 				21027CA82731015C0021831B /* LocalShareControlVerticalBarViewController.xib in Resources */,
 				215F8AE125B098EC000F4D45 /* Main.storyboard in Resources */,
@@ -998,9 +1050,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F10794272A848E00E40AD9 /* BaseViewController.swift in Sources */,
+				21546FDC2769C1DE004A9C72 /* ThemesJson.swift in Sources */,
 				218B997A273BB62500AADC0D /* SparkVideoLayer.swift in Sources */,
 				2184EC21272BEB7600A38EC0 /* Geometry.swift in Sources */,
 				21F107A2272A8D7F00E40AD9 /* NSRect+Extensions.swift in Sources */,
+				21546FDE2769C1DE004A9C72 /* ColorsJson.swift in Sources */,
 				21AD514C269B3FC8006DF32F /* CommonTestWindowController.swift in Sources */,
 				210C5E7F26CC9EE900F69BFF /* Bundle+Extensions.swift in Sources */,
 				21F1079E272A8BAC00E40AD9 /* ThemeManager.swift in Sources */,
@@ -1014,6 +1068,7 @@
 				21B479D826A0F1DB003A91FB /* BonjourClient.swift in Sources */,
 				210C5E8E26CCAF9E00F69BFF /* RootLogger.cpp in Sources */,
 				21F106BE272A4B2700E40AD9 /* LocalShareControlBarViewController.swift in Sources */,
+				21546FE52769C536004A9C72 /* CHSemanticToken.mm in Sources */,
 				21F107BA272A934900E40AD9 /* CSIRotatingImageView.swift in Sources */,
 				21094125266083B20040AC73 /* MagicDrawingBoardWindowController.swift in Sources */,
 				21FBB2D826D766D400717FDC /* NSImage+Extensions.swift in Sources */,
@@ -1039,6 +1094,7 @@
 				211C78922681840C003D9EB4 /* TestDrawingBoard.swift in Sources */,
 				21F106DF272A522A00E40AD9 /* ShareContext.swift in Sources */,
 				21F10797272A854300E40AD9 /* LocalizationStrings.swift in Sources */,
+				21546FF52769D220004A9C72 /* MainMenuHandlerHelper.swift in Sources */,
 				21F107A0272A8C8E00E40AD9 /* NSColor+Extensions.swift in Sources */,
 				21F1078E272A842B00E40AD9 /* ShareIosScreenPromptWindowController.swift in Sources */,
 				21A38413264E179E00F12D78 /* DDHotKeyCenter.m in Sources */,
@@ -1046,6 +1102,7 @@
 				213E13A32637AAEA00DFECFF /* MouseTrackView.swift in Sources */,
 				218B9978273BB5F200AADC0D /* LocalShareVideoViewController.swift in Sources */,
 				210C5E8126CC9F8800F69BFF /* URL+Extensions.swift in Sources */,
+				21546FF32769C923004A9C72 /* CursorIconView.swift in Sources */,
 				2176CDF1268AC3CD00FAA4E0 /* CollectionViewWindowController.swift in Sources */,
 				21F107C5272A988D00E40AD9 /* SemanticInputTextField.swift in Sources */,
 				21F1078F272A842B00E40AD9 /* ShareIosScreenManager.swift in Sources */,
@@ -1053,12 +1110,14 @@
 				213BFFE92743B44200A214E8 /* RDCControleeHelper.swift in Sources */,
 				21F107CE272A9E5400E40AD9 /* CALayer+Extensions.swift in Sources */,
 				21F107AB272A902000E40AD9 /* SharePreparingWindowController.swift in Sources */,
+				21546FF12769C8F4004A9C72 /* ImmersiveShareLocalVideoViewController.swift in Sources */,
 				21F1075B272A7A0900E40AD9 /* BaseWindowController.swift in Sources */,
 				211C788A2680742E003D9EB4 /* FontelloButton.swift in Sources */,
 				21F106DC272A522A00E40AD9 /* ShareManagerComponent.swift in Sources */,
 				21F1079A272A889200E40AD9 /* CallControllerManager.swift in Sources */,
 				21B479DB26A0F582003A91FB /* TestBonjour.swift in Sources */,
 				217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */,
+				21546FDD2769C1DE004A9C72 /* SemanticThemeManager.swift in Sources */,
 				21F107C0272A95CC00E40AD9 /* GlobalShortcutHandlerHelper.swift in Sources */,
 				21CCC090273A56E700FD4D04 /* NSPopover+Extensions.swift in Sources */,
 				218B996F273BAEAC00AADC0D /* ShareSelectionFteViewController.swift in Sources */,
@@ -1071,12 +1130,15 @@
 				211527A627324E84005C83C5 /* LocalShareControlButtonsViewController.swift in Sources */,
 				21F106BF272A4B2700E40AD9 /* LocalShareControlBarWindowController.swift in Sources */,
 				21F107B0272A905600E40AD9 /* ShareResumeWindowController.swift in Sources */,
+				21546FF72769D26B004A9C72 /* NSControl+Extensions.swift in Sources */,
 				21F106E0272A522A00E40AD9 /* ShareFactory.swift in Sources */,
+				21546FEF2769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.swift in Sources */,
 				21FBB2DA26D7682800717FDC /* NSScreen+Extensions.swift in Sources */,
 				215F52E72705870600F4ADD0 /* TestScreenChangeHelper.swift in Sources */,
 				211C789F2681E1B4003D9EB4 /* FontelloLabelWithText.swift in Sources */,
 				21AD5156269C8F37006DF32F /* NSView+Extensions.swift in Sources */,
 				21ABE9972696F8C90063C07A /* TestWindow.swift in Sources */,
+				21546FEE2769C8F4004A9C72 /* ImmersiveShareManager.swift in Sources */,
 				21FBAF9426D3D5DB00717FDC /* TestShare.swift in Sources */,
 				21F106C0272A4B2700E40AD9 /* LocalShareControlBarManager.swift in Sources */,
 				21D54B49272696BA009CDBC1 /* Timer+Extensions.swift in Sources */,

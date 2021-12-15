@@ -41,7 +41,7 @@
                             <subviews>
                                 <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zXE-sN-PuL">
                                     <rect key="frame" x="-2" y="0.0" width="54" height="16"/>
-                                    <textFieldCell key="cell" lineBreakMode="clipping" id="VBT-t4-RYy">
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" id="VBT-t4-RYy">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

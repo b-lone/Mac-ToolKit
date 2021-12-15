@@ -7,6 +7,7 @@
 #import <Foundation/Foundation.h>
 #include "CHShareTelemetryManagerProtocol.h"
 
+enum CHDragPosition: NSUInteger;
 enum CHShortcut: NSUInteger;
 
 
@@ -23,6 +24,7 @@ enum CHShortcut: NSUInteger;
 
 - (void)recordShortcutKeyPressed:(NSString * _Nonnull)callId shortcut:(enum CHShortcut)shortcut;
 - (void)recordSettingsButtonPressed:(NSString * _Nonnull)callId;
+- (void)recordControlBarDragPosition:(NSString * _Nonnull)callId position:(enum CHDragPosition)position;
 
 
 @end

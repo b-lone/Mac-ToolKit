@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="LocalShareControlVerticalBarViewController" customModule="Mac_ToolKit" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="Hz6-mo-xeY" id="Eja-8x-Dza"/>
+                <outlet property="cursorView" destination="R0S-V4-Se2" id="6l0-To-kbQ"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -15,7 +16,16 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY" customClass="RoundSameSideCornerView" customModule="Mac_ToolKit" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="40" height="174"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="R0S-V4-Se2" customClass="CursorIconView" customModule="Mac_ToolKit" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="40" height="174"/>
+                </customView>
+            </subviews>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="R0S-V4-Se2" secondAttribute="bottom" id="LMn-I8-tuh"/>
+                <constraint firstItem="R0S-V4-Se2" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="V5D-bQ-6Rk"/>
+                <constraint firstItem="R0S-V4-Se2" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Vh4-Hg-NfH"/>
+                <constraint firstAttribute="trailing" secondItem="R0S-V4-Se2" secondAttribute="trailing" id="mzL-JL-vfA"/>
                 <constraint firstAttribute="width" constant="40" id="vA2-DD-yaY"/>
             </constraints>
             <point key="canvasLocation" x="2" y="154"/>

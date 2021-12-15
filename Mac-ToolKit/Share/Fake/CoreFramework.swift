@@ -426,3 +426,18 @@ public class Constants : NSObject {
     
     public static let reactionGifAnimationDuration: Double = 1.8
 }
+
+@objc protocol AppMenuCallsProtocol {
+    func appMenuStartCall()
+    func appMenuStartVideoCall()
+    func appMenuEndCall()
+    func appMenuToggleAudioMute()
+    func appMenuToggleVideoMute()
+    func appMenuStartShare()
+    func appMenuStopShare()
+    func appMenuStartAnnotation()
+    func appMenuStopAnnotation()
+    func appMenuToggleMeetingControls()
+    func appMenuAnswerCall()
+    func appMenuDeclineCall()
+}

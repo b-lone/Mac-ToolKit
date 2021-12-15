@@ -21,6 +21,7 @@ protocol ShareContextProtocol: AnyObject {
     func isSharing(source: ShareSource) -> Bool
     func isEqual(to theOther: ShareContextProtocol?) -> Bool
     var isSharingBlankContent:Bool { get }
+    var captureRect: CGRect { get }
 }
 
 class StartShareInfo: NSObject {
@@ -42,6 +43,7 @@ class ShareContext: NSObject, ShareContextProtocol {
     var screenToDraw = NSScreen.main ?? NSScreen()
     var lastStartShareInfo: StartShareInfo?
     var isLocalSharing = false
+    var captureRect: CGRect = .zero
     
     init(callId: String) {
         self.callId = callId
@@ -51,6 +53,7 @@ class ShareContext: NSObject, ShareContextProtocol {
     
     func update(shareSourceType: CHSourceType, captureRect: CHRect? = nil, screenId: ScreenId? = nil, applicationList: [String]? = nil, windowNumberList: [CGWindowID]? = nil, sharingWindowNumberList: [CGWindowID]? = nil) {
         self.shareSourceType = shareSourceType
+        self.captureRect = captureRect?.toCGRect() ?? .zero
         self.screen = NSScreen.aScreen(uuid: screenId)
         self.applicationList = applicationList
         self.windowNumberList = windowNumberList
@@ -120,5 +123,11 @@ class ShareContext: NSObject, ShareContextProtocol {
         } else {
             return false
         }
+    }
+}
+
+extension CHRect {
+    func toCGRect() -> CGRect {
+        NSMakeRect(CGFloat(x.floatValue), CGFloat(y.floatValue), CGFloat(width.floatValue), CGFloat(height.floatValue))
     }
 }

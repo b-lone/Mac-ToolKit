@@ -43,6 +43,8 @@ protocol ShareManagerComponentProtocol: AnyObject {
     func pauseShare(doPause: Bool)
     func endShareOnlyCallIfNotStart()
     func excludeWindowFromShare()
+    func getShareCallType() -> CHShareCallType
+    func isImmersiveShare() -> Bool
     
     func getShareSourcesSelectionWindowInfo() -> CHShareSourcesSelectionWindowInfo?
     func setOptimizeForShare(type: CHShareOptimizeType)
@@ -76,6 +78,7 @@ class ShareManagerComponent: NSObject {
     var shareIosScreenManager: ShareIosScreenManagerProtocol
     private var sharingPowerPointWindowInfoList: MagicWindowInfoList?
     private(set) lazy var remoteControlManager: RDCControleeHelperProtocol = shareFactory.makeRemoteControleeManager(callId: callId)
+    private var immersiveShareManager: ImmersiveShareManagerProtocol
     
     private var isSharing = false {
         didSet {
@@ -104,6 +107,7 @@ class ShareManagerComponent: NSObject {
         drawingBoardManager = appContext.drawingBoardManager
         
         localShareControlBarManager = shareFactory.makeLocalShareControlBarManager()
+        immersiveShareManager = shareFactory.makeImmersiveShareManager()
         
         super.init()
 
@@ -119,6 +123,7 @@ class ShareManagerComponent: NSObject {
         drawingBoardManager = appContext.drawingBoardManager
         shareIosScreenManager = ShareIosScreenManager(shareFactory: appContext.shareFactory)
         localShareControlBarManager = shareFactory.makeLocalShareControlBarManager()
+        immersiveShareManager = shareFactory.makeImmersiveShareManager()
         
         super.init()
         
@@ -154,6 +159,7 @@ class ShareManagerComponent: NSObject {
         }
         shareIosScreenManager.setup(shareComponent: self)
         localShareControlBarManager.setup(shareComponent: self)
+        immersiveShareManager.setup(shareComponent: self)
     }
     
     private func getScreenList() -> [String] {
@@ -246,6 +252,7 @@ class ShareManagerComponent: NSObject {
         activeSharedWindow()
         updateRemoteControlManager()
         updateLocalShareControlBar()
+        updateImmersiveShareManager()
         
         if isSharing {
             excludeWindowFromShare()
@@ -286,6 +293,14 @@ class ShareManagerComponent: NSObject {
         }
     }
     
+    private func updateImmersiveShareManager() {
+        if isSharing, isImmersiveShare() {
+            immersiveShareManager.showFlaotingVideoWindow()
+        } else {
+            immersiveShareManager.hideFlaotingVideoWindow()
+        }
+    }
+    
     @objc private func onScreenParametersChanged(_ notification:NSNotification) {
         updateShareViewModelScreenList()
     }
@@ -321,7 +336,8 @@ class ShareManagerComponent: NSObject {
         removeShareBorder()
         shareIosScreenManager.stop()
         mShareContext.update(shareSourceType: .unknown)
-        appContext.callControlerManager?.closeShareWindow(callId: callId)
+        appContext.callControlerManager?.closeShareWindow()
+        immersiveShareManager.reset()
     }
     
     @objc private func onCallDisconnected(notification: NSNotification) {
@@ -510,6 +526,18 @@ extension ShareManagerComponent: ShareManagerComponentProtocol {
                 shareViewModel.excludeWindowFromShare(windowHandle: point)
             }
         }
+    }
+    
+    func getShareCallType() -> CHShareCallType {
+        let type = shareViewModel.getShareCallType()
+        SPARK_LOG_DEBUG("\(type.rawValue)")
+        return type
+    }
+    
+    func isImmersiveShare() -> Bool {
+        let value = shareViewModel.isImmersiveShare()
+        SPARK_LOG_DEBUG("\(value)")
+        return value
     }
     
     func getShareSourcesSelectionWindowInfo() -> CHShareSourcesSelectionWindowInfo? {

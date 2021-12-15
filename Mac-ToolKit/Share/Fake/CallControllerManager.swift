@@ -36,7 +36,7 @@ class CallControllerManager: NSObject {
         shareWindowController = nil
     }
     
-    func closeShareWindow(callId: String) {
+    func closeShareWindow() {
         
     }
 }

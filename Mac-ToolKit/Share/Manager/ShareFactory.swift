@@ -15,6 +15,7 @@ protocol ShareViewFactory {
     func makeLocalShareControlBarViewController(orientation: Orientation) -> ILocalShareControlBarViewController
     func makeLocalShareControlButtonsViewController(orientation: Orientation) -> ILocalShareControlButtonsViewController
     func makeLocalShareVideoViewController(callId: String) -> ILocalShareVideoViewController
+    func makeImmersiveShareLocalVideoViewController(callId: String) -> IImmersiveShareLocalVideoViewController
 }
 
 protocol ShareWindowFactory {
@@ -22,6 +23,7 @@ protocol ShareWindowFactory {
     func makeShareIosScreenWindowController() -> IShareIosScreenWindowController
     func makeShareIosScreenPromptWindowController() -> IShareIosScreenPromptWindowController
     func makeLocalShareControlBarWindowController() -> ILocalShareControlBarWindowController
+    func makeImmersiveShareFlaotingVideoWindowController() -> IImmersiveShareFlaotingVideoWindowController
 }
 
 protocol ShareManagerFactory {
@@ -29,6 +31,7 @@ protocol ShareManagerFactory {
     func makeLocalShareControlBarManager() -> LocalShareControlBarManagerProtocol
     func makeRemoteControleeManager(callId: String) -> RDCControleeHelperProtocol
     func makeFullScreenDetector() -> FullScreenDetectorProtocol
+    func makeImmersiveShareManager() -> ImmersiveShareManagerProtocol
 }
 
 class ShareFactory: NSObject, ShareFactoryProtocol {
@@ -52,14 +55,18 @@ class ShareFactory: NSObject, ShareFactoryProtocol {
     func makeLocalShareControlButtonsViewController(orientation: Orientation) -> ILocalShareControlButtonsViewController {
         switch orientation {
         case .horizontal:
-            return LocalShareControlButtonsHorizontalViewController(shareFactory: self)
+            return LocalShareControlButtonsHorizontalViewController(shareFactory: self, mainMenuHandlerHelper: appContext.mainMenuHandlerHelper, globalShortcutHanderHelper: appContext.globalShortcutHanderHelper)
         case .vertical:
-            return LocalShareControlButtonsVerticalViewController(shareFactory: self)
+            return LocalShareControlButtonsVerticalViewController(shareFactory: self, mainMenuHandlerHelper: appContext.mainMenuHandlerHelper, globalShortcutHanderHelper: appContext.globalShortcutHanderHelper)
         }
     }
     
     func makeLocalShareVideoViewController(callId: String) -> ILocalShareVideoViewController {
         LocalShareVideoViewController(appContext: appContext, callId: callId)
+    }
+    
+    func makeImmersiveShareLocalVideoViewController(callId: String) -> IImmersiveShareLocalVideoViewController {
+        ImmersiveShareLocalVideoViewController(appContext: appContext, callId: callId)
     }
     
     //MARK: ShareWindowFactory
@@ -76,7 +83,11 @@ class ShareFactory: NSObject, ShareFactoryProtocol {
     }
     
     func makeLocalShareControlBarWindowController() -> ILocalShareControlBarWindowController {
-        LocalShareControlBarWindowController(shareFactory: self, screenAdapter: appContext.screenAdapter)
+        LocalShareControlBarWindowController(shareFactory: self, screenAdapter: appContext.screenAdapter, telemetryManager: appContext.callControlerManager?.shareManager.telemetryManager ?? appContext.commonHeadFrameworkAdapter.makeShareTelemetryManager())
+    }
+    
+    func makeImmersiveShareFlaotingVideoWindowController() -> IImmersiveShareFlaotingVideoWindowController {
+        ImmersiveShareFlaotingVideoWindowController(appContext: appContext)
     }
     
     //MARK: ShareManagerFactory
@@ -94,5 +105,9 @@ class ShareFactory: NSObject, ShareFactoryProtocol {
     
     func makeFullScreenDetector() -> FullScreenDetectorProtocol {
         FullScreenDetector()
+    }
+    
+    func makeImmersiveShareManager() -> ImmersiveShareManagerProtocol {
+        ImmersiveShareManager(shareFactory: appContext.shareFactory)
     }
 }

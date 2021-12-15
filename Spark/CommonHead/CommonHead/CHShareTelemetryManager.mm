@@ -86,6 +86,18 @@
 //  }
 }
 
+- (void)recordControlBarDragPosition:(NSString * _Nonnull)callId position:(enum CHDragPosition)position
+{
+//  @autoreleasepool {
+//            
+//    auto callIdCpp = std::string([callId UTF8String]);
+//        
+//    auto positionCpp = CHDragPositionToCPP(position);
+// 
+//    mViewModelCpp->recordControlBarDragPosition(callIdCpp,positionCpp);
+//    
+//  }
+}
 
 -(void) dealloc
 {

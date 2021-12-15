@@ -25,6 +25,7 @@ class LocalShareControlBarViewController: ILocalShareControlBarViewController {
     }
     
     @IBOutlet var contentView: RoundSameSideCornerView!
+    @IBOutlet var cursorView: CursorIconView!
     fileprivate lazy var controlButtonsViewController: ILocalShareControlButtonsViewController = makeControlButtonsViewController()
     
     private weak var shareComponent: ShareManagerComponentProtocol?
@@ -48,6 +49,7 @@ class LocalShareControlBarViewController: ILocalShareControlBarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.cornerRadius = 8.0
+        cursorView.cursor = .openHand
     }
     
     fileprivate func makeControlButtonsViewController() -> ILocalShareControlButtonsViewController {
@@ -77,6 +79,7 @@ class LocalShareControlBarViewController: ILocalShareControlBarViewController {
     func setup(shareComponent: ShareManagerComponentProtocol) {
         self.shareComponent = shareComponent
         shareComponent.registerListener(self)
+        isSharePaused = shareComponent.getLocalShareControlBarInfo()?.isSharePaused ?? false
         updateBackgroundColor()
         
         controlButtonsViewController.setup(shareComponent: shareComponent)
@@ -236,9 +239,9 @@ class LocalShareControlHorizontalBarViewController: LocalShareControlBarViewCont
         let iconColor = getUIToolkitColor(token: .sharewindowControlTextPrimary).normal
         var icon = ""
         if edge == .top {
-            icon = isExpanded ? MomentumRebrandIconType.arrowUpBold.ligature : MomentumRebrandIconType.arrowDownBold.ligature
+            icon = isExpanded ? MomentumIconsRebrandType.arrowUpBold.ligature : MomentumIconsRebrandType.arrowDownBold.ligature
         } else if edge == .bottom {
-            icon = isExpanded ? MomentumRebrandIconType.arrowDownBold.ligature : MomentumRebrandIconType.arrowUpBold.ligature
+            icon = isExpanded ? MomentumIconsRebrandType.arrowDownBold.ligature : MomentumIconsRebrandType.arrowUpBold.ligature
         }
         
         expandButton.attributedTitle = NSAttributedString(string: icon, attributes: [

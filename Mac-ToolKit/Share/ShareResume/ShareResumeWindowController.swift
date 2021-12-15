@@ -54,13 +54,13 @@ class ShareResumeWindowController: BaseWindowController {
         }
         
         okButton.buttonHeight = .small
-        okButton.style = .secondary
+        okButton.style = .shareWindowSecondary
         resumeButton.buttonHeight = .small
-        resumeButton.style = .primary
+        resumeButton.style = .shareWindowPrimary
     }
     
     override func setThemeColors() {
-        contentView?.backgroundColor = SemanticThemeManager.getColors(for: .wxShareResumeBarColor).normal
+        contentView?.backgroundColor = SemanticThemeManager.getLegacyColors(for: .wxShareResumeBarColor).normal
         
         okButton?.setThemeColors()
         resumeButton?.setThemeColors()
@@ -139,14 +139,11 @@ extension ShareResumeWindowController: GlobalShortcutHandler {
     var id: String { component?.callId ?? "" }
     
     var priority: GlobalShortcutHandlerPriority {
-//        if let call = appContext.coreFramework.telephonyServiceProxy.getCallByCallId(id) {
-//            if call.isCallType(.imOnlyShare) {
-//                return .l1
-//            } else {
-//                return .l2
-//            }
-//        }
-        return .invlaid
+        if component?.getShareCallType() == .imOnlyShare {
+            return .l1
+        } else {
+            return .l2
+        }
     }
     
     func validateAction(actionType: GlobalShortcutHandlerActionType) -> Bool {

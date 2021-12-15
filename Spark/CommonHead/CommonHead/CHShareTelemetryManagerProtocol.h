@@ -4,6 +4,7 @@
 
 // Generated with objc_viewmodel_protocol.j2
 
+enum CHDragPosition: NSUInteger;
 enum CHShortcut: NSUInteger;
 
 
@@ -23,6 +24,7 @@ enum CHShortcut: NSUInteger;
 
 - (void)recordShortcutKeyPressed:(NSString * _Nonnull)callId shortcut:(enum CHShortcut)shortcut NS_SWIFT_NAME(recordShortcutKeyPressed(callId:shortcut:));
 - (void)recordSettingsButtonPressed:(NSString * _Nonnull)callId NS_SWIFT_NAME(recordSettingsButtonPressed(callId:));
+- (void)recordControlBarDragPosition:(NSString * _Nonnull)callId position:(enum CHDragPosition)position NS_SWIFT_NAME(recordControlBarDragPosition(callId:position:));
 
 
 @end

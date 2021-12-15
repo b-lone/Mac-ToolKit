@@ -50,6 +50,8 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     private var pauseButtonType: ShareControlButtonType { isSharePaused ? .resume : .pause }
     private var shareFactory: ShareFactoryProtocol
     private var remoteControlManager: RDCControleeHelperProtocol?
+    private let mainMenuHandlerHelper: MainMenuHandlerHelperProtocol
+    private let globalShortcutHanderHelper: GlobalShortcutHandlerHelperProtocol
 
     fileprivate var edge = Edge.top
     fileprivate var blockShowTooltips = false {
@@ -58,8 +60,10 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         }
     }
     
-    init(shareFactory: ShareFactoryProtocol, nibName: String?) {
+    init(shareFactory: ShareFactoryProtocol, mainMenuHandlerHelper: MainMenuHandlerHelperProtocol, globalShortcutHanderHelper: GlobalShortcutHandlerHelperProtocol, nibName: String?) {
         self.shareFactory = shareFactory
+        self.mainMenuHandlerHelper = mainMenuHandlerHelper
+        self.globalShortcutHanderHelper = globalShortcutHanderHelper
         super.init(nibName: nibName, bundle: Bundle.getSparkBundle())
     }
     
@@ -70,6 +74,8 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     deinit {
         shareComponent?.unregisterListener(self)
         remoteControlManager?.unregisterListener(self)
+        mainMenuHandlerHelper.unRegisterHandler(handler: self)
+        globalShortcutHanderHelper.unRegisterHandler(self)
     }
     
     override func viewDidLoad() {
@@ -87,6 +93,16 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         updateButtonTooltip()
     }
     
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        globalShortcutHanderHelper.registerHandler(self)
+    }
+    
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        globalShortcutHanderHelper.unRegisterHandler(self)
+    }
+    
     fileprivate func setupShareControlButton(button: UTButton, type: ShareControlButtonType) {
         button.style = type.style
         button.buttonHeight = type.buttonHeight
@@ -99,14 +115,13 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     fileprivate func updateButtonTooltip() {
         if blockShowTooltips {
             annotateButton?.addUTToolTip(toolTip: .plain(""))
-            pauseButton?.addUTToolTip(toolTip: .plain(""))
             stopButton?.addUTToolTip(toolTip: .plain(""))
         } else {
             annotateButton?.addUTToolTip(toolTip: ShareControlButtonType.annotate.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
-            pauseButton?.addUTToolTip(toolTip: pauseButtonType.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
             stopButton?.addUTToolTip(toolTip: ShareControlButtonType.stop.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
         }
         updateRemoteControlButtonTooltip()
+        updatePauseButtonTooltip()
     }
     
     fileprivate func setupDragLabel() {
@@ -148,8 +163,17 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         updatePauseButton()
     }
     
+    private func updatePauseButtonTooltip() {
+        if blockShowTooltips {
+            pauseButton?.addUTToolTip(toolTip: .plain(""))
+        } else {
+            pauseButton?.addUTToolTip(toolTip: pauseButtonType.getUTToolTip(preferredEdge: edge.tooltipPreferredEdge))
+        }
+    }
+    
     private func updatePauseButton() {
         setupShareControlButton(button: pauseButton, type: pauseButtonType)
+        updatePauseButtonTooltip()
         SPARK_LOG_DEBUG("")
         if let info = shareComponent?.getLocalShareControlBarInfo()?.viewInfo.pauseButton {
             SPARK_LOG_DEBUG("")
@@ -173,6 +197,10 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
         shareComponent?.showShareContentWindow()
     }
     
+    fileprivate func canShowShareContentWindow() -> Bool {
+        return false
+    }
+    
     @IBAction func onAnnotateButton(_ sender: Any) {
         SPARK_LOG_DEBUG("")
         guard remoteControlManager?.canStartAnnotateWhenRDCisSessionEstablished() == true else { return SPARK_LOG_DEBUG("canStartAnnotateWhenRDCisSessionEstablished == false") }
@@ -187,7 +215,7 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     
     @IBAction func onPauseButton(_ sender: Any) {
         SPARK_LOG_DEBUG("")
-        shareComponent?.pauseShare(doPause: pauseButton.fontIcon == MomentumRebrandIconType.pauseBold)
+        shareComponent?.pauseShare(doPause: pauseButton.fontIcon == MomentumIconsRebrandType.pauseBold)
     }
     
     @IBAction func onStopButton(_ sender: Any) {
@@ -201,6 +229,8 @@ class LocalShareControlButtonsViewController: ILocalShareControlButtonsViewContr
     func setup(shareComponent: ShareManagerComponentProtocol) {
         self.shareComponent = shareComponent
         shareComponent.registerListener(self)
+        mainMenuHandlerHelper.registerHandler(callId: shareComponent.callId, handler: self)
+        globalShortcutHanderHelper.registerHandler(self)
         
         updateAnnotateButton()
         updatePauseButton()
@@ -247,7 +277,6 @@ extension LocalShareControlButtonsViewController: RemoteControleeManagerDelegate
         setupShareControlButton(button: remoteControlButton, type: info.type)
         remoteControlButton.isHidden = info.buttonInfo.isHidden
         remoteControlButton.isEnabled = info.buttonInfo.isEnabled && !isSharePaused
-        remoteControlButton.state = info.buttonInfo.buttonState == .on ? .on : .off
         updateRemoteControlButtonTooltip()
     }
     
@@ -256,13 +285,127 @@ extension LocalShareControlButtonsViewController: RemoteControleeManagerDelegate
     }
 }
 
+extension LocalShareControlButtonsViewController: StartAnnotationMainMenuHandler {
+    func canStartAnnotation(callId: String) -> Bool {
+        annotateButton?.canClick == true && view.window?.isVisible == true
+    }
+    
+    func mainMenuStartAnnotation(callId: String) {
+        onAnnotateButton(self)
+    }
+}
+
+extension LocalShareControlButtonsViewController: GlobalShortcutHandler {
+    var id: String { shareComponent?.callId ?? "" }
+    
+    var priority: GlobalShortcutHandlerPriority {
+        if let shareComponent = shareComponent {
+            if shareComponent.getShareCallType() == .imOnlyShare {
+                return .l1
+            } else  {
+                return .l2
+            }
+        }
+        return .invlaid
+    }
+    
+    func validateAction(actionType: GlobalShortcutHandlerActionType) -> Bool {
+        switch actionType {
+        case .openShareSelectionWindow:
+            return canShowShareContentWindow()
+        case .stopShare:
+            return stopButton?.canClick == true
+        case .pauseOrResumeShare:
+            return pauseButton?.canClick == true
+        case .startRDC:
+            return remoteControlButton?.canClick == true && remoteControlManager?.isSessionEstablished == false
+        case .stopRDC:
+            return remoteControlButton?.canClick == true && remoteControlManager?.isSessionEstablished == true
+        case .makeLocalShareControlBarKeyWindow:
+            return true
+        }
+    }
+    
+    func globalShortcutOpenShareSelectionWindow() {
+        onShowShareContentWindow(self)
+    }
+    
+    func globalShortcutStopShare() {
+        onStopButton(self)
+    }
+    
+    func globalShortcutPauseOrResumeShare() {
+        onPauseButton(self)
+    }
+    
+    func globalShortcutStartRDC() {
+        onRemoteControlButton(self)
+    }
+    
+    func globalShortcutStopRDC() {
+        SPARK_LOG_DEBUG("[RemoteControl-ui] onShortcutStopRDC")
+        remoteControlManager?.endRemoteControlSession()
+    }
+    
+    func globalShortcutMakeLocalShareControlBarKeyWindow() {
+        view.window?.makeKey()
+    }
+}
+
+extension LocalShareControlButtonsViewController: AppMenuCallsProtocol {
+    @objc func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        guard let shareComponent = shareComponent else { return false }
+        if menuItem.action == #selector(AppMenuCallsProtocol.appMenuStartShare) {
+            return canShowShareContentWindow()
+        } else if menuItem.action == #selector(AppMenuCallsProtocol.appMenuStopShare) {
+            return stopButton?.canClick == true && view.window?.isVisible == true
+        } else if menuItem.action == #selector(AppMenuCallsProtocol.appMenuStartAnnotation) {
+            return mainMenuHandlerHelper.canStartAnnotation(callId: shareComponent.callId)
+        } else if menuItem.action == #selector(AppMenuCallsProtocol.appMenuStartCall) ||
+                    menuItem.action == #selector(AppMenuCallsProtocol.appMenuStartVideoCall) ||
+                    menuItem.action == #selector(AppMenuCallsProtocol.appMenuEndCall) ||
+                    menuItem.action == #selector(AppMenuCallsProtocol.appMenuToggleAudioMute) ||
+                    menuItem.action == #selector(AppMenuCallsProtocol.appMenuToggleVideoMute) ||
+                    menuItem.action == #selector(AppMenuCallsProtocol.appMenuStopAnnotation) ||
+                    menuItem.action == #selector(AppMenuCallsProtocol.appMenuToggleMeetingControls) ||
+                    menuItem.action == #selector(AppMenuCallsProtocol.appMenuAnswerCall) ||
+                    menuItem.action == #selector(AppMenuCallsProtocol.appMenuDeclineCall) {
+            return false
+        }
+        return false
+    }
+    
+    func appMenuStartShare() {
+        onShowShareContentWindow(self)
+    }
+    
+    func appMenuStopShare() {
+        onStopButton(self)
+    }
+    
+    func appMenuStartAnnotation() {
+        guard let shareComponent = shareComponent else { return }
+        mainMenuHandlerHelper.mainMenuStartAnnotation(callId: shareComponent.callId)
+    }
+    
+    func appMenuStartCall() {}
+    func appMenuStartVideoCall() {}
+    func appMenuEndCall() {}
+    func appMenuToggleAudioMute() {}
+    func appMenuToggleVideoMute() {}
+    func appMenuStopAnnotation() {}
+    func appMenuToggleMeetingControls() {}
+    func appMenuAnswerCall() {}
+    func appMenuDeclineCall() {}
+}
+
 //MARK: Horizontal
 class LocalShareControlButtonsHorizontalViewController: LocalShareControlButtonsViewController {
     @IBOutlet weak var leftLabel: NSTextField!
     @IBOutlet weak var rightLabel: CustomToolTipsClickableTextField!
     
-    init(shareFactory: ShareFactoryProtocol) {
-        super.init(shareFactory: shareFactory, nibName: "LocalShareControlButtonsHorizontalViewController")
+    init(shareFactory: ShareFactoryProtocol, mainMenuHandlerHelper: MainMenuHandlerHelperProtocol, globalShortcutHanderHelper: GlobalShortcutHandlerHelperProtocol) {
+        super.init(shareFactory: shareFactory, mainMenuHandlerHelper: mainMenuHandlerHelper, globalShortcutHanderHelper: globalShortcutHanderHelper, nibName: "LocalShareControlButtonsHorizontalViewController")
     }
     
     required init?(coder: NSCoder) {
@@ -279,20 +422,20 @@ class LocalShareControlButtonsHorizontalViewController: LocalShareControlButtons
     
     override func setupDragLabel() {
         super.setupDragLabel()
-        dragLabel.stringValue = MomentumRebrandIconType.formatControlPanelDraggerBold.ligature
+        dragLabel.stringValue = MomentumIconsRebrandType.formatControlPanelDraggerBold.ligature
     }
     
     override func setupPauseButton() {
         super.setupPauseButton()
         pauseButton.horizontalPadding = 7
-        pauseButton.roundSetting = .lhs
+        pauseButton.roundSetting = .leading
     }
     
     override func setupStopButton() {
         super.setupStopButton()
         stopButton.horizontalPadding = 10
         stopButton.elementPadding = 4
-        stopButton.roundSetting =  pauseButton.isHidden ? .pill : .rhs
+        stopButton.roundSetting =  pauseButton.isHidden ? .pill : .trailing
         stopButton.title = LocalizationStrings.stop
     }
     
@@ -322,6 +465,10 @@ class LocalShareControlButtonsHorizontalViewController: LocalShareControlButtons
         }
         
         animator?.startAnimationForSizeChanged()
+    }
+    
+    override func canShowShareContentWindow() -> Bool {
+        return !rightLabel.isHidden
     }
     
     //MARK: ShareManagerComponentSetup
@@ -375,8 +522,8 @@ extension LocalShareControlButtonsHorizontalViewController: ClickableTextFieldDe
 class LocalShareControlButtonsVerticalViewController: LocalShareControlButtonsViewController {
     @IBOutlet weak var switchShareButton: UTRoundButton!
     
-    init(shareFactory: ShareFactoryProtocol) {
-        super.init(shareFactory: shareFactory, nibName: "LocalShareControlButtonsVerticalViewController")
+    init(shareFactory: ShareFactoryProtocol, mainMenuHandlerHelper: MainMenuHandlerHelperProtocol, globalShortcutHanderHelper: GlobalShortcutHandlerHelperProtocol) {
+        super.init(shareFactory: shareFactory, mainMenuHandlerHelper: mainMenuHandlerHelper, globalShortcutHanderHelper: globalShortcutHanderHelper, nibName: "LocalShareControlButtonsVerticalViewController")
     }
     
     required init?(coder: NSCoder) {
@@ -404,7 +551,7 @@ class LocalShareControlButtonsVerticalViewController: LocalShareControlButtonsVi
     
     override func setupDragLabel() {
         super.setupDragLabel()
-        dragLabel.stringValue = MomentumRebrandIconType.formatControlPanelDraggerHorizontalBold.ligature
+        dragLabel.stringValue = MomentumIconsRebrandType.formatControlPanelDraggerHorizontalBold.ligature
     }
     
     override func setupPauseButton() {
@@ -418,6 +565,27 @@ class LocalShareControlButtonsVerticalViewController: LocalShareControlButtonsVi
         stopButton.horizontalPadding = 5
         stopButton.roundSetting = pauseButton.isHidden ? .pill : .bottom
     }
+    
+    override func canShowShareContentWindow() -> Bool {
+        return !switchShareButton.isHidden
+    }
+    
+    private func updateSwitchShareButton() {
+        guard let info = shareComponent?.getLocalShareControlBarInfo()?.viewInfo.labelInfo else { return }
+        switchShareButton.isHidden = info.detailsString.isEmpty
+    }
+    
+    //MARK: ShareManagerComponentListener
+    override func shareManagerComponent(_ shareManagerComponent: ShareManagerComponentProtocol, onLocalShareControlBarInfoChanged info: CHLocalShareControlBarInfo) {
+        super.shareManagerComponent(shareManagerComponent, onLocalShareControlBarInfoChanged: info)
+        updateSwitchShareButton()
+    }
+    
+    //MARK: ShareManagerComponentSetup
+    override func setup(shareComponent: ShareManagerComponentProtocol) {
+        super.setup(shareComponent: shareComponent)
+        updateSwitchShareButton()
+    }
 }
 
 enum ShareControlButtonType {
@@ -429,7 +597,14 @@ enum ShareControlButtonType {
     case resume
     case stop
     
-    var style: UTButton.Style { .shareWindowSecondary }
+    var style: UTButton.Style {
+        switch self {
+        case .remoteControlStop:
+            return .shareWindowActive
+        default:
+            return .shareWindowSecondary
+        }
+    }
     
     var buttonHeight: ButtonHeight {
         switch self {
@@ -440,7 +615,7 @@ enum ShareControlButtonType {
         }
     }
     
-    var fontIcon: MomentumRebrandIconType {
+    var fontIcon: MomentumIconsRebrandType {
         switch self {
         case .switchShare:
             return .shareScreenBold
@@ -462,7 +637,7 @@ enum ShareControlButtonType {
     private var tooltip: String {
         switch self {
         case .switchShare:
-            return LocalizationStrings.share
+            return LocalizationStrings.selectShareButtonTooltip
         case .annotate:
             return LocalizationStrings.annotate
         case .remoteControlStart:

@@ -30,12 +30,12 @@
             <windowStyleMask key="styleMask" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="-742" y="1423" width="888" height="600"/>
-            <rect key="screenRect" x="-2560" y="0.0" width="2560" height="1415"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
             <view key="contentView" id="NpV-3n-bs0">
                 <rect key="frame" x="0.0" y="0.0" width="888" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="ixL-Zq-kAB">
+                    <visualEffectView blendingMode="behindWindow" material="underWindowBackground" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="ixL-Zq-kAB">
                         <rect key="frame" x="0.0" y="0.0" width="888" height="600"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="bok-UK-cOo" customClass="UTSpinnerView" customModule="UIToolkit">
@@ -86,12 +86,12 @@
                                         </constraints>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="share-ios-computer-phone-light" id="xBp-se-Lif"/>
                                     </imageView>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tSp-JQ-4or" customClass="UTLabel" customModule="UIToolkit">
-                                        <rect key="frame" x="22" y="64" width="296" height="16"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tSp-JQ-4or">
+                                        <rect key="frame" x="22" y="56" width="296" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="292" id="jIq-v9-cFH"/>
                                         </constraints>
-                                        <textFieldCell key="cell" alignment="center" title="Connect your iPhone or iPad to this computer." id="IBQ-Gq-ry0">
+                                        <textFieldCell key="cell" alignment="center" title="Connect your iPhone or iPad to this computer via cable." id="IBQ-Gq-ry0">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -139,7 +139,7 @@
                                         </constraints>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="share-ios-tap-on-phone-light" id="oo5-mz-a8R"/>
                                     </imageView>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aNH-ZX-yEf">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aNH-ZX-yEf" customClass="NSTextFeild">
                                         <rect key="frame" x="22" y="64" width="296" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="292" id="ade-rY-43z"/>

@@ -55,6 +55,7 @@ class LocalShareControlBarManager: NSObject & LocalShareControlBarManagerProtoco
     }
     
     func reset() {
+        hideShareControlBar()
         shareControlBar = nil
     }
 }

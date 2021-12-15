@@ -50,6 +50,19 @@ extension Edge {
             return .right
         }
     }
+    
+    var vmPosition: CHDragPosition {
+        switch self {
+        case .top:
+            return .top
+        case .bottom:
+            return .bottom
+        case .right:
+            return .right
+        case .left:
+            return .left
+        }
+    }
 }
 
 class LocalShareControlBarWindowController: ILocalShareControlBarWindowController {
@@ -65,7 +78,8 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
     private var isInFullScreenSpaceWithoutCameraHousing = false
     
     private weak var shareComponent: ShareManagerComponentProtocol?
-    private var sharedScreenUuid: ScreenId { shareComponent?.shareContext.screenToDraw.uuid() ?? "" }
+    private let telemetryManager: CHShareTelemetryManagerProtocol
+    private var sharedScreenUuid: ScreenId? { shareComponent?.shareContext.screenToDraw.uuid() }
     private var isImOnlyShareForAccept = true
     private let screenAdapter: SparkScreenAdapterProtocol
     private let shareFactory: ShareFactoryProtocol
@@ -77,10 +91,11 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
     
     override var windowNibName: NSNib.Name? { "LocalShareControlBarWindowController" }
     
-    init(shareFactory: ShareFactoryProtocol, screenAdapter: SparkScreenAdapterProtocol) {
+    init(shareFactory: ShareFactoryProtocol, screenAdapter: SparkScreenAdapterProtocol, telemetryManager: CHShareTelemetryManagerProtocol) {
         self.shareFactory = shareFactory
         self.screenAdapter = screenAdapter
         self.fullScreenDetector = shareFactory.makeFullScreenDetector()
+        self.telemetryManager = telemetryManager
         super.init(window: nil)
         
         _ = window
@@ -183,12 +198,21 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
         } else {
             positionMap[screen] = result
         }
+        SPARK_LOG_DEBUG("[\(screen)](\(result.edge.rawValue):\(result.deviation))")
         return result
+    }
+    
+    private func recordPositionTelemetry(_ newEdge: Edge) {
+        if let sharedScreenUuid = sharedScreenUuid, let position = positionMap[sharedScreenUuid], position.edge != newEdge, let callId = shareComponent?.callId {
+            telemetryManager.recordControlBarDragPosition(callId: callId, position: newEdge.vmPosition)
+        }
     }
     
     //MARK: ShareManagerComponentListener
     func shareManagerComponent(_ shareManagerComponent: ShareManagerComponentProtocol, onSharingContentChanged sharingContent: CHSharingContent) {
-        switchContentView(edge: getPosition(screen: sharedScreenUuid).edge)
+        if let sharedScreenUuid = sharedScreenUuid {
+            switchContentView(edge: getPosition(screen: sharedScreenUuid).edge)
+        }
         updateFrame(animate: false)
     }
     
@@ -211,7 +235,7 @@ class LocalShareControlBarWindowController: ILocalShareControlBarWindowControlle
 
 extension LocalShareControlBarWindowController: WindowAnimator {
     func startAnimationForSizeChanged() {
-        guard let window = window, let currentViewController = currentViewController else { return }
+        guard let window = window, let currentViewController = currentViewController, let sharedScreenUuid = sharedScreenUuid else { return }
         let newSize = currentViewController.getFittingSize()
         SPARK_LOG_DEBUG("\(newSize)")
         let screenFrame = getScreenFrame()
@@ -229,6 +253,10 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
     func mouseTrackViewMouseDown(with event: NSEvent) {
         mouseDownLocation = event.locationInWindow
         isMouseDown = true
+        
+        if event.clickCount == 2 {
+            NSApp.activate(ignoringOtherApps: true)
+        }
     }
     
     func mouseTrackViewMouseUp(with event: NSEvent) {
@@ -267,7 +295,7 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
     }
     
     private func updateFrame(animate: Bool) {
-        guard let window = window else { return }
+        guard let window = window, let sharedScreenUuid = sharedScreenUuid else { return }
         let position = getPosition(screen: sharedScreenUuid)
         
         let screenFrame = getScreenFrame()
@@ -286,7 +314,7 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
     }
     
     private func updatePosition(mouseUpLocation: NSPoint) {
-        guard let window = window, sharedScreenUuid == window.screen?.uuid() else { return }
+        guard let window = window, let sharedScreenUuid = sharedScreenUuid, sharedScreenUuid == window.screen?.uuid() else { return }
         let screenFrame = getScreenFrame()
         
         let mouseRelativeLocation = mouseUpLocation.convertCoordinateOrigin(to: screenFrame.origin)
@@ -301,6 +329,9 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
             deviation = (windowFrame.center.y - screenFrame.minY) / screenFrame.height
             
         }
+        
+        recordPositionTelemetry(edge)
+        
         positionMap[sharedScreenUuid] = (edge: edge, deviation: deviation)
         updateFrame(animate: true)
     }
@@ -308,19 +339,15 @@ extension LocalShareControlBarWindowController: MouseTrackViewDelegate {
 
 extension LocalShareControlBarWindowController: FullScreenDetectorListener {
     func fullScreenDetectorFullScreenStateChanged(_ isFullScreen: Bool) {
+        var hasCameraHousing = false
         if #available(macOS 12.0, *) {
-            if screenAdapter.screen(uuid: sharedScreenUuid).safeAreaInsets.top > 0 {
-                SPARK_LOG_DEBUG("device has camera housing")
-                isInFullScreenSpaceWithoutCameraHousing = false
-            } else {
-                isInFullScreenSpaceWithoutCameraHousing = isFullScreen
-            }
-        } else {
-            isInFullScreenSpaceWithoutCameraHousing = isFullScreen
+            hasCameraHousing = screenAdapter.screen(uuid: sharedScreenUuid).safeAreaInsets.top > 0
         }
+        isInFullScreenSpaceWithoutCameraHousing = isFullScreen && !hasCameraHousing
       
-        SPARK_LOG_DEBUG("\(isInFullScreenSpaceWithoutCameraHousing) ")
+        SPARK_LOG_DEBUG("hasCameraHousing:\(hasCameraHousing) isFullScreen:\(isFullScreen)")
+        window?.level = .popUpMenu + 1
+        updateFrame(animate: true)
         updateWindowLevel()
-        updateFrame(animate: false)
     }
 }

@@ -45,6 +45,8 @@ func getAppDisplayName() -> String {
     public static var tabViewAccessibiltyAnnouncement = NSLocalizedStringHelper("Tab view, %@ tab, use arrow keys to navigate", comment: "<Tab>")
     public static var composeToolbarAccessibiltyLabel = NSLocalizedStringHelper("Compose toolbar, %@ button", comment: "<button>")
     public static var messageAttachmentAccessibiltyLabel = NSLocalizedStringHelper("Attachment, %@", comment: "<filename>")
+    public static var journeyHeaderAccessibilityLabel = NSLocalizedStringHelper("including", comment: "Accessibility description")
+    public static var journeyLinkAccessibilityLabel = NSLocalizedStringHelper("link", comment: "Accessibility description")
     
     // MARK: Login Strings
     public static var termsAndConditions = NSLocalizedStringWithArgsHelper("By using %@ you accept the Terms of Service", comment: "Terms and conditions", args: getAppDisplayName())
@@ -53,22 +55,26 @@ func getAppDisplayName() -> String {
     public static var noticesDisclaimers = NSLocalizedStringHelper("Notices & Disclaimers", comment: "Notices & Disclaimers")
     public static var learnMoreAboutSpark = NSLocalizedStringWithArgsHelper("Learn more about %@.", comment: "Learn more about the app.", args: getAppDisplayName())
     public static var learnMore = NSLocalizedStringHelper("Learn more", comment: "Must be the same translation as 'Learn more about %@.'")
+    public static var quit = NSLocalizedStringHelper("Quit", comment: "Quit")
+    public static var confirmQuitTitle = NSLocalizedStringHelper("Quit sign-up?", comment: "Quit sign-up?")
+    public static var confirmQuitMessage = NSLocalizedStringHelper("If you quit now, your progress won't be saved.", comment: "If you quit now, your progress won't be saved.")
+    public static var signingIn = NSLocalizedStringHelper("Signing in...", comment: "Signing in...")
     
     //MARK: About window
     public static var AboutDialogTitle = NSLocalizedStringHelper("About", comment: "About dialog title")
     public static var AboutTermsOfService = NSLocalizedStringHelper("Terms of service", comment: "")
     public static var AboutPrivacyStatement = NSLocalizedStringHelper("Privacy statement", comment: "")
-    public static var AboutNoticesDisclaimers = NSLocalizedStringHelper("Notices and disclaimers", comment: "")    
-    public static var AboutThirdPartyLicence = NSLocalizedStringHelper("Third-party licences and notices", comment: "")
+    public static var AboutNoticesDisclaimers = NSLocalizedStringHelper("Notices and disclaimers", comment: "")
+    public static var AboutThirdPartyLicence = NSLocalizedStringHelper("Third-party licenses and notices", comment: "")
     public static var AboutFeedbackDisclaimer = NSLocalizedStringWithArgsHelper("Selecting Send Feedback will send your %@ activity logs to us, so that we can help you, and improve the product. These logs identify you, your device, other users you've communicated with and optionally, your employer. For more Information see the Cisco Online Privacy Statement.", comment: "", args: getAppDisplayName())
     public static var AboutSendFeedback = NSLocalizedStringHelper("Send feedback", comment: "")
     public static var AboutCopyright = NSLocalizedStringHelper("Copyright © %@ Cisco Systems.", comment: "")
     public static var EulaCopyright = NSLocalizedStringHelper("Copyright © %@ Cisco Systems. All rights reserved.", comment: "")
     public static var AboutAllRightsReserved = NSLocalizedStringHelper("All rights reserved.", comment: "")
     public static var EulaAboutApp = NSLocalizedStringWithArgsHelper("%@ is a collaboration application that provides messageing (IM), voice, and video calling capabilities.", comment: "", args: getAppDisplayName())
-    public static var eulaWindowsTitle = NSLocalizedStringWithArgsHelper("%@ End User License Agreement.", comment: "", args: getAppDisplayName())    
+    public static var eulaWindowsTitle = NSLocalizedStringWithArgsHelper("%@ End User License Agreement.", comment: "", args: getAppDisplayName())
     
-    public static var more = NSLocalizedStringHelper("More", comment: "Search for more results")    
+    public static var more = NSLocalizedStringHelper("More", comment: "Search for more results")
     public static var moreShortcut = NSLocalizedStringHelper("More shortcuts", comment: "More shortcuts")
     public static var moreShortcutRoleDescription = NSLocalizedStringHelper("More shortcuts, button", comment: "More shortcuts")
     public static var websiteName = NSLocalizedStringHelper("%@, button", comment: "Website Name")
@@ -90,7 +96,7 @@ func getAppDisplayName() -> String {
     static var getHelp = NSLocalizedStringHelper("Get Help", comment: "Get Help")
     
     static var unreadMessages = NSLocalizedStringHelper("unread messages",  comment: "unread messages")
-	static var unknownCall =  NSLocalizedStringHelper("Unknown caller",  comment: "Unknown caller")
+    static var unknownCall =  NSLocalizedStringHelper("Unknown caller",  comment: "Unknown caller")
     static var unknownDisplay =  NSLocalizedStringHelper("Unknown display name",  comment: "Unknown display name")
     @objc public static var encryptedContentMessage =  NSLocalizedStringHelper("Decrypting Content...",  comment: "Decrypting Content...")
     static var encryptedSubjectMessage =  NSLocalizedStringHelper("Decrypting Subject...",  comment: "Decrypting Subject...")
@@ -209,7 +215,7 @@ func getAppDisplayName() -> String {
     
     
     // MARK:  1st Column
-    public static var search = NSLocalizedStringHelper("Search", comment: "Search")    
+    public static var search = NSLocalizedStringHelper("Search", comment: "Search")
     public static var chatRooms = NSLocalizedStringHelper("Messages", comment: "Recents")
     public static var all = NSLocalizedStringHelper("All", comment: "All")
     public static var filterBy = NSLocalizedStringHelper("Filter by", comment: "Filter by")
@@ -334,9 +340,10 @@ func getAppDisplayName() -> String {
     public static var zoomOutOfSharedContent = NSLocalizedStringHelper("Zoom out of shared content", comment: "")
     public static var fitToTheViewer = NSLocalizedStringHelper("Fit to the viewer", comment: "")
     public static var zoomInOnSharedContent = NSLocalizedStringHelper("Zoom in on shared content", comment: "")
-    public static var iphoneOrIpad = NSLocalizedStringHelper("iPhone or iPad", comment: "")
+    public static var iphoneOrIpad = NSLocalizedStringHelper("iPhone/iPad via Cable", comment: "")
     public static var sharingWillStartAutomatically = NSLocalizedStringHelper("Sharing will start automatically after you taking the following actions…", comment: "")
-    public static var connectYourIphoneOrIpad = NSLocalizedStringHelper("Connect your iPhone or iPad to this computer.", comment: "")
+    public static var connectYourIphoneOrIpad = NSLocalizedStringHelper("Connect your iPhone or iPad to this computer via  %@.", comment: "")
+    public static var cable = NSLocalizedStringHelper("cable", comment: "")
     public static var trustThisComputer = NSLocalizedStringHelper("On the connected iPhone or iPad, when asked if you trust this computer, select %@.", comment: "")
     public static var trust = NSLocalizedStringHelper("Trust", comment: "")
     public static var shareWindowFte1 = NSLocalizedStringHelper("You can now select and share an individual window from a multiple-window application", comment: "")
@@ -349,8 +356,8 @@ func getAppDisplayName() -> String {
     public static var bindingErrorMessage = NSLocalizedStringHelper("Error opening the space", comment:"Binding error")
     public static var unbindingErrorMessage = NSLocalizedStringHelper("Error closing the space", comment:"Unbinding error")
     public static var bindingErrorTitle = NSLocalizedStringHelper("Bind error", comment:"Binding error")
-    public static var logoutBookedDeviceAlert = NSLocalizedStringHelper("Log out", comment:"Log out")
-    public static var logoutBookedDeviceMesg = NSLocalizedStringHelper("When you log out, this device will not display your name or meeting list. This device will back to share mode and you can book it again later.", comment:"When you log out, this device will not display your name or meeting list. This device will back to share mode and you can book it again later.")
+    public static var logoutBookedDeviceAlert = NSLocalizedStringHelper("Sign out", comment:"Sign out")
+    public static var logoutBookedDeviceMesg = NSLocalizedStringHelper("When you sign out, this device will not display your name or meeting list. This device will back to share mode and you can book it again later.", comment:"When you log out, this device will not display your name or meeting list. This device will back to share mode and you can book it again later.")
     public static var unbindingErrorTitle = NSLocalizedStringHelper("Unbind error", comment:"Unbinding error")
     public static var stop = NSLocalizedStringHelper("Stop", comment:"Stop")
     public static var stopShare = NSLocalizedStringHelper("Stop Share", comment:"Stop share")
@@ -462,6 +469,7 @@ func getAppDisplayName() -> String {
     public static var useForCallsTooltip = NSLocalizedStringHelper("Automatically select this device for calls", comment: "Use this system for calls")
     public static var dontUseForCallsTooltip = NSLocalizedStringHelper("Don't automatically select this device for calls", comment: "Don't use this system for calls")
     public static var sharingScreenTooltip = NSLocalizedStringHelper("Sharing screen", comment: "Participant is sharing their screen")
+    public static var callWindowTitleBarHealthyCheckIndicatorTooltip = NSLocalizedStringHelper("Your network connection and CPU usage are good, allowing you to have the full meeting experience.", comment: "Good state indicator")
     
     public static var roomActionFavorite = NSLocalizedStringHelper("Add to favorites", comment: "Button tool tip on space actions for marking the space as favorite")
     public static var roomActionUnfavorite = NSLocalizedStringHelper("Remove favorite", comment: "Button tool tip on space actions for marking the space as favorite")
@@ -580,12 +588,14 @@ func getAppDisplayName() -> String {
     public static var locusInvalidJoinTimeMessage = NSLocalizedStringHelper("The meeting has not yet started.", comment:"Dialog message for meeting not started failure")
     public static var locusRateLimited = NSLocalizedStringHelper("Webex Calling is currently unavailable. Please try again later.", comment:"Dialog message for call failure")
     public static var locusConflict  = NSLocalizedStringHelper("Sorry we are unable to connect you. Please try again.", comment:"Dialog message for call failure")
-    public static var locusUnavailable = NSLocalizedStringHelper("Webex Calling is currently unavailable. Please try again later.", comment:"Dialog message for call failure")
+    public static var locusUnavailableCaption = NSLocalizedStringHelper("Cannot connect to server", comment: "Diaglog caption for Locus unavailable")
+    public static var locusUnavailable = NSLocalizedStringHelper("You may not be able to perform certain actions in the connection.", comment:"Diaglog message for Locus unavailable")
+    public static var preMeetingLocusUnavailable = NSLocalizedStringHelper("It has some server issues. Try again later.", comment:"Diaglog message for Locus unavailable pre-meeting")
     public static var locusInvalidSequenceHash = NSLocalizedStringHelper("Webex Calling sequence error. Please try again.", comment:"Dialog message for call failure")
     public static var conversationNotFound = NSLocalizedStringHelper("Space not found. It may have been removed.", comment:"Dialog message for call failure")
     public static var failedToConnectMedia = NSLocalizedStringHelper("Unable to connect call.", comment:"Dialog message for call failure")
     public static var failedNetworkUnavailable = NSLocalizedStringHelper("Unable to connect call due to network error.", comment:"Dialog message for call failure")
-     public static var failedNetworkLoopbackFailed = NSLocalizedStringHelper("Unable to connect call due network restriction error.", comment:"Dialog message for call failure")
+    public static var failedNetworkLoopbackFailed = NSLocalizedStringHelper("Unable to connect call due network restriction error.", comment:"Dialog message for call failure")
     public static var mediaProcessFailedToLaunch = NSLocalizedStringHelper("Audio and Video is unavailable due to a system error. Please restart your PC and try again", comment:"Dialog message for call failure")
     public static var mediaProcessFailedToLaunchByPolicy = NSLocalizedStringHelper("Unable to connect due to a software restriction policy.", comment:"Dialog message for call failure")
     public static var mediaConnectionLost = NSLocalizedStringHelper("Call lost connection to audio or video.", comment:"Dialog message for call failure")
@@ -666,6 +676,7 @@ func getAppDisplayName() -> String {
     public static var ignore = NSLocalizedStringHelper("Ignore", comment:"Ignore")
     public static var dismiss = NSLocalizedStringHelper("Dismiss", comment:"Dismiss Meeting Invite")
     public static var incomingCallFrom = NSLocalizedStringHelper("Incoming call from", comment:"Incoming call from")
+    public static var forwardedFrom = NSLocalizedStringHelper("Forwarded from %@", comment:"Forwarded from origin called participant")
     public static var incomingCallFor = NSLocalizedStringHelper("Incoming call for %@", comment:"Incoming call for Hunt Group")
     public static var incomingImOnlyShareFrom = NSLocalizedStringHelper("Incoming shared content from", comment:"Incoming shared content from")
     public static var ongoingCall = NSLocalizedStringHelper("Ongoing call", comment: "Ongoing call")
@@ -687,6 +698,7 @@ func getAppDisplayName() -> String {
     public static var unsupportedAuthenticatingProxy = NSLocalizedStringHelper("Unable to connect call. Invalid network proxy credentials or unsupported network proxy.", comment: "User has an authenticating proxy that the app doesn't yet support.")
     public static var pstnCallMeFailedInvalidPhoneNumberSelected = NSLocalizedStringHelper("Unable to connect call. Invalid phone number selected.", comment: "User has entered / selected a phone number that is invalid / cannot be parsed.")
     public static var alreadyOnActiveCall = NSLocalizedStringHelper("A call is currently active. Disconnect from the current call to place a new call", comment:"Cannot join multiple calls")
+    public static var inCallWithSameUser = NSLocalizedStringHelper("A call is currently active with same person.", comment:"Cannot join same call")
     public static var srtpNegotiationFailed = NSLocalizedStringHelper("There's an issue connecting your call. Contact your administrator.", comment:"srtpNegotiationFailed")
     public static var csCallInProgress = NSLocalizedStringHelper("You're already on an active call. End your call before making or receiving another call.", comment:"csCallInProgress")
     public static var maximumNumberOfCalls = NSLocalizedStringHelper("You've reached the maximum number of simultaneous calls. End one of your calls before making or receiving another call.", comment:"MaximumNumberOfCalls")
@@ -716,8 +728,16 @@ func getAppDisplayName() -> String {
     public static var gridLayout = NSLocalizedStringHelper("Grid", comment: "call video layout, grid layout")
     public static var topLayout = NSLocalizedStringHelper("Stack", comment: "call video layout, filmstrip at top")
     public static var rightLayout = NSLocalizedStringHelper("Side by side", comment: "call video layout, filmstrip at right")
+    public static var filmstripResizeHint = NSLocalizedStringHelper("Drag the handle to collapse the video thumbnails or to see more videos.", comment: "hint to let user know filmstrip is resizable")
+    public static var filmstripResizeTitle = newFeatureTitle
+    
+    public static var newFeatureTitle = NSLocalizedStringHelper("New feature", comment: "New feature")
+
     public static var activeSpeaking = NSLocalizedStringHelper("Speaking: %@", comment: "active speaking")
     public static var meetingOptions = NSLocalizedStringHelper("Meeting options", comment: "Meeting options window title")
+    public static var meetingAndParticipantSettings = NSLocalizedStringHelper("Meeting and participant settings", comment: "Meeting options window title")
+    public static var meetingCapabilitiesLabel = NSLocalizedStringHelper("This meeting can", comment: "This meeting can label")
+    public static var participantPrivilege = NSLocalizedStringHelper("Participant privileges", comment: "Participant privileges tab title")
 
     public static var callWindowEnterFullScreen = NSLocalizedStringHelper("Full-screen view", comment: "call window enter full screen mode")
     public static var callWindowExitFullScreen = NSLocalizedStringHelper("Exit full-screen", comment: "call window exit full screen mode")
@@ -962,9 +982,6 @@ func getAppDisplayName() -> String {
     public static var copyInfo = NSLocalizedStringHelper("Copy", comment: "Copy")
     public static var copiedInfo = NSLocalizedStringHelper("Copied", comment: "Copied")
     public static var alreadyStarted = NSLocalizedStringHelper("Already Started", comment: "Already Started")
-    public static var goodMorning = NSLocalizedStringHelper("Good morning, %@.", comment: "Good morning, ")
-    public static var goodAfternoon = NSLocalizedStringHelper("Good afternoon, %@.", comment: "Good afternoon, ")
-    public static var goodEvening = NSLocalizedStringHelper("Good evening, %@.", comment: "Good evening, ")
     public static var genericMeeting = NSLocalizedStringHelper("Meeting", comment: "meeting")
     public static var lobbyExpire = NSLocalizedStringHelper("Unfortunately, the host is unavailable at this time. Contact the host for more information.", comment: "Unfortunately, the host is unavailable at this time. Contact the host for more information.")
     public static var editPMRSetting = NSLocalizedStringHelper("Use a different Personal Room for my meetings", comment: "Use a different Personal Room for my meetings")
@@ -1008,6 +1025,10 @@ func getAppDisplayName() -> String {
     public static var enterHostKey = NSLocalizedStringHelper("Enter Your Host Key", comment: "Enter Your Host Key")
     public static var enterMeetingPassword = NSLocalizedStringHelper("Enter Your Meeting Password", comment: "Enter Your Meeting Password")
 
+    // cross launch
+    public static var connectingDlgStopUpdating = NSLocalizedStringHelper("Stop updating", comment: "Double check dlg title")
+    public static var connectingDlgDoYouWantToStopUpdating = NSLocalizedStringHelper("Do you want to stop updating the Webex app?", comment: "Double check dlg message")
+    
     // MARK: Calendar cross launch
     public static var failedToCrossLaunchCalendarTitleText = NSLocalizedStringHelper("Unable to schedule a meeting", comment: "Dialog Title: Failed to create calendar invite due to an unknown error")
     public static var failedToCrossLaunchCalendarText = NSLocalizedStringHelper("We’re having trouble scheduling this meeting. Try again later or create the meeting in Microsoft Outlook. You can copy the details from 'Space meeting information'.", comment: "Failed to create calendar invite due to an unknown error")
@@ -1484,7 +1505,7 @@ func getAppDisplayName() -> String {
     public static var oneMeetingToday = NSLocalizedStringHelper("1 meeting today", comment: "1 meeting today")
     public static var numberOfMeetingsToday = NSLocalizedStringHelper("%i meetings today", comment: "%i meetings today")
     public static var meetingCalendar = NSLocalizedStringHelper("Meeting calendar", comment: "Meeting calendar")
-    public static var personalRoomInfoMessage = NSLocalizedStringHelper("Personal Room is your own virtual conference room that is always available for you to use and meet people", comment: "Personal Room is your own virtual conference room that always available for you to use and meet people")
+    public static var personalRoomInfoMessage = NSLocalizedStringHelper("Your Webex Personal Room is your own virtual conference space that's always available and has its own Personal Room link and video address.", comment: "Your Webex Personal Room is your own virtual conference space that's always available and has its own Personal Room link and video address.")
     public static var copyMeetingInfo = NSLocalizedStringHelper("Click to copy your Personal Room link", comment: "Click to copy your Personal Room link")
     public static var meetingAddressPlaceholder = NSLocalizedStringHelper("Enter video address to join meeting", comment: "Enter video address to join meeting")
     public static var joinMeetingInputFieldPlaceholder = NSLocalizedStringHelper("Search for a meeting", comment: "Search for a meeting")
@@ -1813,8 +1834,9 @@ func getAppDisplayName() -> String {
     public static var bitmojiTermsOfServiceHint = NSLocalizedStringHelper("Open the Snapchat terms of service in a web browser.", comment: "Accessibility hint for 'Terms of Service' substring")
     public static var bitmojiPrivacyPolicy = NSLocalizedStringHelper("Privacy Policy", comment: "** Make sure this 'Privacy Policy' matches translation for 'Your use of Bitmoji will be governed by...'")
     public static var bitmojiPrivacyPolicyHint = NSLocalizedStringHelper("Open the Snapchat privacy policy in a web browser.", comment: "Accessibility hint for 'Privacy Policy' substring")
-    public static var bitmojiCoachmarkHeaderText = NSLocalizedStringHelper("New feature", comment: "New feature")
-    public static var bitmojiCoachmarkBodyText = NSLocalizedStringHelper("Make messages come to life with Bitmoji – your own personal emoji.", comment: "Make messages come to life with Bitmoji – your own personal emoji.")
+    public static var bitmojiCoachmarkHeaderText = newFeatureTitle
+    public static var bitmojiCoachmarkHeaderHint = NSLocalizedStringHelper("New Feature - Bitmoji, popover. You are currently on a popover window. Using Bitmoji you can add personalized stickers to your messages. Before sending a message, tab to the additional actions tabs and select the Bitmoji button. Then find and select a sticker to add to your message.", comment: "Accessibility hint for Bitmoji coachmark's header")
+    public static var bitmojiCoachmarkBodyText = NSLocalizedStringHelper("Access Bitmoji stickers in Webex to express who you are and how you’re feeling. Now you can link either a Bitmoji or Snapchat account.", comment: "Branding text for Bitmoji coachmark")
     public static var bitmojiCoachmarkGetStartedButtonText = NSLocalizedStringHelper("Get started", comment: "Get started")
     public static var bitmojiCoachmarkGetStartedHint = NSLocalizedStringHelper("Click to connect your Bitmoji avatar to Webex.", comment: "Accessibility hint for 'Get started' coachmark button")
     public static var bitmojiCoachmarkLearnMoreLinkText = NSLocalizedStringHelper("Learn more", comment: "Learn more")
@@ -1823,9 +1845,9 @@ func getAppDisplayName() -> String {
     public static var bitmojiStickerPickerHint = NSLocalizedStringHelper("Bitmoji sticker window.", comment: "Accessibility hint for sticker picker")
     public static var bitmojiLoginWindowHint = NSLocalizedStringHelper("Connect Bitmoji window.", comment: "Accessibility hint for login window")
     public static var bitmojiLoginWindowCloseButtonHint = NSLocalizedStringHelper("Close the Connect Bitmoji window.", comment: "Accessibility hint for login window's close button")
-    public static var bitmojiTermsOfServiceUrl = NSLocalizedStringHelper("https://snap.com/en-US/terms", comment: "This URL should resolve to different 'https://snap.com/**/terms' URLs based on current locale")
-    public static var bitmojiPrivacyPolicyUrl = NSLocalizedStringHelper("https://snap.com/en-US/privacy/privacy-policy", comment: "This URL should resolve to different 'https://snap.com/**/privacy/privacy-policy' URLs based on current locale")
-    public static var bitmojiLearnMoreUrl = NSLocalizedStringHelper("https://help.webex.com/en-US/article/preview/mb8abv/Webex-%7C-Add-Snap-Bitmojis-to-a-Message", comment: "This URL should resolve to different 'https://help.webex.com/**/article/preview/mb8abv/Webex-%7C-Add-Snap-Bitmojis-to-a-Message' URLs based on current locale")
+    public static var bitmojiTermsOfServiceUrl = NSLocalizedStringHelper("https://snap.com/en-US/terms", comment: "en-US in this URL should be updated to match the language locale")
+    public static var bitmojiPrivacyPolicyUrl = NSLocalizedStringHelper("https://snap.com/en-US/privacy/privacy-policy", comment: "en-US in this URL should be updated to match the language locale")
+    public static var bitmojiLearnMoreUrl = NSLocalizedStringHelper("https://help.webex.com/en-US/article/preview/mb8abv/Webex-%7C-Add-Snap-Bitmojis-to-a-Message", comment: "en-US in this URL should be updated to match the language locale")
     public static var bitmojiSharedBitmojiQuote = NSLocalizedStringHelper("Shared a Bitmoji", comment: "Shared a Bitmoji")
     public static var screenCapturePermissionAlertCaption = NSLocalizedStringWithArgsHelper("%@ needs permission to capture your screen", comment: "The app needs permission to capture your screen", args: getAppDisplayName())
     public static var screenCapturePermissionAlertMessage = NSLocalizedStringWithArgsHelper("Grant access to %@ in Security & Privacy preferences, located in the System Preferences.", comment: "Grant access to the app in Security & Privacy preferences, located in the System Preferences.", args: getAppDisplayName())
@@ -1834,7 +1856,7 @@ func getAppDisplayName() -> String {
     public static var addLink = NSLocalizedStringHelper("Link (⌘E)", comment: "Link")
     
     public static var messageTooLongTitle = NSLocalizedStringHelper("Message Too Long", comment:"Message Too Long")
-    public static var messageTooLong = NSLocalizedStringHelper("This messages exceeds the maximum number of characters in a single message.", comment:"Alert text when message exceeds its limit.")
+    public static var messageTooLong = NSLocalizedStringHelper("This message exceeds the maximum number of characters in a single message.", comment:"Alert text when message exceeds its limit.")
     
     public static var oneToOneParticipantRemovedFromCITitle = NSLocalizedStringHelper("There was an error sending your message", comment:"")
     public static var oneToOneParticipantRemovedFromCI = NSLocalizedStringHelper("This person has left this space.", comment:"Alert text when 1-1 message sent to person that has left Org.")
@@ -2012,6 +2034,7 @@ func getAppDisplayName() -> String {
     public static var deviceSelectionErrorMessage = NSLocalizedStringHelper("We're having a problem connecting to %@. Try again later.", comment: "")
     public static var deviceSelectionNoNameErrorMessage = NSLocalizedStringHelper("Sorry, your chosen device cannot be selected right now.", comment: "")
     public static var welcomeToSparkMessage = NSLocalizedStringWithArgsHelper("Welcome to %@.\nIt’s nice to meet you.", comment: "Welcome to the app. It’s nice to meet you.", args: getAppDisplayName())
+    public static var signInOrSignUpText = NSLocalizedStringHelper("Sign in or sign up", comment: "")
     public static var stepAofB = NSLocalizedStringHelper("Step %@ of %@", comment: "Step 2 of 3")
     public static var doThisLater = NSLocalizedStringHelper("I’ll do this later", comment: "I’ll do this later")
     public static var typeAValidEmail = NSLocalizedStringHelper("Type a valid email address", comment: "Type a valid email address")
@@ -2083,7 +2106,7 @@ func getAppDisplayName() -> String {
     
     static var refine = NSLocalizedStringHelper("Refine", comment: "Refine search results")
     static var searchResults = NSLocalizedStringHelper("Search results", comment: "")
-	
+    
     // Pin Screen
     static var incorrectCode = NSLocalizedStringHelper("You’ve entered an incorrect confirmation code", comment: "Pin screen incorrect code error message")
     static var tooManyAttempts = NSLocalizedStringHelper("Too many attempts. You’ll have to wait 5 minutes to try again", comment: "Pin screen too many resend attempts")
@@ -2199,7 +2222,7 @@ func getAppDisplayName() -> String {
     public static var startThreadMenuItem = NSLocalizedStringHelper("Start a thread", comment: "message area context menu item")
     public static var replyToThreadMenuItem = NSLocalizedStringHelper("Reply to thread", comment: "message area context menu item")
     public static var flagMenuItem = NSLocalizedStringHelper("Flag for follow-up", comment: "message area context menu item")
-    public static var unflagMenuItem = NSLocalizedStringHelper("Unflag", comment: "message area context menu item") 
+    public static var unflagMenuItem = NSLocalizedStringHelper("Unflag", comment: "message area context menu item")
     public static var services = NSLocalizedStringHelper("Services", comment: "message area context menu item")
     public static var addReaction = NSLocalizedStringHelper("Add reaction", comment: "highlights message area context menu item")
     public static var reply = NSLocalizedStringHelper("Reply", comment: "Reply")
@@ -2215,8 +2238,8 @@ func getAppDisplayName() -> String {
     public static var screenCaptureWithoutMiniaturizeMenuItem = NSLocalizedStringHelper("Screen Capture Without Miniaturize", comment: "")
     public static var showMessagesMenuItem = NSLocalizedStringHelper("Show Messages", comment: "")
     public static var hideMessagesMenuItem = NSLocalizedStringHelper("Hide Messages", comment: "")
-    public static var openAppExtensionsPanel = NSLocalizedStringHelper("Show Extensions", comment: "")
-    public static var hideAppExtensionsPanel = NSLocalizedStringHelper("Hide Extensions", comment: "")
+    public static var openAppExtensionsPanel = NSLocalizedStringHelper("Show Apps", comment: "")
+    public static var hideAppExtensionsPanel = NSLocalizedStringHelper("Hide Apps", comment: "")
     public static var showSpaceContentMenuItem = NSLocalizedStringHelper("Go to Space Content Tab", comment: "")
     public static var showParticipantsMenuItem = NSLocalizedStringHelper("Show Participants", comment: "")
     public static var showLinksMenuItem = NSLocalizedStringHelper("Show Links", comment: "")
@@ -2254,22 +2277,24 @@ func getAppDisplayName() -> String {
     public static var diagnosticsMenuItem = NSLocalizedStringHelper("Diagnostics", comment: "")
     public static var healthCheckerMenuItem = NSLocalizedStringHelper("Health Checker", comment: "")
     public static var userGuidanceMenuItem = NSLocalizedStringHelper("User Guidance", comment: "")
-    public static var resetCoachmarksMenuItem = NSLocalizedStringHelper("Reset Coachmarks", comment: "")    
+    public static var resetCoachmarksMenuItem = NSLocalizedStringHelper("Reset Coachmarks", comment: "")
     public static var resetDatabase = NSLocalizedStringHelper("Reset", comment: "")
-    public static var showWebexMigrationSoftlanding = NSLocalizedStringWithArgsHelper("Show %@ Migration softlanding", comment: "", args: getAppDisplayName())
-    public static var showJabberMigrationSoftlanding = NSLocalizedStringHelper("Show Jabber Migration softlanding", comment: "")
+    public static var showWebexMigrationSoftLanding = NSLocalizedStringWithArgsHelper("%@ Migration Flow", comment: "", args: getAppDisplayName())
+    public static var showJabberMigrationSoftLanding = NSLocalizedStringHelper("Jabber Migration Flow", comment: "")
     public static var showWhatsNew = NSLocalizedStringHelper("Show What's New", comment: "")
-    public static var showConsumerGuidance = NSLocalizedStringHelper("Show Consumer User Guidance Flows", comment: "")
-    public static var showEnterpriseGuidance = NSLocalizedStringHelper("Show Enterprise User Guidance Flows", comment: "")
-    public static var showPeopleInsightsPrivacyNotification = NSLocalizedStringHelper("Show People Insights Privacy Notification", comment: "")
+    public static var showFreeGuidance = NSLocalizedStringHelper("User Guidance for Free User", comment: "")
+    public static var showEnterpriseGuidance = NSLocalizedStringHelper("User Guidance for Enterprise User", comment: "")
+    public static var showPeopleInsightsPrivacyNotification = NSLocalizedStringHelper("People Insights Privacy Notification", comment: "")
     
     public static var sendCallLogsItem = NSLocalizedStringHelper("Send Call Logs", comment: "")
     public static var enableTraceLevelLogItem = NSLocalizedStringHelper("Enable trace level log", comment: "")
     public static var disableTraceLevelLogItem = NSLocalizedStringHelper("Disable trace level log", comment: "")
+    public static var enableVideoLayoutAnalysis = NSLocalizedStringHelper("Enable video layout analysis", comment: "")
+    public static var disableVideoLayoutAnalysis = NSLocalizedStringHelper("Disable video layout analysis", comment: "")
     public static var enableCrossLaunchMeetingItem = NSLocalizedStringHelper("Enable Cross Launch Meeting", comment: "")
     public static var disableCrossLaunchMeetingItem = NSLocalizedStringHelper("Disable Cross Launch Meeting", comment: "")
-    public static var enableDebugMeetingCenterItem = NSLocalizedStringHelper("Enable Debug Meeting Center", comment: "")
-    public static var disableDebugMeetingCenterMeetingItem = NSLocalizedStringHelper("Disable Debug Meeting Center", comment: "")
+    public static var enableDebugMeetingCenterItem = NSLocalizedStringHelper("Enable Debug Meeting Client", comment: "")
+    public static var disableDebugMeetingCenterMeetingItem = NSLocalizedStringHelper("Disable Debug Meeting Client", comment: "")
     public static var enableExcludeWindowFromShareItem = NSLocalizedStringHelper("Enable Exclude Window From Share", comment: "")
     public static var disableExcludeWindowFromShareItem = NSLocalizedStringHelper("Disable Exclude Window From Share", comment: "")
     public static var sendSpaceFeedbackMenuItem = NSLocalizedStringHelper("Send Space Feedback", comment: "")
@@ -2278,6 +2303,9 @@ func getAppDisplayName() -> String {
     public static var chooseRenderControllerType = NSLocalizedStringHelper("Choose a render type", comment: "")
     public static var useNewMeetingParticipantList = NSLocalizedStringHelper("Use New Meeting Participant List", comment: "")
     public static var useOldMeetingParticipantList = NSLocalizedStringHelper("Use Old Meeting Participant List", comment: "")
+    
+    public static var enableRenderMultiVideosInOneView = NSLocalizedStringHelper("Enable Render Multi Videos In One View", comment: "")
+    public static var disableRenderMultiVideosInOneView = NSLocalizedStringHelper("Disable Render Multi Videos In One View", comment: "")
     
     public static var useUnifiedMeeting = NSLocalizedStringHelper("Use Unified Meeting", comment: "")
     public static var disableUnifiedMeeting = NSLocalizedStringHelper("Disable Unified Meeting", comment: "")
@@ -2309,8 +2337,6 @@ func getAppDisplayName() -> String {
     
     //Help
     public static var floatsOnTop = NSLocalizedStringHelper("Floats on top", comment: "")
-    public static var toggleNativeMessaging = NSLocalizedStringHelper("Toggle New Messaging", comment: "")
-    
     
     // Call Forward
     public static var voicemail = NSLocalizedStringHelper("Voicemail", comment: "")
@@ -2398,23 +2424,6 @@ func getAppDisplayName() -> String {
     static var unableToUploadFiles = NSLocalizedStringHelper("Unable to upload files", comment: "")
     static var tooltipSharedInSpace = NSLocalizedStringHelper("Files shared in this space", comment: "")
     static var tooltipLinkedFolder = NSLocalizedStringHelper("Online folder linked to this space", comment: "")
-
-    // Reactions for menu
-    public static var reactionsTitle = NSLocalizedStringHelper("Reactions", comment: "")
-    public static var reactionThumbsUp = NSLocalizedStringHelper("Like", comment: "")
-    public static var reactionLove = NSLocalizedStringHelper("Love", comment: "")
-    public static var reactionCelebrate = NSLocalizedStringHelper("Celebrate", comment: "")
-    public static var reactionHappy = NSLocalizedStringHelper("Smile", comment: "")
-    public static var reactionConfused = NSLocalizedStringHelper("Wow", comment: "")
-    public static var reactionSad = NSLocalizedStringHelper("Sad", comment: "")
-    public static var reactionHaha = NSLocalizedStringHelper("Haha", comment: "")
-    
-    public static var oneReactionsTooltip = NSLocalizedStringHelper("One %@ reaction", comment: "<reaction>")
-    public static var numReactionsTooltip = NSLocalizedStringHelper("%@ %@ reactions", comment: "<num> <reaction>")
-    public static var reactionsLimitReachedTitle = NSLocalizedStringHelper("Reaction limit reached", comment: "")
-    public static var reactionsLimitReached = NSLocalizedStringHelper("You've added the maximum number of reactions to the message.  We're working on providing you with more chances to react.", comment: "")
-    public static var reactionFailureTitle = NSLocalizedStringHelper("Unable to update reaction", comment: "")
-    public static var reactionFailure = NSLocalizedStringHelper("Your reaction to this message could not be updated.  Try again later.", comment: "")
 
     public static var selfPreviewLabel = NSLocalizedStringHelper("My preview", comment: "")
     public static var phoneNumberLabel = NSLocalizedStringHelper("Phone number", comment: "")
@@ -2648,9 +2657,11 @@ func getAppDisplayName() -> String {
     
     public static var removeImage = NSLocalizedStringHelper("Remove image", comment: "Remove image")
     
-    public static var callSettingsWebViewErrorUnspecified = NSLocalizedStringHelper("Could not reach call settings server.", comment: "Could not reach call settings server.")
+    public static var callSettingsWebviewCallSettingsUnreachable = NSLocalizedStringHelper("Could not reach call settings server.", comment: "Could not reach call settings server.")
+    public static var callSettingsWebviewServerUnreachable = NSLocalizedStringHelper("Could not reach the server.", comment: "Could not reach the server.")
     public static var callSettings = NSLocalizedStringHelper("Call Settings", comment: "Call Settings")
     public static var callQueues = NSLocalizedStringHelper("Call Queues", comment: "Call Queues")
+    public static var userPortal = NSLocalizedStringHelper("User Portal", comment: "User Portal")
     public static var multilineSelectionTitle = NSLocalizedStringHelper("Select a line", comment: "Select a line")
     
     // local video more settings menu
@@ -2661,6 +2672,13 @@ func getAppDisplayName() -> String {
     
     public static var moveInStageMenuLabel = NSLocalizedStringHelper("Move in stage", comment: "Move to stage")
     public static var moveOutStageMenuLabel = NSLocalizedStringHelper("Move out stage", comment: "Move out stage")
+    
+    public static var moveInStageErrorHint = NSLocalizedStringHelper("You can't move more than 8 videos to the stage", comment: "Move in stage error hint")
+    public static var dragStageFTETitle = NSLocalizedStringHelper("Customize your local stage", comment: "drag to stage title")
+    public static var dragStageFTEDescription = NSLocalizedStringHelper("You can switch the layout view to Stack or Side-by-side. Then customize your view by dragging one or more videos to the stage.", comment: "drag to stage description")
+    public static var dragStageFTEButtonTry = NSLocalizedStringHelper("Try it", comment: "Try it")
+    public static var dragStageFTEButtonGot = NSLocalizedStringHelper("Got it", comment: "Try it")
+
 
     public static var showMySelfViewWithOtherVideosMenuLabel = NSLocalizedStringHelper("Show my self view with other videos", comment: "Show My Self View With Other Videos Menu Label")
     public static var showMySelfViewInFloatingWindowMenuLabel = NSLocalizedStringHelper("Show my self view in a floating window", comment: "Show My Self View In Floating Window Menu Label")
@@ -3019,13 +3037,13 @@ func getAppDisplayName() -> String {
     public static var remoteLocusDisabled = (header: NSLocalizedStringHelper("Unable to call %@", comment: "Can't call remote user."), message: NSLocalizedStringHelper("You're trying to call someone who doesn't have Call on Webex enabled. Try sending a message or scheduling a meeting instead.", comment: "You're trying to call someone who doesn't have Call on Webex enabled. Try sending a message or scheduling a meeting instead."))
 
     // Reactions
-    public static var loveWithEmojiiReaction = NSLocalizedStringHelper("Love ❤️", comment: "")
-    public static var wowWithEmojiiReaction = NSLocalizedStringHelper("Wow 😮", comment: "")
-    public static var hahaWithEmojiiReaction = NSLocalizedStringHelper("Haha 😀", comment: "")
-    public static var celebrateWithEmojiiReaction = NSLocalizedStringHelper("Celebrate 🎉", comment: "")
-    public static var sadWithEmojiiReaction = NSLocalizedStringHelper("Sad 😥", comment: "")
-    public static var likeWithEmojiiReaction = NSLocalizedStringHelper("Like 👍", comment: "")
-    public static var smileWithEmojiiReaction = NSLocalizedStringHelper("Smile 🙂", comment: "")
+    public static var loveWithEmojiReaction = NSLocalizedStringHelper("Love ❤️", comment: "")
+    public static var wowWithEmojiReaction = NSLocalizedStringHelper("Wow 😮", comment: "")
+    public static var hahaWithEmojiReaction = NSLocalizedStringHelper("Haha 😀", comment: "")
+    public static var celebrateWithEmojiReaction = NSLocalizedStringHelper("Celebrate 🎉", comment: "")
+    public static var sadWithEmojiReaction = NSLocalizedStringHelper("Sad 😥", comment: "")
+    public static var likeWithEmojiReaction = NSLocalizedStringHelper("Like 👍", comment: "")
+    public static var smileWithEmojiReaction = NSLocalizedStringHelper("Smile 🙂", comment: "")
     
     public static var loveReaction = NSLocalizedStringHelper("Love", comment: "")
     public static var wowReaction = NSLocalizedStringHelper("Wow", comment: "")
@@ -3034,6 +3052,14 @@ func getAppDisplayName() -> String {
     public static var sadReaction = NSLocalizedStringHelper("Sad", comment: "")
     public static var likeReaction = NSLocalizedStringHelper("Like", comment: "")
     public static var smileReaction = NSLocalizedStringHelper("Smile", comment: "")
+    
+    public static var reactionsTitle = NSLocalizedStringHelper("Reactions", comment: "")
+    public static var oneReactionsTooltip = NSLocalizedStringHelper("1 %@ Reaction", comment: "<reaction>")
+    public static var numReactionsTooltip = NSLocalizedStringHelper("%@ %@ Reactions", comment: "<num> <reaction>")
+    public static var reactionsLimitReachedTitle = NSLocalizedStringHelper("Reaction limit reached", comment: "")
+    public static var reactionsLimitReached = NSLocalizedStringHelper("You've added the maximum number of reactions to the message.  We're working on providing you with more chances to react.", comment: "")
+    public static var reactionFailureTitle = NSLocalizedStringHelper("Unable to update reaction", comment: "")
+    public static var reactionFailure = NSLocalizedStringHelper("Your reaction to this message could not be updated.  Try again later.", comment: "")
     
     // WXA & CC
     public static var captions = NSLocalizedStringHelper("Captions", comment: "Captions")
@@ -3109,10 +3135,8 @@ func getAppDisplayName() -> String {
     public static var joinNowTitle = NSLocalizedStringHelper("Join now", comment: "join session now")
     public static var joinLaterTitle = NSLocalizedStringHelper("Join later", comment: "join session later")
     
-    // MARK: Native messaging
-    public static var nativeMessagingIndicatorTooltip = NSLocalizedStringHelper("You are in Beta New Messaging. CMD+Y will toggle you in and out of this mode.", comment: "")
-    public static var nativeMessagingIndicatorTooltipAlt = NSLocalizedStringHelper("You are in Beta New Messaging.", comment: "")
-    public static var nativeMessagingScrollToBottomButtonTooltip = NSLocalizedStringHelper("Click to scroll to the latest messages.", comment: "")
+    // MARK: New messaging
+    public static var messagingScrollToBottomButtonTooltip = NSLocalizedStringHelper("Click to scroll to the latest messages.", comment: "")
     public static var messageEncyptedTooltip = NSLocalizedStringHelper("This message was not encrypted before it was sent", comment: "")
     public static var shareAFile = NSLocalizedStringHelper("Share a file", comment: "")
     public static var sendAGif = NSLocalizedStringHelper("Send a GIF", comment: "")
@@ -3162,38 +3186,13 @@ func getAppDisplayName() -> String {
     public static var deviceType = NSLocalizedStringHelper("Device", comment: "Device")
     public static var other = NSLocalizedStringHelper("Other", comment: "Other")
 
-    // MARK: E911 Red Sky
-    public static var e911RedSkyYourAddress = NSLocalizedStringHelper("Your E911 address", comment: "")
-    public static var e911RedSkyAddressRequired = NSLocalizedStringHelper("Address required", comment: "")
-    public static var e911RedSkyUnableToVerifyAddress = NSLocalizedStringHelper("Unable to verify address", comment: "")
-    public static var e911RedSkyAddAddress = NSLocalizedStringHelper("Add address", comment: "")
-    public static var e911RedSkyEditAddress = NSLocalizedStringHelper("Edit address", comment: "")
-    public static var e911RedSkyAddE911Address = NSLocalizedStringHelper("Add E911 address", comment: "")
-    public static var e911RedSkyEditE911Address = NSLocalizedStringHelper("Edit E911 address", comment: "")
-    public static var e911RedSkyDescription = NSLocalizedStringHelper("This address will appear to the emergency services as your location in the event you make an emergency call.", comment: "")
-
-    public static var e911RedSkyWarningRequired = NSLocalizedStringHelper("Address required for E911 service", comment: "")
-    public static var e911RedSkyWarningUnableToVerify = NSLocalizedStringHelper("Unable to verify your E911 address", comment: "")
-    public static var E911RedSkyWarningDescription = NSLocalizedStringHelper("The E911 service provides your location information to the emergency services in the event you make an emergency call.", comment: "")
-    public static var E911RedSkyWarningInfo = NSLocalizedStringHelper("Choosing not to add your address to the E911 service could result in a delayed emergency service response.", comment: "")
-
-    public static var e911RedSkyHotspot = NSLocalizedStringHelper("I‘m using a personal hotspot right now.", comment: "")
-    public static var e911RedSkyHotspotDescription = NSLocalizedStringHelper("When using a personal hotspot, your location may change. We recommend using a mobile device to make emergency calls in this scenario.", comment: "")
-    public static var e911RedSkyCountryNotSupported = NSLocalizedStringHelper("E911 service is not supported outside the list of countries so an address is not required. Please use the local emergency number in case of an emergency.", comment: "")
-    public static var e911RedSkyAddressDescription = NSLocalizedStringHelper("Address description*", comment: "")
-    public static var e911RedSkyCountry = NSLocalizedStringHelper("Country*", comment: "")
-    public static var e911RedSkyAddress1 = NSLocalizedStringHelper("Address line 1*", comment: "")
-    public static var e911RedSkyAddress2 = NSLocalizedStringHelper("Address line 2", comment: "")
-    public static var e911RedSkyCity = NSLocalizedStringHelper("City*", comment: "")
-    public static var e911RedSkyState = NSLocalizedStringHelper("State*", comment: "")
-    public static var e911RedSkyZip = NSLocalizedStringHelper("Zip code*", comment: "")
+    // MARK: E911 Disclaimer
     public static var e911LoadErrorTitle = NSLocalizedStringHelper("Unable to load E911 notice", comment: "")
     public static var e911LoadErrorMessage = NSLocalizedStringHelper("You must accept the E911 notice to enable phone services. Try again or contact your administrator if the problem persists.", comment: "")
-    public static var e911RedSkyStatusSaving = NSLocalizedStringHelper("Saving...", comment: "")
-    public static var e911RedSkyStatusSaved = NSLocalizedStringHelper("Successfully saved!", comment: "")
-    public static var e911RedSkyStatusTryAgain = NSLocalizedStringHelper("Something went wrong. Try again.", comment: "")
+
+    // MARK: E911 Red Sky
     public static var e911RedSkyE911Settings = NSLocalizedStringHelper("E911 settings", comment: "")
-    
+
     // MARK: E911 CER Location
     public static var e911CERLocationTitle = NSLocalizedStringHelper("E911 service", comment: "")
     public static var e911CERLocationVerifyMessage = NSLocalizedStringHelper("Emergency services will be able to access your location in the event of an emergency call.", comment: "")
@@ -3263,5 +3262,38 @@ func getAppDisplayName() -> String {
     public static var recordingWith1Dot = NSLocalizedString("Recording.", comment: "Recording")
     public static var recordingWith2Dot = NSLocalizedString("Recording..", comment: "Recording")
     public static var recordingWith3Dot = NSLocalizedString("Recording...", comment: "Recording")
+    
+    public static var callBrickletIsImOnlyShare = NSLocalizedString("You are sharing", comment: "")
+    public static var callBrickletIsSecureCall = NSLocalizedString("This call is secure", comment: "")
+    public static var callBrickletIsBoundToDevice = NSLocalizedString("This call is bound to a device", comment: "")
+    
+    // Advanced Accessory Settings
+    public static var advancedCameraSettingsViewTitle = NSLocalizedStringHelper("Advanced camera settings", comment: "")
+    public static var advancedCameraSettingsViewDescription = NSLocalizedStringHelper("Personalize the video settings for your Webex desk camera.", comment: "")
+    public static var advancedCameraSettingsViewButtonTitle = NSLocalizedStringHelper("Advanced Settings", comment: "")
+    public static var advancedAccessorySettingsDeviceInfoCiscoManufactureLabel = NSLocalizedStringHelper("Cisco Systems, Inc.", comment: "")
+    
+    // Buttons and Cards
+    public static var choiceSetCompactAccessibilityRoleDescriptor = NSLocalizedStringHelper("Dropdown Menu", comment: "")
+    public static var inputNumberAccessibilityTitle = NSLocalizedStringHelper("Number Input", comment: "")
+    public static var inputTextFieldAccessibilityTitle = NSLocalizedStringHelper("Text Field", comment: "")
+    public static var choiceSetTickBoxTicked = NSLocalizedStringHelper("Ticked", comment: "Tick Button is ticked")
+    public static var choiceSetTickBoxUnticked = NSLocalizedStringHelper("Unticked", comment: "Tick Box is unticked")
+    public static var datePickerFieldAccessibilityRoleDescription = NSLocalizedStringHelper("Date Picker", comment: "")
+    public static var timePickerFieldAccessibilityRoleDescription = NSLocalizedStringHelper("Time Picker", comment: "")
+    public static var datePickerButtonAccessibilityTitle = NSLocalizedStringHelper("Date Picker Button", comment: "")
+    public static var timePickerButtonAccessibilityTitle = NSLocalizedStringHelper("Time Picker Button", comment: "")
+    public static var clearButtonAccessibilityTitle = NSLocalizedStringHelper("Clear Button", comment: "")
+
+    //Expand collapse first column button
+    public static var expandCollapseFirstColumnButtonTitle_collapsed = NSLocalizedStringHelper("Show labels",  comment: "")
+    public static var expandCollapseFirstColumnButtonTitle_expanded = NSLocalizedStringHelper("Hide labels",  comment: "")
+    public static var expandCollapseFirstColumnButtonDescription = NSLocalizedStringHelper("Expand or collapse navigation menu",  comment: "")
+    
+    // Webex Meeting invite guest
+    public static var inviteGuestHostIsFirstOne = NSLocalizedStringHelper("You’re the first one here",  comment: "")
+    public static var inviteGuestCopyMeetingInfoHint = NSLocalizedStringHelper("Copy and share the link to invite someone or add participants directly.",  comment: "")
+    public static var inviteGuestInvitePeopleButton = NSLocalizedStringHelper("Invite people to meeting",  comment: "")
+    public static var inviteGuestCopyMeetingInfoButton = NSLocalizedStringHelper("Copy meeting information",  comment: "")
 }
     

@@ -30,7 +30,7 @@ extension CHShareSource {
 }
 
 extension CHShareType {
-    var iconType: MomentumRebrandIconType? {
+    var iconType: MomentumIconsRebrandType? {
         switch self {
         case .iosViaCable:
             return .phoneBold
@@ -70,7 +70,7 @@ class ShareSource: NSObject {
     func getImage(width:CGFloat, force: Bool = false, callback: @escaping (NSImage?, String?) -> Void){
         if ProcessInfo.isRunningDevHarnessTests(){
             return callback(nil, id)
-        }        
+        }
         
         if !force, image != nil{
             return callback(image, id)

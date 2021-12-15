@@ -25,6 +25,7 @@ protocol RDCControleeHelperProtocol : AnyObject {
     func registerListener(_ listener: RemoteControleeManagerDelegate & NSObject)
     func unregisterListener(_ listener: RemoteControleeManagerDelegate & NSObject)
     var remoteControlButtonInfo: RemoteControlButtonInfo? { get }
+    func endRemoteControlSession()
 }
 
 struct ButtonInfo {

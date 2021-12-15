@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ImmersiveShareLocalVideoViewController" customModule="Cisco_Spark" customModuleProvider="target">
+            <connections>
+                <outlet property="localShareVideoView" destination="SkV-ZB-lgO" id="aZo-P2-Tae"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="SkV-ZB-lgO" customClass="SparkVideoLayer">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="SkV-ZB-lgO" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="AeX-Tl-Wjb"/>
+                <constraint firstAttribute="trailing" secondItem="SkV-ZB-lgO" secondAttribute="trailing" id="QZ1-ma-Xk3"/>
+                <constraint firstItem="SkV-ZB-lgO" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Sop-4W-oPv"/>
+                <constraint firstAttribute="bottom" secondItem="SkV-ZB-lgO" secondAttribute="bottom" id="YoP-pC-5sm"/>
+            </constraints>
+            <point key="canvasLocation" x="19" y="154"/>
+        </customView>
+    </objects>
+</document>

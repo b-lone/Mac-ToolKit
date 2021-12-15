@@ -16,6 +16,7 @@ FOUNDATION_EXPORT const unsigned char CommonHeadVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <CommonHead/PublicHeader.h>
 
 #import "CHButtonState.h"
+#import "CHDragPosition.h"
 #import "CHLocalShareControlWindowColorMode.h"
 #import "CHMeetingRecordingState.h"
 #import "CHNotificationActionType.h"
@@ -29,3 +30,4 @@ FOUNDATION_EXPORT const unsigned char CommonHeadVersionString[];
 #import "CHShareViewModelProtocol.h"
 #import "CHShortcut.h"
 #import "CHSourceType.h"
+

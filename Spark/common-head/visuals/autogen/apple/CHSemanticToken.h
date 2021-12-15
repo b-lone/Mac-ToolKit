@@ -4,6 +4,11 @@
 */
 
 #import <Foundation/Foundation.h>
+
+#ifdef __cplusplus
+#import "../Tokens.h"
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, CHSemanticToken)
@@ -425,6 +430,10 @@ typedef NS_ENUM(NSUInteger, CHSemanticToken)
     CHSemanticTokenWxMeetingListRowBackground,
     CHSemanticTokenWxDividerLineBackground,
     CHSemanticTokenWxAuthLineEditBackground,
+    CHSemanticTokenWxRecorderComboBoxBorder,
+    CHSemanticTokenWxRecorderTitleBackground,
+    CHSemanticTokenWxRecorderOptionButtonBackground,
+    CHSemanticTokenWxRecorderComboboxBackground,
     CHSemanticTokenWxScrollbarBackground,
     CHSemanticTokenWxScrollbarHandle,
     CHSemanticTokenWxScrollbarBackgroundSecondary,
@@ -655,6 +664,9 @@ typedef NS_ENUM(NSUInteger, CHSemanticToken)
     CHSemanticTokenWxTitilebarRecordinglabelBackground,
     CHSemanticTokenWxTitilebarPausedlabelBackground,
     CHSemanticTokenWxTitilebarLocklabelBackground,
+    CHSemanticTokenWxTitilebarMediaqualitygoodlabelBackground,
+    CHSemanticTokenWxTitilebarMediaqualityunstablelabelBackground,
+    CHSemanticTokenWxTitilebarMediaqualitypoorlabelBackground,
     CHSemanticTokenWxCustomCalendarCellBackground,
     CHSemanticTokenWxCallControlPanelButtonBackground,
     CHSemanticTokenWxCallControlPanelButtonBorder,
@@ -723,6 +735,8 @@ typedef NS_ENUM(NSUInteger, CHSemanticToken)
     CHSemanticTokenWxFooterWarningIcon,
     CHSemanticTokenClosedCaptionsTextSecondary,
     CHSemanticTokenClosedCaptionsTextPrimary,
+    CHSemanticTokenClosedCaptionsSpeakerSecondary,
+    CHSemanticTokenClosedCaptionsSpeakerPrimary,
     CHSemanticTokenClosedCaptionsStaticBackgroundSecondary,
     CHSemanticTokenClosedCaptionsStaticBackgroundPrimary,
     CHSemanticTokenClosedCaptionsBackgroundSecondary,
@@ -859,6 +873,7 @@ typedef NS_ENUM(NSUInteger, CHSemanticToken)
     CHSemanticTokenButtonInvertedBorder,
     CHSemanticTokenBannerWarningBackground,
     CHSemanticTokenBannerWarningText,
+    CHSemanticTokenBannerIssueBackground,
     CHSemanticTokenLabelWarningText,
     CHSemanticTokenWxSharewindowDragger,
     CHSemanticTokenSharewindowControlTextPrimary,
@@ -883,6 +898,15 @@ typedef NS_ENUM(NSUInteger, CHSemanticToken)
     CHSemanticTokenSharewindowViewwindowActive,
     CHSemanticTokenSharewindowViewwindowHovered,
     CHSemanticTokenSharewindowViewwindowSelected,
+    CHSemanticTokenBadgeTabActiveDarkBackgroundLegacy,
+    CHSemanticTokenBadgeTabActiveLightBackgroundLegacy,
+    CHSemanticTokenBadgeTabInactiveDarkBackgroundLegacy,
+    CHSemanticTokenBadgeTabInactiveLightBackgroundLegacy,
+    CHSemanticTokenBadgeTabInactiveTextDarkBackgroundLegacy,
+    CHSemanticTokenBadgeTabInactiveTextLightBackgroundLegacy,
+    CHSemanticTokenBadgeTabActiveTextDarkBackgroundLegacy,
+    CHSemanticTokenBadgeTabActiveTextLightBackgroundLegacy,
+    CHSemanticTokenConnectDialogBackground,
     CHSemanticTokenAvatarPresenceIconActive,
     CHSemanticTokenAvatarPresenceIconMeeting,
     CHSemanticTokenAvatarPresenceIconSchedule,
@@ -920,7 +944,6 @@ typedef NS_ENUM(NSUInteger, CHSemanticToken)
     CHSemanticTokenBannerErrorText,
     CHSemanticTokenBannerErrorBackground,
     CHSemanticTokenBannerIssueText,
-    CHSemanticTokenBannerIssueBackground,
     CHSemanticTokenBannerTransientText,
     CHSemanticTokenBannerTransientBackground,
     CHSemanticTokenButtonPrimaryBackground,
@@ -966,6 +989,9 @@ typedef NS_ENUM(NSUInteger, CHSemanticToken)
     CHSemanticTokenButtonLayoutBackground,
     CHSemanticTokenButtonLayoutText,
     CHSemanticTokenButtonLayoutBorder,
+    CHSemanticTokenButtonOverlayBackground,
+    CHSemanticTokenButtonOverlayText,
+    CHSemanticTokenButtonOverlayBorder,
     CHSemanticTokenButtonGroupSeparatorBackground,
     CHSemanticTokenButtonGhostText,
     CHSemanticTokenCoachmarkteachingBackground,

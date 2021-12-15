@@ -57,6 +57,8 @@ enum CHShareType: NSUInteger;
 - (NSString * _Nullable)generateIMOnlyShareCall:(NSString * _Nonnull)conversationId NS_SWIFT_NAME(generateIMOnlyShareCall(conversationId:));
 - (void)endShareOnlyCall;
 - (void)endShareOnlyCallIfNotStart;
+- (CHShareCallType)getShareCallType;
+- (bool)isImmersiveShare;
 - (CHLocalShareControlBarInfo * _Nullable)getLocalShareControlBarInfo;
 - (void)setScreenList:(NSArray<NSString *>* _Nonnull)screenList NS_SWIFT_NAME(setScreenList(screenList:));
 - (void)setScreenInfoList:(NSArray<CHScreenInfo *>* _Nonnull)screenList NS_SWIFT_NAME(setScreenInfoList(screenList:));

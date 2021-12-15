@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,6 +12,7 @@
                 <outlet property="contentViewWidthConstaint" destination="EWY-cA-YK1" id="NDx-sd-q43"/>
                 <outlet property="controlButtonsContainerView" destination="xvx-il-rXK" id="1H1-KK-wak"/>
                 <outlet property="controlButtonsContainerViewTopConstraint" destination="fvB-TL-2cm" id="MWE-on-ib2"/>
+                <outlet property="cursorView" destination="YK3-7v-dLg" id="23N-7f-vE2"/>
                 <outlet property="expandButton" destination="1yH-vj-qgs" id="RuS-Qm-7AL"/>
                 <outlet property="expandContainerView" destination="e2h-Qu-LtN" id="OmW-wb-Lj0"/>
                 <outlet property="expandContainerViewBottomConstraint" destination="7hx-CC-KVl" id="S1p-Fa-Clb"/>
@@ -64,10 +64,15 @@
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="Q7w-xS-dh1" customClass="MouseTrackView" customModule="Mac_ToolKit" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="408" height="284"/>
                 </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="YK3-7v-dLg" customClass="CursorIconView" customModule="Mac_ToolKit" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="408" height="284"/>
+                </customView>
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="e2h-Qu-LtN" secondAttribute="bottom" id="7hx-CC-KVl"/>
+                <constraint firstAttribute="bottom" secondItem="YK3-7v-dLg" secondAttribute="bottom" id="9vn-Ud-Deg"/>
                 <constraint firstItem="xvx-il-rXK" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="B7g-J9-0Gm"/>
+                <constraint firstItem="YK3-7v-dLg" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ChO-NE-x2T"/>
                 <constraint firstAttribute="width" constant="408" id="EWY-cA-YK1"/>
                 <constraint firstItem="PBm-la-mTH" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Giz-uv-U1B"/>
                 <constraint firstAttribute="height" constant="284" id="K4O-b8-jjc"/>
@@ -78,9 +83,11 @@
                 <constraint firstItem="Q7w-xS-dh1" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ebV-Af-GFB"/>
                 <constraint firstItem="xvx-il-rXK" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="fvB-TL-2cm"/>
                 <constraint firstItem="Q7w-xS-dh1" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="iC3-eN-4hN"/>
+                <constraint firstAttribute="trailing" secondItem="YK3-7v-dLg" secondAttribute="trailing" id="oEE-QQ-bid"/>
                 <constraint firstAttribute="trailing" secondItem="e2h-Qu-LtN" secondAttribute="trailing" id="r2E-hE-L0t"/>
                 <constraint firstAttribute="trailing" secondItem="Q7w-xS-dh1" secondAttribute="trailing" id="r4w-m0-075"/>
                 <constraint firstAttribute="bottom" secondItem="Q7w-xS-dh1" secondAttribute="bottom" id="xcU-da-ZTR"/>
+                <constraint firstItem="YK3-7v-dLg" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="y5d-0N-nWb"/>
             </constraints>
             <point key="canvasLocation" x="14" y="154"/>
         </customView>

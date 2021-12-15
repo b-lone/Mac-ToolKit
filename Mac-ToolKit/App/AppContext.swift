@@ -14,6 +14,7 @@ class AppContext: NSObject {
     let coreFramework = CoreFrameworkProxy()
     let commonHeadFrameworkAdapter = CommonHeadFrameworkAdapter()
     
+    var mainMenuHandlerHelper: MainMenuHandlerHelperProtocol = MainMenuHandlerHelper()
     var globalShortcutHander: GlobalShortcutHanderProtocol = GlobalShortcutHander()
     lazy var globalShortcutHanderHelper: GlobalShortcutHandlerHelperProtocol = GlobalShortcutHandlerHelper(globalShortcutHandler: globalShortcutHander)
     
