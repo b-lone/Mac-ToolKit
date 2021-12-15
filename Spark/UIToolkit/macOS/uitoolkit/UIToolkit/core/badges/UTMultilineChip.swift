@@ -38,21 +38,21 @@ public class UTMultilineChip: UTTextWithBackground {
         var textColorToken: String {
             switch self {
             case .one:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeOne-background" : "multilineChip-one-text"
+                return UTColorTokens.multilineChipOneText.rawValue
             case .two:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeTwo-background" : "multilineChip-two-text"
+                return UTColorTokens.multilineChipTwoText.rawValue
             case .three:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeThree-background" : "multilineChip-three-text"
+                return UTColorTokens.multilineChipThreeText.rawValue
             case .four:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeFour-background" : "multilineChip-four-text"
+                return UTColorTokens.multilineChipFourText.rawValue
             case .five:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeFive-background" : "multilineChip-five-text"
+                return UTColorTokens.multilineChipFiveText.rawValue
             case .six:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeSix-background" : "multilineChip-six-text"
+                return UTColorTokens.multilineChipSixText.rawValue
             case .seven:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeSeven-background" : "multilineChip-seven-text"
+                return UTColorTokens.multilineChipSevenText.rawValue
             case .eight:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeEight-background" : "multilineChip-eight-text"
+                return UTColorTokens.multilineChipEightText.rawValue
                                 
             }
         }
@@ -60,21 +60,21 @@ public class UTMultilineChip: UTTextWithBackground {
         var borderColorToken: String {
             switch self {
             case .one:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeOne-background" : "multilineChip-one-border"
+                return UTColorTokens.multilineChipOneOutline.rawValue
             case .two:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeTwo-background" : "multilineChip-two-border"
+                return UTColorTokens.multilineChipTwoOutline.rawValue
             case .three:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeThree-background" : "multilineChip-three-border"
+                return UTColorTokens.multilineChipThreeOutline.rawValue
             case .four:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeFour-background" : "multilineChip-four-border"
+                return UTColorTokens.multilineChipFourOutline.rawValue
             case .five:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeFive-background" : "multilineChip-five-border"
+                return UTColorTokens.multilineChipFiveOutline.rawValue
             case .six:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeSix-background" : "multilineChip-six-border"
+                return UTColorTokens.multilineChipSixOutline.rawValue
             case .seven:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeSeven-background" : "multilineChip-seven-border"
+                return UTColorTokens.multilineChipSevenOutline.rawValue
             case .eight:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-multilineBadgeEight-background" : "multilineChip-eight-border"
+                return UTColorTokens.multilineChipEightOutline.rawValue
                                 
             }
         }

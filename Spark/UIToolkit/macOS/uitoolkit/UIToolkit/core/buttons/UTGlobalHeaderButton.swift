@@ -20,13 +20,13 @@ public class UTGlobalHeaderButton : UTBaseButton {
         func getBackgroundToken(on: Bool) -> String {
             switch self {
             case .devices:
-                return UIToolkit.shared.isUsingLegacyTokens ? "appHeader-buttonDevice" : UTColorTokens.globalHeaderButtonDeviceBackground.rawValue
+                return UTColorTokens.globalHeaderButtonDeviceBackground.rawValue
             case .status:
-                return UIToolkit.shared.isUsingLegacyTokens ? "appHeader-buttonStatus" : UTColorTokens.globalHeaderButtonStatusBackground.rawValue
+                return UTColorTokens.globalHeaderButtonStatusBackground.rawValue
             case .defaultIcon:
-                return UIToolkit.shared.isUsingLegacyTokens ? "appHeader-buttonPlus" : UTColorTokens.globalHeaderButtonIconBackground.rawValue
+                return UTColorTokens.globalHeaderButtonIconBackground.rawValue
             case .cancelSearch:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-ghCancelSearchButton" : UTColorTokens.buttonSecondaryBackground.rawValue
+                return UTColorTokens.buttonSecondaryBackground.rawValue
             }
         }
                 
@@ -34,22 +34,22 @@ public class UTGlobalHeaderButton : UTBaseButton {
             switch self {
             case .devices:
                 if on {
-                    return UIToolkit.shared.isUsingLegacyTokens ? "appHeader-buttonDevice-text-active" : UTColorTokens.globalHeaderButtonDeviceTextActive.rawValue
+                    return UTColorTokens.globalHeaderButtonDeviceTextActive.rawValue
                 }
-                return UIToolkit.shared.isUsingLegacyTokens ? "appHeader-text" : UTColorTokens.globalHeaderButtonDeviceTextInactive.rawValue
+                return UTColorTokens.globalHeaderButtonDeviceTextInactive.rawValue
             case .status:
-                return UIToolkit.shared.isUsingLegacyTokens ? "appHeader-text" : UTColorTokens.globalHeaderButtonStatusText.rawValue
+                return UTColorTokens.globalHeaderButtonStatusText.rawValue
             case .defaultIcon:
-                return UIToolkit.shared.isUsingLegacyTokens ? "appHeader-buttonPlus-icon" : UTColorTokens.globalHeaderButtonIconIcon.rawValue
+                return UTColorTokens.globalHeaderButtonIconIcon.rawValue
             case .cancelSearch:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-ghCancelSearchButton-text" : UTColorTokens.globalHeaderSearchCancelButtonText.rawValue
+                return UTColorTokens.globalHeaderSearchCancelButtonText.rawValue
             }
         }
         
         func getBorderToken() -> String{
             switch self {
             case .cancelSearch:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.globalHeaderSearchCancelButtonBorder.rawValue
+                return UTColorTokens.globalHeaderSearchCancelButtonBorder.rawValue
             default:
                 return ""
             }

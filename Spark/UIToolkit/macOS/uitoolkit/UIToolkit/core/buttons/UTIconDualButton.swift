@@ -10,8 +10,8 @@ import Cocoa
 
 
 public protocol UTIconDualButtonDelegate : AnyObject{
-    func lhsButtonClicked(sender:UTIconDualButton, button:UTButton)
-    func rhsButtonCLicked(sender:UTIconDualButton, button:UTButton)
+    func leadingButtonClicked(sender:UTIconDualButton, button:UTButton)
+    func trailingButtonClicked(sender:UTIconDualButton, button:UTButton)
 }
 
 internal class UTIconRoundButton: UTRoundButton {
@@ -30,9 +30,9 @@ public class UTIconDualButton: UTHoverableView {
     
     public weak var delegate:UTIconDualButtonDelegate?
     private let borderToken =  UTColorTokens.buttonSecondaryBorder
-    private let lhsButton = UTIconRoundButton()
+    private let leadingIconRoundButton = UTIconRoundButton()
     lazy private var line = UTSeparatorLine(length: 16,direction: .vertical, token: borderToken, lineWidth: 1.0)
-    private let rhsButton = UTIconRoundButton()
+    private let trailingIconRoundButton = UTIconRoundButton()
     
     public enum Size : CGFloat {
         case medium
@@ -56,27 +56,27 @@ public class UTIconDualButton: UTHoverableView {
     }
     public var style: UTButton.Style = .primary {
         didSet {
-            lhsButton.style = style
-            rhsButton.style = style
+            leadingIconRoundButton.style = style
+            trailingIconRoundButton.style = style
         }
     }
     
-    public var rightButton: UTButton? {
-        return rhsButton
+    public var leadingButton: UTButton? {
+        return leadingIconRoundButton
     }
     
-    public var leftButton: UTButton? {
-        return lhsButton
+    public var trailingButton: UTButton? {
+        return trailingIconRoundButton
     }
     
-    public func addLHSDetails(accessibilityLabel:String, icon:MomentumRebrandIconType ) {
-        lhsButton.fontIcon = icon
-        lhsButton.setAccessibilityLabel(accessibilityLabel)
+    public func addLeadingDetails(accessibilityLabel:String, icon:MomentumIconsRebrandType ) {
+        leadingIconRoundButton.fontIcon = icon
+        leadingIconRoundButton.setAccessibilityLabel(accessibilityLabel)
     }
     
-    public func addRHSDetails(accessibilityLabel:String, icon:MomentumRebrandIconType ) {
-        rhsButton.fontIcon = icon
-        rhsButton.setAccessibilityLabel(accessibilityLabel)
+    public func addTrailingDetails(accessibilityLabel:String, icon:MomentumIconsRebrandType ) {
+        trailingIconRoundButton.fontIcon = icon
+        trailingIconRoundButton.setAccessibilityLabel(accessibilityLabel)
     }
     
     override func initialise() {
@@ -86,34 +86,34 @@ public class UTIconDualButton: UTHoverableView {
         self.layer?.cornerRadius = bounds.height/2
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        lhsButton.translatesAutoresizingMaskIntoConstraints = false
-        lhsButton.buttonHeight = .extrasmall
-        self.addSubview(lhsButton)
+        leadingIconRoundButton.translatesAutoresizingMaskIntoConstraints = false
+        leadingIconRoundButton.buttonHeight = .extrasmall
+        self.addSubview(leadingIconRoundButton)
         super.popoverBehavior = .semitransient
         line.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(line)
-        rhsButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(rhsButton)
+        trailingIconRoundButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(trailingIconRoundButton)
         
         layoutButtons()
-        lhsButton.target = self
-        lhsButton.action = #selector(UTIconDualButton.lhsClicked)
+        leadingIconRoundButton.target = self
+        leadingIconRoundButton.action = #selector(UTIconDualButton.leadingButtonClicked)
         
-        rhsButton.target = self
-        rhsButton.action = #selector(UTIconDualButton.rhsClicked)
+        trailingIconRoundButton.target = self
+        trailingIconRoundButton.action = #selector(UTIconDualButton.trailingButtonClicked)
         setThemeColors()
     }
     
     @objc
-    private func lhsClicked() {
+    private func leadingButtonClicked() {
         removeToolTip()
-        delegate?.lhsButtonClicked(sender: self, button: lhsButton)
+        delegate?.leadingButtonClicked(sender: self, button: leadingIconRoundButton)
     }
     
     @objc
-    private func rhsClicked() {
+    private func trailingButtonClicked() {
         removeToolTip()
-        delegate?.rhsButtonCLicked(sender: self, button: rhsButton)
+        delegate?.trailingButtonClicked(sender: self, button: trailingIconRoundButton)
     }
         
     private func layoutButtons() {
@@ -123,17 +123,16 @@ public class UTIconDualButton: UTHoverableView {
         self.centerXAnchor.constraint(equalTo: line.centerXAnchor).isActive = true
         self.centerYAnchor.constraint(equalTo: line.centerYAnchor).isActive = true
         
-        self.line.leadingAnchor.constraint(equalTo: lhsButton.trailingAnchor, constant: buttonLineSpacing).isActive = true
-        self.centerYAnchor.constraint(equalTo: lhsButton.centerYAnchor).isActive = true
+        self.line.leadingAnchor.constraint(equalTo: leadingIconRoundButton.trailingAnchor, constant: buttonLineSpacing).isActive = true
+        self.centerYAnchor.constraint(equalTo: leadingIconRoundButton.centerYAnchor).isActive = true
     
-        self.rhsButton.leadingAnchor.constraint(equalTo: line.trailingAnchor, constant: buttonLineSpacing).isActive = true
-        self.centerYAnchor.constraint(equalTo: rhsButton.centerYAnchor).isActive = true
- 
+        self.trailingIconRoundButton.leadingAnchor.constraint(equalTo: line.trailingAnchor, constant: buttonLineSpacing).isActive = true
+        self.centerYAnchor.constraint(equalTo: trailingIconRoundButton.centerYAnchor).isActive = true
     }
     
     public override func setThemeColors() {
-        lhsButton.setThemeColors()
-        rhsButton.setThemeColors()
+        leadingIconRoundButton.setThemeColors()
+        trailingIconRoundButton.setThemeColors()
         line.setThemeColors()
         self.layer?.borderColor = borderColors.normal.cgColor
     }
@@ -150,8 +149,8 @@ public class UTIconDualButton: UTHoverableView {
 }
 
 public protocol UTIconDualButtonWithTitleDelegate : AnyObject{
-    func lhsButtonClicked(sender:UTIconDualWithTitleButton, button:UTButton)
-    func rhsButtonCLicked(sender:UTIconDualWithTitleButton, button:UTButton)
+    func leadingButtonClicked(sender:UTIconDualWithTitleButton, button:UTButton)
+    func trailingButtonClicked(sender:UTIconDualWithTitleButton, button:UTButton)
     func middleButtonCLicked(sender:UTIconDualWithTitleButton, button:UTButton)
 }
 
@@ -179,11 +178,11 @@ public class UTIconDualWithTitleButton: UTHoverableView {
     
     public weak var delegate:UTIconDualButtonWithTitleDelegate?
     private let borderToken =  UTColorTokens.buttonSecondaryBorder
-    private let lhsButton = UTIconRoundButton()
+    private let leadingIconRoundButton = UTIconRoundButton()
     lazy private var line1 = UTSeparatorLine(length: 16,direction: .vertical, token: borderToken, lineWidth: 1.0)
     private let midButton = UTSquareButton()
     lazy private var line2 = UTSeparatorLine(length: 16,direction: .vertical, token: borderToken, lineWidth: 1.0)
-    private let rhsButton = UTIconRoundButton()
+    private let trailingIconRoundButton = UTIconRoundButton()
 
     public enum Size : CGFloat {
         case medium
@@ -191,9 +190,9 @@ public class UTIconDualWithTitleButton: UTHoverableView {
     }
 
     public enum UTIconDualWithTitleButtonPosition {
-        case lhs
+        case leading
         case middle
-        case rhs
+        case trailing
     }
     
     public var size: Size = .small {
@@ -209,20 +208,20 @@ public class UTIconDualWithTitleButton: UTHoverableView {
     }
     public var style: UTButton.Style = .primary {
         didSet {
-            lhsButton.style = style
-            rhsButton.style = style
+            leadingIconRoundButton.style = style
+            trailingIconRoundButton.style = style
             midButton.style = style
         }
     }
 
-    public func addLHSDetails(accessibilityLabel:String, icon:MomentumRebrandIconType ) {
-        lhsButton.fontIcon = icon
-        lhsButton.setAccessibilityLabel(accessibilityLabel)
+    public func addLeadingDetails(accessibilityLabel:String, icon:MomentumIconsRebrandType ) {
+        leadingIconRoundButton.fontIcon = icon
+        leadingIconRoundButton.setAccessibilityLabel(accessibilityLabel)
     }
 
-    public func addRHSDetails(accessibilityLabel:String, icon:MomentumRebrandIconType ) {
-        rhsButton.fontIcon = icon
-        rhsButton.setAccessibilityLabel(accessibilityLabel)
+    public func addTrailingDetails(accessibilityLabel:String, icon:MomentumIconsRebrandType ) {
+        trailingIconRoundButton.fontIcon = icon
+        trailingIconRoundButton.setAccessibilityLabel(accessibilityLabel)
     }
     
     public func addMiddleDetails(accessibilityLabel:String, title:String) {
@@ -233,25 +232,25 @@ public class UTIconDualWithTitleButton: UTHoverableView {
     
     public func enable(at position: UTIconDualWithTitleButtonPosition, enable: Bool) {
         switch position {
-        case .lhs:
-            lhsButton.isEnabled = enable
-        case .rhs:
-            rhsButton.isEnabled = enable
+        case .leading:
+            leadingIconRoundButton.isEnabled = enable
+        case .trailing:
+            trailingIconRoundButton.isEnabled = enable
         case .middle:
             midButton.isEnabled = enable
         }
     }
     
-    public var rightButton: UTButton? {
-        return rhsButton
-    }
-    
-    public var leftButton: UTButton? {
-        return lhsButton
+    public var leadingButton: UTButton? {
+        return leadingIconRoundButton
     }
     
     public var middleButton: UTButton? {
         return midButton
+    }
+    
+    public var trailingButton: UTButton? {
+        return trailingIconRoundButton
     }
 
     override func initialise() {
@@ -263,24 +262,24 @@ public class UTIconDualWithTitleButton: UTHoverableView {
         self.layer?.cornerRadius = bounds.height/2
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        lhsButton.translatesAutoresizingMaskIntoConstraints = false
+        leadingIconRoundButton.translatesAutoresizingMaskIntoConstraints = false
         line1.translatesAutoresizingMaskIntoConstraints = false
         midButton.translatesAutoresizingMaskIntoConstraints = false
         line2.translatesAutoresizingMaskIntoConstraints = false
-        rhsButton.translatesAutoresizingMaskIntoConstraints = false
+        trailingIconRoundButton.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(lhsButton)
+        self.addSubview(leadingIconRoundButton)
         self.addSubview(line1)
         self.addSubview(midButton)
         self.addSubview(line2)
-        self.addSubview(rhsButton)
+        self.addSubview(trailingIconRoundButton)
         
         layoutButtons()
-        lhsButton.target = self
-        lhsButton.action = #selector(UTIconDualWithTitleButton.lhsClicked)
+        leadingIconRoundButton.target = self
+        leadingIconRoundButton.action = #selector(UTIconDualWithTitleButton.leadingButtonClicked)
         
-        rhsButton.target = self
-        rhsButton.action = #selector(UTIconDualWithTitleButton.rhsClicked)
+        trailingIconRoundButton.target = self
+        trailingIconRoundButton.action = #selector(UTIconDualWithTitleButton.trailingButtonClicked)
         
         midButton.target = self
         midButton.action = #selector(UTIconDualWithTitleButton.middleClicked)
@@ -289,15 +288,15 @@ public class UTIconDualWithTitleButton: UTHoverableView {
     }
 
     @objc
-    private func lhsClicked() {
+    private func leadingButtonClicked() {
         removeToolTip()
-        delegate?.lhsButtonClicked(sender: self, button: lhsButton)
+        delegate?.leadingButtonClicked(sender: self, button: leadingIconRoundButton)
     }
 
     @objc
-    private func rhsClicked() {
+    private func trailingButtonClicked() {
         removeToolTip()
-        delegate?.rhsButtonCLicked(sender: self, button: rhsButton)
+        delegate?.trailingButtonClicked(sender: self, button: trailingIconRoundButton)
     }
     
     @objc
@@ -311,20 +310,20 @@ public class UTIconDualWithTitleButton: UTHoverableView {
 
         self.centerYAnchor.constraint(equalTo: line1.centerYAnchor).isActive = true
         self.centerYAnchor.constraint(equalTo: line2.centerYAnchor).isActive = true
-        self.centerYAnchor.constraint(equalTo: lhsButton.centerYAnchor).isActive = true
-        self.centerYAnchor.constraint(equalTo: rhsButton.centerYAnchor).isActive = true
+        self.centerYAnchor.constraint(equalTo: leadingIconRoundButton.centerYAnchor).isActive = true
+        self.centerYAnchor.constraint(equalTo: trailingIconRoundButton.centerYAnchor).isActive = true
         self.centerYAnchor.constraint(equalTo: midButton.centerYAnchor).isActive = true
         self.centerXAnchor.constraint(equalTo: midButton.centerXAnchor).isActive = true
         
-        self.line1.leadingAnchor.constraint(equalTo: lhsButton.trailingAnchor, constant: buttonLineSpacing).isActive = true
+        self.line1.leadingAnchor.constraint(equalTo: leadingIconRoundButton.trailingAnchor, constant: buttonLineSpacing).isActive = true
         self.midButton.leadingAnchor.constraint(equalTo: line1.trailingAnchor, constant: buttonLineSpacing).isActive = true
         self.line2.leadingAnchor.constraint(equalTo: midButton.trailingAnchor, constant: buttonLineSpacing).isActive = true
-        self.rhsButton.leadingAnchor.constraint(equalTo: line2.trailingAnchor, constant: buttonLineSpacing).isActive = true
+        self.trailingIconRoundButton.leadingAnchor.constraint(equalTo: line2.trailingAnchor, constant: buttonLineSpacing).isActive = true
     }
 
     public override func setThemeColors() {
-        lhsButton.setThemeColors()
-        rhsButton.setThemeColors()
+        leadingIconRoundButton.setThemeColors()
+        trailingIconRoundButton.setThemeColors()
         line1.setThemeColors()
         line2.setThemeColors()
         midButton.setThemeColors()
@@ -340,12 +339,12 @@ public class UTIconDualWithTitleButton: UTHoverableView {
         let middleButtonPadding: CGFloat = 8
         switch size {
         case .medium:
-            let leftRightButtonsWidth: CGFloat = 64
-            let totalWidth = middleBtnWidth + leftRightButtonsWidth + middleButtonPadding
+            let leadingTrailingButtonsWidth: CGFloat = 64
+            let totalWidth = middleBtnWidth + leadingTrailingButtonsWidth + middleButtonPadding
             return NSSize(width: totalWidth, height: 32)
         case .small:
-            let leftRightButtonsWidth: CGFloat = 60
-            let totalWidth = middleBtnWidth + leftRightButtonsWidth + middleButtonPadding
+            let leadingTrailingButtonsWidth: CGFloat = 60
+            let totalWidth = middleBtnWidth + leadingTrailingButtonsWidth + middleButtonPadding
             return NSSize(width: totalWidth, height: 28)
         }
     }
@@ -353,11 +352,11 @@ public class UTIconDualWithTitleButton: UTHoverableView {
 
 #if DEBUG
 extension UTIconDualWithTitleButton {
-    public func getLhsButton() -> UTButton? {
-        return lhsButton
+    public func getLeadingButton() -> UTButton? {
+        return leadingIconRoundButton
     }
-    public func getRhsButton() -> UTButton? {
-        return rhsButton
+    public func getTrailingButton() -> UTButton? {
+        return trailingIconRoundButton
     }
     public func getMiddleButton() -> UTButton? {
         return middleButton

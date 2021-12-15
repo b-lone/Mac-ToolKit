@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071BBFAA2750EDAF00665EA4 /* MomentumUiIconsRebrandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BBFA92750EDAF00665EA4 /* MomentumUiIconsRebrandType.swift */; };
 		07756FBB26951E88000A63C5 /* UIToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = 07756FB926951E88000A63C5 /* UIToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0775702726951F24000A63C5 /* UTTabViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07756FC426951F24000A63C5 /* UTTabViewDelegate.swift */; };
 		0775702826951F24000A63C5 /* UTTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07756FC526951F24000A63C5 /* UTTabItem.swift */; };
@@ -89,7 +90,6 @@
 		0775707826951F24000A63C5 /* UTBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775702326951F24000A63C5 /* UTBadge.swift */; };
 		0775707926951F24000A63C5 /* UTScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775702526951F24000A63C5 /* UTScrollView.swift */; };
 		0775707A26951F24000A63C5 /* UTScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775702626951F24000A63C5 /* UTScroller.swift */; };
-		077573162695CABF000A63C5 /* MomentumRebrandIconType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077573152695CABF000A63C5 /* MomentumRebrandIconType.swift */; };
 		077573E42695EC79000A63C5 /* UIToolkitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077573E32695EC79000A63C5 /* UIToolkitTests.swift */; };
 		077573E62695EC79000A63C5 /* UIToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07756FB626951E88000A63C5 /* UIToolkit.framework */; };
 		077573EF2695ECC3000A63C5 /* UTTabViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077573EE2695ECC3000A63C5 /* UTTabViewTest.swift */; };
@@ -129,8 +129,8 @@
 		07F3661B26F4F3A900AAECC3 /* UTRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3661A26F4F3A900AAECC3 /* UTRadioButton.swift */; };
 		07F367E026FA4D5000AAECC3 /* UTAvatarOverflowBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F367DF26FA4D5000AAECC3 /* UTAvatarOverflowBadge.swift */; };
 		21BD405626CE00570020878E /* UTRoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BD405526CE00570020878E /* UTRoundCornerButton.swift */; };
-		4BE18C882722B2D6002C4236 /* UTSegmentedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE18C872722B2D6002C4236 /* UTSegmentedButton.swift */; };
 		420451C32732E76D00579FE4 /* UTIconDualWithTitleButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420451C22732E76D00579FE4 /* UTIconDualWithTitleButtonTests.swift */; };
+		4BE18C882722B2D6002C4236 /* UTSegmentedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE18C872722B2D6002C4236 /* UTSegmentedButton.swift */; };
 		6C8C922126F8FA9A006852A9 /* istyping.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6C8C922026F8FA9A006852A9 /* istyping.gif */; };
 		750CB52E269F21AE002F8DAF /* TestThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750CB52D269F21AE002F8DAF /* TestThemeManager.swift */; };
 		750CB533269F2359002F8DAF /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750CB531269F2359002F8DAF /* TestViewController.swift */; };
@@ -165,6 +165,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		071BBFA92750EDAF00665EA4 /* MomentumUiIconsRebrandType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MomentumUiIconsRebrandType.swift; path = ../../../common/apple/MomentumUiIconsRebrandType.swift; sourceTree = "<group>"; };
 		07756FB626951E88000A63C5 /* UIToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07756FB926951E88000A63C5 /* UIToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIToolkit.h; sourceTree = "<group>"; };
 		07756FBA26951E88000A63C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -249,7 +250,6 @@
 		0775702326951F24000A63C5 /* UTBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTBadge.swift; sourceTree = "<group>"; };
 		0775702526951F24000A63C5 /* UTScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTScrollView.swift; sourceTree = "<group>"; };
 		0775702626951F24000A63C5 /* UTScroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTScroller.swift; sourceTree = "<group>"; };
-		077573152695CABF000A63C5 /* MomentumRebrandIconType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MomentumRebrandIconType.swift; path = ../../../common/apple/MomentumRebrandIconType.swift; sourceTree = "<group>"; };
 		077573E12695EC79000A63C5 /* UIToolkitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIToolkitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		077573E32695EC79000A63C5 /* UIToolkitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIToolkitTests.swift; sourceTree = "<group>"; };
 		077573E52695EC79000A63C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -290,8 +290,8 @@
 		07F3661A26F4F3A900AAECC3 /* UTRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTRadioButton.swift; sourceTree = "<group>"; };
 		07F367DF26FA4D5000AAECC3 /* UTAvatarOverflowBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UTAvatarOverflowBadge.swift; path = ../../../../UIToolkit/UIToolkit/core/avatar/UTAvatarOverflowBadge.swift; sourceTree = "<group>"; };
 		21BD405526CE00570020878E /* UTRoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTRoundCornerButton.swift; sourceTree = "<group>"; };
-		4BE18C872722B2D6002C4236 /* UTSegmentedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTSegmentedButton.swift; sourceTree = "<group>"; };
 		420451C22732E76D00579FE4 /* UTIconDualWithTitleButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTIconDualWithTitleButtonTests.swift; sourceTree = "<group>"; };
+		4BE18C872722B2D6002C4236 /* UTSegmentedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTSegmentedButton.swift; sourceTree = "<group>"; };
 		6C8C922026F8FA9A006852A9 /* istyping.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = istyping.gif; sourceTree = "<group>"; };
 		750CB52D269F21AE002F8DAF /* TestThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestThemeManager.swift; sourceTree = "<group>"; };
 		750CB531269F2359002F8DAF /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -634,7 +634,7 @@
 		077573142695CAAB000A63C5 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				077573152695CABF000A63C5 /* MomentumRebrandIconType.swift */,
+				071BBFA92750EDAF00665EA4 /* MomentumUiIconsRebrandType.swift */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -818,7 +818,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					07756FB526951E88000A63C5 = {
 						CreatedOnToolsVersion = 12.4;
@@ -927,6 +927,7 @@
 				07F3645026EF65E800AAECC3 /* GlobalHeaderBackgroundView.swift in Sources */,
 				83C68F78271585340068C755 /* UTGradientSeparator.swift in Sources */,
 				0775706326951F24000A63C5 /* NSLayoutConstraint+Extensions.swift in Sources */,
+				071BBFAA2750EDAF00665EA4 /* MomentumUiIconsRebrandType.swift in Sources */,
 				7586823226BC5FD8008B1CFE /* UTRichTooltipView.swift in Sources */,
 				07B406A126D5469700DB9713 /* UTTokenWrappingLabel.swift in Sources */,
 				21BD405626CE00570020878E /* UTRoundCornerButton.swift in Sources */,
@@ -1023,7 +1024,6 @@
 				07BDE9C426FC896700DE5D70 /* UTChip.swift in Sources */,
 				07CE702C26A1D51500B80DFC /* UTTokenLabel.swift in Sources */,
 				0797108026AEEFB70091717F /* UTPasswordTextField.swift in Sources */,
-				077573162695CABF000A63C5 /* MomentumRebrandIconType.swift in Sources */,
 				0775702F26951F24000A63C5 /* UTStandardTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1106,7 +1106,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1164,9 +1164,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1191,7 +1192,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cisco.webex.UIToolkit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1217,7 +1217,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cisco.webex.UIToolkit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1238,7 +1237,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cisco.webex.UIToolkitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1256,7 +1254,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cisco.webex.UIToolkitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

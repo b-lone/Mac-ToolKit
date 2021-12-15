@@ -207,8 +207,6 @@ public class UTTabView: UTView {
 
     public func addTab(tab: UTTabItem,  placement: Placement = .leading) {
         
-    
-        
         let button = buildButton(tab: tab)
         
         var tabitem:NSTabViewItem! = nil
@@ -340,6 +338,10 @@ public class UTTabView: UTView {
         
         button.title = tab.label
         button.toolTip = tab.tooltip
+        
+        if !tab.accessibilityLabel.isEmpty {
+            button.setAccessibilityLabel(tab.accessibilityLabel)
+        }
         
         if tab.enableArrow {
             button.addUIElement(element: .ArrowIcon)

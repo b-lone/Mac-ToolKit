@@ -23,7 +23,7 @@ public class UTHintLabel: UTView {
         }
     }
     
-    var iconType:MomentumRebrandIconType{
+    var iconType:MomentumIconsRebrandType{
         return .warningBold
     }
     

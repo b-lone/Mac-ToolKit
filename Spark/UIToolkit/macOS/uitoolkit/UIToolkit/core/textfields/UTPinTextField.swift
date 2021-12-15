@@ -105,7 +105,7 @@ public class UTPinTextField : NSView, ThemeableProtocol {
     private var errorLabel:UTHintLabel!
     
     private var errorMessageTokenName:String {
-        return UIToolkit.shared.isUsingLegacyTokens ? "inputText-error" : "textinput-error-text"
+        return UTColorTokens.textinputErrorText.rawValue
     }
     
     public init(numberOfItems:Int = 6, errorMessage:String) {

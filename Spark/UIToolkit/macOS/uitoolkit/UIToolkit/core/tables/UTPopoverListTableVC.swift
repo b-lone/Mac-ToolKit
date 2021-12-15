@@ -37,7 +37,7 @@ public class UTListItemHeader : UTListItem {
 //MARK: - UTListItemData
 public class UTListItemData : UTListItem{
     
-    var icon:MomentumRebrandIconType?
+    var icon:MomentumIconsRebrandType?
     var image:NSImage?
     
     var title:String
@@ -47,7 +47,7 @@ public class UTListItemData : UTListItem{
     var iconLabelStyle:UTIconLabelStyle
     var iconColorToken:UTColorTokens?
     
-    public init(icon:MomentumRebrandIconType? = nil, image:NSImage? = nil, title:String, isChecked:Bool = false, isEnabled:Bool = true, tag:Any? = nil, style:UTIconLabelStyle = .primary, tooltip:String = "", iconColorToken:UTColorTokens? = nil){
+    public init(icon:MomentumIconsRebrandType? = nil, image:NSImage? = nil, title:String, isChecked:Bool = false, isEnabled:Bool = true, tag:Any? = nil, style:UTIconLabelStyle = .primary, tooltip:String = "", iconColorToken:UTColorTokens? = nil){
         self.icon      = icon
         self.image     = image
         self.title     = title

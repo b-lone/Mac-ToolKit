@@ -136,6 +136,15 @@ public class UTHoverableView: UTView {
         popover = nil
     }
     
+    public func updateToolTip() {
+        if isHovering {
+            removeToolTip()
+            showToolTip()
+        } else {
+            removeToolTip()
+        }
+    }
+    
     //MARK: - Private functions
     
     private func startHoverTimer() {

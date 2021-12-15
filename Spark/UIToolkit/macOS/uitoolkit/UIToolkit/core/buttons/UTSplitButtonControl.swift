@@ -8,8 +8,8 @@
 import Cocoa
 
 public protocol UTDualButtonDelegate : AnyObject{
-    func lhsButtonClicked(sender:UTDualButton, button:UTButton)
-    func rhsButtonCLicked(sender:UTDualButton, button:UTButton)
+    func leadingButtonClicked(sender:UTDualButton, button:UTButton)
+    func trailingButtonClicked(sender:UTDualButton, button:UTButton)
 }
 
 public class UTDualButton: UTHoverableView {
@@ -17,28 +17,28 @@ public class UTDualButton: UTHoverableView {
     public weak var delegate:UTDualButtonDelegate?
     public var buttonHeight: ButtonHeight = .medium {
         didSet {
-            lhsButton.buttonHeight = buttonHeight
-            rhsButton.buttonHeight = buttonHeight
+            leadingButton.buttonHeight = buttonHeight
+            trailingButton.buttonHeight = buttonHeight
         }
     }
     
     public var style: UTButton.Style = .primary {
         didSet {
-            lhsButton.style = style
-            rhsButton.style = style
+            leadingButton.style = style
+            trailingButton.style = style
         }
     }
     
     public var shouldExcludeTooltipsInShare = false {
         didSet {
-            lhsButton.shouldExcludeTooltipsInShare = shouldExcludeTooltipsInShare
-            rhsButton.shouldExcludeTooltipsInShare = shouldExcludeTooltipsInShare
+            leadingButton.shouldExcludeTooltipsInShare = shouldExcludeTooltipsInShare
+            trailingButton.shouldExcludeTooltipsInShare = shouldExcludeTooltipsInShare
         }
     }
 
     private var containerStackView:NSStackView!
-    private var lhsButton:UTSplitButton!
-    private var rhsButton:UTSplitButton!
+    private var leadingButton:UTSplitButton!
+    private var trailingButton:UTSplitButton!
         
     override func initialise() {
         super.popoverBehavior = .semitransient
@@ -55,80 +55,80 @@ public class UTDualButton: UTHoverableView {
         self.setAsOnlySubviewAndFill(subview: containerStackView)
 
         
-        lhsButton = UTLeftSplitButton()
-        rhsButton = UTRightSplitButton()
-        rhsButton.fontIconSize = 14
+        leadingButton = UTLeadingSplitButton()
+        trailingButton = UTTrailingSplitButton()
+        trailingButton.fontIconSize = 14
         
-        containerStackView.addView(lhsButton, in: .leading)
-        containerStackView.addView(rhsButton, in: .leading)
+        containerStackView.addView(leadingButton, in: .leading)
+        containerStackView.addView(trailingButton, in: .leading)
         
-        lhsButton.target = self
-        lhsButton.action = #selector(UTDualButton.lhsClicked)
+        leadingButton.target = self
+        leadingButton.action = #selector(UTDualButton.leadingButtonClicked)
         
-        rhsButton.target = self
-        rhsButton.action = #selector(UTDualButton.rhsClicked)
+        trailingButton.target = self
+        trailingButton.action = #selector(UTDualButton.trailingButtonClicked)
         
-        rhsButton.style = .secondary
-        lhsButton.style = .secondary
+        trailingButton.style = .secondary
+        leadingButton.style = .secondary
     
     }
     
     @objc
-    private func lhsClicked() {
+    private func leadingButtonClicked() {
         removeToolTip()
-        delegate?.lhsButtonClicked(sender: self, button: lhsButton)
+        delegate?.leadingButtonClicked(sender: self, button: leadingButton)
     }
     
     @objc
-    private func rhsClicked() {
+    private func trailingButtonClicked() {
         removeToolTip()
-        delegate?.rhsButtonCLicked(sender: self, button: rhsButton)
+        delegate?.trailingButtonClicked(sender: self, button: trailingButton)
     }
 
     
-    public func addLHSDetails(label:String,accessibilityLabel:String, iconType:MomentumRebrandIconType? = nil, tooltip: UTTooltipType? = nil) {
+    public func addLeadingDetails(label:String,accessibilityLabel:String, iconType:MomentumIconsRebrandType? = nil, tooltip: UTTooltipType? = nil) {
         if !label.isEmpty {
-            lhsButton.title = label
+            leadingButton.title = label
         }
         if let icon = iconType {
-            lhsButton.fontIcon = icon
-            lhsButton.setAccessibilityLabel(accessibilityLabel)
+            leadingButton.fontIcon = icon
+            leadingButton.setAccessibilityLabel(accessibilityLabel)
         }
         if let tooltip = tooltip {
-            lhsButton.addUTToolTip(toolTip: tooltip)
+            leadingButton.addUTToolTip(toolTip: tooltip)
         }
     }
     
-    public func addRHSDetails(accessibilityLabel:String, iconType:MomentumRebrandIconType? = nil, tooltip: UTTooltipType? = nil) {
+    public func addTrailingDetails(accessibilityLabel:String, iconType:MomentumIconsRebrandType? = nil, tooltip: UTTooltipType? = nil) {
         if let icon = iconType {
-            rhsButton.fontIcon = icon
-            rhsButton.setAccessibilityLabel(accessibilityLabel)
+            trailingButton.fontIcon = icon
+            trailingButton.setAccessibilityLabel(accessibilityLabel)
         }
         if let tooltip = tooltip {
-            rhsButton.addUTToolTip(toolTip: tooltip)
+            trailingButton.addUTToolTip(toolTip: tooltip)
         }
     }
     
-    public func toggleLHSState(_ state: NSControl.StateValue) {
-        lhsButton.state = state
+    public func toggleLeadingState(_ state: NSControl.StateValue) {
+        leadingButton.state = state
         setThemeColors()
     }
     
-    public func toggleRHSState(_ state: NSControl.StateValue) {
-        rhsButton.state = state
+    public func toggleTrailingState(_ state: NSControl.StateValue) {
+        trailingButton.state = state
         setThemeColors()
     }
     
     public override func setThemeColors() {
-        lhsButton.setThemeColors()
-        rhsButton.setThemeColors()
+        leadingButton.setThemeColors()
+        trailingButton.setThemeColors()
         self.needsDisplay = true
     }
     
 
     public override var intrinsicContentSize: NSSize{
-        let height = lhsButton.intrinsicContentSize.height + rhsButton.intrinsicContentSize.height
-        let width = lhsButton.intrinsicContentSize.width + rhsButton.intrinsicContentSize.width
+        let height = leadingButton.intrinsicContentSize.height + trailingButton.intrinsicContentSize.height
+        let width = leadingButton.intrinsicContentSize.width + trailingButton.intrinsicContentSize.width
         return NSSize(width: width, height: height)
     }
 

@@ -13,21 +13,21 @@ public class UTToastView: NSView, ThemeableProtocol {
         case meeting
         case text
         
-        var backgroundTokenName:String {
+        var backgroundTokenName:UTColorTokens {
             switch self {
             case .meeting:
-                return UIToolkit.shared.isUsingLegacyTokens ? "background-primary" : "modal-primary-background"
+                return .modalPrimaryBackground
             case .text:
-                return UIToolkit.shared.isUsingLegacyTokens ? "background-primary" : "modal-secondary-background"
+                return .modalSecondaryBackground
             }
         }
         
-        var borderTokenName:String {
+        var borderTokenName:UTColorTokens {
             switch self {
             case .meeting:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-default-border" : "modal-primary-border"
+                return .modalPrimaryBorder
             case .text:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-default-border" : "modal-secondary-border"
+                return .modalSecondaryBorder
             }
         }
     }
@@ -62,7 +62,7 @@ public class UTToastView: NSView, ThemeableProtocol {
     }
     
     public func setThemeColors() {
-        self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(tokenName: style.backgroundTokenName).normal.cgColor
-        self.layer?.borderColor     = UIToolkit.shared.getThemeManager().getColors(tokenName: style.borderTokenName).normal.cgColor
+        self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(tokenName: style.backgroundTokenName.rawValue).normal.cgColor
+        self.layer?.borderColor     = UIToolkit.shared.getThemeManager().getColors(tokenName: style.borderTokenName.rawValue).normal.cgColor
     }
 }

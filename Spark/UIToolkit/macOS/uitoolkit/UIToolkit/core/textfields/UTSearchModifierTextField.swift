@@ -62,7 +62,7 @@ public protocol UTSearchModifierDelegate : AnyObject {
 public class UTSearchModifierTextField : UTSearchInputTextField {
     
     override var borderColors:UTColorStates {
-        return UIToolkit.shared.getThemeManager().getColors(token: UTColorTokens.globalHeaderTextfieldBorderModifier)
+        return UIToolkit.shared.getThemeManager().getColors(token: .globalHeaderTextfieldBorderModifier)
     }
     
     //MARK: - Public variables
@@ -619,17 +619,17 @@ public class UTSearchModifierTextField : UTSearchInputTextField {
         return modifierAttachment
     }
     
-    override func updateLeftCellPadding(addLeftIconPadding:Bool){
-        guard hasLeftIconPadding != addLeftIconPadding else { return }
+    override func updateLeadingCellPadding(addLeadingIconPadding:Bool){
+        guard hasLeadingIconPadding != addLeadingIconPadding else { return }
         
-        hasLeftIconPadding = addLeftIconPadding
+        hasLeadingIconPadding = addLeadingIconPadding
         if let cell = self.cell as? UTBaseTextFieldCellProtocol {
             
-            if hasLeftIconPadding{
-                cell.updateLeftPadding(value:  UTTextFieldCellGlobalHeaderIconLeftPadding)                
+            if hasLeadingIconPadding{
+                cell.updateLeadingPadding(value:  UTTextFieldCellGlobalHeaderIconLeadingPadding)                
             }
             else{
-                cell.updateLeftPadding(value: UTTextFieldCellDefaultLeftPadding)
+                cell.updateLeadingPadding(value: UTTextFieldCellDefaultLeadingPadding)
             }
         }
     }

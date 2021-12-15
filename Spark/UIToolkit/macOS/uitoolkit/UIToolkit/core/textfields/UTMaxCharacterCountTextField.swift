@@ -11,7 +11,7 @@ public class UTMaxCharacterCountTextField: UTTextField {
 
     @IBInspectable public var maxCharacterCount:Int = 75 {
         didSet {
-            calculateRightPadding()
+            calculateTrailingPadding()
         }
     }
     
@@ -35,13 +35,22 @@ public class UTMaxCharacterCountTextField: UTTextField {
     override func initialise() {
         super.initialise()
         self.wantsClearIcon = allowClearIcon
-        calculateRightPadding()
+        calculateTrailingPadding()
+    }
+    
+    private var characterCountDrawPoint: NSPoint {
+        let attributedString = characterCountAttrString
+        let currentStringSize = attributedString.size()
+        let x = isLayoutDirectionRightToLeft() ? currentStringSize.width + 6 : self.bounds.width - 6
+        let y = (self.bounds.height - currentStringSize.height) / 2
+
+        return NSMakePoint(x - currentStringSize.width, y)
     }
     
     public override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         if !wantsClearIcon {
-            characterCountAttrString.draw(at: drawPoint)
+            characterCountAttrString.draw(at: characterCountDrawPoint)
         }
     }
 
@@ -59,7 +68,7 @@ public class UTMaxCharacterCountTextField: UTTextField {
     }
 
     public override func textDidChange(_ notification: Notification) {
-        updateRightCellPadding()
+        updateTrailingCellPadding()
         if stringValue.count > maxCharacterCount {
             let index = stringValue.index(stringValue.startIndex, offsetBy: maxCharacterCount)
             stringValue = String(stringValue[stringValue.startIndex..<index])
@@ -69,17 +78,17 @@ public class UTMaxCharacterCountTextField: UTTextField {
         }
     }
     
-    private func calculateRightPadding() {
+    private func calculateTrailingPadding() {
         if let cell = self.cell as? UTBaseTextFieldCellProtocol{
             if drawPoint != NSZeroPoint {
                 let xPadding:CGFloat = 12
                 let diff = self.bounds.width - drawPoint.x
-                cell.updateRightPadding(value: diff + xPadding)
+                cell.updateTrailingPadding(value: diff + xPadding)
             }
         }
     }
     
-    override internal func updateRightCellPadding(){
+    override internal func updateTrailingCellPadding(){
         //override to avoid base class functionality
     }
 }

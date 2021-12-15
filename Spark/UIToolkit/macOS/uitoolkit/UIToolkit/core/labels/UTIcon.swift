@@ -21,7 +21,7 @@ public class UTIcon : UTTokenIcon {
         }
     }
     
-    public init(iconType: MomentumRebrandIconType, style:UTIconLabelStyle, size: IconSize = .extraSmall){
+    public init(iconType: MomentumIconsRebrandType, style:UTIconLabelStyle, size: IconSize = .extraSmall){
         self.style = style
         super.init(iconType: iconType, tokenName: style.textToken, size: size)
     }
@@ -34,12 +34,12 @@ public class UTIcon : UTTokenIcon {
         super.init(frame: frameRect)        
     }
     
-    public func configure(iconType: MomentumRebrandIconType, style:UTIconLabelStyle, size: IconSize = .extraSmall) {
+    public func configure(iconType: MomentumIconsRebrandType, style:UTIconLabelStyle, size: IconSize = .extraSmall) {
         self.style = style
         super.configure(iconType: iconType, tokenName: style.textToken, size: size)
     }
     
-    public func configure(iconType: MomentumRebrandIconType, colorToken:UTColorTokens) {
+    public func configure(iconType: MomentumIconsRebrandType, colorToken:UTColorTokens) {
         self.colorToken = colorToken
         super.configure(iconType: iconType, tokenName: colorToken.rawValue, size: size)
     }

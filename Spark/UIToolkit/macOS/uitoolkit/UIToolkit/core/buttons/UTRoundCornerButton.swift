@@ -13,9 +13,10 @@ public class UTRoundedCornerButton: UTPillButton {
         elementSize.minIntrinsicWidth = 28
     }
 
-    public var roundSetting: RoundedCornerStyle = .lhs {
+    public var roundSetting: RoundedCornerStyle = .leading {
         didSet {
             updateLayerMask()
+            needsDisplay = true
         }
     }
     
@@ -29,7 +30,9 @@ public class UTRoundedCornerButton: UTPillButton {
     public override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         //Because of the transparency, the superposition of two border colors will result in a wrong color, so we don't draw the rhs overlapping part of the border
-        let path = NSBezierPath.getBezierPathWithSomeRoundedCorners(roundedCorners: roundSetting, cornerRadius: heightFloat/2, bounds: bounds, circle: roundSetting != .rhs)
+        
+        
+        let path = NSBezierPath.getBezierPathWithSomeRoundedCorners(roundedCorners: roundSetting, cornerRadius: heightFloat/2, bounds: bounds, circle: roundSetting != (isLayoutDirectionRightToLeft() ? rightToLeftRoundedCornerStyle() : .trailing))
         NSColor(cgColor: borderColor.cgColor)?.setStroke()
        
         path.stroke()
@@ -57,6 +60,10 @@ public class UTRoundedCornerButton: UTPillButton {
     open override func drawFocusRingMask() {
         let path = NSBezierPath.getBezierPathWithSomeRoundedCorners(roundedCorners: roundSetting, cornerRadius: heightFloat/2, bounds: bounds)
         path.fill()
+    }
+    
+    private func rightToLeftRoundedCornerStyle() -> RoundedCornerStyle {
+        return self.roundSetting == .leading ? .trailing : .leading
     }
 }
 

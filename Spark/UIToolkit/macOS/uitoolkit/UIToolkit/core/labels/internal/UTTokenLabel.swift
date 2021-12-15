@@ -60,12 +60,18 @@ public class UTTokenLabel: NSTextField, ThemeableProtocol, FontProtocol {
     }
     
     public func setThemeColors() {
-        self.textColor = UIToolkit.shared.getThemeManager().getColors(tokenName: tokenName).normal
+        self.textColor = isEnabled ? UIToolkit.shared.getThemeManager().getColors(tokenName: tokenName).normal : UIToolkit.shared.getThemeManager().getColors(tokenName: tokenName).disabled
     }
     
     public func updateFont() {
         self.font = fontType.font()
         self.invalidateIntrinsicContentSize()
+    }
+    
+    override public var isEnabled: Bool {
+        didSet {
+            setThemeColors()
+        }
     }
     
 }

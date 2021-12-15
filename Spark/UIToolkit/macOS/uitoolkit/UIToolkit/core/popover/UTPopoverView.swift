@@ -18,12 +18,12 @@ class UTPopoverView: NSView, ThemeableProtocol {
         var backgroundTokenName:String {
             switch self {
             case .primary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "background-primary" : "popover-primary-background"
+                return UTColorTokens.popoverPrimaryBackground.rawValue
             case .toolTip:
                 //TODO
-                return UIToolkit.shared.isUsingLegacyTokens ? "background-primary" : "popover-primary-background"
+                return UTColorTokens.popoverPrimaryBackground.rawValue
             case .teaching:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-searchFilter-text" : UTColorTokens.coachmarkteachingBackground.rawValue
+                return UTColorTokens.coachmarkteachingBackground.rawValue
             }
         }
     }

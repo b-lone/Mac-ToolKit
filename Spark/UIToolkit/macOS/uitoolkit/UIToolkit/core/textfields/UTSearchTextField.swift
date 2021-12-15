@@ -69,7 +69,7 @@ public class UTSearchInputTextField : UTTextField{
             NSLayoutConstraint.activate([wConstraint, hConstraint, verticalConstraint, searchLeadingConstraint])
         }
         
-        updateLeftCellPadding(addLeftIconPadding: true)
+        updateLeadingCellPadding(addLeadingIconPadding: true)
     }
     
     public override func resetCursorRects() {
@@ -83,8 +83,8 @@ public class UTSearchInputTextField : UTTextField{
         addCursorRect(NSMakeRect(self.bounds.minX, self.bounds.minY, searchIcon.frame.maxX, self.bounds.height), cursor: .arrow)
                 
         if clearIcon?.isHidden == false {
-            addCursorRect(NSMakeRect(self.bounds.maxX - UTTextFieldCellRightIconPadding, self.bounds.minY, UTTextFieldCellRightIconPadding, self.bounds.height), cursor: .arrow)
-            addCursorRect(NSMakeRect(searchIcon.frame.maxX, self.bounds.minY, self.bounds.width - UTTextFieldCellRightIconPadding - searchIcon.frame.maxX, self.bounds.height), cursor: .iBeam)
+            addCursorRect(NSMakeRect(self.bounds.maxX - UTTextFieldCellTrailingIconPadding, self.bounds.minY, UTTextFieldCellTrailingIconPadding, self.bounds.height), cursor: .arrow)
+            addCursorRect(NSMakeRect(searchIcon.frame.maxX, self.bounds.minY, self.bounds.width - UTTextFieldCellTrailingIconPadding - searchIcon.frame.maxX, self.bounds.height), cursor: .iBeam)
         }
         else{
             addCursorRect(NSMakeRect(searchIcon.frame.maxX, self.bounds.minY, self.bounds.width - searchIcon.frame.maxX, self.bounds.height), cursor: .iBeam)

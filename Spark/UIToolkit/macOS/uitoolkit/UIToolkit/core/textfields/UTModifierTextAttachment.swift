@@ -76,14 +76,14 @@ class ModifierAttachmentCell: NSTextAttachmentCell{
         var backgroundToken: String{
             switch self{
             case .globalHeader:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-searchModifierInputPath-background" : UTColorTokens.globalHeaderModifierChipBackground.rawValue
+                return UTColorTokens.globalHeaderModifierChipBackground.rawValue
             }
         }
         
         var textToken:String{
             switch  self{
             case.globalHeader:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-searchModifierInput-Text" : UTColorTokens.globalHeaderModifierChipText.rawValue
+                return UTColorTokens.globalHeaderModifierChipText.rawValue
             }
         }
     }

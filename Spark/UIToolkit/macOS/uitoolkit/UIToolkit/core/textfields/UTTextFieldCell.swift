@@ -12,9 +12,9 @@ import Cocoa
 extension NSTextFieldCell{
     
     ///Comptues an adjusted drawing rect for the cell. It will align the cell vertically in the textField allowing the
-    ///y axis to be adjusted via the y padding. The left and right padding can be adjusted to leave space for sub views
+    ///y axis to be adjusted via the y padding. The leading and trailing padding can be adjusted to leave space for sub views
     ///like a clear icon to be added to the NSTextField
-    func getShiftedDrawingRect(forBounds theRect: NSRect, leftPadding:CGFloat, rightPadding: CGFloat, yPadding:CGFloat, yCentred: Bool, fixedHeight:CGFloat) -> NSRect{
+    func getShiftedDrawingRect(forBounds theRect: NSRect, leadingPadding:CGFloat, trailingPadding: CGFloat, yPadding:CGFloat, yCentred: Bool, fixedHeight:CGFloat) -> NSRect{
         var newRect = self.drawingRect(forBounds: theRect)
         
         if yCentred {
@@ -30,13 +30,25 @@ extension NSTextFieldCell{
         
         newRect.origin.y += yPadding
         
-        if leftPadding != 0{
-            newRect.origin.x += leftPadding
-            newRect = NSMakeRect(newRect.origin.x, newRect.origin.y, newRect.width - leftPadding, newRect.height)
-        }
-        
-        if rightPadding != 0 {
-            newRect = NSMakeRect(newRect.origin.x, newRect.origin.y, newRect.width - rightPadding, newRect.height)
+        if NSApp.userInterfaceLayoutDirection == .rightToLeft {
+            if leadingPadding != 0 {
+                newRect = NSMakeRect(newRect.origin.x, newRect.origin.y, newRect.width - leadingPadding, newRect.height)
+            }
+
+            if trailingPadding != 0 {
+                newRect.origin.x += trailingPadding
+                newRect = NSMakeRect(newRect.origin.x, newRect.origin.y, newRect.width - trailingPadding, newRect.height)
+            }
+
+        } else {
+            if trailingPadding != 0 {
+                newRect = NSMakeRect(newRect.origin.x, newRect.origin.y, newRect.width - trailingPadding, newRect.height)
+            }
+            
+            if leadingPadding != 0 {
+                newRect.origin.x += leadingPadding
+                newRect = NSMakeRect(newRect.origin.x, newRect.origin.y, newRect.width - leadingPadding, newRect.height)
+            }
         }
         
         return newRect
@@ -68,20 +80,20 @@ extension NSTextFieldCell{
 
 //MARK: - UTBaseTextFieldCellProtocol
 protocol UTBaseTextFieldCellProtocol : AnyObject{
-    func updateRightPadding(value:CGFloat)
-    func updateLeftPadding(value:CGFloat)
+    func updateTrailingPadding(value:CGFloat)
+    func updateLeadingPadding(value:CGFloat)
     func getUpdatedDrawingRect() -> NSRect
     func setYCentred(value:Bool)
     func setFixedHeight(value:CGFloat)
 }
 
-let UTTextFieldCellDefaultLeftPadding:CGFloat = 8
-let UTTextFieldCellLargeIconLeftPadding:CGFloat = 27
-let UTTextFieldCellSmallIconLeftPadding:CGFloat = 16
-let UTTextFieldCellGlobalHeaderIconLeftPadding:CGFloat = 40
+let UTTextFieldCellDefaultLeadingPadding:CGFloat = 8
+let UTTextFieldCellLargeIconLeadingPadding:CGFloat = 27
+let UTTextFieldCellSmallIconLeadingPadding:CGFloat = 16
+let UTTextFieldCellGlobalHeaderIconLeadingPadding:CGFloat = 40
 
-let UTTextFieldCellDefaultRightPadding:CGFloat = 8
-let UTTextFieldCellRightIconPadding:CGFloat = 26
+let UTTextFieldCellDefaultTrailingPadding:CGFloat = 8
+let UTTextFieldCellTrailingIconPadding:CGFloat = 26
 
 //MARK: - UTTextFieldCell
 class UTTextFieldCell : NSTextFieldCell, UTBaseTextFieldCellProtocol{
@@ -90,19 +102,19 @@ class UTTextFieldCell : NSTextFieldCell, UTBaseTextFieldCellProtocol{
     internal var updatedDrawingRect:NSRect = NSZeroRect
     
     //MARK: - variables
-    private var rightPadding:CGFloat = UTTextFieldCellRightIconPadding
-    private var leftPadding:CGFloat = 8
+    private var trailingPadding:CGFloat = UTTextFieldCellTrailingIconPadding
+    private var leadingPadding:CGFloat = 8
     private var yPadding:CGFloat = 0
     private var yCentred:Bool = true
     private var fixedHeight:CGFloat = 0
     
     //MARK: - UTBaseTextFieldCellProtocol implementation
-    func updateRightPadding(value:CGFloat){
-        rightPadding = value
+    func updateTrailingPadding(value:CGFloat) {
+        trailingPadding = value
     }
     
-    func updateLeftPadding(value:CGFloat){
-        leftPadding = value
+    func updateLeadingPadding(value:CGFloat) {
+        leadingPadding = value
     }
     
     func setYCentred(value:Bool){
@@ -138,7 +150,7 @@ class UTTextFieldCell : NSTextFieldCell, UTBaseTextFieldCellProtocol{
     
     //MARK: - Private API
     private func shiftedDrawingRect(forBounds theRect: NSRect) -> NSRect {
-        updatedDrawingRect = getShiftedDrawingRect(forBounds: theRect, leftPadding: leftPadding, rightPadding: rightPadding, yPadding: yPadding, yCentred: yCentred, fixedHeight: fixedHeight)
+        updatedDrawingRect = getShiftedDrawingRect(forBounds: theRect, leadingPadding: leadingPadding, trailingPadding: trailingPadding, yPadding: yPadding, yCentred: yCentred, fixedHeight: fixedHeight)
         return updatedDrawingRect
     }
 }
@@ -147,20 +159,20 @@ class UTTextFieldCell : NSTextFieldCell, UTBaseTextFieldCellProtocol{
 class UTSecureTextFieldCell : NSSecureTextFieldCell, UTBaseTextFieldCellProtocol{
     
     //Mark: - variables
-    private var rightPadding:CGFloat = UTTextFieldCellRightIconPadding
-    private var leftPadding:CGFloat = UTTextFieldCellDefaultLeftPadding
+    private var trailingPadding:CGFloat = UTTextFieldCellTrailingIconPadding
+    private var leadingPadding:CGFloat = UTTextFieldCellDefaultLeadingPadding
     private var yPadding:CGFloat = 0
     private var updatedDrawingRect:NSRect = NSZeroRect
     private var yCentred:Bool = true
     private var fixedHeight:CGFloat = 0
     
     //MARK: - UTBaseTextFieldCellProtocol implementation
-    func updateRightPadding(value:CGFloat){
-        rightPadding = value
+    func updateTrailingPadding(value:CGFloat){
+        trailingPadding = value
     }
     
-    func updateLeftPadding(value:CGFloat){
-        leftPadding = value
+    func updateLeadingPadding(value:CGFloat){
+        leadingPadding = value
     }
     
     func getUpdatedDrawingRect() -> NSRect{
@@ -198,7 +210,7 @@ class UTSecureTextFieldCell : NSSecureTextFieldCell, UTBaseTextFieldCellProtocol
         
     //MARK: - Private API
     private func shiftedDrawingRect(forBounds theRect: NSRect) -> NSRect {
-        updatedDrawingRect = getShiftedDrawingRect(forBounds: theRect, leftPadding: leftPadding, rightPadding: rightPadding, yPadding: yPadding, yCentred: yCentred, fixedHeight: fixedHeight)
+        updatedDrawingRect = getShiftedDrawingRect(forBounds: theRect, leadingPadding: leadingPadding, trailingPadding: trailingPadding, yPadding: yPadding, yCentred: yCentred, fixedHeight: fixedHeight)
         return updatedDrawingRect
     }
 }

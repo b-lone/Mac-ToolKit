@@ -16,7 +16,7 @@ public class UTWebView: WKWebView, ThemeableProtocol {
         var borderToken : String {
             switch self {
             case .eula:
-                return UIToolkit.shared.isUsingLegacyTokens ? "legacy-separator-primary" : UTColorTokens.separatorPrimary.rawValue
+                return UTColorTokens.separatorPrimary.rawValue
             }
         }
         

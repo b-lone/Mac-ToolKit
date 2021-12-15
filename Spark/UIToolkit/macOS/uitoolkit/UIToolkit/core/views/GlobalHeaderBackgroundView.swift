@@ -9,10 +9,7 @@ import Cocoa
 
 public class GlobalHeaderBackgroundView: UTView {
     public override func setThemeColors() {
-        
-        let colorToken = UIToolkit.shared.isUsingLegacyTokens ? "appHeader" : UTColorTokens.globalHeaderContainerBackground.rawValue
-        self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(tokenName: colorToken).normal.cgColor
-        
+        self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(token: UTColorTokens.globalHeaderContainerBackground).normal.cgColor        
         super.setThemeColors()
     }
 }

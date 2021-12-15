@@ -39,8 +39,6 @@
 		2176CDF1268AC3CD00FAA4E0 /* CollectionViewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2176CDEF268AC3CD00FAA4E0 /* CollectionViewWindowController.swift */; };
 		2176CDF2268AC3CD00FAA4E0 /* CollectionViewWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2176CDF0268AC3CD00FAA4E0 /* CollectionViewWindowController.xib */; };
 		217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */; };
-		2184EBBF272BA02F00A38EC0 /* ThemesJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184EBBB272BA02F00A38EC0 /* ThemesJson.swift */; };
-		2184EBC1272BA05000A38EC0 /* ColorsJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184EBC0272BA05000A38EC0 /* ColorsJson.swift */; };
 		2184EBCC272BBE5C00A38EC0 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = 2184EBCB272BBE5C00A38EC0 /* colors.json */; };
 		2184EBDA272BBEA000A38EC0 /* jadeDark.json in Resources */ = {isa = PBXBuildFile; fileRef = 2184EBCE272BBEA000A38EC0 /* jadeDark.json */; };
 		2184EBDB272BBEA000A38EC0 /* gradient.json in Resources */ = {isa = PBXBuildFile; fileRef = 2184EBCF272BBEA000A38EC0 /* gradient.json */; };
@@ -142,7 +140,6 @@
 		21F107B1272A905600E40AD9 /* ShareResumeWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F107AF272A905600E40AD9 /* ShareResumeWindowController.xib */; };
 		21F107B3272A919B00E40AD9 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F107B2272A919B00E40AD9 /* String+Extensions.swift */; };
 		21F107B5272A922C00E40AD9 /* LoadingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F107B4272A922C00E40AD9 /* LoadingImageView.swift */; };
-		21F107B7272A927600E40AD9 /* SemanticThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F107B6272A927600E40AD9 /* SemanticThemeManager.swift */; };
 		21F107BA272A934900E40AD9 /* CSIRotatingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F107B9272A934900E40AD9 /* CSIRotatingImageView.swift */; };
 		21F107BC272A943000E40AD9 /* SparkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F107BB272A943000E40AD9 /* SparkTextField.swift */; };
 		21F107C0272A95CC00E40AD9 /* GlobalShortcutHandlerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F107BF272A95CC00E40AD9 /* GlobalShortcutHandlerHelper.swift */; };
@@ -250,8 +247,6 @@
 		2176CDEF268AC3CD00FAA4E0 /* CollectionViewWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewWindowController.swift; sourceTree = "<group>"; };
 		2176CDF0268AC3CD00FAA4E0 /* CollectionViewWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewWindowController.xib; sourceTree = "<group>"; };
 		217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundSameSideCornerView.swift; sourceTree = "<group>"; };
-		2184EBBB272BA02F00A38EC0 /* ThemesJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemesJson.swift; path = UIToolkit/ThemesJson.swift; sourceTree = SOURCE_ROOT; };
-		2184EBC0272BA05000A38EC0 /* ColorsJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorsJson.swift; path = UIToolkit/ColorsJson.swift; sourceTree = SOURCE_ROOT; };
 		2184EBCB272BBE5C00A38EC0 /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = colors.json; path = "Spark/common-head/visuals/config/colors.json"; sourceTree = SOURCE_ROOT; };
 		2184EBCE272BBEA000A38EC0 /* jadeDark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = jadeDark.json; path = "Spark/common-head/visuals/config/themes/jadeDark.json"; sourceTree = SOURCE_ROOT; };
 		2184EBCF272BBEA000A38EC0 /* gradient.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = gradient.json; path = "Spark/common-head/visuals/config/themes/gradient.json"; sourceTree = SOURCE_ROOT; };
@@ -359,7 +354,6 @@
 		21F107AF272A905600E40AD9 /* ShareResumeWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareResumeWindowController.xib; sourceTree = "<group>"; };
 		21F107B2272A919B00E40AD9 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		21F107B4272A922C00E40AD9 /* LoadingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingImageView.swift; sourceTree = "<group>"; };
-		21F107B6272A927600E40AD9 /* SemanticThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemanticThemeManager.swift; sourceTree = "<group>"; };
 		21F107B8272A92DE00E40AD9 /* CHSemanticToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHSemanticToken.h; sourceTree = "<group>"; };
 		21F107B9272A934900E40AD9 /* CSIRotatingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSIRotatingImageView.swift; sourceTree = "<group>"; };
 		21F107BB272A943000E40AD9 /* SparkTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkTextField.swift; sourceTree = "<group>"; };
@@ -432,6 +426,13 @@
 			path = Log;
 			sourceTree = "<group>";
 		};
+		21546DDC27635026004A9C72 /* Spark */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Spark;
+			sourceTree = "<group>";
+		};
 		215F52E427057E1100F4ADD0 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +467,7 @@
 				215F8AD825B098EA000F4D45 /* Mac-ToolKit */,
 				215F8AD725B098EA000F4D45 /* Products */,
 				215F52E427057E1100F4ADD0 /* Test */,
+				21546DDC27635026004A9C72 /* Spark */,
 				2184EBC2272BA27100A38EC0 /* UIToolkit */,
 				21F107D8272AA0B100E40AD9 /* UIToolkit.xcodeproj */,
 			);
@@ -522,9 +524,6 @@
 			isa = PBXGroup;
 			children = (
 				2184EBCA272BBE4C00A38EC0 /* json */,
-				21F107B6272A927600E40AD9 /* SemanticThemeManager.swift */,
-				2184EBBB272BA02F00A38EC0 /* ThemesJson.swift */,
-				2184EBC0272BA05000A38EC0 /* ColorsJson.swift */,
 			);
 			path = UIToolkit;
 			sourceTree = "<group>";
@@ -1020,7 +1019,6 @@
 				21FBB2D826D766D400717FDC /* NSImage+Extensions.swift in Sources */,
 				21A38412264E179E00F12D78 /* DDHotKeyTextField.m in Sources */,
 				215F52DF2705659800F4ADD0 /* ScreenChangeHelper.swift in Sources */,
-				2184EBC1272BA05000A38EC0 /* ColorsJson.swift in Sources */,
 				21F106DE272A522A00E40AD9 /* ShareManager.swift in Sources */,
 				21A38414264E179E00F12D78 /* GlobalShortcutHander.m in Sources */,
 				21FBB2DC26D76BF500717FDC /* Process+Extensions.swift in Sources */,
@@ -1088,9 +1086,7 @@
 				21F1078D272A842B00E40AD9 /* ShareIosScreenCaptureManager.swift in Sources */,
 				21ABE999269730B70063C07A /* MainViewController.swift in Sources */,
 				21F1077E272A83E900E40AD9 /* MobileDeviceAdapter.mm in Sources */,
-				2184EBBF272BA02F00A38EC0 /* ThemesJson.swift in Sources */,
 				21AD515A269C8FCD006DF32F /* ObjCExceptionCatcher.m in Sources */,
-				21F107B7272A927600E40AD9 /* SemanticThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

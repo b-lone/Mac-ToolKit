@@ -11,7 +11,7 @@ public class UTTokenIcon: UTView, FontProtocol {
     
     @IBInspectable var acceptsFirstMouseClick:Bool = false
 
-    public var iconType:MomentumRebrandIconType = ._invalid
+    public var iconType:MomentumIconsRebrandType = ._invalid
     public var size:IconSize = .small {
         didSet{
             needsDisplay = true
@@ -28,7 +28,7 @@ public class UTTokenIcon: UTView, FontProtocol {
     //      button components to UTButton
     public var tokenName:String = ""
     
-    init(iconType: MomentumRebrandIconType, tokenName:String, size: IconSize = .extraSmall){
+    init(iconType: MomentumIconsRebrandType, tokenName:String, size: IconSize = .extraSmall){
         self.iconType  = iconType
         self.tokenName = tokenName
         self.size      = size
@@ -44,7 +44,7 @@ public class UTTokenIcon: UTView, FontProtocol {
         super.init(coder: coder)
     }
     
-    internal func configure(iconType: MomentumRebrandIconType, tokenName:String, size: IconSize = .extraSmall) {
+    internal func configure(iconType: MomentumIconsRebrandType, tokenName:String, size: IconSize = .extraSmall) {
         self.iconType  = iconType
         self.tokenName = tokenName
         self.size      = size

@@ -51,6 +51,8 @@ public class UTValidationTextFieldWithHint: NSView, ThemeableProtocol {
         textField = UTTextField(frame: NSZeroRect)
         hintLabel = UTHintLabel(frame: NSZeroRect)
         
+        textField.alignment = .natural
+        
         self.addSubview(textField)
         self.addSubview(hintLabel)
         

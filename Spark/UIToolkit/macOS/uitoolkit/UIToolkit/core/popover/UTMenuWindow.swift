@@ -111,11 +111,11 @@ class UTMenuWindowViewController: UTBaseViewController {
     private var contentViewController:NSViewController?
     
     var backgroundTokenName:String {
-        return UIToolkit.shared.isUsingLegacyTokens ? "background-primary" : UTColorTokens.popoverPrimaryBackground.rawValue
+        return UTColorTokens.popoverPrimaryBackground.rawValue
     }
     
     var borderTokenName: String {
-        return UIToolkit.shared.isUsingLegacyTokens ? "background-quaternary" : UTColorTokens.modalPrimaryBorder.rawValue
+        return UTColorTokens.modalPrimaryBorder.rawValue
     }
     
     init(){

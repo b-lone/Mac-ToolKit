@@ -18,7 +18,7 @@ public class UTTokenWrappingLabel: UTView {
     internal var label:UTTokenLabel!
     
     //MARK: - Public variables
-    public var iconType:MomentumRebrandIconType = ._invalid {
+    public var iconType:MomentumIconsRebrandType = ._invalid {
         didSet {
             icon?.iconType = iconType
             needsDisplay = true
@@ -56,7 +56,7 @@ public class UTTokenWrappingLabel: UTView {
         initialise()
     }
     
-    public init(iconType:MomentumRebrandIconType, iconSize:IconSize, label:String, fontType:UTFontType, iconAlignment:IconAlignment = .left){
+    public init(iconType:MomentumIconsRebrandType, iconSize:IconSize, label:String, fontType:UTFontType, iconAlignment:IconAlignment = .left){
         super.init(frame: NSZeroRect)
         configure(iconType: iconType, iconSize: iconSize, label: label, fontType: fontType, iconAlignment: iconAlignment)
     }
@@ -116,7 +116,7 @@ public class UTTokenWrappingLabel: UTView {
     }
     
     //Mark: - Public functions
-    public func configure(iconType:MomentumRebrandIconType, iconSize:IconSize, label:String, fontType:UTFontType, iconAlignment:IconAlignment = .left) {
+    public func configure(iconType:MomentumIconsRebrandType, iconSize:IconSize, label:String, fontType:UTFontType, iconAlignment:IconAlignment = .left) {
         self.iconType      = iconType
         self.iconSize      = iconSize
         self.labelString   = label

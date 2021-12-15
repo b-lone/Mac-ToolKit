@@ -81,23 +81,10 @@ public class UTSpinnerView: NSView, ThemeableProtocol {
     private var cursorLayer:CAShapeLayer?
     
     private var trackColor:CCColor {
-        if UIToolkit.shared.isUsingLegacyTokens {
-            return UIToolkit.shared.getThemeManager().isDarkTheme() ? NSColor.white.withAlphaComponent(0.5) : NSColor.black.withAlphaComponent(0.5)
-        }
-        
         return UIToolkit.shared.getThemeManager().getColors(tokenName: style.trackToken).normal
     }
     
     private var cursorColor:CCColor {
-        if UIToolkit.shared.isUsingLegacyTokens {
-            
-            if style == .progress {
-                return UIToolkit.shared.getThemeManager().getColors(tokenName: "alertText-default").normal
-            }
-            
-            return UIToolkit.shared.getThemeManager().isDarkTheme() ? NSColor.white.withAlphaComponent(0.9) : NSColor.black.withAlphaComponent(0.9)
-        }
-        
         return UIToolkit.shared.getThemeManager().getColors(tokenName: style.cursorToken).normal
     }
     

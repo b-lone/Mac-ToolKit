@@ -17,7 +17,7 @@ public class UTTabItem : NSObject {
     internal var label : String!
     internal var accessibilityLabel: String
     internal var tooltip: String
-    internal var lhsElement: MomentumRebrandIconType!
+    internal var lhsElement: MomentumIconsRebrandType!
     internal var lhsIconColorToken: String?
     internal var enableArrow = false
     internal var image:NSImage!
@@ -32,15 +32,15 @@ public class UTTabItem : NSObject {
         self.init(showUnreadPill:showUnreadPill, lhsIcon: nil, lhsIconColorToken: nil, image:nil, label:label, accessibilityLabel:accessibilityLabel, tooltip: tooltip, enableArrow: enableArrow)
     }
     
-    public convenience init(showUnreadPill: Bool  = false, label:String, lhsIcon: MomentumRebrandIconType, accessibilityLabel:String, enableArrow: Bool = false) {
+    public convenience init(showUnreadPill: Bool  = false, label:String, lhsIcon: MomentumIconsRebrandType, accessibilityLabel:String, enableArrow: Bool = false) {
         self.init(showUnreadPill:showUnreadPill,lhsIcon: lhsIcon, lhsIconColorToken: nil, image:nil, label:label, accessibilityLabel:accessibilityLabel, tooltip: "", enableArrow: enableArrow)
     }
     
-    public convenience init(showUnreadPill: Bool  = false, label:String, lhsIcon: MomentumRebrandIconType, lhsIconColorToken: String? = nil, accessibilityLabel: String, tooltip: String, enableArrow: Bool = false) {
+    public convenience init(showUnreadPill: Bool  = false, label:String, lhsIcon: MomentumIconsRebrandType, lhsIconColorToken: String? = nil, accessibilityLabel: String, tooltip: String, enableArrow: Bool = false) {
         self.init(showUnreadPill:showUnreadPill,lhsIcon: lhsIcon, lhsIconColorToken: lhsIconColorToken, image:nil, label:label, accessibilityLabel:accessibilityLabel, tooltip: tooltip, enableArrow: enableArrow)
     }
     
-    public convenience init(badgeCount: Int , label:String, lhsIcon: MomentumRebrandIconType, accessibilityLabel:String, enableArrow: Bool, vc:NSViewController?) {
+    public convenience init(badgeCount: Int , label:String, lhsIcon: MomentumIconsRebrandType, accessibilityLabel:String, enableArrow: Bool, vc:NSViewController?) {
         self.init(badgeCount:badgeCount, showUnreadPill: false, lhsIcon: lhsIcon, lhsIconColorToken: nil, image:nil, label:label, accessibilityLabel:accessibilityLabel, tooltip: "", enableArrow: enableArrow, vc:vc)
     }
     
@@ -57,7 +57,7 @@ public class UTTabItem : NSObject {
     }
 
        
-    private init(badgeCount:Int = 0, showUnreadPill: Bool, lhsIcon: MomentumRebrandIconType?, lhsIconColorToken: String?, image:NSImage?, label:String!, accessibilityLabel:String, tooltip: String, enableArrow: Bool, vc:NSViewController? = nil) {
+    private init(badgeCount:Int = 0, showUnreadPill: Bool, lhsIcon: MomentumIconsRebrandType?, lhsIconColorToken: String?, image:NSImage?, label:String!, accessibilityLabel:String, tooltip: String, enableArrow: Bool, vc:NSViewController? = nil) {
         self.showUnreadPill = showUnreadPill
         self.badgeCount = badgeCount
         self.label = label

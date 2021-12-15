@@ -15,14 +15,6 @@ public class UIToolkit {
     public var fontManager:UTFontManager = UTFontManager()
     public var localizationManager:UTLocalizationManager = UTLocalizationManager()
     
-    public var isUsingLegacyTokens: Bool = true {
-        didSet {
-            if oldValue != isUsingLegacyTokens {
-                self.themeableProtocolManager.notifyListenersOnThemeUpdated()
-            }
-        }
-    }
-    
     public func registerThemeManager(themeManager: IThemeManagerAdapter) {
         self.themeManager = themeManager
     }

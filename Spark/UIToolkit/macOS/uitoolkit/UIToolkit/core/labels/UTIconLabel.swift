@@ -17,7 +17,7 @@ public class UTIconLabel : UTHoverableView {
         }
     }
     
-    public var iconType:MomentumRebrandIconType = ._invalid {
+    public var iconType:MomentumIconsRebrandType = ._invalid {
         didSet {
             self.invalidateIntrinsicContentSize()
             needsDisplay = true
@@ -50,6 +50,14 @@ public class UTIconLabel : UTHoverableView {
             needsDisplay = true
         }
     }
+    
+    public var wantsIconBackground = false {
+        didSet {
+            needsDisplay = true
+        }
+    }
+    
+    public var iconBackgroundOffset: CGFloat = 2
   
     override public var intrinsicContentSize: NSSize{
         
@@ -91,7 +99,11 @@ public class UTIconLabel : UTHoverableView {
         return UIToolkit.shared.getThemeManager().getColors(tokenName: style.textToken).normal
     }
     
-    public init (iconType:MomentumRebrandIconType, iconSize:IconSize, label:String, fontType:UTFontType, style:UTIconLabelStyle, iconAlignment:IconAlignment, enableHover:Bool){
+    private var backgroundColor: CCColor {
+        return UIToolkit.shared.getThemeManager().getColors(token: .modalSecondaryBackground).normal
+    }
+    
+    public init (iconType:MomentumIconsRebrandType, iconSize:IconSize, label:String, fontType:UTFontType, style:UTIconLabelStyle, iconAlignment:IconAlignment, enableHover:Bool){
         self.style         = style
         self.label         = label
         self.fontType      = fontType
@@ -111,12 +123,14 @@ public class UTIconLabel : UTHoverableView {
         super.init(coder: coder)
     }
     
-    public func configure(iconType:MomentumRebrandIconType, iconSize:IconSize, label:String, fontType:UTFontType, style:UTIconLabelStyle, iconAlignment:IconAlignment, enableHover:Bool) {
+    public func configure(iconType:MomentumIconsRebrandType, iconSize:IconSize, label:String, fontType:UTFontType, style:UTIconLabelStyle, iconAlignment:IconAlignment, enableHover:Bool) {
         self.style         = style
+        self.iconSize      = iconSize
         self.label         = label
         self.fontType      = fontType
         self.iconType      = iconType
         self.iconAlignment = iconAlignment
+        self.enableHover   = enableHover
     }
     
     override public func initialise() {
@@ -129,6 +143,17 @@ public class UTIconLabel : UTHoverableView {
         
         let textAttrString = NSMutableAttributedString(string: label, attributes: attributes)
         let iconAttrString = icon
+        
+        if wantsIconBackground {
+            let iconRect = self.rectForIcon(attrString: textAttrString, icon: iconAttrString)
+            let iconBackRectWidth = min(iconRect.width, iconRect.height)
+            let iconBackRect = NSRect(x: iconRect.minX + iconBackgroundOffset, y: iconRect.minY + iconBackgroundOffset, width: iconBackRectWidth - 2*iconBackgroundOffset, height: iconBackRectWidth - 2*iconBackgroundOffset)
+            NSGraphicsContext.saveGraphicsState()
+            let clipPath = NSBezierPath(roundedRect: iconBackRect, xRadius: iconBackRect.width/2, yRadius: iconBackRect.width/2)
+            backgroundColor.setFill()
+            clipPath.fill()
+            NSGraphicsContext.restoreGraphicsState()
+        }
         
         textAttrString.draw(in: self.rectForAttrString(attrString:textAttrString, icon: iconAttrString))
         iconAttrString.draw(in: self.rectForIcon(attrString: textAttrString, icon: iconAttrString))

@@ -56,7 +56,7 @@ public class UTIndicatorBadge: UTView {
     //MARK: - Private variables
     
     private var backgroundToken:String {
-        return UIToolkit.shared.isUsingLegacyTokens ? "mainList-indicator" : UTColorTokens.badgeNotificationIndicator.rawValue
+        return UTColorTokens.badgeNotificationIndicator.rawValue
     }
     
     private var iconColor:CCColor{
@@ -82,7 +82,7 @@ public class UTIndicatorBadge: UTView {
         return NSAttributedString.getAttributedString(iconType: iconType, iconSize: 12, color: iconColor)
     }
     
-    private var iconType:MomentumRebrandIconType{
+    private var iconType:MomentumIconsRebrandType{
         switch badgeType{
         case .unread,
              .noBadge:
@@ -100,7 +100,7 @@ public class UTIndicatorBadge: UTView {
         case .blocked:
             return .blockedBold
         case .errorAlert:
-            return .priorityCircleFilled
+            return .priorityBadgeFilled
         }
     }
     

@@ -6,40 +6,38 @@
 //
 
 import Cocoa
-internal class UTRightSplitButton : UTSplitButton {
+internal class UTTrailingSplitButton : UTSplitButton {
 
     override func initialise(){
     
         super.initialise()
         elementSize.minIntrinsicWidth = 28
-        roundSetting = .rhs
+        roundSetting = .trailing
 
     }
     
     override var trailingPadding:CGFloat {
-        return 8
-    
+        return isLayoutDirectionRightToLeft() ? 6 : 8
     }
     
     override var leadingPadding:CGFloat {
-        return 6
+        return isLayoutDirectionRightToLeft() ? 8 : 6
     }
 }
 
-internal class UTLeftSplitButton : UTSplitButton {
+internal class UTLeadingSplitButton : UTSplitButton {
     
     override func initialise(){
         super.initialise()
-        roundSetting = .lhs
+        roundSetting = .leading
     }
     
     override var trailingPadding:CGFloat {
-        return 6
-    
+        return isLayoutDirectionRightToLeft() ? 8 : 6
     }
     
     override var leadingPadding:CGFloat {
-        return 8
+        return isLayoutDirectionRightToLeft() ? 6 : 8
     }
 }
 
@@ -61,13 +59,13 @@ internal class UTSplitButton : UTButton {
         return 6
     }
 
-    var roundSetting: RoundedCornerStyle = .rhs {
+    var roundSetting: RoundedCornerStyle = .trailing {
         didSet {
             switch roundSetting {
-            case .lhs:
-                super.roundLHSCorner()
-            case .rhs:
-                super.roundRHSCorner()
+            case .leading:
+                super.roundLeadingCorner()
+            case .trailing:
+                super.roundTrailingCorner()
             case .top:
                 super.roundTopCorner()
             case .bottom:

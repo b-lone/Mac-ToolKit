@@ -38,6 +38,10 @@ public class UTTabButton : UTButton {
         super.rightMouseUp(with: event)
         tabButtonDelegate?.onRightMouseClick(self)
     }
+    
+    public override func accessibilityValue() -> Any? {
+        return state == .on
+    }
 }
 
 

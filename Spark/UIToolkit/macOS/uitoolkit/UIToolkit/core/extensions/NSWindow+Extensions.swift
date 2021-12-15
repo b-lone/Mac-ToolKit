@@ -28,4 +28,20 @@ extension NSWindow {
             NSAnimationContext.endGrouping()
         }
     }
+    
+    func fadeOutWithDuration(_ duration: TimeInterval){
+        if(self.isVisible && self.alphaValue > 0.0){
+            
+            if(self.isVisible){
+                self.alphaValue = 1.0
+            }
+            
+            self.orderFront(self)
+            
+            NSAnimationContext.beginGrouping()
+                NSAnimationContext.current.duration = duration
+                self.animator().alphaValue = 0.0
+            NSAnimationContext.endGrouping()
+        }
+    }
 }

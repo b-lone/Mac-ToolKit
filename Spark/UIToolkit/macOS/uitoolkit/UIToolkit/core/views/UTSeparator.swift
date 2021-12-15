@@ -25,9 +25,9 @@ public class UTSeparatorView: UTView {
         var colorToken: String {
             switch self {
             case .primary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "legacy-separator-primary" : "separator-primary"
+                return UTColorTokens.separatorPrimary.rawValue
             case .secondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "legacy-separator-secondary" : "separator-secondary"
+                return UTColorTokens.separatorSecondary.rawValue
             case .defaultNormal:
                 return UTColorTokens.separatorSecondary.rawValue
             case .defaultFocus:

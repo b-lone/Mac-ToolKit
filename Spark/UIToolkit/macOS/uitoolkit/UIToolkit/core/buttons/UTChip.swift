@@ -17,25 +17,25 @@ public class UTChip: UTBaseButton {
         var backgroundToken:String {
             switch self {
             case .secondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.buttonSecondaryBackground.rawValue
+                return UTColorTokens.buttonSecondaryBackground.rawValue
             case .message:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-primary" : UTColorTokens.buttonMessageFillBackground.rawValue
+                return UTColorTokens.buttonMessageFillBackground.rawValue
             }
         }
         
         var fontToken:String {
             switch self {
             case .secondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-secondary" : UTColorTokens.buttonSecondaryText.rawValue
+                return UTColorTokens.buttonSecondaryText.rawValue
             case .message:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-primary" : UTColorTokens.buttonMessageFillText.rawValue
+                return UTColorTokens.buttonMessageFillText.rawValue
             }
         }
         
         var borderToken:String {
             switch self {
             case .secondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.buttonSecondaryBorder.rawValue
+                return UTColorTokens.buttonSecondaryBorder.rawValue
             case .message:
                 return ""
             }

@@ -12,7 +12,7 @@ internal enum ButtonElement : Hashable {
     case Label(String)
     case UnreadPill
     case Badge(Int)
-    case FontIcon(MomentumRebrandIconType)
+    case FontIcon(MomentumIconsRebrandType)
     case ArrowIcon //while this is also a font, we handle different as state will change its orientation
     case Image(NSImage)
     

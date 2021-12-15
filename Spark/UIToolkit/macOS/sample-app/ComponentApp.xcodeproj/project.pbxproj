@@ -55,14 +55,11 @@
 		0775710F26952125000A63C5 /* SpaceListDemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077570C826952123000A63C5 /* SpaceListDemoVC.swift */; };
 		0775711026952125000A63C5 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077570C926952123000A63C5 /* MainWindow.swift */; };
 		0775711126952125000A63C5 /* TestCallHistoryTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077570CA26952123000A63C5 /* TestCallHistoryTableData.swift */; };
-		0775711226952125000A63C5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 077570CB26952123000A63C5 /* Info.plist */; };
 		0775711326952125000A63C5 /* CallHistoryLandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077570CC26952124000A63C5 /* CallHistoryLandingVC.swift */; };
 		0775711426952125000A63C5 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 077570CD26952124000A63C5 /* MainWindow.xib */; };
 		0775711526952125000A63C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 077570CF26952124000A63C5 /* Localizable.strings */; };
 		0775711626952125000A63C5 /* NSColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077570D126952124000A63C5 /* NSColor+Extensions.swift */; };
 		0775711726952125000A63C5 /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077570D226952124000A63C5 /* TabsViewController.swift */; };
-		0775711826952125000A63C5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 077570D426952124000A63C5 /* MainMenu.xib */; };
-		0775711926952125000A63C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077570D626952124000A63C5 /* AppDelegate.swift */; };
 		0775711A26952125000A63C5 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077570D726952124000A63C5 /* ColorViewController.swift */; };
 		0775711B26952125000A63C5 /* CallHistoryItemSummaryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 077570D826952124000A63C5 /* CallHistoryItemSummaryVC.xib */; };
 		0775711C26952125000A63C5 /* MultiLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077570D926952124000A63C5 /* MultiLineTableViewController.swift */; };
@@ -677,7 +674,6 @@
 				077570F426952125000A63C5 /* CallWindowVC.xib in Resources */,
 				0775712326952125000A63C5 /* MultiLineTableViewController.xib in Resources */,
 				0797105826AB034F0091717F /* momentumBronzeLight.json in Resources */,
-				0775711826952125000A63C5 /* MainMenu.xib in Resources */,
 				0775711426952125000A63C5 /* MainWindow.xib in Resources */,
 				077570EC26952125000A63C5 /* AlertsVC.xib in Resources */,
 				750CB529269ED7C8002F8DAF /* systemHighContrast.json in Resources */,
@@ -693,7 +689,6 @@
 				07B4068126D3A19800DB9713 /* ControlsViewController.xib in Resources */,
 				077570E626952125000A63C5 /* TextFieldsViewController.xib in Resources */,
 				077570E326952125000A63C5 /* ColorViewController.xib in Resources */,
-				0775711226952125000A63C5 /* Info.plist in Resources */,
 				0775710526952125000A63C5 /* SpaceListDemoVC.xib in Resources */,
 				75DF87DF26EBEB44007035ED /* BackgroundTabViewController.xib in Resources */,
 				0797105E26AB034F0091717F /* momentumBronzeDark.json in Resources */,
@@ -732,7 +727,6 @@
 				0775712526952125000A63C5 /* Date+Extensions.swift in Sources */,
 				07B4068026D3A19800DB9713 /* ControlsViewController.swift in Sources */,
 				0775710726952125000A63C5 /* BadgesViewController.swift in Sources */,
-				0775711926952125000A63C5 /* AppDelegate.swift in Sources */,
 				0775711C26952125000A63C5 /* MultiLineTableViewController.swift in Sources */,
 				070C5FB026B05B8C006C3ADA /* TestContactCardVC.swift in Sources */,
 				077570FE26952125000A63C5 /* TestMessageListData.swift in Sources */,
@@ -861,7 +855,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -919,7 +913,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;

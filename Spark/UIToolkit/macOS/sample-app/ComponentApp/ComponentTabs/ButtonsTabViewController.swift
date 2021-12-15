@@ -47,8 +47,10 @@ class ButtonsTabViewController: UTBaseViewController {
     @IBOutlet weak var dualIconWithLabelButton: UTIconDualWithTitleButton!
     @IBOutlet weak var largeDualIconWithLabelButton: UTIconDualWithTitleButton!
     
-    @IBOutlet weak var lhsRoundedCornerButton: UTRoundedCornerButton!
-    @IBOutlet weak var rhsRoundedCornerButton: UTRoundedCornerButton!
+    @IBOutlet weak var leadingRoundedCornerButton: UTRoundedCornerButton!
+    @IBOutlet weak var trailingRoundedCornerButton: UTRoundedCornerButton!
+    
+    @IBOutlet weak var paginationButton: UTSegmentedButton!
         
     @IBOutlet var iconButtonStackView: NSStackView!
     @IBOutlet var favoriteIconButton: UTIconButton!
@@ -110,13 +112,13 @@ class ButtonsTabViewController: UTBaseViewController {
         dualButtonControlMedium.delegate = self
         
         dualIconButton.size = .small
-        dualIconButton.addLHSDetails(accessibilityLabel: "zoom in", icon: .zoomOutBold)
-        dualIconButton.addRHSDetails(accessibilityLabel: "zoom out", icon: .zoomInBold)
+        dualIconButton.addLeadingDetails(accessibilityLabel: "zoom in", icon: .zoomOutBold)
+        dualIconButton.addTrailingDetails(accessibilityLabel: "zoom out", icon: .zoomInBold)
         dualIconButton.toolTip = "UTIconDualButton"
         
         largeIconDualButton.size = .medium
-        largeIconDualButton.addLHSDetails(accessibilityLabel: "zoom in", icon: .zoomOutBold)
-        largeIconDualButton.addRHSDetails(accessibilityLabel: "zoom out", icon: .zoomInBold)
+        largeIconDualButton.addLeadingDetails(accessibilityLabel: "zoom in", icon: .zoomOutBold)
+        largeIconDualButton.addTrailingDetails(accessibilityLabel: "zoom out", icon: .zoomInBold)
         let details = UTRichTooltipDetails(tooltip: attributedString, size: .medium )
         largeIconDualButton.addUTToolTip(toolTip: .rich(details))
         
@@ -135,6 +137,8 @@ class ButtonsTabViewController: UTBaseViewController {
         
         updateRoundedCornerButtonPair()
 
+        updateSegmentedButton()
+        
         guard let image = NSImage(named: "swift") else {
             assert(false, "Image is missing")
             return
@@ -222,8 +226,8 @@ class ButtonsTabViewController: UTBaseViewController {
   
         for (button, size) in dualIconWithLabelButtons {
             button.size = size
-            button.addLHSDetails(accessibilityLabel: "back", icon: .arrowLeftBold)
-            button.addRHSDetails(accessibilityLabel: "forward", icon: .arrowRightBold)
+            button.addLeadingDetails(accessibilityLabel: "back", icon: .arrowLeftBold)
+            button.addTrailingDetails(accessibilityLabel: "forward", icon: .arrowRightBold)
             button.addMiddleDetails(accessibilityLabel: getTitle(), title: getTitle())
             button.toolTip = "UTIconDualWithTitleButton"
         }
@@ -251,26 +255,34 @@ class ButtonsTabViewController: UTBaseViewController {
     
     func updateSplitButtons() {
         dualButtonControlSmall.buttonHeight = .small
-        dualButtonControlSmall.addRHSDetails(accessibilityLabel: "accessibilityLabel", iconType: .arrowDownBold)
-        dualButtonControlSmall.addLHSDetails(label: getTitle(), accessibilityLabel: "label",iconType: .videoBold )
+        dualButtonControlSmall.addTrailingDetails(accessibilityLabel: "accessibilityLabel", iconType: .arrowDownBold)
+        dualButtonControlSmall.addLeadingDetails(label: getTitle(), accessibilityLabel: "label",iconType: .videoBold )
         dualButtonControlSmall.addUTToolTip(toolTip: .rich(UTRichTooltipDetails(tooltip: attributedString, size: .medium))) 
         
         dualButtonControlMedium.buttonHeight = .medium
-        dualButtonControlMedium.addRHSDetails(accessibilityLabel: "accessibilityLabel", iconType: .arrowDownBold)
-        dualButtonControlMedium.addLHSDetails(label: getTitle(), accessibilityLabel: "label",iconType: .videoBold )
+        dualButtonControlMedium.addTrailingDetails(accessibilityLabel: "accessibilityLabel", iconType: .arrowDownBold)
+        dualButtonControlMedium.addLeadingDetails(label: getTitle(), accessibilityLabel: "label",iconType: .videoBold )
         dualButtonControlMedium.toolTip = "UTDualButton"
     }
     
     func updateRoundedCornerButtonPair() {
-        lhsRoundedCornerButton.buttonHeight = .medium
-        lhsRoundedCornerButton.title = "Automatically Optimize"
-        lhsRoundedCornerButton.style = .secondary
-        lhsRoundedCornerButton.roundSetting = .lhs
+        leadingRoundedCornerButton.buttonHeight = .medium
+        leadingRoundedCornerButton.title = "Automatically Optimize"
+        leadingRoundedCornerButton.style = .secondary
+        leadingRoundedCornerButton.roundSetting = .leading
         
-        rhsRoundedCornerButton.fontIcon = .videoBold
-        rhsRoundedCornerButton.buttonHeight = .medium
-        rhsRoundedCornerButton.style = .secondary
-        rhsRoundedCornerButton.roundSetting = .rhs
+        trailingRoundedCornerButton.fontIcon = .videoBold
+        trailingRoundedCornerButton.buttonHeight = .medium
+        trailingRoundedCornerButton.style = .secondary
+        trailingRoundedCornerButton.roundSetting = .trailing
+    }
+    
+    func updateSegmentedButton() {
+        paginationButton.segmentedButtonModels = [
+            SegmentedButtonModel(label: "", accessibilityLabel: "", iconType: .arrowUpBold, tooltip: nil),
+            SegmentedButtonModel(label: "", accessibilityLabel: "", iconType: .arrowDownBold, tooltip: nil)
+        ]
+        paginationButton.orientation = .horizontal
     }
     
     
@@ -312,8 +324,8 @@ class ButtonsTabViewController: UTBaseViewController {
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(tokenName: "background-primary").normal.cgColor
 
-        lhsRoundedCornerButton.setThemeColors()
-        rhsRoundedCornerButton.setThemeColors()
+        leadingRoundedCornerButton.setThemeColors()
+        trailingRoundedCornerButton.setThemeColors()
         
         iconButtonStackView.setThemeableViewColors()
         globalHeaderStackView.setThemeableViewColors()
@@ -324,11 +336,11 @@ class ButtonsTabViewController: UTBaseViewController {
 }
 
 extension ButtonsTabViewController : UTDualButtonDelegate {
-    func lhsButtonClicked(sender: UTDualButton, button: UTButton) {
-        print("lhsButtonClicked")
+    func leadingButtonClicked(sender: UTDualButton, button: UTButton) {
+        print("leadingButtonClicked")
     }
     
-    func rhsButtonCLicked(sender: UTDualButton, button: UTButton) {
-        print("rhsButtonCLicked")
+    func trailingButtonClicked(sender: UTDualButton, button: UTButton) {
+        print("trailingButtonClicked")
     }
 }

@@ -9,7 +9,7 @@ import Cocoa
 
 extension NSAttributedString {
 
-    internal static func getAttributedString(iconType: MomentumRebrandIconType, iconSize:CGFloat, color:CCColor) -> NSAttributedString{
+    internal static func getAttributedString(iconType: MomentumIconsRebrandType, iconSize:CGFloat, color:CCColor) -> NSAttributedString{
         guard let fontelloFont = NSFont.getIconFont(size: iconSize) else { return NSAttributedString() }
 
         let attributes = [NSAttributedString.Key.foregroundColor : color,
@@ -18,7 +18,7 @@ extension NSAttributedString {
         return NSAttributedString(string: iconType.ligature, attributes: attributes)
     }
     
-    internal static func getAttributedString(iconType: MomentumRebrandIconType, iconSize:CGFloat) -> NSAttributedString{
+    internal static func getAttributedString(iconType: MomentumIconsRebrandType, iconSize:CGFloat) -> NSAttributedString{
         guard let fontelloFont = NSFont.getIconFont(size: iconSize) else { return NSAttributedString() }
 
         let attributes = [NSAttributedString.Key.font : fontelloFont] as [NSAttributedString.Key : Any]

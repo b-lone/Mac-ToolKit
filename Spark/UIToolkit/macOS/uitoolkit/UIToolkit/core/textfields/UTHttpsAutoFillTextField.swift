@@ -35,7 +35,7 @@ public class UTHttpsAutoFillTextField: UTTextField {
         return NSAttributedString(string: customPlaceholderString, attributes: textFontAttributes)
     }
     
-    private var leftString: NSAttributedString {
+    private var leadingString: NSAttributedString {
         if isFocused || !self.stringValue.isEmpty {
             return httpsAttrString
         }
@@ -45,17 +45,18 @@ public class UTHttpsAutoFillTextField: UTTextField {
     
     override func initialise(){
         super.initialise()
-        setLeftPadding()
+        setLeadingPadding()
     }
     
     public override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         
-        let currentStringSize = leftString.size()
+        let currentStringSize = leadingString.size()
         let y = (self.bounds.height - currentStringSize.height) / 2
-        
-        let drawPoint = NSMakePoint(xPadding, y)
-        leftString.draw(at: drawPoint)
+        let x = isLayoutDirectionRightToLeft() ? calculateLeadingPadding(currentStringSize) : xPadding
+
+        let drawPoint = NSMakePoint(x, y)
+        leadingString.draw(at: drawPoint)
     }
     
     override func onPasteAction(_ sender: Any?) -> Bool {
@@ -109,10 +110,14 @@ public class UTHttpsAutoFillTextField: UTTextField {
         return fullUrl
     }
     
-    private func setLeftPadding(){
+    private func setLeadingPadding(){
         if let c = self.cell as? UTBaseTextFieldCellProtocol {
             let paddingAfterHttps:CGFloat = xPadding + 2
-            c.updateLeftPadding(value: httpsAttrString.size().width + paddingAfterHttps)
+            c.updateLeadingPadding(value: httpsAttrString.size().width + paddingAfterHttps)
         }
+    }
+    
+    private func calculateLeadingPadding(_ currentStringSize: NSSize) -> CGFloat {
+        return self.bounds.width - currentStringSize.width - xPadding
     }
 }

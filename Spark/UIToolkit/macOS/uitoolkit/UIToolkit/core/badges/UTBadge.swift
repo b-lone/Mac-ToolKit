@@ -16,11 +16,11 @@ public class UTBadge: UTTextWithBackground {
     public var isLegacyCoBrandingEnabled: Bool = false
     
     internal var backgroundColorToken:String {
-        return UIToolkit.shared.isUsingLegacyTokens || isLegacyCoBrandingEnabled ? "appNav-badge" : UTColorTokens.badgeBackground.rawValue
+        return isLegacyCoBrandingEnabled ? "appNav-badge" : UTColorTokens.badgeBackground.rawValue
     }
     
     internal var fontColorToken:String {
-        return UIToolkit.shared.isUsingLegacyTokens || isLegacyCoBrandingEnabled ? "appNav-badge-text" : UTColorTokens.badgeText.rawValue
+        return isLegacyCoBrandingEnabled ? "appNav-badge-text" : UTColorTokens.badgeText.rawValue
     }
     
     ///Maximum number the badge can show. If the count is larger than this number max number is shown

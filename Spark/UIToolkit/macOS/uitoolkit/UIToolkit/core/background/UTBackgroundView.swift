@@ -63,55 +63,54 @@ public class UTBackgroundView : UTView {
         case .gradientSecondary:
             setupGradient()
         case .solidPrimary:
-            let token = UIToolkit.shared.isUsingLegacyTokens ? "background-primary" : UTColorTokens.panelPrimaryBackground.rawValue
-            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(tokenName: token).normal.cgColor
+            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(token: .panelPrimaryBackground).normal.cgColor
         case .solidSecondary:
-            let token = UIToolkit.shared.isUsingLegacyTokens ? "background-primary" : UTColorTokens.panelSecondaryBackground.rawValue
-            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(tokenName: token).normal.cgColor
+            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(token: .panelSecondaryBackground).normal.cgColor
         case .solidTertiary:
-            let token = UIToolkit.shared.isUsingLegacyTokens ? "background-primary" : UTColorTokens.panelTertiaryBackground.rawValue
-            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(tokenName: token).normal.cgColor
+            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(token: .panelTertiaryBackground).normal.cgColor
         case .fadePrimary:
-            let token = UIToolkit.shared.isUsingLegacyTokens ? "wx-overlay-userGuidance" : UTColorTokens.overlayFadePrimaryBackground.rawValue
-            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(tokenName: token).normal.cgColor
+            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(token: .overlayFadePrimaryBackground).normal.cgColor
         case .fadeSecondary:
             self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(token: UTColorTokens.overlayFadeSecondaryBackground).normal.cgColor
         case .modalPrimary:
             setBorder()
-            let bgTokenName =  UIToolkit.shared.isUsingLegacyTokens ? "modal-primary-background" : UTColorTokens.modalPrimaryBackground.rawValue
-            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(tokenName: bgTokenName).normal.cgColor
-            let borderTokenName =  UIToolkit.shared.isUsingLegacyTokens ? "modal-primary-border" : UTColorTokens.modalPrimaryBorder.rawValue
-            self.layer?.borderColor = UIToolkit.shared.getThemeManager().getColors(tokenName: borderTokenName).normal.cgColor
+            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(token: .modalPrimaryBackground).normal.cgColor
+            self.layer?.borderColor = UIToolkit.shared.getThemeManager().getColors(token: .modalPrimaryBorder).normal.cgColor
         case .modalSecondary:
             setBorder()
-            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(token: UTColorTokens.modalSecondaryBackground).normal.cgColor
-            self.layer?.borderColor = UIToolkit.shared.getThemeManager().getColors(token: UTColorTokens.modalSecondaryBorder).normal.cgColor
+            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(token: .modalSecondaryBackground).normal.cgColor
+            self.layer?.borderColor = UIToolkit.shared.getThemeManager().getColors(token: .modalSecondaryBorder).normal.cgColor
         case .modalTertiary:
             setBorder()
-            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(token: UTColorTokens.modalTertiaryBackground).normal.cgColor
-            self.layer?.borderColor = UIToolkit.shared.getThemeManager().getColors(token: UTColorTokens.modalTertiaryBorder).normal.cgColor
+            self.layer?.backgroundColor = UIToolkit.shared.getThemeManager().getColors(token: .modalTertiaryBackground).normal.cgColor
+            self.layer?.borderColor = UIToolkit.shared.getThemeManager().getColors(token: .modalTertiaryBorder).normal.cgColor
         }
 
         self.needsDisplay = true
     }
     
     func setupGradient() {
-        
-        if !UIToolkit.shared.isUsingLegacyTokens  {
-    
-            let colors:(UTColorTokens,UTColorTokens) = style == .gradientPrimary ? (.themeGradientPrimary0Background, .themeGradientPrimary1Background) : (.themeGradientSecondary0Background, .themeGradientSecondary1Background)
-            let startGradient = UIToolkit.shared.getThemeManager().getColors(token: colors.0).normal.cgColor
-            let endGradient = UIToolkit.shared.getThemeManager().getColors(token: colors.1).normal.cgColor
+        let colors:(UTColorTokens,UTColorTokens) = style == .gradientPrimary ? (.themeGradientPrimary0Background, .themeGradientPrimary1Background) : (.themeGradientSecondary0Background, .themeGradientSecondary1Background)
+        let startGradient = UIToolkit.shared.getThemeManager().getColors(token: colors.0).normal.cgColor
+        let endGradient = UIToolkit.shared.getThemeManager().getColors(token: colors.1).normal.cgColor
 
-            gradient = CAGradientLayer()
-            gradient.frame = self.bounds
-            gradient.type = .axial
-                gradient.colors = [
-                    endGradient,
-                    startGradient]
-            gradient.locations = [0, 1]
-            self.layer?.addSublayer(gradient)
+        gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.type = .axial
+            gradient.colors = [
+                endGradient,
+                startGradient]
+        gradient.locations = [0, 1]
+        self.layer?.addSublayer(gradient)
+    }
+    
+    public func getColors() -> [CGColor] {
+        if self.layer?.sublayers?.contains(gradient) == true, let colors = gradient.colors as? [CGColor] {
+            return colors
+        } else if let backgroundColor = layer?.backgroundColor {
+            return [backgroundColor]
         }
+        return []
     }
     
     override public func layout() {

@@ -23,36 +23,36 @@ public class UTTextField: NSTextField, ThemeableProtocol {
         var backgroundToken: String {
             switch self{
             case .textInput:
-                return UIToolkit.shared.isUsingLegacyTokens ? "inputBackground" :  UTColorTokens.textinputBackground.rawValue
+                return UTColorTokens.textinputBackground.rawValue
             case .globalSearch:
-                return UIToolkit.shared.isUsingLegacyTokens ? "appHeader-searchBar" : UTColorTokens.globalHeaderTextfieldBackground.rawValue
+                return UTColorTokens.globalHeaderTextfieldBackground.rawValue
             }
         }
         
         var textToken:String {
             switch self{
             case .textInput:
-                return UIToolkit.shared.isUsingLegacyTokens ? "inputText-primary" : UTColorTokens.textinputText.rawValue
+                return UTColorTokens.textinputText.rawValue
             case .globalSearch:
-                return UIToolkit.shared.isUsingLegacyTokens ? "appHeader-text" : UTColorTokens.globalHeaderTextfieldText.rawValue
+                return UTColorTokens.globalHeaderTextfieldText.rawValue
             }
         }
         
         var borderToken:String {
             switch self{
             case .textInput:
-                return UIToolkit.shared.isUsingLegacyTokens ? "inputOutline" : UTColorTokens.textinputBorder.rawValue
+                return UTColorTokens.textinputBorder.rawValue
             case .globalSearch:
-                return UIToolkit.shared.isUsingLegacyTokens ? "appHeader-searchBar-active" : UTColorTokens.globalHeaderTextfieldBorder.rawValue
+                return UTColorTokens.globalHeaderTextfieldBorder.rawValue
             }
         }
         
         var placeholderStringToken:String {
             switch self{
             case .textInput:
-                return UIToolkit.shared.isUsingLegacyTokens ? "inputText-secondary" : UTColorTokens.textinputPlaceholderText.rawValue
+                return UTColorTokens.textinputPlaceholderText.rawValue
             case .globalSearch:
-                return UIToolkit.shared.isUsingLegacyTokens ? "appHeader-text" : UTColorTokens.globalHeaderTextfieldPlaceholderTextText.rawValue
+                return UTColorTokens.globalHeaderTextfieldPlaceholderTextText.rawValue
             }
         }
         
@@ -78,12 +78,12 @@ public class UTTextField: NSTextField, ThemeableProtocol {
     
     var clearIcon:UTCancelIconButton?
     var fontType:UTFontType = .bodyPrimary
-    var hasLeftIconPadding = false
+    var hasLeadingIconPadding = false
     
     var wantsClearIcon:Bool = true{
         didSet{
             updateClearIconVisibility()
-            updateRightCellPadding()
+            updateTrailingCellPadding()
         }
     }
     
@@ -122,7 +122,7 @@ public class UTTextField: NSTextField, ThemeableProtocol {
     
     var backgroundColors:UTColorStates {
         if validationState == .error {
-            return UIToolkit.shared.getThemeManager().getColors(tokenName: UIToolkit.shared.isUsingLegacyTokens ? "inputBackground-error" : "textinput-error-background")
+            return UIToolkit.shared.getThemeManager().getColors(token: .textinputErrorBackground)
         }
         
         return style.backgroundColorStates
@@ -130,7 +130,7 @@ public class UTTextField: NSTextField, ThemeableProtocol {
     
     var textColors:UTColorStates {
         if validationState == .error {
-            return UIToolkit.shared.getThemeManager().getColors(tokenName: UIToolkit.shared.isUsingLegacyTokens ? "inputText-error" : "textinput-error-text")
+            return UIToolkit.shared.getThemeManager().getColors(token: .textinputErrorText)
         }
         
         return style.textColorStates
@@ -138,7 +138,7 @@ public class UTTextField: NSTextField, ThemeableProtocol {
     
     var borderColors:UTColorStates {
         if validationState == .error {
-            return UIToolkit.shared.getThemeManager().getColors(tokenName: UIToolkit.shared.isUsingLegacyTokens ? "inputOutline-error" : "textinput-error-border")
+            return UIToolkit.shared.getThemeManager().getColors(token: .textinputErrorBorder)
         }
         
         return style.borderColorStates
@@ -167,7 +167,7 @@ public class UTTextField: NSTextField, ThemeableProtocol {
     public override var stringValue: String{
         didSet{
             updateClearIconVisibility()
-            updateRightCellPadding()
+            updateTrailingCellPadding()
         }
     }
     
@@ -247,7 +247,7 @@ public class UTTextField: NSTextField, ThemeableProtocol {
             let clearTrailingConstraint = NSLayoutConstraint(item: clearIcon, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -6)
 
             NSLayoutConstraint.activate([wConstraint, hConstraint, verticalConstraint, clearTrailingConstraint])
-            updateRightCellPadding()
+            updateTrailingCellPadding()
         }
     }
     
@@ -295,8 +295,8 @@ public class UTTextField: NSTextField, ThemeableProtocol {
         discardCursorRects()
                 
         if clearIcon?.isHidden == false {
-            addCursorRect(NSMakeRect(self.bounds.maxX - UTTextFieldCellRightIconPadding, self.bounds.minY, UTTextFieldCellRightIconPadding, self.bounds.height), cursor: .arrow)
-            addCursorRect(NSMakeRect(self.bounds.minX, self.bounds.minY, self.bounds.width - UTTextFieldCellRightIconPadding, self.bounds.height), cursor: .iBeam)
+            addCursorRect(NSMakeRect(self.bounds.maxX - UTTextFieldCellTrailingIconPadding, self.bounds.minY, UTTextFieldCellTrailingIconPadding, self.bounds.height), cursor: .arrow)
+            addCursorRect(NSMakeRect(self.bounds.minX, self.bounds.minY, self.bounds.width - UTTextFieldCellTrailingIconPadding, self.bounds.height), cursor: .iBeam)
         }
         else{
             addCursorRect(self.bounds, cursor: .iBeam)
@@ -424,29 +424,29 @@ public class UTTextField: NSTextField, ThemeableProtocol {
         }
     }
 
-    internal func updateRightCellPadding(){
+    internal func updateTrailingCellPadding(){
         if let cell = self.cell as? UTBaseTextFieldCellProtocol{
             if wantsClearIcon{
-                cell.updateRightPadding(value: UTTextFieldCellRightIconPadding)
+                cell.updateTrailingPadding(value: UTTextFieldCellTrailingIconPadding)
             }
             else{
-                cell.updateRightPadding(value: UTTextFieldCellDefaultRightPadding)
+                cell.updateTrailingPadding(value: UTTextFieldCellDefaultTrailingPadding)
             }
         }
     }
     
-    internal func updateLeftCellPadding(addLeftIconPadding:Bool){
-        guard hasLeftIconPadding != addLeftIconPadding else { return }
+    internal func updateLeadingCellPadding(addLeadingIconPadding:Bool) {
+        guard hasLeadingIconPadding != addLeadingIconPadding else { return }
         
-        hasLeftIconPadding = addLeftIconPadding
+        hasLeadingIconPadding = addLeadingIconPadding
         if let cell = self.cell as? UTBaseTextFieldCellProtocol {
             
-            if hasLeftIconPadding{
-                let padding = self.size == .large ? UTTextFieldCellLargeIconLeftPadding : UTTextFieldCellSmallIconLeftPadding
-                cell.updateLeftPadding(value:  padding)
+            if hasLeadingIconPadding {
+                let padding = self.size == .large ? UTTextFieldCellLargeIconLeadingPadding : UTTextFieldCellSmallIconLeadingPadding
+                cell.updateLeadingPadding(value:  padding)
             }
             else{
-                cell.updateLeftPadding(value: UTTextFieldCellDefaultLeftPadding)
+                cell.updateLeadingPadding(value: UTTextFieldCellDefaultLeadingPadding)
             }
         }
     }
@@ -466,5 +466,9 @@ public class UTTextField: NSTextField, ThemeableProtocol {
     
     private func getClearButtonIcon() -> UTIconButton.Icon{
         return style == .globalSearch ? .globalHeaderCancel : .cancel
+    }
+    
+    internal func isLayoutDirectionRightToLeft() -> Bool {
+        return NSApp.userInterfaceLayoutDirection == .rightToLeft
     }
 }

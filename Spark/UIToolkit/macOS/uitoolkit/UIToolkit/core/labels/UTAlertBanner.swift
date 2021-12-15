@@ -57,30 +57,30 @@ public class UTAlertBanner: UTTokenWrappingLabel {
         var textToken:String {
             switch self{
             case .success:
-                return UIToolkit.shared.isUsingLegacyTokens ? "alertText-success" : UTColorTokens.bannerSuccessText.rawValue
+                return UTColorTokens.bannerSuccessText.rawValue
             case .warning:
-                return UIToolkit.shared.isUsingLegacyTokens ? "alertText-warning" : UTColorTokens.bannerIssueText.rawValue
+                return UTColorTokens.bannerIssueText.rawValue
             case .error:
-                return UIToolkit.shared.isUsingLegacyTokens ? "alertText-error" : UTColorTokens.bannerErrorText.rawValue
+                return UTColorTokens.bannerErrorText.rawValue
             case .general:
-                return UIToolkit.shared.isUsingLegacyTokens ? "alertText-default" : UTColorTokens.bannerAnnouncementText.rawValue
+                return UTColorTokens.bannerAnnouncementText.rawValue
             case .transient:
-                return UIToolkit.shared.isUsingLegacyTokens ? "text-primary" : UTColorTokens.bannerTransientText.rawValue
+                return UTColorTokens.bannerTransientText.rawValue
             }
         }
         
         var backgroundToken:String {
             switch self{
             case .success:
-                return UIToolkit.shared.isUsingLegacyTokens ? "alertBackground-success" : UTColorTokens.bannerSuccessBackground.rawValue
+                return UTColorTokens.bannerSuccessBackground.rawValue
             case .warning:
-                return UIToolkit.shared.isUsingLegacyTokens ? "alertBackground-warning" : UTColorTokens.bannerIssueBackground.rawValue
+                return UTColorTokens.bannerIssueBackground.rawValue
             case .error:
-                return UIToolkit.shared.isUsingLegacyTokens ? "alertBackground-error" : UTColorTokens.bannerErrorBackground.rawValue
+                return UTColorTokens.bannerErrorBackground.rawValue
             case .general:
-                return UIToolkit.shared.isUsingLegacyTokens ? "alertBackground-default" : UTColorTokens.bannerAnnouncementBackground.rawValue
+                return UTColorTokens.bannerAnnouncementBackground.rawValue
             case .transient:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.bannerTransientBackground.rawValue
+                return UTColorTokens.bannerTransientBackground.rawValue
             }
         }
     }
@@ -124,7 +124,7 @@ public class UTAlertBanner: UTTokenWrappingLabel {
     
     //MARK: - Private variables
     
-    private var validationIcon:MomentumRebrandIconType{
+    private var validationIcon:MomentumIconsRebrandType{
         switch validationState{
         case .success:
             return .checkCircleFilled

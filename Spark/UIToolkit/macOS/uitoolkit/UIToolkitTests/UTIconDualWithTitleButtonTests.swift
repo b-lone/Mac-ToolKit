@@ -17,7 +17,7 @@ class UTIconDualWithTitleButtonTests: XCTestCase, UTIconDualButtonWithTitleDeleg
     
     var clickedButton: UTButton?
     
-    func lhsButtonClicked(sender: UTIconDualWithTitleButton, button: UTButton) {
+    func leadingButtonClicked(sender: UTIconDualWithTitleButton, button: UTButton) {
         expectation?.fulfill()
         expectation = nil
         clickedButton = button
@@ -49,23 +49,23 @@ class UTIconDualWithTitleButtonTests: XCTestCase, UTIconDualButtonWithTitleDeleg
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testClickLeftButton() throws {
+    func testClickLeadingButton() throws {
         let theButton = UTIconDualWithTitleButton(frame: NSZeroRect)
         theButton.delegate = self
         expectation = expectation(description: "clicked button")
-        theButton.getLhsButton()?.performClick(self)
+        theButton.getLeadingButton()?.performClick(self)
         waitForExpectations(timeout: 1)
-        XCTAssertTrue(clickedButton == theButton.getLhsButton())
+        XCTAssertTrue(clickedButton == theButton.getLeadingButton())
         XCTAssertTrue(lhsClicked)
     }
     
-    func testClickRightButton() throws {
+    func testClickTrailingButton() throws {
         let theButton = UTIconDualWithTitleButton(frame: NSZeroRect)
         theButton.delegate = self
         expectation = expectation(description: "clicked button")
-        theButton.getRhsButton()?.performClick(self)
+        theButton.getTrailingButton()?.performClick(self)
         waitForExpectations(timeout: 1)
-        XCTAssertTrue(clickedButton == theButton.getRhsButton())
+        XCTAssertTrue(clickedButton == theButton.getTrailingButton())
         XCTAssertTrue(rhsClicked)
     }
     

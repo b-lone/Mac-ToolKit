@@ -95,13 +95,13 @@ public class UTPasswordTextField: UTTextField {
         isFocused = false
     }
     
-    override internal func updateRightCellPadding(){}
+    override internal func updateTrailingCellPadding(){}
     
     public override func resetCursorRects() {
         discardCursorRects()
         
-        addCursorRect(NSMakeRect(self.bounds.maxX - UTTextFieldCellRightIconPadding, self.bounds.minY, UTTextFieldCellRightIconPadding, self.bounds.height), cursor: .arrow)
-        addCursorRect(NSMakeRect(self.bounds.minX, self.bounds.minY, self.bounds.width - UTTextFieldCellRightIconPadding, self.bounds.height), cursor: .iBeam)
+        addCursorRect(NSMakeRect(self.bounds.maxX - UTTextFieldCellTrailingIconPadding, self.bounds.minY, UTTextFieldCellTrailingIconPadding, self.bounds.height), cursor: .arrow)
+        addCursorRect(NSMakeRect(self.bounds.minX, self.bounds.minY, self.bounds.width - UTTextFieldCellTrailingIconPadding, self.bounds.height), cursor: .iBeam)
     }
     
     public override func setThemeColors() {

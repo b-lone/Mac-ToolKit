@@ -41,7 +41,7 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
         }
     }
     
-    public var fontIcon : MomentumRebrandIconType! {
+    public var fontIcon : MomentumIconsRebrandType! {
         didSet {
             addUIElement(element: .FontIcon(fontIcon))
             setupTextAndFonts()
@@ -298,47 +298,46 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
     }
     
     public func updateCorners() {
-        switch oriantation {
-        case .horizontal:
-            if buttonType == .square {
+        switch buttonType {
+        case .round, .pill:
+            switch oriantation {
+            case .horizontal:
+                layer?.cornerRadius = self.heightFloat/2
+            case .vertical:
+                layer?.cornerRadius = self.bounds.width / 2
+            @unknown default:
                 layer?.cornerRadius = 0
             }
-            else if buttonType == .rounded {
-                layer?.cornerRadius =  4
-            }
-            else {
-                layer?.cornerRadius =  self.heightFloat/2
-            }
-        case .vertical:
-            layer?.cornerRadius = self.bounds.width / 2
-        @unknown default:
+        case .square:
             layer?.cornerRadius = 0
+        case .rounded:
+            layer?.cornerRadius =  4
         }
     }
     
     
-    internal func roundLHSCorner() {
-        if #available(OSX 10.13, *) {
+    internal func roundLeadingCorner() {
+        if isLayoutDirectionRightToLeft() {
+            layer?.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        } else {
             layer?.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
         }
     }
     
     internal func roundTopCorner() {
-        if #available(OSX 10.13, *) {
-            layer?.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
-        }
+        layer?.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
     }
     
-    internal func roundRHSCorner() {
-        if #available(OSX 10.13, *) {
-           layer?.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+    internal func roundTrailingCorner() {
+        if isLayoutDirectionRightToLeft() {
+            layer?.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
+        } else {
+            layer?.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         }
     }
     
     internal func roundBottomCorner() {
-        if #available(OSX 10.13, *) {
-            layer?.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
-        }
+        layer?.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]        
     }
 
     internal var attributes:[NSAttributedString.Key:Any]{
@@ -458,7 +457,7 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
                     if arrowShouldChangeIndependently {
                         arrowState = independentArrowState
                     }
-                    let fontIconName = arrowState ? MomentumRebrandIconType.arrowUpFilled.ligature : MomentumRebrandIconType.arrowDownFilled.ligature
+                    let fontIconName = arrowState ? MomentumIconsRebrandType.arrowUpFilled.ligature : MomentumIconsRebrandType.arrowDownFilled.ligature
                     let fontIconAttString = NSMutableAttributedString.getIcon(fontName: fontIconName, size: elementSize.arrowIconSize, color: textColor)
                     arrowLayer.string = fontIconAttString
                     arrowLayer.fontSize = elementSize.arrowIconSize
@@ -509,7 +508,11 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
             }
         }
 
-        let sortedButtonElements = buttonElements.sorted(by: { sortIndex(buttonElement: $0.0) < sortIndex(buttonElement: $1.0) } )
+        var sortedButtonElements = buttonElements.sorted(by: { sortIndex(buttonElement: $0.0) < sortIndex(buttonElement: $1.0) } )
+        
+        if isLayoutDirectionRightToLeft() {
+            sortedButtonElements.reverse()
+        }
      
         for (index,element) in sortedButtonElements.enumerated() {
         
@@ -561,7 +564,7 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
                     
                     elementRect = NSMakeRect(0, 0, round(width), round(titleSize.height))
                     elementRect.origin.y = round((bounds.height - elementRect.height)/2)
-                    elementRect.origin.x = currentPositionOnXAxis + thePadding
+                    elementRect.origin.x = currentPositionOnXAxis + thePadding - (isLayoutDirectionRightToLeft() ? 2 : 0)
                     titleLayer.frame = elementRect
                 }
             }
@@ -709,9 +712,7 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
         animateColor(state == .on)
         setupTextAndFonts()
         
-        if case .rich(let details) = tooltipType, details.attTooltipString.length > 0 {
-            popover?.close()
-            
+        if case .rich(let details) = tooltipType, details.attTooltipString.length > 0, popover?.isShown != true {
             let toolTipVC = RichToolTipViewController(tooltip:details.attTooltipString, size:details.size)
             popover = UTPopover(contentViewController: toolTipVC, sender: self, bounds: self.bounds,  preferredEdge: details.preferredEdge, behavior: .semitransient, style: .toolTip)
             if let window = popover?.contentViewController?.view.window {
@@ -787,7 +788,7 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
         containerLayer.addSublayer(layer)
     }
     
-    private func calculateFontIconSize(icon: MomentumRebrandIconType) -> CGSize {
+    private func calculateFontIconSize(icon: MomentumIconsRebrandType) -> CGSize {
         let icon = NSMutableAttributedString.getIcon(fontName: icon.ligature, size: fontIconSize, color: .white)
         return icon.size()
     }
@@ -842,6 +843,9 @@ open class UTBaseButton: NSButton, CALayerDelegate, ThemeableProtocol {
         setupTextAndFonts()
     }
     
+    internal func isLayoutDirectionRightToLeft() -> Bool {
+        return NSApp.userInterfaceLayoutDirection == .rightToLeft
+    }
 }
 
 extension UTBaseButton: NSViewLayerContentScaleDelegate {

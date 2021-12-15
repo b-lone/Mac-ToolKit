@@ -68,7 +68,11 @@ extension String {
 
     public static var separatorString:String{
         return " • "
-    }    
+    }
+    
+    public func decodeBase64() -> Data? {
+        return Data(base64Encoded: self, options: [])
+    }
 }
 
 extension StringProtocol where Index == String.Index {

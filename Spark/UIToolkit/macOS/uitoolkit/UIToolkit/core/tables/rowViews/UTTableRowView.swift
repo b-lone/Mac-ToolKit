@@ -24,7 +24,7 @@ public class UTTableRowView: NSTableRowView {
     
     var rowColors: UTColorStates {
         // Legacy, to let new UI show hover effect
-        return UIToolkit.shared.isUsingLegacyTokens ? UIToolkit.shared.getThemeManager().getColors(tokenName: "listItem-primary") : UIToolkit.shared.getThemeManager().getColors(tokenName: UTColorTokens.listitemBackground.rawValue)
+        return UIToolkit.shared.getThemeManager().getColors(token: .listitemBackground)
     }
     
     var selectedIsActive:Bool = true

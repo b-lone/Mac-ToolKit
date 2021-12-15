@@ -10,25 +10,33 @@ import Cocoa
 public enum RoundedCornerStyle {
     case none
     case pill
-    case lhs
-    case rhs
+    case leading
+    case trailing
     case top
     case bottom
     
     internal var shouldRoundMaxXMaxYCorner: Bool {
         switch self {
-        case .pill, .rhs, .bottom:
+        case .trailing:
+            return isLayoutDirectionLeftToRight() ? true : false
+        case .pill, .bottom:
             return true
-        case .none, .lhs, .top:
+        case .leading:
+            return isLayoutDirectionLeftToRight() ? false : true
+        case .none, .top:
             return false
             
         }
     }
     internal var shouldRoundMaxXMinYCorner: Bool {
         switch self {
-        case .pill, .rhs, .top:
+        case .trailing:
+            return isLayoutDirectionLeftToRight() ? true : false
+        case .pill, .top:
             return true
-        case .none, .lhs, .bottom:
+        case .leading:
+            return isLayoutDirectionLeftToRight() ? false : true
+        case .none, .bottom:
             return false
             
         }
@@ -36,9 +44,13 @@ public enum RoundedCornerStyle {
     
     internal var shouldRounMinXMaxYCorner: Bool {
         switch self {
-        case .pill, .lhs, .bottom:
+        case .leading:
+            return isLayoutDirectionLeftToRight() ? true : false
+        case .pill, .bottom:
             return true
-        case .none, .rhs, .top:
+        case .trailing:
+            return isLayoutDirectionLeftToRight() ? false : true
+        case .none, .top:
             return false
             
         }
@@ -46,11 +58,19 @@ public enum RoundedCornerStyle {
     
     internal var shouldRoundMinXMinYCorner: Bool {
         switch self {
-        case .pill, .lhs, .top:
+        case .leading:
+            return isLayoutDirectionLeftToRight() ? true : false
+        case .pill, .top:
             return true
-        case .none, .rhs, .bottom:
+        case .trailing:
+            return isLayoutDirectionLeftToRight() ? false : true
+        case .none, .bottom:
             return false
             
         }
+    }
+    
+    private func isLayoutDirectionLeftToRight() -> Bool {
+        return NSApp.userInterfaceLayoutDirection == .leftToRight
     }
 }

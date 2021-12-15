@@ -99,11 +99,11 @@ public class UTAvatarView: UTHoverableView {
     private static var currentBundle = Bundle.getUIToolKitBundle()!
      
     private var defaultBackgroundToken : String {
-        return UIToolkit.shared.isUsingLegacyTokens ? "wx-default-avatar-background" :  UTColorTokens.avatarColorAvatarBackgroundDefault.rawValue
+        return UTColorTokens.avatarColorAvatarBackgroundDefault.rawValue
     }
     
     private var avatarInitialsToken : String {
-        return UIToolkit.shared.isUsingLegacyTokens ? "wx-avatarInitials-text" : UTColorTokens.avatarColorAvatarText.rawValue
+        return UTColorTokens.avatarColorAvatarText.rawValue
     }
     
     private var defaultBackgroundColor : CCColor {
@@ -139,6 +139,7 @@ public class UTAvatarView: UTHoverableView {
     
     override func initialise() {
         super.initialise()
+        setAccessibilityRole(.image)
         
         //Since the contact card manager is handling the
         //delay set the hover delay to 0
@@ -339,7 +340,6 @@ public class UTAvatarView: UTHoverableView {
         self.imageView.layer?.masksToBounds = true
         self.imageView.layer?.cornerRadius  =  size.height / 2
         self.imageView.image                = image
-        self.layer?.layoutIfNeeded()
         self.addSubview(imageView)
     }
     
@@ -365,9 +365,9 @@ public class UTAvatarView: UTHoverableView {
         return getAvatarIcon(size: data.size.rawValue, boldIcon: .meetingsBold, regularIcon: .meetingsRegular, lightIcon: .meetingsLight, color: avatarInitialsColor)
     }
     
-    private func getAvatarIcon(size:CGFloat, boldIcon:MomentumRebrandIconType, regularIcon:MomentumRebrandIconType, lightIcon:MomentumRebrandIconType, color:CCColor) -> NSAttributedString {
+    private func getAvatarIcon(size:CGFloat, boldIcon:MomentumIconsRebrandType, regularIcon:MomentumIconsRebrandType, lightIcon:MomentumIconsRebrandType, color:CCColor) -> NSAttributedString {
         let fontSize = size * 0.46
-        var momentumIcon:MomentumRebrandIconType = boldIcon
+        var momentumIcon:MomentumIconsRebrandType = boldIcon
         
         if fontSize > 32 {
             momentumIcon = lightIcon
@@ -381,7 +381,7 @@ public class UTAvatarView: UTHoverableView {
     
     private func getChatIcon(from data: AvatarImageViewDataSourceProtocol, color:CCColor) -> NSAttributedString {
         let fontSize = data.size.rawValue * 0.46
-        let momentumIcon:MomentumRebrandIconType = .chatFilled
+        let momentumIcon:MomentumIconsRebrandType = .chatFilled
         
         return NSAttributedString.getAttributedString(iconType: momentumIcon, iconSize: max(fontSize, 12), color: color)
     }
@@ -400,7 +400,6 @@ public class UTAvatarView: UTHoverableView {
         imageView.image = cropImage
         imageView.layer?.masksToBounds = true
         imageView.layer?.cornerRadius =  size.rawValue/2
-        self.layer?.layoutIfNeeded()
         self.addSubview(imageView)
     }
     
@@ -478,6 +477,10 @@ public class UTAvatarView: UTHoverableView {
     public override func drawFocusRingMask() {
         let path = NSBezierPath(ovalIn: NSMakeRect(0, 0, self.bounds.width - size.presenceRectWidthPadding, self.bounds.height))
         path.fill()
+    }
+    
+    public override func isAccessibilityElement() -> Bool {
+        return true
     }
 
 }

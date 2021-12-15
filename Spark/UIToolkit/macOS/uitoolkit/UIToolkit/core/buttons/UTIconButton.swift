@@ -26,8 +26,9 @@ public class UTIconButton: UTButton {
         case markdown
         case bitmoji
         case flag
+        case dragStageFTECancel
         
-        var iconType:MomentumRebrandIconType {
+        var iconType:MomentumIconsRebrandType {
             switch self {
             case .clear:
                 return .clearBold
@@ -61,10 +62,12 @@ public class UTIconButton: UTButton {
                 return .bitmojiConnectedBold
             case .flag:
                 return .flagFilled
+            case .dragStageFTECancel:
+                return .cancelBold
             }
         }
         
-        var checkedIcon:MomentumRebrandIconType {
+        var checkedIcon:MomentumIconsRebrandType {
             switch self {
             case .password:
                 return .hideBold
@@ -80,17 +83,17 @@ public class UTIconButton: UTButton {
         var fontToken : String {
             switch self {
             case .clear:
-                return UIToolkit.shared.isUsingLegacyTokens ? "text-secondary" : UTColorTokens.canceliconDefaultIcon.rawValue
+                return UTColorTokens.canceliconDefaultIcon.rawValue
             case .cancel:
-                return UIToolkit.shared.isUsingLegacyTokens ? "text-secondary" : UTColorTokens.labelSecondaryText.rawValue
+                return UTColorTokens.labelSecondaryText.rawValue
             case .globalHeaderCancel:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-ghTopBarCloseButton-text" : UTColorTokens.globalHeaderSearchCancelButtonText.rawValue
+                return UTColorTokens.globalHeaderSearchCancelButtonText.rawValue
             case .password:
-                return UIToolkit.shared.isUsingLegacyTokens ? "text-secondary" : UTColorTokens.labelSecondaryText.rawValue
+                return UTColorTokens.labelSecondaryText.rawValue
             case .favorite:
-                return UIToolkit.shared.isUsingLegacyTokens ? "ut-legacy-favorite-icon" : UTColorTokens.interactiveiconTertiaryFilledIconInactive.rawValue
+                return UTColorTokens.interactiveiconTertiaryFilledIconInactive.rawValue
             case .settings:
-                return UIToolkit.shared.isUsingLegacyTokens ? "ut-legacy-settings-icon" : UTColorTokens.interactiveiconPrimaryFilledIconInactive.rawValue
+                return UTColorTokens.interactiveiconPrimaryFilledIconInactive.rawValue
             case .attatchment,
                  .screenCapture,
                  .format,
@@ -100,20 +103,22 @@ public class UTIconButton: UTButton {
                  .pmr,
                  .markdown,
                  .bitmoji:
-                return UIToolkit.shared.isUsingLegacyTokens ? "ut-legacy-expressiveMessage-icon" : UTColorTokens.interactiveiconPrimaryOutlineIconInactive.rawValue
+                return UTColorTokens.interactiveiconPrimaryOutlineIconInactive.rawValue
             case .flag:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-secondColumnFlagIcon" : UTColorTokens.interactiveiconQuaternaryFilledIconActive.rawValue
+                return UTColorTokens.interactiveiconQuaternaryFilledIconActive.rawValue
+            case .dragStageFTECancel:
+                return UTColorTokens.coachmarkteachingButtonPrimaryBackground.rawValue
             }
         }
         
         var checkedFontToken: String {
             switch self {
             case .favorite:
-                return UIToolkit.shared.isUsingLegacyTokens ? "ut-legacy-favorite-icon" : UTColorTokens.interactiveiconTertiaryFilledFavoriteIconActive.rawValue
+                return UTColorTokens.interactiveiconTertiaryFilledFavoriteIconActive.rawValue
             case .attatchment:
-                return UIToolkit.shared.isUsingLegacyTokens ? "ut-legacy-expressiveMessage-icon" : UTColorTokens.interactiveiconPrimaryOutlineIconActive.rawValue
+                return UTColorTokens.interactiveiconPrimaryOutlineIconActive.rawValue
             case .flag:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-secondColumnFlagIcon" : UTColorTokens.interactiveiconQuaternaryFilledIconActive.rawValue
+                return UTColorTokens.interactiveiconQuaternaryFilledIconActive.rawValue
             default:
                 return fontToken
             }
@@ -122,9 +127,9 @@ public class UTIconButton: UTButton {
         var backgroundToken: String {
             switch self {
             case .favorite:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.interactiveiconContainerBackground.rawValue
+                return UTColorTokens.interactiveiconContainerBackground.rawValue
             case .settings:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.interactiveiconContainerBackground.rawValue
+                return UTColorTokens.interactiveiconContainerBackground.rawValue
             case .attatchment,
                  .screenCapture,
                  .format,
@@ -134,9 +139,9 @@ public class UTIconButton: UTButton {
                  .pmr,
                  .markdown,
                  .bitmoji:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.interactiveiconContainerBackground.rawValue
+                return UTColorTokens.interactiveiconContainerBackground.rawValue
             case .flag:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.interactiveiconContainerBackground.rawValue
+                return UTColorTokens.interactiveiconContainerBackground.rawValue                
             default:
                 return ""
             }
@@ -145,14 +150,14 @@ public class UTIconButton: UTButton {
         var checkedBackgroundToken: String {
             switch self {
             case .favorite:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.interactiveiconContainerBackground.rawValue
+                return UTColorTokens.interactiveiconContainerBackground.rawValue
             case .attatchment,
                  .format,
                  .emoji,
                  .gif,
                  .markdown,                 
                  .bitmoji:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.interactiveiconContainerBackground.rawValue
+                return UTColorTokens.interactiveiconContainerBackground.rawValue
             default:
                 return backgroundToken
             }

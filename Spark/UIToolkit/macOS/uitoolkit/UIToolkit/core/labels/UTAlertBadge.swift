@@ -17,21 +17,21 @@ public enum UTAlertBadgeStyle {
     
     var fontToken:String {
         switch self {
-        case .defaultBadge: return UIToolkit.shared.isUsingLegacyTokens ? "text-primary"      : UTColorTokens.alertbadgeDefaultText.rawValue
-        case .announcement: return UIToolkit.shared.isUsingLegacyTokens ? "alertText-default" : UTColorTokens.alertbadgeAnnouncementText.rawValue
-        case .alertWarning: return UIToolkit.shared.isUsingLegacyTokens ? "alertText-warning" : UTColorTokens.alertbadgeWarningText.rawValue
-        case .important:    return UIToolkit.shared.isUsingLegacyTokens ? "alertText-error"   : UTColorTokens.alertbadgeImportantText.rawValue
-        case .alertGeneral: return UIToolkit.shared.isUsingLegacyTokens ? "wx-actMeetingInfo" : UTColorTokens.alertbadgeGeneralText.rawValue
+        case .defaultBadge: return UTColorTokens.alertbadgeDefaultText.rawValue
+        case .announcement: return UTColorTokens.alertbadgeAnnouncementText.rawValue
+        case .alertWarning: return UTColorTokens.alertbadgeWarningText.rawValue
+        case .important:    return UTColorTokens.alertbadgeImportantText.rawValue
+        case .alertGeneral: return UTColorTokens.alertbadgeGeneralText.rawValue
         }
     }
     
     var backgroundToken:String{
         switch self {
-        case .defaultBadge: return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary"        : UTColorTokens.alertbadgeDefaultBackground.rawValue
-        case .announcement: return UIToolkit.shared.isUsingLegacyTokens ? "alertBackground-default" : UTColorTokens.alertbadgeAnnouncementBackground.rawValue
-        case .alertWarning: return UIToolkit.shared.isUsingLegacyTokens ? "alertBackground-warning" : UTColorTokens.alertbadgeWarningBackground.rawValue
-        case .important:    return UIToolkit.shared.isUsingLegacyTokens ? "alertBackground-error"   : UTColorTokens.alertbadgeImportantBackground.rawValue
-        case .alertGeneral: return UIToolkit.shared.isUsingLegacyTokens ? "alertBackground-warning" : UTColorTokens.alertbadgeGeneralBackground.rawValue
+        case .defaultBadge: return UTColorTokens.alertbadgeDefaultBackground.rawValue
+        case .announcement: return UTColorTokens.alertbadgeAnnouncementBackground.rawValue
+        case .alertWarning: return UTColorTokens.alertbadgeWarningBackground.rawValue
+        case .important:    return UTColorTokens.alertbadgeImportantBackground.rawValue
+        case .alertGeneral: return UTColorTokens.alertbadgeGeneralBackground.rawValue
         }
     }
 }
@@ -96,7 +96,7 @@ public class UTAlertBadge : UTBaseButton {
         }
     }
     
-    public init(style:UTAlertBadgeStyle, iconType:MomentumRebrandIconType, title:String, displayMode:DisplayMode = .iconAndLabel){
+    public init(style:UTAlertBadgeStyle, iconType:MomentumIconsRebrandType, title:String, displayMode:DisplayMode = .iconAndLabel){
         super.init(frame: NSZeroRect)
         self.style       = style
         self.fontIcon    = iconType

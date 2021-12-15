@@ -46,7 +46,7 @@ public class UTShortcutKeyLabel: UTTextWithBackground {
     }
 
     override internal var fontColor:CCColor {
-        return UIToolkit.shared.getThemeManager().getColors(tokenName: "text-primary").normal
+        return UIToolkit.shared.getThemeManager().getColors(tokenName: UTColorTokens.labelPrimaryText.rawValue).normal
     }
     
     override internal var backgroundColor:CCColor {

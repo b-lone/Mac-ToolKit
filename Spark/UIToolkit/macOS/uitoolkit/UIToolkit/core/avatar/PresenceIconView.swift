@@ -68,7 +68,7 @@ class PresenceIconView: NSView, CALayerDelegate, ThemeableProtocol {
     }
     
     private var backgroundToken:String {
-        return UIToolkit.shared.isUsingLegacyTokens ? "background-secondary" : UTColorTokens.avatarPresenceIconBackground.rawValue
+        return UTColorTokens.avatarPresenceIconBackground.rawValue
     }
     
     private func initialise() {
@@ -150,7 +150,7 @@ class PresenceIconView: NSView, CALayerDelegate, ThemeableProtocol {
         }
     }
     
-    func getFont(state:UTPresenceState) -> MomentumRebrandIconType {
+    func getFont(state:UTPresenceState) -> MomentumIconsRebrandType {
         
         switch state {
             case .active: return .unreadFilled

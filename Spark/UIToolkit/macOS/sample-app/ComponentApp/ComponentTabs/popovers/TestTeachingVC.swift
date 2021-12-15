@@ -39,7 +39,7 @@ class TestTeachingVC: UTBaseViewController {
         secondaryButton.setThemeColors()
         hyperlinkButton.setThemeColors()
         
-        let teachingTokenName = UIToolkit.shared.isUsingLegacyTokens ? "wx-spinnerWithLabel-text" : UTColorTokens.coachmarkteachingButtonSecondaryText.rawValue
+        let teachingTokenName = UTColorTokens.coachmarkteachingButtonSecondaryText.rawValue
         brandingLabel.textColor = UIToolkit.shared.getThemeManager().getColors(tokenName: teachingTokenName).normal
     }
 }

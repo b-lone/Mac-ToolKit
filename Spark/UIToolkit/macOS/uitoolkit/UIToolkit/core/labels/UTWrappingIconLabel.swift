@@ -22,7 +22,7 @@ public class UTWrappingIconLabel : UTTokenWrappingLabel {
         initialise()
     }
     
-    public init(iconType:MomentumRebrandIconType, style:UTIconLabelStyle, iconSize:IconSize, label:String, fontType:UTFontType, iconAlignment:IconAlignment = .left){
+    public init(iconType:MomentumIconsRebrandType, style:UTIconLabelStyle, iconSize:IconSize, label:String, fontType:UTFontType, iconAlignment:IconAlignment = .left){
         super.init(frame: NSZeroRect)
         configure(iconType: iconType, style: style, iconSize: iconSize, label: label, fontType: fontType, iconAlignment: iconAlignment)        
     }
@@ -43,7 +43,7 @@ public class UTWrappingIconLabel : UTTokenWrappingLabel {
     }
     
     //Mark: - Public functions
-    public func configure(iconType:MomentumRebrandIconType, style:UTIconLabelStyle, iconSize:IconSize, label:String, fontType:UTFontType, iconAlignment:IconAlignment = .left) {
+    public func configure(iconType:MomentumIconsRebrandType, style:UTIconLabelStyle, iconSize:IconSize, label:String, fontType:UTFontType, iconAlignment:IconAlignment = .left) {
         super.configure(iconType: iconType, iconSize: iconSize, label: label, fontType: fontType)
         self.style = style
     }

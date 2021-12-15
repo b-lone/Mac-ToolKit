@@ -74,15 +74,6 @@ public class UTGradientSeparator : UTView {
         setUpGradient(edgeColour: gradientEdgeColour, middleColour: gradientBaseColour)
     }
     
-    
-    public override var intrinsicContentSize: NSSize {
-        if direction == .horizontal {
-            return NSMakeSize(NSWidth(frame), 1)
-        } else {
-            return NSMakeSize(1, NSHeight(frame))
-        }
-    }
-    
     override public func layout() {
         super.layout()
         if let gradient = gradient {

@@ -15,7 +15,7 @@ public class UTNavigationTabButton : UTTabButton {
     public var coBrandingIconBackgroundColorStates: UTColorStates!
     public var coBrandingIconBackgroundOnColorStates: UTColorStates!
     public var canNavigateWithArrowKeys: Bool = true
-    private static let maxTrailingPadding: CGFloat = 54.0
+    private static let maxTrailingPadding: CGFloat = 56.0
     private var badge:UTBadge!
     
     private var badgeConstraints: [NSLayoutConstraint] = []
@@ -101,7 +101,7 @@ public class UTNavigationTabButton : UTTabButton {
         return 12.0
     }
     
-    public override var fontIcon: MomentumRebrandIconType! {
+    public override var fontIcon: MomentumIconsRebrandType! {
         didSet {
             super.fontIcon = fontIcon
         }
@@ -188,10 +188,6 @@ public class UTNavigationTabButton : UTTabButton {
     }
     
     override public func accessibilitySubrole() -> NSAccessibility.Subrole? {
-        if #available(OSX 10.13, *) {
-            return .tabButtonSubrole
-        } else {
-            return super.accessibilitySubrole()
-        }
+        return .tabButtonSubrole
     }
 }

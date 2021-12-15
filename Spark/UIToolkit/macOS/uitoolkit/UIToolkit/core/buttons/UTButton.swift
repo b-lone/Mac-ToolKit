@@ -29,6 +29,7 @@ open class UTButton: UTBaseButton {
         case teachingHyperlink
         case shareWindowPrimary
         case shareWindowSecondary
+        case shareWindowActive
         case overlay
         case singleEqual
         case statedLayout
@@ -38,58 +39,60 @@ open class UTButton: UTBaseButton {
             case .unknown:
                 return ""
             case .primary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-primary" : UTColorTokens.buttonPrimaryBackground.rawValue
+                return UTColorTokens.buttonPrimaryBackground.rawValue
             case .secondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.buttonSecondaryBackground.rawValue
+                return UTColorTokens.buttonSecondaryBackground.rawValue
             case .ghost:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-ghost" : UTColorTokens.buttonGhostBackground.rawValue
+                return UTColorTokens.buttonGhostBackground.rawValue
             case .ghostCancel:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-ghost" : UTColorTokens.buttonCancelGhostBackground.rawValue
+                return UTColorTokens.buttonCancelGhostBackground.rawValue
             case .ghostMessage:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-ghost" : UTColorTokens.buttonMessageGhostBackground.rawValue
+                return UTColorTokens.buttonMessageGhostBackground.rawValue
             case .join:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonJoin-primary" : UTColorTokens.buttonJoinFillBackground.rawValue
+                return UTColorTokens.buttonJoinFillBackground.rawValue
             case .outlineJoin:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonJoin-primary-outline" : UTColorTokens.buttonJoinOutlineBackground.rawValue
+                return UTColorTokens.buttonJoinOutlineBackground.rawValue
             case .cancel:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-cancel" : UTColorTokens.buttonCancelFillBackground.rawValue
+                return UTColorTokens.buttonCancelFillBackground.rawValue
             case .outlineCancel:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonOutline-cancel" : UTColorTokens.buttonCancelOutlineBackground.rawValue
+                return UTColorTokens.buttonCancelOutlineBackground.rawValue
             case .message:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-primary" : UTColorTokens.buttonMessageFillBackground.rawValue
+                return UTColorTokens.buttonMessageFillBackground.rawValue
             case .hyperlink:
                 return ""
             case .tabs:
                 if on == true {
-                    return UIToolkit.shared.isUsingLegacyTokens ? "tab-active-background" : UTColorTokens.tabActiveBackground.rawValue
+                    return UTColorTokens.tabActiveBackground.rawValue
                 } else {
-                    return UIToolkit.shared.isUsingLegacyTokens ? "tab-inactive-background" : UTColorTokens.tabInactiveBackground.rawValue
+                    return UTColorTokens.tabInactiveBackground.rawValue
                 }
             case .layout:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.buttonLayoutBackground.rawValue
+                return UTColorTokens.buttonLayoutBackground.rawValue
             case .teachingPrimary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.coachmarkteachingButtonPrimaryBackground.rawValue
+                return UTColorTokens.coachmarkteachingButtonPrimaryBackground.rawValue
             case .teachingSecondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-ghost" : UTColorTokens.coachmarkteachingButtonSecondaryBackground.rawValue
+                return UTColorTokens.coachmarkteachingButtonSecondaryBackground.rawValue
             case .teachingHyperlink:
                 return ""
             case .shareWindowPrimary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-primary" : UTColorTokens.sharewindowControlButtonPrimaryBackground.rawValue
+                return UTColorTokens.sharewindowControlButtonPrimaryBackground.rawValue
             case .shareWindowSecondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.sharewindowControlButtonSecondaryBackground.rawValue
+                return UTColorTokens.sharewindowControlButtonSecondaryBackground.rawValue
+            case .shareWindowActive:
+                return UTColorTokens.sharewindowControlButtonActiveBackground.rawValue
             case .overlay:
-                return UIToolkit.shared.isUsingLegacyTokens ? "button-inverted-background" : UTColorTokens.buttonOverlayBackground.rawValue
+                return UTColorTokens.buttonOverlayBackground.rawValue
             case .singleEqual:
                 if on == true {
-                    return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary-active-background" : UTColorTokens.buttonSecondaryActiveBackground.rawValue
+                    return UTColorTokens.buttonSecondaryActiveBackground.rawValue
                 } else {
-                    return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.buttonLayoutBackground.rawValue
+                    return UTColorTokens.buttonLayoutBackground.rawValue
                 }
             case .statedLayout:
                 if on == true {
-                    return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary-active-background" : UTColorTokens.buttonSecondaryActiveBackground.rawValue
+                    return UTColorTokens.buttonOverlayBackground.rawValue
                 } else {
-                    return UIToolkit.shared.isUsingLegacyTokens ? "button-secondary" : UTColorTokens.buttonLayoutBackground.rawValue
+                    return UTColorTokens.buttonLayoutBackground.rawValue
                 }
             }
         }
@@ -99,55 +102,57 @@ open class UTButton: UTBaseButton {
             case .unknown:
                 return ""
             case .primary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-primary" : UTColorTokens.buttonPrimaryText.rawValue
+                return UTColorTokens.buttonPrimaryText.rawValue
             case .secondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-secondary" : UTColorTokens.buttonSecondaryText.rawValue
+                return UTColorTokens.buttonSecondaryText.rawValue
             case .ghost:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-ghost" : UTColorTokens.buttonGhostText.rawValue
+                return UTColorTokens.buttonGhostText.rawValue
             case .ghostCancel:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-wbClearAllButton-text" : UTColorTokens.buttonCancelGhostText.rawValue
+                return UTColorTokens.buttonCancelGhostText.rawValue
             case .ghostMessage:
-                return UIToolkit.shared.isUsingLegacyTokens ? "text-hyperlink" : UTColorTokens.buttonMessageGhostText.rawValue
+                return UTColorTokens.buttonMessageGhostText.rawValue
             case .join:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-primary" : UTColorTokens.buttonJoinFillText.rawValue
+                return UTColorTokens.buttonJoinFillText.rawValue
             case .outlineJoin:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-primary" : UTColorTokens.buttonJoinOutlineText.rawValue
+                return UTColorTokens.buttonJoinOutlineText.rawValue
             case .cancel:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-cancel" : UTColorTokens.buttonCancelFillText.rawValue
+                return UTColorTokens.buttonCancelFillText.rawValue
             case .outlineCancel:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonOutlineText-cancel" : UTColorTokens.buttonCancelOutlineText.rawValue
+                return UTColorTokens.buttonCancelOutlineText.rawValue
             case .message:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-primary" : UTColorTokens.buttonMessageFillText.rawValue
+                return UTColorTokens.buttonMessageFillText.rawValue
             case .hyperlink:
-                return UIToolkit.shared.isUsingLegacyTokens ? "text-hyperlink" : UTColorTokens.buttonHyperlinkText.rawValue
+                return UTColorTokens.buttonHyperlinkText.rawValue
             case .tabs:
                 if on == true {
-                    return UIToolkit.shared.isUsingLegacyTokens ? "tab-active-text" : UTColorTokens.tabActiveText.rawValue
+                    return UTColorTokens.tabActiveText.rawValue
                 } else {
-                    return UIToolkit.shared.isUsingLegacyTokens ? "tab-inactive-text" : UTColorTokens.tabInactiveText.rawValue
+                    return UTColorTokens.tabInactiveText.rawValue
                 }
             case .layout:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-secondary" : UTColorTokens.buttonLayoutText.rawValue
+                return UTColorTokens.buttonLayoutText.rawValue
             case .teachingPrimary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-layout-button-text" : UTColorTokens.coachmarkteachingButtonPrimaryText.rawValue
+                return UTColorTokens.coachmarkteachingButtonPrimaryText.rawValue
             case .teachingSecondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-spinnerWithLabel-text" : UTColorTokens.coachmarkteachingButtonSecondaryText.rawValue
+                return UTColorTokens.coachmarkteachingButtonSecondaryText.rawValue
             case .teachingHyperlink:
-                return UIToolkit.shared.isUsingLegacyTokens ? "text-hyperlink" : UTColorTokens.coachmarkteachingButtonHyperlinkText.rawValue
+                return UTColorTokens.coachmarkteachingButtonHyperlinkText.rawValue
             case .shareWindowPrimary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-primary" : UTColorTokens.sharewindowControlButtonPrimaryText.rawValue
+                return UTColorTokens.sharewindowControlButtonPrimaryText.rawValue
             case .shareWindowSecondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-secondary" : UTColorTokens.sharewindowControlButtonSecondaryText.rawValue
+                return UTColorTokens.sharewindowControlButtonSecondaryText.rawValue
+            case .shareWindowActive:
+                return UTColorTokens.sharewindowControlButtonActiveText.rawValue
             case .overlay:               
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-primary" : UTColorTokens.buttonOverlayText.rawValue
+                return UTColorTokens.buttonOverlayText.rawValue
             case .singleEqual:
                 if on == true {
-                    return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-secondary" : UTColorTokens.buttonLayoutText.rawValue
+                    return UTColorTokens.buttonLayoutText.rawValue
                 } else {
-                    return UIToolkit.shared.isUsingLegacyTokens ? "text-secondary" : UTColorTokens.labelSecondaryText.rawValue
+                    return UTColorTokens.labelSecondaryText.rawValue
                 }
             case .statedLayout:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonText-secondary" : UTColorTokens.buttonLayoutText.rawValue
+                return UTColorTokens.buttonLayoutText.rawValue
             }
         }
         
@@ -156,47 +161,49 @@ open class UTButton: UTBaseButton {
             case .unknown:
                 return ""
             case .primary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : ""
+                return ""
             case .secondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.buttonSecondaryBorder.rawValue
+                return UTColorTokens.buttonSecondaryBorder.rawValue
             case .ghost:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : ""
+                return ""
             case .ghostCancel:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : ""
+                return ""
             case .ghostMessage:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : ""
+                return ""
             case .join:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : ""
+                return ""
             case .outlineJoin:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonJoinBorder-primary" : UTColorTokens.buttonJoinOutlineBorder.rawValue
+                return UTColorTokens.buttonJoinOutlineBorder.rawValue
             case .cancel:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : ""
+                return ""
             case .outlineCancel:
-                return UIToolkit.shared.isUsingLegacyTokens ? "buttonOutlineBorder-cancel" : UTColorTokens.buttonCancelOutlineBorder.rawValue
+                return UTColorTokens.buttonCancelOutlineBorder.rawValue
             case .message:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : ""
+                return ""
             case .hyperlink:
                 return ""
             case .tabs:
-                return UIToolkit.shared.isUsingLegacyTokens ? "overlay-primary" : ""
+                return  ""
             case .layout:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.buttonLayoutBorder.rawValue
+                return UTColorTokens.buttonLayoutBorder.rawValue
             case .teachingPrimary:
                 return ""
             case .teachingSecondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "wx-semiTransparentControl" : UTColorTokens.coachmarkteachingButtonPrimaryBorder.rawValue
+                return UTColorTokens.coachmarkteachingButtonPrimaryBorder.rawValue
             case .teachingHyperlink:
                 return ""
             case .shareWindowPrimary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : ""
+                return ""
             case .shareWindowSecondary:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.sharewindowControlButtonSecondaryBorder.rawValue
+                return UTColorTokens.sharewindowControlButtonSecondaryBorder.rawValue
+            case .shareWindowActive:
+                return UTColorTokens.sharewindowControlButtonActiveBorder.rawValue
             case .overlay:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.buttonOverlayBorder.rawValue
+                return UTColorTokens.buttonOverlayBorder.rawValue
             case .singleEqual:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.buttonLayoutBorder.rawValue
+                return UTColorTokens.buttonLayoutBorder.rawValue
             case .statedLayout:
-                return UIToolkit.shared.isUsingLegacyTokens ? "" : UTColorTokens.buttonLayoutBorder.rawValue
+                return UTColorTokens.buttonLayoutBorder.rawValue
             }
         }
     }
@@ -244,5 +251,5 @@ open class UTButton: UTBaseButton {
     open override func resignFirstResponder() -> Bool {
         buttonDelegate?.onFocusStateChanged(self, hasFocus: false)
         return super.resignFirstResponder()
-    }
+    }    
 }
