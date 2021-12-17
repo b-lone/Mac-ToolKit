@@ -27,11 +27,11 @@ enum MagicDrawingStyle {
     var lineColor: NSColor {
         switch self {
         case .sharingScreen, .sharingApplication:
-            return .orange
+            return getUIToolkitColor(token: .sharewindowBorderActive).normal
         case .hoverScreen:
-            return .green
+            return getUIToolkitColor(token: .sharewindowBorderSelected).normal
         case .unsharedApplication, .unsharedScreen:
-            return .gray
+            return getUIToolkitColor(token: .sharewindowBorderInactive).normal
         }
     }
     
