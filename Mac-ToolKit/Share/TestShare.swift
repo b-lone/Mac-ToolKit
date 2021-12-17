@@ -9,6 +9,12 @@
 import Cocoa
 import CommonHead
 
+extension CHRect {
+    static var zero: CHRect {
+        CHRect(x: NSNumber(0), y: NSNumber(0), width: NSNumber(0), height: NSNumber(0))
+    }
+}
+
 class TestShare: NSObject {
     let caseNameCaptureIosScreen = "capture iOS screen"
     let caseNameLocalShareControlBar = "control bar"
@@ -38,6 +44,20 @@ class TestShare: NSObject {
         super.init()
     }
     
+    private var windowInfoList = [MagicWindowInfo]()
+    private func getWindowInfoList(pName: String) -> [MagicWindowInfo] {
+        windowInfoList = AppContext.shared.drawingBoardManager.getWindowInfoList(exclude: true, onScreenOnly: true)
+        return windowInfoList.filter {
+            $0.pName.contains(pName)
+        }
+    }
+    
+    private func setupWindowShare() {
+        let list = getWindowInfoList(pName: "Terminal")
+        let sharingContent = CHSharingContent(sourceType: .window, captureRect: .zero, shareSourceList: [], capturedWindows: list.map( { "\($0.windowNumber)" } ))
+        AppContext.shared.commonHeadFrameworkAdapter.shareVM.sharingContent = sharingContent
+        (shareManager.getComponent(callId: "1") as? ShareManagerComponent)?.shareViewModel(AppContext.shared.commonHeadFrameworkAdapter.shareVM, onSharingContentChanged: sharingContent)
+    }
 }
 
 extension TestShare: TestCasesManager {
@@ -97,6 +117,7 @@ extension TestShare: TestCasesManager {
         } else if caseName == caseNameImmersiveShare {
             immersiveShareManager.setup(shareComponent: shareManager.getComponent(callId: "1")!)
             if actionName == "Show" {
+                setupWindowShare()
                 immersiveShareManager.showFlaotingVideoWindow()
             } else if actionName == "Hide" {
                 immersiveShareManager.hideFlaotingVideoWindow()
