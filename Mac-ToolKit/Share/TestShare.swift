@@ -12,6 +12,7 @@ import CommonHead
 class TestShare: NSObject {
     let caseNameCaptureIosScreen = "capture iOS screen"
     let caseNameLocalShareControlBar = "control bar"
+    let caseNameImmersiveShare = "Immersive Share"
     
     let shareManager = ShareManager(appContext: AppContext.shared)
     lazy var shareIosScreenManager: ShareIosScreenManagerProtocol = ShareIosScreenManager(shareFactory: AppContext.shared.shareFactory)
@@ -30,6 +31,8 @@ class TestShare: NSObject {
         AppContext.shared.commonHeadFrameworkAdapter.shareVM.localShareControlBarInfo = barInfo
         return barInfo
     }()
+    
+    private var immersiveShareManager = ImmersiveShareManager(shareFactory: AppContext.shared.shareFactory)
     
     override init() {
         super.init()
@@ -58,6 +61,13 @@ extension TestShare: TestCasesManager {
         ]
         testCaseList.append(testCase)
         
+        testCase = TestCase(name: caseNameImmersiveShare)
+        testCase.actionList = [
+            TestAction(title: "Show"),
+            TestAction(title: "Hide"),
+        ]
+        testCaseList.append(testCase)
+        
         return testCaseList
     }
     
@@ -83,6 +93,13 @@ extension TestShare: TestCasesManager {
                 testChangeScreen()
             } else if actionName == "Label" {
                 testLabel()
+            }
+        } else if caseName == caseNameImmersiveShare {
+            immersiveShareManager.setup(shareComponent: shareManager.getComponent(callId: "1")!)
+            if actionName == "Show" {
+                immersiveShareManager.showFlaotingVideoWindow()
+            } else if actionName == "Hide" {
+                immersiveShareManager.hideFlaotingVideoWindow()
             }
         }
     }

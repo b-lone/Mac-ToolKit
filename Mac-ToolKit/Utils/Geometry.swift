@@ -42,6 +42,13 @@ extension NSRect {
         return rect
     }
     
+    func moveAndResize(into outer: CGRect) -> CGRect {
+        var rect = self
+        rect.size.width = min(rect.width, outer.width)
+        rect.size.height = min(rect.height, outer.height)
+        return rect.move(into: outer)
+    }
+    
     func resizeAndKeepCenter(newSize: CGSize) -> CGRect {
         var rect = self
         rect.origin.x = rect.minX - (newSize.width - rect.width) / 2

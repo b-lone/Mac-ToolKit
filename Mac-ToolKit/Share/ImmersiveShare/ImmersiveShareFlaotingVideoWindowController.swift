@@ -18,16 +18,23 @@ class ImmersiveShareFlaotingVideoWindowController: IImmersiveShareFlaotingVideoW
     @IBOutlet weak var mouseTrackView: MouseTrackView!
     
     private let shareFactory: ShareFactoryProtocol
+    private let drawingBoardManager: MagicDrawingBoardManagerProtocol
     private weak var shareComponent: ShareManagerComponentProtocol?
     private lazy var videoViewController: IImmersiveShareLocalVideoViewController = shareFactory.makeImmersiveShareLocalVideoViewController(callId: shareComponent?.callId ?? "")
     
-    private var outerFrame: CGRect = .zero
+    private var outerFrame: CGRect = .zero {
+        didSet {
+            onOuterFrameUpdated()
+        }
+    }
+    private var resetOnceFalg = true
     private var mouseDownLocation: CGPoint = . zero
     private var isMouseDown = false
     
     override var windowNibName: NSNib.Name? { "ImmersiveShareFlaotingVideoWindowController" }
     override init(appContext: AppContext) {
         self.shareFactory = appContext.shareFactory
+        self.drawingBoardManager = appContext.drawingBoardManager
         super.init(appContext: appContext)
         
         let _ = window
@@ -47,6 +54,7 @@ class ImmersiveShareFlaotingVideoWindowController: IImmersiveShareFlaotingVideoW
         window?.styleMask = .borderless
         window?.backgroundColor = .black
         window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+        window?.styleMask.insert(.resizable)
         window?.hasShadow = false
         window?.level = .floating
         
@@ -60,20 +68,57 @@ class ImmersiveShareFlaotingVideoWindowController: IImmersiveShareFlaotingVideoW
     
     override func showWindow(_ sender: Any?) {
         guard shareComponent != nil else { return }
-        super.showWindow(sender)
         if videoViewController.view.window == nil {
             window?.contentView?.addSubviewAndFill(subview: videoViewController.view)
         }
+        super.showWindow(sender)
+        onOuterFrameUpdated()
     }
     
     override func close() {
         super.close()
     }
     
+    private func resetOrigin() {
+        guard let window = window else { return }
+        var frame = window.frame
+        frame.origin.x = outerFrame.maxX - frame.width
+        frame.origin.y = outerFrame.minY
+        window.setFrame(frame, display: true, animate: false)
+    }
+    
     private func updateOuterFrame() {
-        guard let shareComponent = shareComponent else { return outerFrame = .zero }
-        outerFrame = shareComponent.shareContext.captureRect
-        
+        guard let shareContext = shareComponent?.shareContext else { return outerFrame = .zero }
+        if shareContext.shareSourceType == .desktop {
+            return outerFrame = shareContext.screenToDraw.visibleFrame
+        } else {
+            let sharingWindowInfoList = drawingBoardManager.getWindowInfoList(exclude: true, onScreenOnly: true).filter {
+                shareContext.sharingWindowNumberList.contains($0.windowNumber)
+            }
+            if !sharingWindowInfoList.isEmpty {
+                outerFrame = sharingWindowInfoList[0].frame
+                for windowInfo in sharingWindowInfoList[1...] {
+                    outerFrame = outerFrame.union(windowInfo.frame)
+                }
+                
+                return outerFrame = outerFrame.intersection(shareContext.screenToDraw.visibleFrame)
+            }
+        }
+        outerFrame = .zero
+    }
+    
+    private func onOuterFrameUpdated() {
+        guard let window = window else { return }
+        if outerFrame.width < 160 || outerFrame.height < 90 {
+            window.close()
+        } else {
+            if resetOnceFalg {
+                resetOnceFalg = false
+                resetOrigin()
+            }
+            window.setFrame(window.frame.moveAndResize(into: outerFrame), display: false, animate: false)
+            window.orderFront(self)
+        }
     }
     
     //MARK: ShareManagerComponentSetup
@@ -108,5 +153,14 @@ extension ImmersiveShareFlaotingVideoWindowController: MouseTrackViewDelegate {
         windowFrame.origin = NSMakePoint(NSEvent.mouseLocation.x - mouseDownLocation.x, originY)
         windowFrame = windowFrame.move(into: outerFrame)
         window.setFrame(windowFrame, display: false, animate: false)
+    }
+}
+
+extension ImmersiveShareFlaotingVideoWindowController: NSWindowDelegate {
+    func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
+        var size = NSSize()
+        size.width = min(sender.frame.maxX - outerFrame.minX, frameSize.width)
+        size.height = min(sender.frame.maxY - outerFrame.minY, frameSize.height)
+        return size
     }
 }
