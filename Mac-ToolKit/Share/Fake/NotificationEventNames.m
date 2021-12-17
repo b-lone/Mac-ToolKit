@@ -106,6 +106,7 @@ NSString * const OnRequestUrlSuccesful = @"OnRequestUrlSuccesful";
 NSString * const OnRequestUrlFailed = @"OnRequestUrlFailed";
 
 NSString * const OnAvatarChanged = @"OnAvatarChanged";
+NSString * const OnAvatarFetchFailed = @"OnAvatarFetchFailed";
 NSString * const OnThumbnailChanged = @"OnThumbnailChanged";
 NSString * const OnThumbnailDownloadFailed = @"OnThumbnailDownloadFailed";
 NSString * const OnRoomAvatarChanged = @"OnRoomAvatarChanged";
@@ -185,7 +186,6 @@ NSString *const OnSelectedEntityChanged = @"OnSelectedEntityChanged";
 NSString *const OnShareWhiteBoardLiveAction = @"OnShareWhiteboardLiveAction";
 NSString *const OnToggleAddPeopleAction = @"OnToggleAddPeopleAction";
 NSString *const OnOpenWebViewRequested = @"OnOpenWebViewRequested";
-NSString *const OnNativeMessagingViewToggled = @"OnNativeMessagingViewToggled";
 NSString *const OnCallNotificationArrivedFromParticipantList = @"OnCallNotificationArrivedFromParticipantList";
 
 NSString *const OnWhiteboardInit = @"OnWhiteboardInit";
@@ -205,8 +205,7 @@ NSString *const OnShowCallControlsAfterWhiteboarding = @"OnShowCallControlsAfter
 NSString *const OnOpenCallingDevicesPreferences = @"OnOpenCallingDevicesPreferences";
 NSString *const OnOpenSearchWirelessDevices = @"OnOpenWirelessDevices";
 
-NSString *const OnShowSearch = @"OnShowSearch";
-NSString *const OnOpenSearchAction = @"OnOpenSearchAction";
+NSString *const OnSearchInSpaceAction = @"OnSearchInSpaceAction";
 NSString *const OnSocialRoomFilterUpdated = @"OnSocialRoomFilterUpdated";
 NSString *const OnFourthColumnDidStartAnimating = @"OnFourthColumnDidStartAnimating";
 NSString *const OnFourthColumnDidFinishAnimating = @"OnFourthColumnDidFinishAnimating";
@@ -222,6 +221,7 @@ NSString *const OnConversationTabActivityChanged = @"OnConversationTabActivityCh
 NSString *const OnShareBorderControlsChanged = @"OnShareBorderControlsChanged";
 NSString *const OnCreateSpaceAction = @"OnCreateSpaceAction";
 NSString *const OnDisplayConnectingChanged = @"OnDisplayConnectingChanged";
+NSString *const OnCancelJoin = @"OnCancelJoin";
 // call
 NSString *const OnShowIncomingCallAlert = @"OnShowIncomingCallAlert";
 NSString *const OnCallParkExpireAlert = @"OnCallParkExpireAlert";
@@ -285,7 +285,6 @@ NSString *const OnStartDtmfTone = @"OnStartDtmfTone";
 NSString *const OnStopDtmfTone = @"OnStopDtmfTone";
 NSString *const OnCallSleepScreenSaverChanged = @"OnCallSleepScreenSaverChanged";
 NSString *const OnCallRequested = @"OnCallRequested";
-NSString *const OnSearchStringCallAction = @"OnSearchStringCallAction";
 NSString *const OnCallWithEditAction = @"OnCallWithEditAction";
 NSString *const OnCallWithEditDialPadAction = @"OnCallWithEditDialPadAction";
 NSString *const OnCallAudioActiveSpeakerChanged = @"OnCallAudioActiveSpeakerChanged";
@@ -295,6 +294,7 @@ NSString *const OnResourceRoomStateChanged = @"OnResourceRoomStateChanged";
 NSString *const OnResourceRoomError = @"OnResourceRoomError";
 NSString *const OnShareWillMiniaturizeWindow = @"OnShareWillMiniaturizeWindow";
 NSString *const OnShareShouldExcludeWindow = @"OnShareShouldExcludeWindow";
+NSString *const OnDrawShouldExcludeWindow = @"OnDrawShouldExcludeWindow";
 NSString *const OnWindowCoverStateChanged = @"OnWindowCoverStateChanged";
 NSString *const OnMoveCallStarted = @"OnMoveCallStarted";
 NSString *const OnCallHoldStateChanged = @"OnCallHoldStateChanged";
@@ -361,6 +361,7 @@ NSString *const CallIdKey = @"CallIdKey";
 NSString *const LineIdKey = @"LineIdKey";
 NSString *const PcmRawsKey = @"PcmRawsKey";
 NSString *const UcmToneTypeKey = @"UcmToneTypeKey";
+NSString *const IsMeetingEnterOrExitToneTypeKey = @"IsMeetingEnterOrExitToneTypeKey";
 NSString *const ActivityTypeKey = @"ActivityTypeKey";
 NSString *const ActivityIdKey = @"ActivityIdKey";
 NSString *const ActivityTabTypeKey = @"ActivityTabTypeKey";
@@ -475,7 +476,12 @@ NSString *const CallNotificationKey = @"CallNotificationKey";
 NSString *const CopyLinkErrorMessageTitleKey = @"CopyLinkErrorMessageTitleKey";
 NSString *const CopyLinkErrorMessageBodyKey = @"CopyLinkErrorMessageBodyKey";
 NSString *const ShowConnecting = @"ShowConnecting";
+NSString *const ShowCancelButton = @"ShowCancelButton";
+NSString *const ShowSendFeedback = @"ShowSendFeedback";
+NSString *const PercentageData = @"PercentageData";
 NSString *const SharingStatusKey = @"SharingStatus";
+NSString *const MenuType = @"MenuType";
+NSString *const AppId = @"AppId";
 
 //AdaptiveCards
 NSString *const OnAdaptiveCardSubmitStatusReturnKey = @"OnAdaptiveCardSubmitStatusReturnKey";
@@ -725,6 +731,7 @@ NSString *const OnForceDisplayParticipantListForCall = @"OnForceDisplayParticipa
 NSString *const OnOpenInviteToMeetingParticipantListForCall = @"OnOpenInviteToMeetingParticipantListForCall";
 NSString *const OnToggleDisplayMessagesForCall = @"OnToggleDisplayMessagesForCall";
 NSString *const PeopleTypeKey = @"PeopleTypeKey";
+NSString *const OnToggleDisplayAppPanelForCall = @"OnToggleDisplayAppPanelForCall";
 
 // PSTN
 NSString *const TollFreeDialInKey = @"TollFreeDialInKey";
@@ -828,5 +835,7 @@ NSString *const OnStartMigration = @"OnStartMigration";
 
 NSString *const OnSetCustomDND = @"OnSetCustomDND";
 NSString *const DndDuration = @"DndDuration";
+
+NSString *const ContainerIdKey = @"ContainerId";
 
 @end

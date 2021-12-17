@@ -47,6 +47,7 @@ class ImmersiveShareManager: NSObject & ImmersiveShareManagerProtocol {
         floatingVideoWindowController?.showWindow(self)
         if let windowNumber = floatingVideoWindowController?.window?.windowNumber {
             NotificationCenter.default.post(name: Notification.Name(rawValue: OnShareShouldExcludeWindow), object: self, userInfo: ["windowNumber": windowNumber])
+            NotificationCenter.default.post(name: Notification.Name(rawValue: OnDrawShouldExcludeWindow), object: self, userInfo: ["windowNumber": windowNumber])
         }
     }
     

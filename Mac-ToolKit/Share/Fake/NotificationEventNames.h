@@ -123,7 +123,6 @@ extern NSString *const OnWhiteboardClearBoard;
 extern NSString *const OnWhiteboardSetReadOnly;
 extern NSString *const OnWhiteboardSwitchColor;
 extern NSString *const OnWhiteboardSwitchToEraser;
-extern NSString *const OnNativeMessagingViewToggled;
 extern NSString *const OnCallNotificationArrivedFromParticipantList;
 
 extern NSString *const OnEditWhiteboardAction;
@@ -133,8 +132,7 @@ extern NSString *const OnShowCallControlsAfterWhiteboarding;
 extern NSString *const OnNewWhiteboardAction;
 extern NSString *const OnOpenCallingDevicesPreferences;
 extern NSString *const OnOpenSearchWirelessDevices;
-extern NSString *const OnOpenSearchAction;
-extern NSString *const OnShowSearch;
+extern NSString *const OnSearchInSpaceAction;
 extern NSString *const OnSocialRoomFilterUpdated;
 extern NSString *const OnFourthColumnDidStartAnimating;
 extern NSString *const OnFourthColumnDidFinishAnimating;
@@ -150,6 +148,7 @@ extern NSString *const OnConversationTabActivityChanged;
 extern NSString *const OnShareBorderControlsChanged;
 extern NSString *const OnCreateSpaceAction;
 extern NSString *const OnDisplayConnectingChanged;
+extern NSString *const OnCancelJoin;
 
 //
 extern NSString *const OnSyncingStatusChanged;
@@ -267,7 +266,6 @@ extern NSString *const OnStartDtmfTone;
 extern NSString *const OnStopDtmfTone;
 extern NSString *const OnCallSleepScreenSaverChanged;
 extern NSString *const OnCallRequested;
-extern NSString *const OnSearchStringCallAction;
 extern NSString *const OnCallWithEditAction;
 extern NSString *const OnCallWithEditDialPadAction;
 extern NSString *const OnCallAudioActiveSpeakerChanged;
@@ -277,6 +275,7 @@ extern NSString *const OnResourceRoomStateChanged;
 extern NSString *const OnResourceRoomError;
 extern NSString *const OnShareWillMiniaturizeWindow;
 extern NSString *const OnShareShouldExcludeWindow;
+extern NSString *const OnDrawShouldExcludeWindow;
 extern NSString *const OnWindowCoverStateChanged;
 extern NSString *const OnMoveCallStarted;
 extern NSString *const OnCallHoldStateChanged;
@@ -341,6 +340,7 @@ extern NSString *const ExAuthenticationReasonKey;
 
 extern NSString *const OnRoomAvatarChanged;//OnRoomAvatarChanged
 extern NSString *const OnAvatarChanged;//OnRoomAvatarChanged
+extern NSString *const OnAvatarFetchFailed;//onAvatarFetchFailed
 extern NSString *const OnThumbnailChanged;
 extern NSString *const OnThumbnailPreviewChanged;
 extern NSString *const OnThumbnailDownloadFailed;
@@ -381,6 +381,7 @@ extern NSString *const CallIdKey;
 extern NSString *const LineIdKey;
 extern NSString *const PcmRawsKey;
 extern NSString *const UcmToneTypeKey;
+extern NSString *const IsMeetingEnterOrExitToneTypeKey;
 extern NSString *const ActivityTypeKey;
 extern NSString *const ActivityIdKey;
 extern NSString *const ActivityTabTypeKey;
@@ -513,6 +514,8 @@ extern NSString *const QuoteMessageKey;
 extern NSString *const ParticipantsKey;
 extern NSString *const BindSpaceKey;
 extern NSString *const CallNotificationKey;
+extern NSString *const MenuType;
+extern NSString *const AppId;
 
 extern NSString *const IsPmrKey;
 extern NSString *const MeetingLockedErrorCodeKey;
@@ -528,6 +531,9 @@ extern NSString *const CopyLinkErrorMessageTitleKey;
 extern NSString *const CopyLinkErrorMessageBodyKey;
 
 extern NSString *const ShowConnecting;
+extern NSString *const ShowCancelButton;
+extern NSString *const ShowSendFeedback;
+extern NSString *const PercentageData;
 
 extern NSString *const SharingStatusKey;
 
@@ -721,6 +727,7 @@ extern NSString *const OnForceDisplayParticipantListForCall;
 extern NSString *const OnOpenInviteToMeetingParticipantListForCall;
 extern NSString *const OnToggleDisplayMessagesForCall;
 extern NSString *const PeopleTypeKey;
+extern NSString *const OnToggleDisplayAppPanelForCall;
 
 // PSTN
 extern NSString *const TollFreeDialInKey;
@@ -821,6 +828,8 @@ extern NSString *const OnStartMigration;
 
 extern NSString *const OnSetCustomDND;
 extern NSString *const DndDuration;
+
+extern NSString *const ContainerIdKey;
 
 @interface NotificationEventNames : NSObject
 @end

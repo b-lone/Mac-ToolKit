@@ -21,6 +21,10 @@ enum Orientation : Int {
 }
 
 extension NSRect {
+    func check(in outer: CGRect) -> Bool {
+        return minX >= outer.minX && minY >= outer.minY && maxX <= outer.maxX && maxY <= outer.maxY
+    }
+    
     func expand(width deviation: CGFloat) -> CGRect {
         return NSMakeRect(origin.x - deviation, origin.y - deviation, width + deviation * 2, height + deviation * 2)
     }
@@ -42,7 +46,7 @@ extension NSRect {
         return rect
     }
     
-    func moveAndResize(into outer: CGRect) -> CGRect {
+    func resizeAndMove(into outer: CGRect) -> CGRect {
         var rect = self
         rect.size.width = min(rect.width, outer.width)
         rect.size.height = min(rect.height, outer.height)

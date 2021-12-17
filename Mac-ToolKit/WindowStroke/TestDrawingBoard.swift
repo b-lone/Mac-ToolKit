@@ -9,9 +9,6 @@
 import Cocoa
 import CommonHead
 
-let OnWindowCoverStateChanged = "OnWindowCoverStateChanged"
-let OnShareShouldExcludeWindow = "OnShareShouldExcludeWindow"
-
 class TestDrawingBoard: NSObject {
     let caseNameCoverState = "cover state"
     let caseNameApplicationBorder = "application border"

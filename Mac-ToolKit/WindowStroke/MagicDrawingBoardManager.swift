@@ -149,6 +149,7 @@ class MagicDrawingBoardManager: NSObject {
         }
     }
     private var excludedWindowNumberList = [CGWindowID]()
+    private var excludedDrawWindowNumberList = [CGWindowID]()
     private var coverState = [MagicDrawingId: Bool]()
     
     private var timer: SparkTimerProtocol
@@ -170,6 +171,7 @@ class MagicDrawingBoardManager: NSObject {
         
         NotificationCenter.default.addObserver(self, selector: #selector(onChangeScreenParametersNotification), name: NSApplication.didChangeScreenParametersNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onShareShouldExcludeWindow), name: NSNotification.Name(rawValue: OnShareShouldExcludeWindow), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDrawShouldExcludeWindow), name: NSNotification.Name(rawValue: OnDrawShouldExcludeWindow), object: nil)
         onChangeScreenParametersNotification()
     }
     
@@ -255,6 +257,9 @@ class MagicDrawingBoardManager: NSObject {
             return false
         }
         if windowBorderDrawingBoardMap.values.contains(where: { $0.window?.windowNumber == Int(windowInfo.windowNumber) }) {
+            return false
+        }
+        if excludedDrawWindowNumberList.contains(windowInfo.windowNumber) {
             return false
         }
         if pNameBlacklist.contains(windowInfo.pName) {
@@ -373,6 +378,13 @@ class MagicDrawingBoardManager: NSObject {
         guard let windowNumber = notification.userInfo?["windowNumber"] as? Int, windowNumber > 0 else { return }
         if !excludedWindowNumberList.contains(CGWindowID(windowNumber)) {
             excludedWindowNumberList.append(CGWindowID(windowNumber))
+        }
+    }
+    
+    @objc private func onDrawShouldExcludeWindow(notification: NSNotification) {
+        guard let windowNumber = notification.userInfo?["windowNumber"] as? Int, windowNumber > 0 else { return }
+        if !excludedDrawWindowNumberList.contains(CGWindowID(windowNumber)) {
+            excludedDrawWindowNumberList.append(CGWindowID(windowNumber))
         }
     }
     
