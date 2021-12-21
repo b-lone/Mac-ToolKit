@@ -7,7 +7,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ImmersiveShareFlaotingVideoWindowController" customModule="Mac_ToolKit" customModuleProvider="target">
             <connections>
+                <outlet property="hoverContainerView" destination="s3Q-g4-i1I" id="vFz-Pt-TDr"/>
                 <outlet property="mouseTrackView" destination="84N-Yh-dwE" id="cit-Ay-kZp"/>
+                <outlet property="videoContainerView" destination="SeQ-q1-NUn" id="1Dp-A2-Jkh"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -22,15 +24,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="SeQ-q1-NUn">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                    </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="s3Q-g4-i1I">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                    </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="84N-Yh-dwE" customClass="MouseTrackView" customModule="Mac_ToolKit" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                     </customView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="84N-Yh-dwE" secondAttribute="trailing" id="1hD-2y-eOo"/>
+                    <constraint firstItem="SeQ-q1-NUn" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="2O2-mG-3P0"/>
                     <constraint firstAttribute="bottom" secondItem="84N-Yh-dwE" secondAttribute="bottom" id="91Y-8j-HSP"/>
+                    <constraint firstItem="SeQ-q1-NUn" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="ChW-Ud-dOd"/>
+                    <constraint firstAttribute="bottom" secondItem="SeQ-q1-NUn" secondAttribute="bottom" id="Fza-vb-fbR"/>
+                    <constraint firstAttribute="bottom" secondItem="s3Q-g4-i1I" secondAttribute="bottom" id="HW0-Jn-YEV"/>
                     <constraint firstItem="84N-Yh-dwE" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="P3x-Lu-sag"/>
+                    <constraint firstItem="s3Q-g4-i1I" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="luW-gm-Spc"/>
                     <constraint firstItem="84N-Yh-dwE" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="ohG-o4-ZOY"/>
+                    <constraint firstAttribute="trailing" secondItem="s3Q-g4-i1I" secondAttribute="trailing" id="qzR-iw-k21"/>
+                    <constraint firstItem="s3Q-g4-i1I" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="tL7-uF-ch5"/>
+                    <constraint firstAttribute="trailing" secondItem="SeQ-q1-NUn" secondAttribute="trailing" id="uEU-45-WVH"/>
                 </constraints>
             </view>
             <connections>

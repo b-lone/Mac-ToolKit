@@ -16,6 +16,7 @@ protocol ShareViewFactory {
     func makeLocalShareControlButtonsViewController(orientation: Orientation) -> ILocalShareControlButtonsViewController
     func makeLocalShareVideoViewController(callId: String) -> ILocalShareVideoViewController
     func makeImmersiveShareLocalVideoViewController(callId: String) -> IImmersiveShareLocalVideoViewController
+    func makeImmersiveShareHoverViewController() -> IImmersiveShareHoverViewController
 }
 
 protocol ShareWindowFactory {
@@ -24,6 +25,7 @@ protocol ShareWindowFactory {
     func makeShareIosScreenPromptWindowController() -> IShareIosScreenPromptWindowController
     func makeLocalShareControlBarWindowController() -> ILocalShareControlBarWindowController
     func makeImmersiveShareFlaotingVideoWindowController() -> IImmersiveShareFlaotingVideoWindowController
+    func makeImmersiveShareFloatingPopoverWindowController() -> IImmersiveShareFloatingPopoverWindowController
 }
 
 protocol ShareManagerFactory {
@@ -69,6 +71,10 @@ class ShareFactory: NSObject, ShareFactoryProtocol {
         ImmersiveShareLocalVideoViewController(appContext: appContext, callId: callId)
     }
     
+    func makeImmersiveShareHoverViewController() -> IImmersiveShareHoverViewController {
+        ImmersiveShareHoverViewController(appContext: appContext)
+    }
+    
     //MARK: ShareWindowFactory
     func makeMagicDrawingBoardWindowController(screen: SparkScreen, level: MagicDrawingBoardWindowController.Level) -> IMagicDrawingBoardWindowController {
         MagicDrawingBoardWindowController(screen: screen, level: level)
@@ -88,6 +94,10 @@ class ShareFactory: NSObject, ShareFactoryProtocol {
     
     func makeImmersiveShareFlaotingVideoWindowController() -> IImmersiveShareFlaotingVideoWindowController {
         ImmersiveShareFlaotingVideoWindowController(appContext: appContext)
+    }
+    
+    func makeImmersiveShareFloatingPopoverWindowController() -> IImmersiveShareFloatingPopoverWindowController {
+        ImmersiveShareFloatingPopoverWindowController(appContext: appContext)
     }
     
     //MARK: ShareManagerFactory

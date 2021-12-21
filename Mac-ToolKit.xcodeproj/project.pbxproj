@@ -48,6 +48,7 @@
 		215F8ADA25B098EA000F4D45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F8AD925B098EA000F4D45 /* AppDelegate.swift */; };
 		215F8ADE25B098EC000F4D45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215F8ADD25B098EC000F4D45 /* Assets.xcassets */; };
 		215F8AE125B098EC000F4D45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215F8ADF25B098EC000F4D45 /* Main.storyboard */; };
+		2164B83C27706CD0001D80A0 /* CSITableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164B83827706CD0001D80A0 /* CSITableRowView.swift */; };
 		2176CDF1268AC3CD00FAA4E0 /* CollectionViewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2176CDEF268AC3CD00FAA4E0 /* CollectionViewWindowController.swift */; };
 		2176CDF2268AC3CD00FAA4E0 /* CollectionViewWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2176CDF0268AC3CD00FAA4E0 /* CollectionViewWindowController.xib */; };
 		217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */; };
@@ -113,6 +114,11 @@
 		21D54B49272696BA009CDBC1 /* Timer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B48272696BA009CDBC1 /* Timer+Extensions.swift */; };
 		21D54B4B27269723009CDBC1 /* QuartzWindowServicesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B4A27269723009CDBC1 /* QuartzWindowServicesAdapter.swift */; };
 		21D54B4F272697B3009CDBC1 /* WillBeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D54B4E272697B3009CDBC1 /* WillBeSet.swift */; };
+		21EF4DBD276C7E4A00553D13 /* ImmersiveShareHoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF4DBB276C7E4A00553D13 /* ImmersiveShareHoverViewController.swift */; };
+		21EF4DBE276C7E4A00553D13 /* ImmersiveShareHoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21EF4DBC276C7E4A00553D13 /* ImmersiveShareHoverViewController.xib */; };
+		21EF4DC1276C8D9200553D13 /* ImmersiveShareFloatingPopoverWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF4DBF276C8D9200553D13 /* ImmersiveShareFloatingPopoverWindowController.swift */; };
+		21EF4DC2276C8D9200553D13 /* ImmersiveShareFloatingPopoverWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21EF4DC0276C8D9200553D13 /* ImmersiveShareFloatingPopoverWindowController.xib */; };
+		21EF4DC4276C8E7000553D13 /* SparkPopoverWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EF4DC3276C8E7000553D13 /* SparkPopoverWindow.swift */; };
 		21F106BC272A4B2700E40AD9 /* LocalShareControlBarWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F106B7272A4B2700E40AD9 /* LocalShareControlBarWindowController.xib */; };
 		21F106BD272A4B2700E40AD9 /* LocalShareControlHorizontalBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F106B8272A4B2700E40AD9 /* LocalShareControlHorizontalBarViewController.xib */; };
 		21F106BE272A4B2700E40AD9 /* LocalShareControlBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F106B9272A4B2700E40AD9 /* LocalShareControlBarViewController.swift */; };
@@ -272,6 +278,7 @@
 		215F8AE025B098EC000F4D45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		215F8AE225B098EC000F4D45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		215F8AE325B098EC000F4D45 /* Mac-Toolkit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mac-Toolkit.entitlements"; sourceTree = "<group>"; };
+		2164B83827706CD0001D80A0 /* CSITableRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSITableRowView.swift; sourceTree = "<group>"; };
 		2176CDEF268AC3CD00FAA4E0 /* CollectionViewWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewWindowController.swift; sourceTree = "<group>"; };
 		2176CDF0268AC3CD00FAA4E0 /* CollectionViewWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewWindowController.xib; sourceTree = "<group>"; };
 		217BD3682649356400B58ED2 /* RoundSameSideCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundSameSideCornerView.swift; sourceTree = "<group>"; };
@@ -341,6 +348,11 @@
 		21D54B48272696BA009CDBC1 /* Timer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timer+Extensions.swift"; sourceTree = "<group>"; };
 		21D54B4A27269723009CDBC1 /* QuartzWindowServicesAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzWindowServicesAdapter.swift; sourceTree = "<group>"; };
 		21D54B4E272697B3009CDBC1 /* WillBeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WillBeSet.swift; sourceTree = "<group>"; };
+		21EF4DBB276C7E4A00553D13 /* ImmersiveShareHoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveShareHoverViewController.swift; sourceTree = "<group>"; };
+		21EF4DBC276C7E4A00553D13 /* ImmersiveShareHoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImmersiveShareHoverViewController.xib; sourceTree = "<group>"; };
+		21EF4DBF276C8D9200553D13 /* ImmersiveShareFloatingPopoverWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveShareFloatingPopoverWindowController.swift; sourceTree = "<group>"; };
+		21EF4DC0276C8D9200553D13 /* ImmersiveShareFloatingPopoverWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImmersiveShareFloatingPopoverWindowController.xib; sourceTree = "<group>"; };
+		21EF4DC3276C8E7000553D13 /* SparkPopoverWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkPopoverWindow.swift; sourceTree = "<group>"; };
 		21F106B7272A4B2700E40AD9 /* LocalShareControlBarWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalShareControlBarWindowController.xib; sourceTree = "<group>"; };
 		21F106B8272A4B2700E40AD9 /* LocalShareControlHorizontalBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocalShareControlHorizontalBarViewController.xib; sourceTree = "<group>"; };
 		21F106B9272A4B2700E40AD9 /* LocalShareControlBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalShareControlBarViewController.swift; sourceTree = "<group>"; };
@@ -466,6 +478,10 @@
 			children = (
 				21546FEA2769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.swift */,
 				21546FEB2769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.xib */,
+				21EF4DBF276C8D9200553D13 /* ImmersiveShareFloatingPopoverWindowController.swift */,
+				21EF4DC0276C8D9200553D13 /* ImmersiveShareFloatingPopoverWindowController.xib */,
+				21EF4DBB276C7E4A00553D13 /* ImmersiveShareHoverViewController.swift */,
+				21EF4DBC276C7E4A00553D13 /* ImmersiveShareHoverViewController.xib */,
 				21546FEC2769C8F4004A9C72 /* ImmersiveShareLocalVideoViewController.swift */,
 				21546FE82769C8F4004A9C72 /* ImmersiveShareLocalVideoViewController.xib */,
 				21546FE92769C8F4004A9C72 /* ImmersiveShareManager.swift */,
@@ -686,6 +702,7 @@
 			children = (
 				21CCC088273A565D00FD4D04 /* ClickableTextField.swift */,
 				21F107B9272A934900E40AD9 /* CSIRotatingImageView.swift */,
+				2164B83827706CD0001D80A0 /* CSITableRowView.swift */,
 				211C78892680742E003D9EB4 /* FontelloButton.swift */,
 				211C789E2681E1B4003D9EB4 /* FontelloLabelWithText.swift */,
 				2184EC20272BEB7600A38EC0 /* Geometry.swift */,
@@ -705,6 +722,7 @@
 				21F107BD272A945700E40AD9 /* SemanticInputTextField.swift */,
 				21FBB2E326D76E0900717FDC /* ShareSourceVM.swift */,
 				219634CB26560CEA00BFA3F4 /* SparkButton.swift */,
+				21EF4DC3276C8E7000553D13 /* SparkPopoverWindow.swift */,
 				21F107BB272A943000E40AD9 /* SparkTextField.swift */,
 				218B9979273BB62500AADC0D /* SparkVideoLayer.swift */,
 				215F52E02705699A00F4ADD0 /* Subject.swift */,
@@ -1026,7 +1044,9 @@
 				2184EBFD272BBEBF00A38EC0 /* momentumBronzeLight.json in Resources */,
 				21F10791272A842B00E40AD9 /* ShareIosScreenWindowController.xib in Resources */,
 				2184EBE2272BBEA000A38EC0 /* lavenderLight.json in Resources */,
+				21EF4DC2276C8D9200553D13 /* ImmersiveShareFloatingPopoverWindowController.xib in Resources */,
 				2184EBE0272BBEA000A38EC0 /* emeraldLight.json in Resources */,
+				21EF4DBE276C7E4A00553D13 /* ImmersiveShareHoverViewController.xib in Resources */,
 				211C789A2681AB03003D9EB4 /* LogsWindowController.xib in Resources */,
 				21F107B1272A905600E40AD9 /* ShareResumeWindowController.xib in Resources */,
 				21F10785272A841300E40AD9 /* share-ios-tap-on-phone-light.png in Resources */,
@@ -1057,6 +1077,7 @@
 				21546FDE2769C1DE004A9C72 /* ColorsJson.swift in Sources */,
 				21AD514C269B3FC8006DF32F /* CommonTestWindowController.swift in Sources */,
 				210C5E7F26CC9EE900F69BFF /* Bundle+Extensions.swift in Sources */,
+				21EF4DBD276C7E4A00553D13 /* ImmersiveShareHoverViewController.swift in Sources */,
 				21F1079E272A8BAC00E40AD9 /* ThemeManager.swift in Sources */,
 				21CCC08E273A569F00FD4D04 /* PopoverView.swift in Sources */,
 				21094124266083B20040AC73 /* MagicDrawingBoardManager.swift in Sources */,
@@ -1117,6 +1138,7 @@
 				21F1079A272A889200E40AD9 /* CallControllerManager.swift in Sources */,
 				21B479DB26A0F582003A91FB /* TestBonjour.swift in Sources */,
 				217BD3692649356500B58ED2 /* RoundSameSideCornerView.swift in Sources */,
+				21EF4DC1276C8D9200553D13 /* ImmersiveShareFloatingPopoverWindowController.swift in Sources */,
 				21546FDD2769C1DE004A9C72 /* SemanticThemeManager.swift in Sources */,
 				21F107C0272A95CC00E40AD9 /* GlobalShortcutHandlerHelper.swift in Sources */,
 				21CCC090273A56E700FD4D04 /* NSPopover+Extensions.swift in Sources */,
@@ -1132,6 +1154,7 @@
 				21F107B0272A905600E40AD9 /* ShareResumeWindowController.swift in Sources */,
 				21546FF72769D26B004A9C72 /* NSControl+Extensions.swift in Sources */,
 				21F106E0272A522A00E40AD9 /* ShareFactory.swift in Sources */,
+				21EF4DC4276C8E7000553D13 /* SparkPopoverWindow.swift in Sources */,
 				21546FEF2769C8F4004A9C72 /* ImmersiveShareFlaotingVideoWindowController.swift in Sources */,
 				21FBB2DA26D7682800717FDC /* NSScreen+Extensions.swift in Sources */,
 				215F52E72705870600F4ADD0 /* TestScreenChangeHelper.swift in Sources */,
@@ -1144,6 +1167,7 @@
 				21D54B49272696BA009CDBC1 /* Timer+Extensions.swift in Sources */,
 				21F1079C272A8A7100E40AD9 /* NSAppearance+Extensions.swift in Sources */,
 				21F107C7272A9A6D00E40AD9 /* ProcessInfo+Extensions.swift in Sources */,
+				2164B83C27706CD0001D80A0 /* CSITableRowView.swift in Sources */,
 				21F107A4272A8E4100E40AD9 /* CommonHeadFrameworkAdapter.swift in Sources */,
 				21F1078D272A842B00E40AD9 /* ShareIosScreenCaptureManager.swift in Sources */,
 				21ABE999269730B70063C07A /* MainViewController.swift in Sources */,

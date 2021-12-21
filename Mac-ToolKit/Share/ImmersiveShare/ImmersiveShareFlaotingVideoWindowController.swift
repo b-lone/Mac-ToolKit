@@ -15,12 +15,15 @@ protocol ImmersiveShareFlaotingVideoWindowControllerProtocol: ShareManagerCompon
 }
 
 class ImmersiveShareFlaotingVideoWindowController: IImmersiveShareFlaotingVideoWindowController {
+    @IBOutlet weak var videoContainerView: NSView!
+    @IBOutlet weak var hoverContainerView: NSView!
     @IBOutlet weak var mouseTrackView: MouseTrackView!
     
     private let shareFactory: ShareFactoryProtocol
     private let drawingBoardManager: MagicDrawingBoardManagerProtocol
     private weak var shareComponent: ShareManagerComponentProtocol?
     private lazy var videoViewController: IImmersiveShareLocalVideoViewController = shareFactory.makeImmersiveShareLocalVideoViewController(callId: shareComponent?.callId ?? "")
+    private lazy var hoverViewController: IImmersiveShareHoverViewController = shareFactory.makeImmersiveShareHoverViewController()
     
     private var outerFrame: CGRect = .zero {
         didSet {
@@ -56,7 +59,7 @@ class ImmersiveShareFlaotingVideoWindowController: IImmersiveShareFlaotingVideoW
         super.windowDidLoad()
         
         window?.styleMask = .borderless
-        window?.backgroundColor = .blue.withAlpha(0.5)
+        window?.backgroundColor = .clear
         window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         window?.styleMask.insert(.resizable)
         window?.hasShadow = false
@@ -64,6 +67,7 @@ class ImmersiveShareFlaotingVideoWindowController: IImmersiveShareFlaotingVideoW
         
         mouseTrackView.mouseTrackDelegate = self
         mouseTrackView.shouldAcceptsFirstMouse = true
+        hoverContainerView.addSubviewAndFill(subview: hoverViewController.view)
     }
     
     override func setThemeColors() {
@@ -73,7 +77,7 @@ class ImmersiveShareFlaotingVideoWindowController: IImmersiveShareFlaotingVideoW
     override func showWindow(_ sender: Any?) {
         guard shareComponent != nil else { return }
         if videoViewController.view.window == nil {
-            window?.contentView?.addSubviewAndFill(subview: videoViewController.view)
+            videoContainerView.addSubviewAndFill(subview: videoViewController.view)
         }
         super.showWindow(sender)
         showWindow = true
