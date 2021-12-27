@@ -349,6 +349,11 @@ func getAppDisplayName() -> String {
     public static var shareWindowFte1 = NSLocalizedStringHelper("You can now select and share an individual window from a multiple-window application", comment: "")
     public static var shareWindowFte2 = NSLocalizedStringHelper("If you want to share all the windows from one application instead, go to %@ to change your preferences.", comment: "")
     public static var preferencesSharingContent = NSLocalizedStringHelper("Preferences > Sharing content", comment: "")
+    public static var immersiveShareShowMeInFront = NSLocalizedStringHelper("Show me in front of presentation", comment: "")
+    public static var immersiveShareShowMeInFrontTooltip = NSLocalizedStringHelper("When this option is checked, your video appears in front of your presentation or shared content for an immersive sharingcomment experience.", comment: "")
+    public static var changeSharingPreference = NSLocalizedStringHelper("Change sharing preference", comment: "")
+    public static var showMeInFrontOfPresentation = NSLocalizedStringHelper("Show me in front of presentation", comment: "")
+    public static var cameraSettings = NSLocalizedStringHelper("Camera settings", comment: "")
     public static var goToPreferences = NSLocalizedStringHelper("Go to Preferences", comment: "")
     public static var gotit = NSLocalizedStringHelper("Got it", comment: "")
     public static var openASpace = NSLocalizedStringHelper("Open a Space", comment:"bind the device to a space room")
@@ -730,7 +735,8 @@ func getAppDisplayName() -> String {
     public static var rightLayout = NSLocalizedStringHelper("Side by side", comment: "call video layout, filmstrip at right")
     public static var filmstripResizeHint = NSLocalizedStringHelper("Drag the handle to collapse the video thumbnails or to see more videos.", comment: "hint to let user know filmstrip is resizable")
     public static var filmstripResizeTitle = newFeatureTitle
-    
+
+    public static var videoLayoutFTEHint = NSLocalizedStringHelper("You can change device layout here.",  comment: "Message of the FTE for device video layout")
     public static var newFeatureTitle = NSLocalizedStringHelper("New feature", comment: "New feature")
 
     public static var activeSpeaking = NSLocalizedStringHelper("Speaking: %@", comment: "active speaking")
@@ -1026,8 +1032,8 @@ func getAppDisplayName() -> String {
     public static var enterMeetingPassword = NSLocalizedStringHelper("Enter Your Meeting Password", comment: "Enter Your Meeting Password")
 
     // cross launch
-    public static var connectingDlgStopUpdating = NSLocalizedStringHelper("Stop updating", comment: "Double check dlg title")
-    public static var connectingDlgDoYouWantToStopUpdating = NSLocalizedStringHelper("Do you want to stop updating the Webex app?", comment: "Double check dlg message")
+    public static var connectingDlgStopConnecting = NSLocalizedStringHelper("Stop connecting", comment: "Double check dlg title")
+    public static var connectingDlgDoYouWantToStopConnecting = NSLocalizedStringHelper("Do you want to stop connecting to the meeting?", comment: "Double check dlg message")
     
     // MARK: Calendar cross launch
     public static var failedToCrossLaunchCalendarTitleText = NSLocalizedStringHelper("Unable to schedule a meeting", comment: "Dialog Title: Failed to create calendar invite due to an unknown error")
@@ -1834,8 +1840,8 @@ func getAppDisplayName() -> String {
     public static var bitmojiTermsOfServiceHint = NSLocalizedStringHelper("Open the Snapchat terms of service in a web browser.", comment: "Accessibility hint for 'Terms of Service' substring")
     public static var bitmojiPrivacyPolicy = NSLocalizedStringHelper("Privacy Policy", comment: "** Make sure this 'Privacy Policy' matches translation for 'Your use of Bitmoji will be governed by...'")
     public static var bitmojiPrivacyPolicyHint = NSLocalizedStringHelper("Open the Snapchat privacy policy in a web browser.", comment: "Accessibility hint for 'Privacy Policy' substring")
-    public static var bitmojiCoachmarkHeaderText = newFeatureTitle
-    public static var bitmojiCoachmarkHeaderHint = NSLocalizedStringHelper("New Feature - Bitmoji, popover. You are currently on a popover window. Using Bitmoji you can add personalized stickers to your messages. Before sending a message, tab to the additional actions tabs and select the Bitmoji button. Then find and select a sticker to add to your message.", comment: "Accessibility hint for Bitmoji coachmark's header")
+    public static var bitmojiCoachmarkHeaderText = NSLocalizedStringHelper("Feature update", comment: "Bitmoji coachmark title")
+    public static var bitmojiCoachmarkHeaderHint = NSLocalizedStringHelper("Feature update, popover. You are currently on a popover window. Using Bitmoji you can add personalized stickers to your messages. Before sending a message, tab to the additional actions tabs and select the Bitmoji button. Then find and select a sticker to add to your message.", comment: "Accessibility hint for Bitmoji coachmark's header")
     public static var bitmojiCoachmarkBodyText = NSLocalizedStringHelper("Access Bitmoji stickers in Webex to express who you are and how you’re feeling. Now you can link either a Bitmoji or Snapchat account.", comment: "Branding text for Bitmoji coachmark")
     public static var bitmojiCoachmarkGetStartedButtonText = NSLocalizedStringHelper("Get started", comment: "Get started")
     public static var bitmojiCoachmarkGetStartedHint = NSLocalizedStringHelper("Click to connect your Bitmoji avatar to Webex.", comment: "Accessibility hint for 'Get started' coachmark button")
@@ -1848,7 +1854,10 @@ func getAppDisplayName() -> String {
     public static var bitmojiTermsOfServiceUrl = NSLocalizedStringHelper("https://snap.com/en-US/terms", comment: "en-US in this URL should be updated to match the language locale")
     public static var bitmojiPrivacyPolicyUrl = NSLocalizedStringHelper("https://snap.com/en-US/privacy/privacy-policy", comment: "en-US in this URL should be updated to match the language locale")
     public static var bitmojiLearnMoreUrl = NSLocalizedStringHelper("https://help.webex.com/en-US/article/preview/mb8abv/Webex-%7C-Add-Snap-Bitmojis-to-a-Message", comment: "en-US in this URL should be updated to match the language locale")
-    public static var bitmojiSharedBitmojiQuote = NSLocalizedStringHelper("Shared a Bitmoji", comment: "Shared a Bitmoji")
+    public static var bitmojiSharedBitmojiQuote = NSLocalizedStringHelper("Shared a Bitmoji sticker", comment: "Shared a Bitmoji sticker")
+    public static var bitmojiAuthFlowHeader = NSLocalizedStringHelper("Connect Bitmoji or Snapchat", comment: "Connect Bitmoji or Snapchat")
+    public static var bitmojiRestartLoginButtonText = NSLocalizedStringHelper("Restart log in", comment: "Restart log in")
+    public static var bitmojiRestartLoginButtonHint = NSLocalizedStringHelper("Return to the starting page of the log in workflow to restart authentication.", comment: "Accessibility hint for login window's 'Restart log in' button")
     public static var screenCapturePermissionAlertCaption = NSLocalizedStringWithArgsHelper("%@ needs permission to capture your screen", comment: "The app needs permission to capture your screen", args: getAppDisplayName())
     public static var screenCapturePermissionAlertMessage = NSLocalizedStringWithArgsHelper("Grant access to %@ in Security & Privacy preferences, located in the System Preferences.", comment: "Grant access to the app in Security & Privacy preferences, located in the System Preferences.", args: getAppDisplayName())
     public static var accessibilityPermissionAlertCaption = NSLocalizedStringWithArgsHelper("%@ needs permission to control your computer", comment: "", args: getAppDisplayName())
@@ -1944,6 +1953,7 @@ func getAppDisplayName() -> String {
     public static var assignParticipantAsHost = NSLocalizedStringHelper("Assign as Host", comment: "Assign participant as a host in meeting")
     
     // MARK: - interstitial page
+    public static var readyBeforeJoinMeeting = NSLocalizedStringHelper("Ready?", comment: "Ready?")
     public static var joinMeeting = NSLocalizedStringHelper("Join Meeting", comment: "Join Meeting")
     public static var joinMeetingNoAudio = NSLocalizedStringHelper("Join with No Audio", comment: "Join with No Audio")
     public static var joinMeetingWithVideo = NSLocalizedStringHelper("Join With Video", comment: "Join with video")
@@ -2568,6 +2578,8 @@ func getAppDisplayName() -> String {
     public static var customAppsCantAddResourceError = NSLocalizedStringHelper("Can't add this resource", comment: "")
     public static var customAppsAdminPolicyNoPermitError = NSLocalizedStringHelper("Admin policy for this space does not permit the operation", comment: "")
     public static var customAppsWebsiteShortcut = NSLocalizedStringHelper("Website shortcut", comment: "")
+    public static var CustomAppsUnsafeSiteError = NSLocalizedStringHelper("Remove unsafe link", comment: "")
+    public static var CustomAppsUnsafeSiteErrorDetails = NSLocalizedStringHelper("This link is not secure anymore. We suggest removing this tab from the space.", comment: "")
 
     // Call pull
     public static var callPull = NSLocalizedStringHelper("Pull Call", comment: "Pull Call")
@@ -3289,11 +3301,20 @@ func getAppDisplayName() -> String {
     public static var expandCollapseFirstColumnButtonTitle_collapsed = NSLocalizedStringHelper("Show labels",  comment: "")
     public static var expandCollapseFirstColumnButtonTitle_expanded = NSLocalizedStringHelper("Hide labels",  comment: "")
     public static var expandCollapseFirstColumnButtonDescription = NSLocalizedStringHelper("Expand or collapse navigation menu",  comment: "")
-    
+
     // Webex Meeting invite guest
     public static var inviteGuestHostIsFirstOne = NSLocalizedStringHelper("You’re the first one here",  comment: "")
     public static var inviteGuestCopyMeetingInfoHint = NSLocalizedStringHelper("Copy and share the link to invite someone or add participants directly.",  comment: "")
     public static var inviteGuestInvitePeopleButton = NSLocalizedStringHelper("Invite people to meeting",  comment: "")
     public static var inviteGuestCopyMeetingInfoButton = NSLocalizedStringHelper("Copy meeting information",  comment: "")
+    
+    // MARK: Simultaneous Interpretation
+    public static var simultaneousInterpretationTootipTitle = NSLocalizedStringHelper("Interpretation is avaliable", comment: "simultaneous interpretation tootip title")
+    public static var simultaneousInterpretationTootipMessage = NSLocalizedStringHelper("Select your language here. \u{1F447}", comment: "simultaneous interpretation tootip message")
+    public static var myInterpretationLanguage = NSLocalizedStringHelper("My interpretation language", comment: "")
+    public static var balanceVolume = NSLocalizedStringHelper("Balance volume", comment: "")
+    public static var interpreter = NSLocalizedStringHelper("Interpreter", comment: "")
+    public static var originalAudio = NSLocalizedStringHelper("Original audio", comment: "")
+    public static var manageInterpretation = NSLocalizedStringHelper("Manage interpretation", comment: "")
 }
     

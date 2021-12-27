@@ -26,6 +26,19 @@ enum CSITableRowType{
     case Clear
 }
 
+@objc protocol CSITableViewDelegate : AnyObject{
+    func isSelectable(row: Int) -> Bool
+    func rowClicked(row: Int, clickCount: Int)
+    @objc optional func rowRightClicked(row: Int, event: NSEvent)
+    func invokeActionForSelectedRow(sender:CSITableView)
+    func firstResponderStatusChanged(sender:CSITableView, isFirstResponder:Bool)
+    func canShowMenu() -> Bool
+}
+
+class CSITableView: NSTableView {
+    weak var csiTableViewDelegate:CSITableViewDelegate?
+}
+
 class CSITableRowView: NSTableRowView {
     
     private var trackingArea:NSTrackingArea!

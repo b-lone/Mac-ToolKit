@@ -22,7 +22,7 @@ protocol ImmersiveShareFloatingPopoverWindowControllerProtocol {
 class ImmersiveShareFloatingPopoverWindowController: IImmersiveShareFloatingPopoverWindowController {
     @IBOutlet var sparkWindow: SparkPopoverWindow!
     @IBOutlet weak var contentView: NSView!
-    @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var tableView: CSITableView!
     
     weak var delegate: ImmersiveShareFloatingPopoverWindowControllerDelegate?
     override var windowNibName: NSNib.Name? { "ImmersiveShareFloatingPopoverWindowController" }
@@ -36,7 +36,7 @@ class ImmersiveShareFloatingPopoverWindowController: IImmersiveShareFloatingPopo
         contentView.wantsLayer = true
         contentView.layer?.cornerRadius = 6
         contentView.layer?.borderWidth = 1
-//        tableView.csiTableViewDelegate = self
+        tableView.csiTableViewDelegate = self
         tableView.backgroundColor = .clear
         
         setThemeColors()
@@ -44,12 +44,16 @@ class ImmersiveShareFloatingPopoverWindowController: IImmersiveShareFloatingPopo
     
     override func setThemeColors() {
         super.setThemeColors()
+        contentView.layer?.backgroundColor = SemanticThemeManager.getLegacyColors(for: .backgroundPrimary).normal.cgColor
+        contentView.layer?.borderColor = SemanticThemeManager.getLegacyColors(for: .wxShareSelectionWindowPopoverBorderColor).normal.cgColor
         tableView.reloadData()
     }
 }
 
 extension ImmersiveShareFloatingPopoverWindowController: SparkPopoverWindowDelegate {
-    
+    func popoverWindowDidClose(window: SparkPopoverWindow) {
+        delegate?.immersiveShareFloatingPopoverWindowControllerDidClose(self)
+    }
 }
 
 extension ImmersiveShareFloatingPopoverWindowController: NSTableViewDelegate, NSTableViewDataSource {
@@ -66,7 +70,12 @@ extension ImmersiveShareFloatingPopoverWindowController: NSTableViewDelegate, NS
             return nil
         }
         
-        view.setup(title: "Show me in front of presentation", isSelected: row == 0)
+        if row == 0 {
+            view.setup(iconType: .settingsBold, title: LocalizationStrings.showMeInFrontOfPresentation, isSelected: true)
+        } else {
+            view.setup(iconType: .settingsBold, title: LocalizationStrings.cameraSettings, isSelected: false)
+        }
+        
         
         return view
     }
@@ -80,35 +89,43 @@ extension ImmersiveShareFloatingPopoverWindowController: NSTableViewDelegate, NS
     }
 }
 
-//extension ImmersiveShareFloatingPopoverWindowController: CSITableViewDelegate {
-//    func isSelectable(row: Int) -> Bool {
-//        return true
-//    }
-//
-//    func rowClicked(row: Int, clickCount: Int) {
-//        shareOptimizeType = CHShareOptimizeType.getType(index: row)
-//    }
-//
-//    func invokeActionForSelectedRow(sender: CSITableView) {}
-//
-//    func firstResponderStatusChanged(sender: CSITableView, isFirstResponder: Bool) {}
-//
-//    func canShowMenu() -> Bool {
-//        return false
-//    }
-//}
+extension ImmersiveShareFloatingPopoverWindowController: CSITableViewDelegate {
+    func isSelectable(row: Int) -> Bool {
+        return true
+    }
+
+    func rowClicked(row: Int, clickCount: Int) {
+        if row == 0 {
+            //TODO
+        } else {
+//            NotificationCenter.default.post(name: Notification.Name(rawValue: OnPreferencesActionShortcut), object:nil, userInfo: [PreferencesIdenitfierKey:NSUserInterfaceItemIdentifier.preferencesVideoTab.rawValue])
+        }
+        sparkWindow.close()
+    }
+
+    func invokeActionForSelectedRow(sender: CSITableView) {}
+
+    func firstResponderStatusChanged(sender: CSITableView, isFirstResponder: Bool) {}
+
+    func canShowMenu() -> Bool {
+        return false
+    }
+}
 
 class ImmersiveShareFloatingPopoverCellView: NSView, ThemeableProtocol {
     @IBOutlet weak var icon: UTIcon!
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var selectIndicator: UTIcon!
     
-    func setup(title: String, isSelected: Bool) {
+    func setup(iconType: MomentumIconsRebrandType, title: String, isSelected: Bool) {
         titleLabel.stringValue = title
+        
         icon?.configure(iconType: .settingsBold, style: .primary, size: .mediumSmall)
+        
         selectIndicator?.configure(iconType: .checkBold, style: .primary, size: .mediumSmall)
         selectIndicator?.colorToken = .buttonHyperlinkText
         selectIndicator?.isHidden = !isSelected
+        
         setThemeColors()
     }
     
