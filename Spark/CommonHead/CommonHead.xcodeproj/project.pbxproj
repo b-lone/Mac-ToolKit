@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21546FF92769D34C004A9C72 /* CHDragPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 21546FF82769D34C004A9C72 /* CHDragPosition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		216234E627D749EA00FC209B /* CHShareSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216234E527D749EA00FC209B /* CHShareSource.swift */; };
 		21F106F2272A52AF00E40AD9 /* CommonHead.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F106F0272A52AF00E40AD9 /* CommonHead.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21F10701272A6C8400E40AD9 /* CHSourceType.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10700272A6C8400E40AD9 /* CHSourceType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21F1073F272A79AB00E40AD9 /* CHShareTabData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10725272A79A600E40AD9 /* CHShareTabData.swift */; };
@@ -18,7 +19,6 @@
 		21F10746272A79AB00E40AD9 /* CHShareViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F1072C272A79A800E40AD9 /* CHShareViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21F1074B272A79AB00E40AD9 /* CHShareTelemetryManagerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10731272A79A900E40AD9 /* CHShareTelemetryManagerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21F1074D272A79AB00E40AD9 /* CHShareViewModelProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10733272A79A900E40AD9 /* CHShareViewModelProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21F1074F272A79AB00E40AD9 /* CHShareSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10735272A79A900E40AD9 /* CHShareSource.swift */; };
 		21F10750272A79AB00E40AD9 /* CHShareNotificationType.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10736272A79A900E40AD9 /* CHShareNotificationType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21F10751272A79AB00E40AD9 /* CHShareStateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10737272A79AA00E40AD9 /* CHShareStateInfo.swift */; };
 		21F10752272A79AB00E40AD9 /* CHShareType.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F10738272A79AA00E40AD9 /* CHShareType.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		21546FF82769D34C004A9C72 /* CHDragPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDragPosition.h; sourceTree = "<group>"; };
+		216234E527D749EA00FC209B /* CHShareSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHShareSource.swift; sourceTree = "<group>"; };
 		21F106ED272A52AF00E40AD9 /* CommonHead.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonHead.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F106F0272A52AF00E40AD9 /* CommonHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHead.h; sourceTree = "<group>"; };
 		21F106F1272A52AF00E40AD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		21F1072C272A79A800E40AD9 /* CHShareViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareViewModel.h; sourceTree = "<group>"; };
 		21F10731272A79A900E40AD9 /* CHShareTelemetryManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareTelemetryManagerProtocol.h; sourceTree = "<group>"; };
 		21F10733272A79A900E40AD9 /* CHShareViewModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareViewModelProtocol.h; sourceTree = "<group>"; };
-		21F10735272A79A900E40AD9 /* CHShareSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CHShareSource.swift; path = "../../../../spark/common-head/CHShareSource.swift"; sourceTree = "<group>"; };
 		21F10736272A79A900E40AD9 /* CHShareNotificationType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareNotificationType.h; sourceTree = "<group>"; };
 		21F10737272A79AA00E40AD9 /* CHShareStateInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHShareStateInfo.swift; sourceTree = "<group>"; };
 		21F10738272A79AA00E40AD9 /* CHShareType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShareType.h; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 				21F1072B272A79A700E40AD9 /* CHShareNotification.swift */,
 				21F10736272A79A900E40AD9 /* CHShareNotificationType.h */,
 				21F1073A272A79AA00E40AD9 /* CHShareOptimizeType.h */,
-				21F10735272A79A900E40AD9 /* CHShareSource.swift */,
+				216234E527D749EA00FC209B /* CHShareSource.swift */,
 				21F10729272A79A700E40AD9 /* CHShareSourcesSelectionWindowInfo.swift */,
 				21F10737272A79AA00E40AD9 /* CHShareStateInfo.swift */,
 				21F10725272A79A600E40AD9 /* CHShareTabData.swift */,
@@ -258,7 +258,6 @@
 				21F10771272A828B00E40AD9 /* CHLocalShareControlViewInfo.swift in Sources */,
 				21F1075F272A7C7500E40AD9 /* CHControl.swift in Sources */,
 				21F10767272A800D00E40AD9 /* CHRect.swift in Sources */,
-				21F1074F272A79AB00E40AD9 /* CHShareSource.swift in Sources */,
 				21F10753272A79AB00E40AD9 /* CHSharingContent.swift in Sources */,
 				21F10756272A79AB00E40AD9 /* CHShareTelemetryManager.mm in Sources */,
 				21F1076D272A826B00E40AD9 /* CHLocalShareControlBarInfo.swift in Sources */,
@@ -270,6 +269,7 @@
 				21F1076F272A827B00E40AD9 /* CHLocalShareControlWindowInfo.swift in Sources */,
 				21F1075D272A7C4200E40AD9 /* CHButton.swift in Sources */,
 				21F1076B272A824B00E40AD9 /* CHRemoteShareControlBarInfo.swift in Sources */,
+				216234E627D749EA00FC209B /* CHShareSource.swift in Sources */,
 				21F10743272A79AB00E40AD9 /* CHShareSourcesSelectionWindowInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

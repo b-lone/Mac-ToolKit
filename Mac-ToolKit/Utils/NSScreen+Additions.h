@@ -3,6 +3,6 @@
 
 @interface NSScreen ()
 
-@property (readonly) NSEdgeInsets safeAreaInsets API_AVAILABLE(macos(12.0));
+@property (readwrite) NSEdgeInsets safeAreaInsets API_AVAILABLE(macos(12.0));
 
 @end

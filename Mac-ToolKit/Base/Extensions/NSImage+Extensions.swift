@@ -6,7 +6,7 @@
 //  Copyright © 2015 Cisco Systems. All rights reserved.
 //
 
-import Foundation
+import AppKit
 
 extension NSImage
 {
